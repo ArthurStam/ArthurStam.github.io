@@ -47,8 +47,6 @@
 	'use strict';
 	
 	__webpack_require__(1);
-	
-	alert('atata!');
 
 /***/ },
 /* 1 */
@@ -85,7 +83,7 @@
 	
 	
 	// module
-	exports.push([module.id, "body {\n  margin: 0;\n  background-image: url(\"/static/test.jpg\"); }\n", ""]);
+	exports.push([module.id, "body {\n  margin: 0;\n  background-color: #ecf0f1; }\n\n.as-container {\n  text-align: center;\n  padding-top: 100px; }\n\n.as-title {\n  font-family: 'Merriweather', serif;\n  font-size: 30px;\n  margin-bottom: 10px; }\n\n.as-media {\n  width: 600px; }\n", ""]);
 	
 	// exports
 

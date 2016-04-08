@@ -1,4 +1,19 @@
 body {
 	margin: 0;
-	background-image: url('/static/test.jpg');
+	background-color: #ecf0f1;
+}
+
+.as-container {
+	text-align: center;
+	padding-top: 100px;
+}
+
+.as-title {
+	font-family: 'Merriweather', serif;
+	font-size: 30px;
+	margin-bottom: 10px;
+}
+
+.as-media {
+	width: 600px;
 }
