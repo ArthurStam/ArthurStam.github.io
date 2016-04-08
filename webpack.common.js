@@ -1,7 +1,7 @@
 var path = require('path');
 
 module.exports = {
-	entry: './dev/js/app.js',
+	entry: './dev/app.js',
 	
 	output: {
 		path: './static',
@@ -33,7 +33,7 @@ module.exports = {
 
 	resolve: {
 		root: [
-			path.resolve(__dirname, '../')
+			path.resolve(__dirname, './')
 		]
 	}
 };
