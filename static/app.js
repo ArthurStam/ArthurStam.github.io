@@ -13510,20 +13510,31 @@
 			value: function init() {
 				this.registerChild(new _nav2.default(), 'app-nav');
 	
-				new _backbone2.default.Router({
+				this._router = new _backbone2.default.Router({
 					routes: {
 						'page1': this._routeHandler.bind(this, 'page1'),
 						'page2': this._routeHandler.bind(this, 'page2'),
-						'page3': this._routeHandler.bind(this, 'page3')
+						'page3': this._routeHandler.bind(this, 'page3'),
+						':whatever': this._redirect.bind(this, 'page1')
 					}
 				});
 				!_backbone2.default.History.started && _backbone2.default.history.start();
 			}
 		}, {
+			key: '_redirect',
+			value: function _redirect(pageName) {
+				this._router.navigate('page1', true);
+			}
+		}, {
 			key: '_routeHandler',
-			value: function _routeHandler(page) {
+			value: function _routeHandler(pageName) {
+				this._renderPage(pageName);
+			}
+		}, {
+			key: '_renderPage',
+			value: function _renderPage(pageName) {
 				this.removeChildren('app-container');
-				this.registerChild(new this._pages[page](), 'app-container');
+				this.registerChild(new this._pages[pageName](), 'app-container');
 				this.appendChildren('app-container');
 			}
 		}, {

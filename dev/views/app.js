@@ -24,19 +24,28 @@ export default class extends BaseView {
 	init() {
 		this.registerChild(new NavView(), 'app-nav');
 
-		new Backbone.Router({
+		this._router = new Backbone.Router({
 			routes: {
 				'page1': this._routeHandler.bind(this, 'page1'),
 				'page2': this._routeHandler.bind(this, 'page2'),
 				'page3': this._routeHandler.bind(this, 'page3'),
+				':whatever': this._redirect.bind(this, 'page1')
 			}
 		});
 		!Backbone.History.started && Backbone.history.start();
 	}
 
-	_routeHandler(page) {
+	_redirect(pageName) {
+		this._router.navigate('page1', true);
+	}
+
+	_routeHandler(pageName) {
+		this._renderPage(pageName);
+	}
+
+	_renderPage(pageName) {
 		this.removeChildren('app-container');
-		this.registerChild(new this._pages[page], 'app-container');
+		this.registerChild(new this._pages[pageName], 'app-container');
 		this.appendChildren('app-container');
 	}
 }
