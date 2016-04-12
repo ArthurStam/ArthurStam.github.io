@@ -13517,6 +13517,7 @@
 					url: 'http://arthurstam.github.io/',
 					image: 'https://pp.vk.me/c628321/v628321681/3aacc/q0FIJWZ5zZc.jpg',
 					title: 'Сдаем костный мозг',
+					description: 'Дипломная работа Алисы Яннау',
 					_template: __webpack_require__(40)
 				}), 'page1-share');
 	
@@ -15485,6 +15486,10 @@
 	
 	var _base2 = _interopRequireDefault(_base);
 	
+	var _jquery = __webpack_require__(3);
+	
+	var _jquery2 = _interopRequireDefault(_jquery);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -15518,12 +15523,24 @@
 		}, {
 			key: '_generateVkUrl',
 			value: function _generateVkUrl() {
-				return 'https://vk.com/share.php?url=' + encodeURIComponent(this.url) + '&title=' + encodeURIComponent(this.title) + '&image=' + encodeURIComponent(this.image);
+				return 'https://vk.com/share.php?url=' + encodeURIComponent(this.url) + '&title=' + encodeURIComponent(this.title) + '&image=' + encodeURIComponent(this.image) + '&description=' + encodeURIComponent(this.description);
 			}
 		}, {
 			key: '_generateFbUrl',
 			value: function _generateFbUrl() {
-				return 'http://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(this.url) + '&t=' + encodeURIComponent(this.title);
+				return 'http://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(this.url);
+			}
+		}, {
+			key: '_prepareOG',
+			value: function _prepareOG() {
+				(0, _jquery2.default)('head').find('[property="og:url"]').attr('content', this.url).end().find('[property="og:title"]').attr('content', this.title).end().find('[property="og:description"]').attr('content', this.description).end().find('[property="og:image"]').attr('content', this.image);
+			}
+		}, {
+			key: 'events',
+			get: function get() {
+				return {
+					'click [data-action="fb"]': '_prepareOG'
+				};
 			}
 		}]);
 
@@ -15583,7 +15600,7 @@
 	
 	  return "<a target=\"_blank\" href=\""
 	    + alias4(((helper = (helper = helpers.vkUrl || (depth0 != null ? depth0.vkUrl : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"vkUrl","hash":{},"data":data}) : helper)))
-	    + "\">Share vk</a>|<a target=\"_blank\" href=\""
+	    + "\">Share vk</a>|<a target=\"_blank\" data-action=\"fb\" href=\""
 	    + alias4(((helper = (helper = helpers.fbUrl || (depth0 != null ? depth0.fbUrl : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"fbUrl","hash":{},"data":data}) : helper)))
 	    + "\">Share fb</a>";
 	},"useData":true});
