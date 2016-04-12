@@ -13522,6 +13522,7 @@
 	
 				this._router = new _backbone2.default.Router({
 					routes: {
+						'': this._routeHandler.bind(this, 'page1'),
 						'page1': this._routeHandler.bind(this, 'page1'),
 						'page2': this._routeHandler.bind(this, 'page2'),
 						'page3': this._routeHandler.bind(this, 'page3'),

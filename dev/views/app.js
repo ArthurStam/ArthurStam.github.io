@@ -33,6 +33,7 @@ export default class extends BaseView {
 
 		this._router = new Backbone.Router({
 			routes: {
+				'': this._routeHandler.bind(this, 'page1'),
 				'page1': this._routeHandler.bind(this, 'page1'),
 				'page2': this._routeHandler.bind(this, 'page2'),
 				'page3': this._routeHandler.bind(this, 'page3'),
@@ -40,6 +41,7 @@ export default class extends BaseView {
 			}
 		});
 		!Backbone.History.started && Backbone.history.start();
+
 	}
 
 	_redirect(pageName) {
