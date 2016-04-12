@@ -6,6 +6,7 @@ import NavView from 'dev/views/nav';
 import Page1 from 'dev/views/page1';
 import Page2 from 'dev/views/page2';
 import Page3 from 'dev/views/page3';
+import ShareView from 'dev/views/share';
 
 require('dev/styles/app.scss');
 
@@ -23,6 +24,12 @@ export default class extends BaseView {
 
 	init() {
 		this.registerChild(new NavView(), 'app-nav');
+		this.registerChild(new ShareView({
+			url: 'http://arthurstam.github.io/',
+			image: 'https://pp.vk.me/c628321/v628321681/3aacc/q0FIJWZ5zZc.jpg',
+			title: 'Сдаем костный мозг',
+			_template: require('dev/templates/share.handlebars')
+		}), 'page1-share')
 
 		this._router = new Backbone.Router({
 			routes: {

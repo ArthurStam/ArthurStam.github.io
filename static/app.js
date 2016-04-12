@@ -13486,6 +13486,10 @@
 	
 	var _page6 = _interopRequireDefault(_page5);
 	
+	var _share = __webpack_require__(42);
+	
+	var _share2 = _interopRequireDefault(_share);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -13509,6 +13513,12 @@
 			key: 'init',
 			value: function init() {
 				this.registerChild(new _nav2.default(), 'app-nav');
+				this.registerChild(new _share2.default({
+					url: 'http://arthurstam.github.io/',
+					image: 'https://pp.vk.me/c628321/v628321681/3aacc/q0FIJWZ5zZc.jpg',
+					title: 'Сдаем костный мозг',
+					_template: __webpack_require__(43)
+				}), 'page1-share');
 	
 				this._router = new _backbone2.default.Router({
 					routes: {
@@ -14095,7 +14105,7 @@
 	var Handlebars = __webpack_require__(12);
 	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
 	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-	    return "<a class=\"as-nav__item\" href=\"/#/page1\">Page 1</a>\n<a class=\"as-nav__item\" href=\"/#/page2\">Page 2</a>\n<a class=\"as-nav__item\" href=\"/#/page3\">Page 3</a>";
+	    return "<a class=\"as-nav__item\" href=\"/#/page1\">Зачем сдавать костный мозг</a>|<a class=\"as-nav__item\" href=\"/#/page2\">Как сдать</a>|<a class=\"as-nav__item\" href=\"/#/page3\">Где сдать</a>";
 	},"useData":true});
 
 /***/ },
@@ -15335,7 +15345,7 @@
 	var Handlebars = __webpack_require__(12);
 	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
 	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-	    return "page 1 content";
+	    return "<img src=\"https://pp.vk.me/c628321/v628321681/3aacc/q0FIJWZ5zZc.jpg\">";
 	},"useData":true});
 
 /***/ },
@@ -15505,7 +15515,7 @@
 	var Handlebars = __webpack_require__(12);
 	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
 	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-	    return "<div class=\"as-app\">\n	<div class=\"as-app__nav\" data-view=\"app-nav\"></div>\n	<div class=\"as-app__container\" data-view=\"app-container\"></div>\n</div>";
+	    return "<div class=\"as-app\">\n	<div class=\"as-app__nav\" data-view=\"app-nav\"></div>\n	<div class=\"as-app__container\" data-view=\"app-container\"></div>\n	<div class=\"as-app__footer\" data-view=\"page1-share\"></div>\n</div>";
 	},"useData":true});
 
 /***/ },
@@ -15547,6 +15557,85 @@
 	
 	// exports
 
+
+/***/ },
+/* 42 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _base = __webpack_require__(5);
+	
+	var _base2 = _interopRequireDefault(_base);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _class = function (_BaseView) {
+		_inherits(_class, _BaseView);
+	
+		function _class() {
+			_classCallCheck(this, _class);
+	
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(_class).apply(this, arguments));
+		}
+	
+		_createClass(_class, [{
+			key: 'init',
+			value: function init() {
+				this.render();
+			}
+		}, {
+			key: '_prepareData',
+			value: function _prepareData() {
+				return {
+					vkUrl: this._generateVkUrl(),
+					fbUrl: this._generateFbUrl()
+				};
+			}
+		}, {
+			key: '_generateVkUrl',
+			value: function _generateVkUrl() {
+				return 'https://vk.com/share.php?url=' + encodeURIComponent(this.url) + '&title=' + encodeURIComponent(this.title) + '&image=' + encodeURIComponent(this.image);
+			}
+		}, {
+			key: '_generateFbUrl',
+			value: function _generateFbUrl() {
+				return 'http://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(this.url) + '&t=' + encodeURIComponent(this.title);
+			}
+		}]);
+
+		return _class;
+	}(_base2.default);
+
+	exports.default = _class;
+
+/***/ },
+/* 43 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Handlebars = __webpack_require__(12);
+	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
+	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+	    var helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
+	
+	  return "<a target=\"_blank\" href=\""
+	    + alias4(((helper = (helper = helpers.vkUrl || (depth0 != null ? depth0.vkUrl : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"vkUrl","hash":{},"data":data}) : helper)))
+	    + "\">Share vk</a>|<a target=\"_blank\" href=\""
+	    + alias4(((helper = (helper = helpers.fbUrl || (depth0 != null ? depth0.fbUrl : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"fbUrl","hash":{},"data":data}) : helper)))
+	    + "\">Share fb</a>";
+	},"useData":true});
 
 /***/ }
 /******/ ]);
