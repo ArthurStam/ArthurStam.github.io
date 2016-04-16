@@ -1,8 +1,11 @@
 import BaseView from 'crimson-backbone/src/views/base';
 
+import config from 'dev/config';
+
 export default class extends BaseView {
 
 	init() {
+		this.shareUrl = `${config.api.url}/share?title=${encodeURIComponent(this.title)}&description=${encodeURIComponent(this.description)}&image=${encodeURIComponent(this.image)}&redirect_url=${encodeURIComponent(location.href)}`;
 		this.render();
 	}
 
@@ -14,10 +17,10 @@ export default class extends BaseView {
 	}
 
 	_generateVkUrl() {
-		return `https://vk.com/share.php?url=${encodeURIComponent(this.url)}&title=${encodeURIComponent(this.title)}&image=${encodeURIComponent(this.image)}`
+		return `https://vk.com/share.php?url=${encodeURIComponent(this.shareUrl)}`
 	}
 
 	_generateFbUrl() {
-		return `http://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(this.url)}&t=${encodeURIComponent(this.title)}`
+		return `http://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(this.shareUrl)}`;
 	}
 }

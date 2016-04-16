@@ -28,11 +28,13 @@ export default class extends BaseView {
 			url: 'http://arthurstam.github.io/',
 			image: 'https://pp.vk.me/c628321/v628321681/3aacc/q0FIJWZ5zZc.jpg',
 			title: 'Сдаем костный мозг',
+			description: 'Дипломный проект Алисы Яннау для Школы редакторов',
 			_template: require('dev/templates/share.handlebars')
 		}), 'page1-share')
 
 		this._router = new Backbone.Router({
 			routes: {
+				'': this._routeHandler.bind(this, 'page1'),
 				'page1': this._routeHandler.bind(this, 'page1'),
 				'page2': this._routeHandler.bind(this, 'page2'),
 				'page3': this._routeHandler.bind(this, 'page3'),
