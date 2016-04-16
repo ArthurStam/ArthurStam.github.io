@@ -28,7 +28,7 @@ export default class extends BaseView {
 			url: 'http://arthurstam.github.io/',
 			image: 'https://pp.vk.me/c628321/v628321681/3aacc/q0FIJWZ5zZc.jpg',
 			title: 'Сдаем костный мозг',
-			description: 'Дипломная работа Алисы Яннау',
+			description: 'Дипломный проект Алисы Яннау для Школы редакторов',
 			_template: require('dev/templates/share.handlebars')
 		}), 'page1-share')
 

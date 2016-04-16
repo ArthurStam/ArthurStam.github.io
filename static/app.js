@@ -13517,7 +13517,7 @@
 					url: 'http://arthurstam.github.io/',
 					image: 'https://pp.vk.me/c628321/v628321681/3aacc/q0FIJWZ5zZc.jpg',
 					title: 'Сдаем костный мозг',
-					description: 'Дипломная работа Алисы Яннау',
+					description: 'Дипломный проект Алисы Яннау для Школы редакторов',
 					_template: __webpack_require__(40)
 				}), 'page1-share');
 	
@@ -15486,9 +15486,9 @@
 	
 	var _base2 = _interopRequireDefault(_base);
 	
-	var _jquery = __webpack_require__(3);
+	var _config = __webpack_require__(44);
 	
-	var _jquery2 = _interopRequireDefault(_jquery);
+	var _config2 = _interopRequireDefault(_config);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -15510,6 +15510,7 @@
 		_createClass(_class, [{
 			key: 'init',
 			value: function init() {
+				this.shareUrl = _config2.default.api.url + '/share?title=' + encodeURIComponent(this.title) + '&description=' + encodeURIComponent(this.description) + '&image=' + encodeURIComponent(this.image) + '&redirect_url=' + encodeURIComponent(location.href);
 				this.render();
 			}
 		}, {
@@ -15523,24 +15524,12 @@
 		}, {
 			key: '_generateVkUrl',
 			value: function _generateVkUrl() {
-				return 'https://vk.com/share.php?url=' + encodeURIComponent(this.url) + '&title=' + encodeURIComponent(this.title) + '&image=' + encodeURIComponent(this.image) + '&description=' + encodeURIComponent(this.description);
+				return 'https://vk.com/share.php?url=' + encodeURIComponent(this.shareUrl);
 			}
 		}, {
 			key: '_generateFbUrl',
 			value: function _generateFbUrl() {
-				return 'http://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(this.url);
-			}
-		}, {
-			key: '_prepareOG',
-			value: function _prepareOG() {
-				(0, _jquery2.default)('head').find('[property="og:url"]').attr('content', this.url).end().find('[property="og:title"]').attr('content', this.title).end().find('[property="og:description"]').attr('content', this.description).end().find('[property="og:image"]').attr('content', this.image);
-			}
-		}, {
-			key: 'events',
-			get: function get() {
-				return {
-					'click [data-action="fb"]': '_prepareOG'
-				};
+				return 'http://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(this.shareUrl);
 			}
 		}]);
 
@@ -15600,7 +15589,7 @@
 	
 	  return "<a target=\"_blank\" href=\""
 	    + alias4(((helper = (helper = helpers.vkUrl || (depth0 != null ? depth0.vkUrl : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"vkUrl","hash":{},"data":data}) : helper)))
-	    + "\">Share vk</a>|<a target=\"_blank\" data-action=\"fb\" href=\""
+	    + "\">Share vk</a>|<a target=\"_blank\" href=\""
 	    + alias4(((helper = (helper = helpers.fbUrl || (depth0 != null ? depth0.fbUrl : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"fbUrl","hash":{},"data":data}) : helper)))
 	    + "\">Share fb</a>";
 	},"useData":true});
@@ -15654,6 +15643,21 @@
 	
 	// exports
 
+
+/***/ },
+/* 44 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	exports.default = {
+		api: {
+			url: 'https://donor-api.herokuapp.com'
+		}
+	};
 
 /***/ }
 /******/ ]);

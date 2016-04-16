@@ -1,16 +1,12 @@
 import BaseView from 'crimson-backbone/src/views/base';
-import $ from 'jquery';
+
+import config from 'dev/config';
 
 export default class extends BaseView {
 
 	init() {
+		this.shareUrl = `${config.api.url}/share?title=${encodeURIComponent(this.title)}&description=${encodeURIComponent(this.description)}&image=${encodeURIComponent(this.image)}&redirect_url=${encodeURIComponent(location.href)}`;
 		this.render();
-	}
-
-	get events() {
-		return {
-			'click [data-action="fb"]': '_prepareOG'
-		}
 	}
 
 	_prepareData() {
@@ -21,18 +17,10 @@ export default class extends BaseView {
 	}
 
 	_generateVkUrl() {
-		return `https://vk.com/share.php?url=${encodeURIComponent(this.url)}&title=${encodeURIComponent(this.title)}&image=${encodeURIComponent(this.image)}&description=${encodeURIComponent(this.description)}`;
+		return `https://vk.com/share.php?url=${encodeURIComponent(this.shareUrl)}`
 	}
 
 	_generateFbUrl() {
-		return `http://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(this.url)}`;
-	}
-
-	_prepareOG() {
-		$('head')
-			.find('[property="og:url"]').attr('content', this.url).end()
-			.find('[property="og:title"]').attr('content', this.title).end()
-			.find('[property="og:description"]').attr('content', this.description).end()
-			.find('[property="og:image"]').attr('content', this.image);
+		return `http://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(this.shareUrl)}`;
 	}
 }
