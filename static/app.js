@@ -60,7 +60,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	__webpack_require__(42);
+	__webpack_require__(43);
 	
 	var $appContainer = (0, _jquery2.default)('[data-role="app"]'),
 	    appView = new _app2.default();
@@ -13466,6 +13466,14 @@
 	
 	var _backbone2 = _interopRequireDefault(_backbone);
 	
+	var _jquery = __webpack_require__(3);
+	
+	var _jquery2 = _interopRequireDefault(_jquery);
+	
+	var _underscore = __webpack_require__(2);
+	
+	var _underscore2 = _interopRequireDefault(_underscore);
+	
 	var _base = __webpack_require__(5);
 	
 	var _base2 = _interopRequireDefault(_base);
@@ -13490,6 +13498,10 @@
 	
 	var _share2 = _interopRequireDefault(_share);
 	
+	var _geo = __webpack_require__(45);
+	
+	var _geo2 = _interopRequireDefault(_geo);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -13498,7 +13510,7 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	__webpack_require__(38);
+	__webpack_require__(39);
 	
 	var _class = function (_BaseView) {
 		_inherits(_class, _BaseView);
@@ -13512,14 +13524,18 @@
 		_createClass(_class, [{
 			key: 'init',
 			value: function init() {
+				var _this2 = this;
+	
+				this.geoModel = new _geo2.default();
+	
 				this.registerChild(new _nav2.default(), 'app-nav');
 				this.registerChild(new _share2.default({
 					url: 'http://arthurstam.github.io/',
 					image: 'https://pp.vk.me/c628321/v628321681/3aacc/q0FIJWZ5zZc.jpg',
 					title: 'Сдаем костный мозг',
 					description: 'Дипломный проект Алисы Яннау для Школы редакторов',
-					_template: __webpack_require__(40)
-				}), 'page1-share');
+					_template: __webpack_require__(41)
+				}), 'app-share');
 	
 				this._router = new _backbone2.default.Router({
 					routes: {
@@ -13531,6 +13547,27 @@
 					}
 				});
 				!_backbone2.default.History.started && _backbone2.default.history.start();
+	
+				this.listenTo(this.geoModel, 'change', function () {
+					_this2.render();
+				});
+	
+				if (navigator.geolocation) {
+					navigator.geolocation.getCurrentPosition(function (position) {
+						_this2.geoModel.fetch(position.coords.latitude, position.coords.longitude);
+					}, function (error) {
+						switch (error.code) {
+							case 1:
+								_this2.render({ geo: { error: 'You have denied geolocation' } });
+								break;
+							default:
+								_this2.render({ geo: { error: 'Something goes wrong with geolocation' } });
+								break;
+						}
+					});
+				} else {
+					this.render({ geo: { error: 'Your browser doen\'t support geolocation' } });
+				}
 			}
 		}, {
 			key: '_redirect',
@@ -13543,6 +13580,16 @@
 				this._renderPage(pageName);
 			}
 		}, {
+			key: '_prepareData',
+			value: function _prepareData() {
+				var data = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	
+				_underscore2.default.extend(data, {
+					city: this.geoModel.get('city')
+				});
+				return data;
+			}
+		}, {
 			key: '_renderPage',
 			value: function _renderPage(pageName) {
 				this.removeChildren('app-container');
@@ -13552,7 +13599,7 @@
 		}, {
 			key: '_template',
 			get: function get() {
-				return __webpack_require__(41);
+				return __webpack_require__(42);
 			}
 		}, {
 			key: '_pages',
@@ -15486,7 +15533,7 @@
 	
 	var _base2 = _interopRequireDefault(_base);
 	
-	var _config = __webpack_require__(44);
+	var _config = __webpack_require__(38);
 	
 	var _config2 = _interopRequireDefault(_config);
 	
@@ -15540,12 +15587,27 @@
 
 /***/ },
 /* 38 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	exports.default = {
+		api: {
+			url: 'https://donor-api.herokuapp.com'
+		}
+	};
+
+/***/ },
+/* 39 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(39);
+	var content = __webpack_require__(40);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(10)(content, {});
@@ -15565,7 +15627,7 @@
 	}
 
 /***/ },
-/* 39 */
+/* 40 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(9)();
@@ -15579,7 +15641,7 @@
 
 
 /***/ },
-/* 40 */
+/* 41 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Handlebars = __webpack_require__(12);
@@ -15589,29 +15651,51 @@
 	
 	  return "<a target=\"_blank\" href=\""
 	    + alias4(((helper = (helper = helpers.vkUrl || (depth0 != null ? depth0.vkUrl : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"vkUrl","hash":{},"data":data}) : helper)))
-	    + "\">Share vk</a>|<a target=\"_blank\" href=\""
+	    + "\">Share vk</a>|<a target=\"_blank\" data-action=\"fb\" href=\""
 	    + alias4(((helper = (helper = helpers.fbUrl || (depth0 != null ? depth0.fbUrl : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"fbUrl","hash":{},"data":data}) : helper)))
 	    + "\">Share fb</a>";
-	},"useData":true});
-
-/***/ },
-/* 41 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Handlebars = __webpack_require__(12);
-	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
-	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-	    return "<div class=\"as-app\">\n	<div class=\"as-app__nav\" data-view=\"app-nav\"></div>\n	<div class=\"as-app__container\" data-view=\"app-container\"></div>\n	<div class=\"as-app__footer\" data-view=\"page1-share\"></div>\n</div>";
 	},"useData":true});
 
 /***/ },
 /* 42 */
 /***/ function(module, exports, __webpack_require__) {
 
+	var Handlebars = __webpack_require__(12);
+	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
+	module.exports = (Handlebars["default"] || Handlebars).template({"1":function(container,depth0,helpers,partials,data) {
+	    var stack1;
+	
+	  return "			Error: "
+	    + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? depth0.geo : depth0)) != null ? stack1.error : stack1), depth0))
+	    + "\n";
+	},"3":function(container,depth0,helpers,partials,data) {
+	    var stack1;
+	
+	  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.city : depth0),{"name":"if","hash":{},"fn":container.program(4, data, 0),"inverse":container.program(6, data, 0),"data":data})) != null ? stack1 : "");
+	},"4":function(container,depth0,helpers,partials,data) {
+	    var helper;
+	
+	  return "			City: "
+	    + container.escapeExpression(((helper = (helper = helpers.city || (depth0 != null ? depth0.city : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"city","hash":{},"data":data}) : helper)))
+	    + "\n";
+	},"6":function(container,depth0,helpers,partials,data) {
+	    return "			Detecting your city...\n		";
+	},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+	    var stack1;
+	
+	  return "<div class=\"as-app\">\n	<div class=\"as-app__nav\" data-view=\"app-nav\"></div>\n	<div class=\"as-app__container\" data-view=\"app-container\"></div>\n	<div class=\"as-app__footer\" data-view=\"app-share\"></div>\n	<div class=\"as-app__geo\">\n"
+	    + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},((stack1 = (depth0 != null ? depth0.geo : depth0)) != null ? stack1.error : stack1),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.program(3, data, 0),"data":data})) != null ? stack1 : "")
+	    + "	</div>\n</div>";
+	},"useData":true});
+
+/***/ },
+/* 43 */
+/***/ function(module, exports, __webpack_require__) {
+
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(43);
+	var content = __webpack_require__(44);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(10)(content, {});
@@ -15631,7 +15715,7 @@
 	}
 
 /***/ },
-/* 43 */
+/* 44 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(9)();
@@ -15645,18 +15729,106 @@
 
 
 /***/ },
-/* 44 */
-/***/ function(module, exports) {
+/* 45 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	exports.default = {
-		api: {
-			url: 'https://donor-api.herokuapp.com'
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _backbone = __webpack_require__(1);
+	
+	var _backbone2 = _interopRequireDefault(_backbone);
+	
+	var _underscore = __webpack_require__(2);
+	
+	var _underscore2 = _interopRequireDefault(_underscore);
+	
+	var _ajax = __webpack_require__(46);
+	
+	var _ajax2 = _interopRequireDefault(_ajax);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _class = function (_Backbone$Model) {
+		_inherits(_class, _Backbone$Model);
+	
+		function _class() {
+			_classCallCheck(this, _class);
+	
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(_class).apply(this, arguments));
 		}
+	
+		_createClass(_class, [{
+			key: 'fetch',
+			value: function fetch(lat, lon) {
+				var _this2 = this;
+	
+				return new Promise(function (resolve, reject) {
+					(0, _ajax2.default)({
+						url: 'http://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + lon + '&sensor=true',
+						type: 'get'
+					}).then(function (response) {
+						var locality = _underscore2.default.find(response.results, function (item) {
+							return _underscore2.default.contains(item.types, 'locality');
+						});
+						_this2.set('city', locality.formatted_address);
+						resolve();
+					}, function () {
+						reject();
+					});
+				});
+			}
+		}, {
+			key: 'defaults',
+			get: function get() {
+				return {
+					city: ''
+				};
+			}
+		}]);
+	
+		return _class;
+	}(_backbone2.default.Model);
+	
+	exports.default = _class;
+
+/***/ },
+/* 46 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _jquery = __webpack_require__(3);
+	
+	var _jquery2 = _interopRequireDefault(_jquery);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = function () {
+		var params = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	
+		return new Promise(function (resolve, reject) {
+			_jquery2.default.ajax(params).done(function (response) {
+				resolve(response);
+			}).error(function () {
+				reject(response);
+			});
+		});
 	};
 
 /***/ }
