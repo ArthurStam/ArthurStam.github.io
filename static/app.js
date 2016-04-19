@@ -14096,7 +14096,7 @@
 	
 	
 	// module
-	exports.push([module.id, "._2AacvD_Bs_6FQD2fvgE3V4 {\n\tfont-family: 'PT Serif', serif;\n}\n\n._3mcT3Wa6VFtN3D1Qr_gnuY {\n\tfont-family: 'Roboto', sans-serif;\n}\n\n._2Dx7WNmcO6FESoi0b5bsW4 {\n\tposition: relative;\n\tpadding: 40px 0;\n}\n\n._1pUxA4FA9frJDUzyjaQJ5V {\n\tfont-weight: bold;\n\tfont-size: 80px;\n\tline-height: 90px;\n\ttext-align: center;\n\tmargin-bottom: 25px;\n}\n\n._3OhH_3XUdficZmBKK8tTfn {\n\tcolor: #000;\n\ttext-decoration: none;\n\tfont-size: 36px;\n\tline-height: 42px;\n\tfont-weight: normal;\t\n}\n\n._1X5v7kim66JLubWczQ5L8Y {\n\tposition: absolute;\n\tleft: 68px;\n\ttop: 50px;\n}\n\n.JVddxANUB7kRqz7hPmNb6 {\n\tposition: absolute;\n\tright: 68px;\n\ttop: 50px;\n}\n\n._2KbTYNNrKtFU6Y38WbF4RQ {\n\twidth: 650px;\n\tmargin: auto;\n}\n\n.ShiC6JgIaOalBQVpIsYtL {\n\tmargin: auto;\n\twidth: 756px;\n}\n\n._1ZNJ4h3Uct4YGPwsOlP-a2 {\n\tborder: 5px solid #FFD637;\n\ttext-align: center;\n}\n\n._10prCLGoK4eiHXC-VVYaZu {\n\tpadding-top: 31px;\n}\n\n._25zew7Xg1S-FRibLyMbP5v {\n\tfont-size: 40px;\n\tfont-weight: bold;\n\tmargin-bottom: 17px;\n}\n\n._3KLmj9ZQkJaTvSjezlkPal {\n\tfont-style: italic;\n\tfont-size: 18px;\n\tline-height: 26px;\n\tmargin-bottom: 33px;\n}\n\n._1X2JHsGFfQ8zHFb2p6Poe3 {\n\tcolor: #3B66B2;\n\ttext-decoration: underline;\n}\n\n._1EJkoHOhNvfNBuPdCFRa4c {\n\tletter-spacing: 4px;\n\tfont-size: 22px;\n\tfont-weight: normal;\n\tcolor: #000;\n\ttext-transform: uppercase;\n\tborder: none;\n\tbackground-image: none;\n\tbackground-color: #FFD637;\n\theight: 62px;\n\tline-height: 62px;\n\tmin-width: 290px;\n\tcursor: pointer;\n}", ""]);
+	exports.push([module.id, "._2AacvD_Bs_6FQD2fvgE3V4 {\n\tfont-family: 'PT Serif', serif;\n}\n\n._3mcT3Wa6VFtN3D1Qr_gnuY {\n\tfont-family: 'Roboto', sans-serif;\n}\n\n._2Dx7WNmcO6FESoi0b5bsW4 {\n\tposition: relative;\n\tpadding: 40px 0;\n}\n\n._1pUxA4FA9frJDUzyjaQJ5V {\n\tfont-weight: bold;\n\tfont-size: 80px;\n\tline-height: 90px;\n\ttext-align: center;\n\tmargin-bottom: 25px;\n}\n\n._3OhH_3XUdficZmBKK8tTfn {\n\tcolor: #000;\n\ttext-decoration: none;\n\tfont-size: 36px;\n\tline-height: 42px;\n\tfont-weight: normal;\t\n}\n\n._1X5v7kim66JLubWczQ5L8Y {\n\tposition: absolute;\n\tleft: 68px;\n\ttop: 50px;\n}\n\n.JVddxANUB7kRqz7hPmNb6 {\n\tposition: absolute;\n\tright: 68px;\n\ttop: 50px;\n}\n\n._2KbTYNNrKtFU6Y38WbF4RQ {\n\twidth: 650px;\n\tmargin: auto;\n}\n\n.ShiC6JgIaOalBQVpIsYtL {\n\tmargin: auto;\n\twidth: 756px;\n}\n\n._1ZNJ4h3Uct4YGPwsOlP-a2 {\n\tborder: 3px solid #FFD637;\n\ttext-align: center;\n}\n\n._10prCLGoK4eiHXC-VVYaZu {\n\tpadding-top: 40px;\n}\n\n._25zew7Xg1S-FRibLyMbP5v {\n\tfont-size: 40px;\n\tline-height: 45px;\n\tfont-weight: bold;\n\tmargin-bottom: 15px;\n}\n\n._3KLmj9ZQkJaTvSjezlkPal {\n\tfont-weight: 300;\n\tfont-size: 18px;\n\tline-height: 26px;\n\tmargin-bottom: 35px;\n\tletter-spacing: -0.2px;\n}\n\n._1X2JHsGFfQ8zHFb2p6Poe3 {\n\tcolor: #3B66B2;\n\ttext-decoration: underline;\n}\n\n._1EJkoHOhNvfNBuPdCFRa4c {\n\tletter-spacing: 4px;\n\tfont-size: 22px;\n\tfont-weight: normal;\n\tcolor: #000;\n\ttext-transform: uppercase;\n\tborder: none;\n\tbackground-image: none;\n\tbackground-color: #FFD637;\n\theight: 62px;\n\tline-height: 62px;\n\tmin-width: 290px;\n\tcursor: pointer;\n}", ""]);
 	
 	// exports
 	exports.locals = {
@@ -14494,7 +14494,7 @@
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.link : stack1), depth0))
 	    + "\">полный список противопоказаний</a>.\n</div>\n<button class="
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.button : stack1), depth0))
-	    + " data-action=\"test-start\">начать тест</button>";
+	    + " data-action=\"test-start\">начать</button>";
 	},"useData":true});
 
 /***/ },
@@ -15796,7 +15796,7 @@
 	
 	
 	// module
-	exports.push([module.id, "._2z2_VLsmJG-9-K9jLVP1Tt {\n\tfont-family: 'PT Serif', serif;\n}\n\n._1O9lMBRHgLfG2-d-MH6fww {\n\tfont-family: 'Roboto', sans-serif;\n}\n\n._3G-ZwMQSbgLrYp4_4SUzgm {\n\tposition: relative;\n\tpadding: 40px 0;\n}\n\n.UeNnLl6hSRRxz9caxMN4B {\n\tfont-weight: bold;\n\tfont-size: 80px;\n\tline-height: 90px;\n\ttext-align: center;\n\tmargin-bottom: 25px;\n}\n\n._2MRGzgt1i2cHL3sokq_EVV {\n\tcolor: #000;\n\ttext-decoration: none;\n\tfont-size: 36px;\n\tline-height: 42px;\n\tfont-weight: normal;\t\n}\n\n.AOntsMu5ooMdf7s5vQx_3 {\n\tposition: absolute;\n\tleft: 68px;\n\ttop: 50px;\n}\n\n._1Dt6WOZ1Vmy8HqWn1fop9 {\n\tposition: absolute;\n\tright: 68px;\n\ttop: 50px;\n}\n\n.pSLxKThll82xikb71rXLr {\n\twidth: 650px;\n\tmargin: auto;\n}\n\n._3HKYlb7Vl6Iztk4-tC_BvZ {\n\tpadding: 25px 24px 54px;\n}\n\n._3Njjgwm78gfB1FMqf-a_cY {\n\ttext-align: left;\n}\n\n._3yK5DUCZS4PgQcRO2of2A9 {\n\tfont-weight: bold;\n\tfont-size: 18px;\n}\n\n._3j7ZhRHuAh6zBz-poIMCzh {\n\tfont-size: 16px;\n}\n\n._3m4BXQ40TaSw_695CDQc5o {\n\tmargin-bottom: 32px;\n}\n\n._2MOpAMbY9csB-24EiZiL9M {\n\tdisplay: inline-block;\n\tborder: 1px solid #000;\n\theight: 42px;\n    line-height: 42px;\n    width: 146px;\n\tpadding: 8px;\n\tfont-size: 20px;\n}", ""]);
+	exports.push([module.id, "._2z2_VLsmJG-9-K9jLVP1Tt {\n\tfont-family: 'PT Serif', serif;\n}\n\n._1O9lMBRHgLfG2-d-MH6fww {\n\tfont-family: 'Roboto', sans-serif;\n}\n\n._3G-ZwMQSbgLrYp4_4SUzgm {\n\tposition: relative;\n\tpadding: 40px 0;\n}\n\n.UeNnLl6hSRRxz9caxMN4B {\n\tfont-weight: bold;\n\tfont-size: 80px;\n\tline-height: 90px;\n\ttext-align: center;\n\tmargin-bottom: 25px;\n}\n\n._2MRGzgt1i2cHL3sokq_EVV {\n\tcolor: #000;\n\ttext-decoration: none;\n\tfont-size: 36px;\n\tline-height: 42px;\n\tfont-weight: normal;\t\n}\n\n.AOntsMu5ooMdf7s5vQx_3 {\n\tposition: absolute;\n\tleft: 68px;\n\ttop: 50px;\n}\n\n._1Dt6WOZ1Vmy8HqWn1fop9 {\n\tposition: absolute;\n\tright: 68px;\n\ttop: 50px;\n}\n\n.pSLxKThll82xikb71rXLr {\n\twidth: 650px;\n\tmargin: auto;\n}\n\n._3HKYlb7Vl6Iztk4-tC_BvZ {\n\tpadding: 29px 31px 64px;\n}\n\n._3Njjgwm78gfB1FMqf-a_cY {\n\ttext-align: left;\n}\n\n._3yK5DUCZS4PgQcRO2of2A9 {\n\tfont-weight: bold;\n\tfont-size: 18px;\n}\n\n._3j7ZhRHuAh6zBz-poIMCzh {\n\tfont-size: 16px;\n}\n\n._3m4BXQ40TaSw_695CDQc5o {\n\tmargin-bottom: 38px;\n}\n\n.EjQqlofCJUMJf9KAV_dIh {\n\ttext-align: left;\n\twidth: 348px;\n\tmargin-left: auto;\n\tmargin-right: auto;\n}\n\n.EjQqlofCJUMJf9KAV_dIh ._1AqLMaC9TJ6xn7EKtufMhi:not(:last-child) {\n\tmargin-bottom: 23px;\n}\n\n._8wGuJCvPnbJsKhc9Y1id9 {\n\tdisplay: none;\n}\n\n._8wGuJCvPnbJsKhc9Y1id9:checked + .D3sGWpSmSHK5CeE8idsfd::after {\n\topacity: 1;\n}\n\n.D3sGWpSmSHK5CeE8idsfd {\n\tfont-size: 18px;\n\tposition: relative;\n\tpadding-left: 42px;\n\theight: 26px;\n\tline-height: 26px;\n\tdisplay: inline-block;\n\tcursor: pointer;\n}\n\n.D3sGWpSmSHK5CeE8idsfd::before {\n\tdisplay: block;\n\tposition: absolute;\n\tleft: 0;\n\tbottom: 0;\n\twidth: 26px;\n\theight: 26px;\n\tborder: 1px solid #000;\n\tborder-radius: 50%;\n\tcontent: '';\n}\n\n.D3sGWpSmSHK5CeE8idsfd::after {\n\tdisplay: block;\n\tposition: absolute;\n\tleft: 5px;\n\tbottom: 5px;\n\twidth: 18px;\n\theight: 18px;\n\tbackground-color: #FFD637;\n\tborder-radius: 50%;\n\topacity: 0;\n\tcontent: '';\n}\n\n._2MOpAMbY9csB-24EiZiL9M {\n\tfont-weight: 300;\n\tdisplay: inline-block;\n\tborder: 1px solid #000;\n\theight: 42px;\n    line-height: 42px;\n    width: 86px;\n\tpadding: 8px;\n\tfont-size: 24px;\n\ttext-align: center;\n}\n\n.D1iptXn6th8WuXHQs_StE {\n\tanimation: _3Cv0QJLmIwtRQxiqMm8G5g 0.82s cubic-bezier(.36,.07,.19,.97) both;\n\ttransform: translate3d(0, 0, 0);\n\tbackface-visibility: hidden;\n\tperspective: 1000px;\n}\n\n@keyframes _3Cv0QJLmIwtRQxiqMm8G5g {\n  10%, 90% {\n    transform: translate3d(-2px, 0, 0);\n  }\n  \n  20%, 80% {\n    transform: translate3d(3px, 0, 0);\n  }\n\n  30%, 50%, 70% {\n    transform: translate3d(-6px, 0, 0);\n  }\n\n  40%, 60% {\n    transform: translate3d(6px, 0, 0);\n  }\n}", ""]);
 	
 	// exports
 	exports.locals = {
@@ -15813,7 +15813,13 @@
 		"stepInfo": "_3yK5DUCZS4PgQcRO2of2A9",
 		"stepTitle": "_3j7ZhRHuAh6zBz-poIMCzh",
 		"form": "_3m4BXQ40TaSw_695CDQc5o _1O9lMBRHgLfG2-d-MH6fww",
-		"input": "_2MOpAMbY9csB-24EiZiL9M _2z2_VLsmJG-9-K9jLVP1Tt"
+		"formAuto": "EjQqlofCJUMJf9KAV_dIh",
+		"radio": "_1AqLMaC9TJ6xn7EKtufMhi",
+		"radioInput": "_8wGuJCvPnbJsKhc9Y1id9",
+		"radioLabel": "D3sGWpSmSHK5CeE8idsfd _1O9lMBRHgLfG2-d-MH6fww",
+		"input": "_2MOpAMbY9csB-24EiZiL9M _1O9lMBRHgLfG2-d-MH6fww",
+		"inputInvalid": "D1iptXn6th8WuXHQs_StE",
+		"shake": "_3Cv0QJLmIwtRQxiqMm8G5g"
 	};
 
 /***/ },
@@ -15909,7 +15915,7 @@
 		}, {
 			key: '_inputAge',
 			value: function _inputAge(e) {
-				this.age = (0, _jquery2.default)(e.currentTarget).val();
+				this.age = (0, _jquery2.default)(e.currentTarget).val() || undefined;
 			}
 		}, {
 			key: '_appended',
@@ -15919,26 +15925,35 @@
 		}, {
 			key: '_answer',
 			value: function _answer() {
-				if (this.age >= 45) {
-					this.testModel.set({
-						state: _test.states.FINISH,
-						result: false,
-						reason: _test.reasons.AGE,
-						data: {
-							age: this.age
-						}
-					});
-				} else {
-					if ((0, _test.isLastStep)(this.currentStepIndex, this.stepsAmount)) {
+				var _this2 = this;
+	
+				if (isFinite(this.age)) {
+					if (this.age > 45 || this.age < 18) {
 						this.testModel.set({
 							state: _test.states.FINISH,
-							result: true
+							result: false,
+							reason: _test.reasons.AGE,
+							data: {
+								age: this.age
+							}
 						});
 					} else {
-						this.testModel.set({
-							step: this.currentStepIndex + 1
-						});
+						if ((0, _test.isLastStep)(this.currentStepIndex, this.stepsAmount)) {
+							this.testModel.set({
+								state: _test.states.FINISH,
+								result: true
+							});
+						} else {
+							this.testModel.set({
+								step: this.currentStepIndex + 1
+							});
+						}
 					}
+				} else {
+					this.$el.find('[data-action="test-input"]').focus().val('').trigger('input').addClass(_game2.default.inputInvalid);
+					setTimeout(function () {
+						_this2.$el.find('[data-action="test-input"]').removeClass(_game2.default.inputInvalid);
+					}, 1000);
 				}
 			}
 		}, {
@@ -15979,17 +15994,174 @@
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.title : stack1), depth0))
 	    + "\">Сколько вам лет?</div>\n<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.subtitle : stack1), depth0))
-	    + "\">Мы никому не скажем.</div>\n<div class=\""
+	    + "\">Мы никому не расскажем.</div>\n<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.form : stack1), depth0))
 	    + "\">\n	<input class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.input : stack1), depth0))
-	    + "\" data-action=\"test-input\"/>\n</div>\n<button class=\""
+	    + "\" data-action=\"test-input\" max-length=\"3\"/>\n</div>\n<button class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.button : stack1), depth0))
 	    + "\" data-action=\"test-answer\">ответить</button>";
 	},"useData":true});
 
 /***/ },
 /* 41 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _underscore = __webpack_require__(2);
+	
+	var _underscore2 = _interopRequireDefault(_underscore);
+	
+	var _jquery = __webpack_require__(3);
+	
+	var _jquery2 = _interopRequireDefault(_jquery);
+	
+	var _base = __webpack_require__(5);
+	
+	var _base2 = _interopRequireDefault(_base);
+	
+	var _test = __webpack_require__(7);
+	
+	var _test2 = __webpack_require__(9);
+	
+	var _test3 = _interopRequireDefault(_test2);
+	
+	var _game = __webpack_require__(36);
+	
+	var _game2 = _interopRequireDefault(_game);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _class = function (_BaseView) {
+		_inherits(_class, _BaseView);
+	
+		function _class() {
+			_classCallCheck(this, _class);
+	
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(_class).apply(this, arguments));
+		}
+	
+		_createClass(_class, [{
+			key: 'init',
+			value: function init() {
+				this.render();
+			}
+		}, {
+			key: '_inputWeight',
+			value: function _inputWeight(e) {
+				this.weight = (0, _jquery2.default)(e.currentTarget).val() || undefined;
+			}
+		}, {
+			key: '_appended',
+			value: function _appended() {
+				this.$el.find('[data-action="test-input"]').focus();
+			}
+		}, {
+			key: '_prepareData',
+			value: function _prepareData() {
+				var data = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	
+				return _underscore2.default.extend(data, {
+					testStyles: _test3.default,
+					gameStyles: _game2.default
+				});
+			}
+		}, {
+			key: '_answer',
+			value: function _answer() {
+				var _this2 = this;
+	
+				if (isFinite(this.weight)) {
+					if (this.weight < 50) {
+						this.testModel.set({
+							state: _test.states.FINISH,
+							result: false,
+							reason: _test.reasons.WEIGHT,
+							data: {
+								weight: this.weight
+							}
+						});
+					} else {
+						if ((0, _test.isLastStep)(this.currentStepIndex, this.stepsAmount)) {
+							this.testModel.set({
+								state: _test.states.FINISH,
+								result: true
+							});
+						} else {
+							this.testModel.set({
+								step: this.currentStepIndex + 1
+							});
+						}
+					}
+				} else {
+					this.$el.find('[data-action="test-input"]').focus().val('').trigger('input').addClass(_game2.default.inputInvalid);
+					setTimeout(function () {
+						_this2.$el.find('[data-action="test-input"]').removeClass(_game2.default.inputInvalid);
+					}, 1000);
+				}
+			}
+		}, {
+			key: 'className',
+			get: function get() {
+				return _test3.default.step;
+			}
+		}, {
+			key: '_template',
+			get: function get() {
+				return __webpack_require__(42);
+			}
+		}, {
+			key: 'events',
+			get: function get() {
+				return {
+					'click [data-action="test-answer"]': '_answer',
+					'input [data-action="test-input"]': '_inputWeight'
+				};
+			}
+		}]);
+
+		return _class;
+	}(_base2.default);
+
+	exports.default = _class;
+
+/***/ },
+/* 42 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Handlebars = __webpack_require__(16);
+	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
+	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
+	
+	  return "<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.title : stack1), depth0))
+	    + "\">Сколько вы весите?</div>\n<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.subtitle : stack1), depth0))
+	    + "\">Только между нами.</div>\n<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.form : stack1), depth0))
+	    + "\">\n	<input class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.input : stack1), depth0))
+	    + "\" data-action=\"test-input\" max-length=\"3\"/>&nbsp;&nbsp;КГ\n</div>\n<button class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.button : stack1), depth0))
+	    + "\" data-action=\"test-answer\">ответить</button>";
+	},"useData":true});
+
+/***/ },
+/* 43 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16039,11 +16211,6 @@
 				this.render();
 			}
 		}, {
-			key: '_appended',
-			value: function _appended() {
-				this.$el.find('[data-action="test-input"]').focus();
-			}
-		}, {
 			key: '_prepareData',
 			value: function _prepareData() {
 				var data = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
@@ -16061,100 +16228,6 @@
 		}, {
 			key: '_template',
 			get: function get() {
-				return __webpack_require__(42);
-			}
-		}]);
-
-		return _class;
-	}(_base2.default);
-
-	exports.default = _class;
-
-/***/ },
-/* 42 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Handlebars = __webpack_require__(16);
-	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
-	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
-	
-	  return "<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.title : stack1), depth0))
-	    + "\">Сколько вы весите?</div>\n<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.subtitle : stack1), depth0))
-	    + "\">Только между нами.</div>\n<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.form : stack1), depth0))
-	    + "\">\n	<input class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.input : stack1), depth0))
-	    + "\" data-action=\"test-input\"/>&nbsp;&nbsp;&nbsp;КГ\n</div>\n<button class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.button : stack1), depth0))
-	    + "\" data-action=\"test-answer\">ответить</button>";
-	},"useData":true});
-
-/***/ },
-/* 43 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _underscore = __webpack_require__(2);
-	
-	var _underscore2 = _interopRequireDefault(_underscore);
-	
-	var _base = __webpack_require__(5);
-	
-	var _base2 = _interopRequireDefault(_base);
-	
-	var _test = __webpack_require__(9);
-	
-	var _test2 = _interopRequireDefault(_test);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var _class = function (_BaseView) {
-		_inherits(_class, _BaseView);
-	
-		function _class() {
-			_classCallCheck(this, _class);
-	
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(_class).apply(this, arguments));
-		}
-	
-		_createClass(_class, [{
-			key: 'init',
-			value: function init() {
-				this.render();
-			}
-		}, {
-			key: '_prepareData',
-			value: function _prepareData() {
-				var data = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
-	
-				return _underscore2.default.extend(data, {
-					testStyles: _test2.default
-				});
-			}
-		}, {
-			key: 'className',
-			get: function get() {
-				return gameStyles.root;
-			}
-		}, {
-			key: '_template',
-			get: function get() {
 				return __webpack_require__(44);
 			}
 		}]);
@@ -16166,9 +16239,39 @@
 
 /***/ },
 /* 44 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-	module.exports = function(){return "";};
+	var Handlebars = __webpack_require__(16);
+	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
+	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
+	
+	  return "<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.title : stack1), depth0))
+	    + "\">Есть ли у вас<br>аутоимунные заболевания?</div>\n<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.subtitle : stack1), depth0))
+	    + "\">Если у вас есть аутоимуннное заболевание, скорее всего,<br>вы об этом знаете. Если не уверены, сверьтесь<br><a href=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.link : stack1), depth0))
+	    + "\">со списком аутоимунных заболеваний</a>.</div>\n<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.form : stack1), depth0))
+	    + " "
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.formAuto : stack1), depth0))
+	    + "\">\n	<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.radio : stack1), depth0))
+	    + "\">\n		<input type=\"radio\" name=\"game-auto-radio\" id=\"game-auto-radio-true\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.radioInput : stack1), depth0))
+	    + "\">\n		<label for=\"game-auto-radio-true\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.radioLabel : stack1), depth0))
+	    + "\">Да</label>\n	</div>\n	<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.radio : stack1), depth0))
+	    + "\">\n		<input type=\"radio\" name=\"game-auto-radio\" id=\"game-auto-radio-false\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.radioInput : stack1), depth0))
+	    + "\">\n		<label for=\"game-auto-radio-false\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.radioLabel : stack1), depth0))
+	    + "\">Нет</label>\n	</div>\n</div>\n<button class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.button : stack1), depth0))
+	    + "\" data-action=\"test-answer\">ответить</button>";
+	},"useData":true});
 
 /***/ },
 /* 45 */
@@ -16247,7 +16350,7 @@
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.styles : depth0)) != null ? stack1.pageRoot : stack1), depth0))
 	    + "\">\n	<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.styles : depth0)) != null ? stack1.pageTitle : stack1), depth0))
-	    + "\">Как сдать<br>костный мозг</div>\n	>\n	<div class=\""
+	    + "\">Как сдать<br>костный мозг</div>\n	<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.styles : depth0)) != null ? stack1.pageContainer : stack1), depth0))
 	    + "\">\n		<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.styles : depth0)) != null ? stack1.intro : stack1), depth0))

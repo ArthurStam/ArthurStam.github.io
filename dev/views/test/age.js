@@ -33,7 +33,7 @@ export default class extends BaseView {
 	}
 
 	_inputAge(e) {
-		this.age = $(e.currentTarget).val();
+		this.age = $(e.currentTarget).val() || undefined;
 	}
 
 	_appended() {
@@ -41,27 +41,41 @@ export default class extends BaseView {
 	}
 
 	_answer() {
-		if (this.age >= 45) {
-			this.testModel.set({ 
-				state: states.FINISH,
-				result: false,
-				reason: reasons.AGE,
-				data: {
-					age: this.age
-				}
-			})
-		} else {
-			if (isLastStep(this.currentStepIndex, this.stepsAmount)) {				
-				this.testModel.set({ 
+		if (isFinite(this.age)) {
+			if (this.age > 45 || this.age < 18) {
+				this.testModel.set({
 					state: states.FINISH,
-					result: true
-				});
+					result: false,
+					reason: reasons.AGE,
+					data: {
+						age: this.age
+					}
+				})
 			} else {
-				this.testModel.set({ 
-					step: this.currentStepIndex + 1
-				});
+				if (isLastStep(this.currentStepIndex, this.stepsAmount)) {				
+					this.testModel.set({ 
+						state: states.FINISH,
+						result: true
+					});
+				} else {
+					this.testModel.set({ 
+						step: this.currentStepIndex + 1
+					});
+				}
+				 
 			}
-			 
+		} else {
+			this.$el
+				.find('[data-action="test-input"]')
+				.focus()
+				.val('')
+				.trigger('input')
+				.addClass(gameStyles.inputInvalid)
+			setTimeout(() => {
+				this.$el
+					.find('[data-action="test-input"]')
+					.removeClass(gameStyles.inputInvalid);
+			}, 1000);
 		}
 	}
 }

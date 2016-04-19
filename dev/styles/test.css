@@ -6,27 +6,29 @@
 }
 
 .container {
-	border: 5px solid #FFD637;
+	border: 3px solid #FFD637;
 	text-align: center;
 }
 
 .step {
-	padding-top: 31px;
+	padding-top: 40px;
 }
 
 .title {
 	composes: ptSerif;
 	font-size: 40px;
+	line-height: 45px;
 	font-weight: bold;
-	margin-bottom: 17px;
+	margin-bottom: 15px;
 }
 
 .subtitle {
 	composes: roboto;
-	font-style: italic;
+	font-weight: 300;
 	font-size: 18px;
 	line-height: 26px;
-	margin-bottom: 33px;
+	margin-bottom: 35px;
+	letter-spacing: -0.2px;
 }
 
 .link {
