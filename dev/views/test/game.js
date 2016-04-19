@@ -12,7 +12,11 @@ export default class extends BaseView {
 	get _template() { return require('dev/templates/test/game.handlebars') }
 
 	init() {
-		this.registerChild(new this.StepView(), 'test-step');
+		this.registerChild(new this.StepView({
+			testModel: this.testModel,
+			currentStepIndex: this.currentStepIndex,
+			stepsAmount: this.stepsAmount
+		}), 'test-step');
 		this.render();
 	}
 
@@ -20,7 +24,7 @@ export default class extends BaseView {
 		return _.extend(data, {
 			testStyles: testStyles,
 			gameStyles: gameStyles,
-			currentStepIndex: this.currentStepIndex,
+			currentStepIndex: this.currentStepIndex + 1,
 			stepsAmount: this.stepsAmount
 		});
 	}

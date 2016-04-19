@@ -2,7 +2,7 @@
 
 .root {
 	margin: auto;
-	width: 1010px;
+	width: 756px;
 }
 
 .container {
@@ -11,22 +11,22 @@
 }
 
 .step {
-	padding-top: 54px;
+	padding-top: 31px;
 }
 
 .title {
 	composes: ptSerif;
-	font-size: 55px;
+	font-size: 40px;
 	font-weight: bold;
-	margin-bottom: 15px;
+	margin-bottom: 17px;
 }
 
 .subtitle {
 	composes: roboto;
 	font-style: italic;
-	font-size: 24px;
-	line-height: 35px;
-	margin-bottom: 29px;
+	font-size: 18px;
+	line-height: 26px;
+	margin-bottom: 33px;
 }
 
 .link {
@@ -36,16 +36,16 @@
 
 .button {
 	composes: roboto;
-	letter-spacing: 7px;
-	font-size: 35px;
+	letter-spacing: 4px;
+	font-size: 22px;
 	font-weight: normal;
 	color: #000;
 	text-transform: uppercase;
 	border: none;
 	background-image: none;
 	background-color: #FFD637;
-	height: 84px;
-	line-height: 84px;
-	min-width: 388px;
+	height: 62px;
+	line-height: 62px;
+	min-width: 290px;
 	cursor: pointer;
 }

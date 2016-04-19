@@ -13819,6 +13819,7 @@
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
+	exports.isLastStep = exports.reasons = exports.states = undefined;
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
@@ -13867,6 +13868,12 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	var states = { START: 'START', GAME: 'GAME', FINISH: 'FINISH' };
+	
+	var reasons = { AGE: 'AGE', WEIGHT: 'WEIGHT', AUTO: 'AUTO' };
+	
+	function isLastStep(stepIndex, stepsAmount) {
+		return stepIndex >= stepsAmount;
+	}
 	
 	var steps = [{
 		View: _age2.default
@@ -13920,7 +13927,7 @@
 			key: 'init',
 			value: function init() {
 				this.testModel = new TestModel();
-				this.listenTo(this.testModel, 'change:state', this._changeState);
+				this.listenTo(this.testModel, 'change:state change:step', this._changeState);
 				this._changeState();
 			}
 		}, {
@@ -13933,8 +13940,9 @@
 						break;
 					case states.GAME:
 						this.registerChild(new _game2.default({
+							testModel: this.testModel,
 							stepsAmount: steps.length,
-							currentStepIndex: this.testModel.get('step') + 1,
+							currentStepIndex: this.testModel.get('step'),
 							StepView: steps[this.testModel.get('step')].View
 						}), 'test-container');
 						break;
@@ -13967,11 +13975,14 @@
 				};
 			}
 		}]);
-
+	
 		return _class;
 	}(_base2.default);
-
+	
 	exports.default = _class;
+	exports.states = states;
+	exports.reasons = reasons;
+	exports.isLastStep = isLastStep;
 
 /***/ },
 /* 8 */
@@ -14085,7 +14096,7 @@
 	
 	
 	// module
-	exports.push([module.id, "._2AacvD_Bs_6FQD2fvgE3V4 {\n\tfont-family: 'PT Serif', serif;\n}\n\n._3mcT3Wa6VFtN3D1Qr_gnuY {\n\tfont-family: 'Roboto', sans-serif;\n}\n\n._2Dx7WNmcO6FESoi0b5bsW4 {\n\tposition: relative;\n\tpadding: 40px 0;\n}\n\n._1pUxA4FA9frJDUzyjaQJ5V {\n\tfont-weight: bold;\n\tfont-size: 80px;\n\tline-height: 90px;\n\ttext-align: center;\n\tmargin-bottom: 25px;\n}\n\n._3OhH_3XUdficZmBKK8tTfn {\n\tcolor: #000;\n\ttext-decoration: none;\n\tfont-size: 36px;\n\tline-height: 42px;\n\tfont-weight: normal;\t\n}\n\n._1X5v7kim66JLubWczQ5L8Y {\n\tposition: absolute;\n\tleft: 68px;\n\ttop: 10px;\n}\n\n.JVddxANUB7kRqz7hPmNb6 {\n\tposition: absolute;\n\tright: 68px;\n\ttop: 10px;\n}\n\n._2KbTYNNrKtFU6Y38WbF4RQ {\n\twidth: 650px;\n\tmargin: auto;\n}\n\n.ShiC6JgIaOalBQVpIsYtL {\n\tmargin: auto;\n\twidth: 1010px;\n}\n\n._1ZNJ4h3Uct4YGPwsOlP-a2 {\n\tborder: 5px solid #FFD637;\n\ttext-align: center;\n}\n\n._10prCLGoK4eiHXC-VVYaZu {\n\tpadding-top: 54px;\n}\n\n._25zew7Xg1S-FRibLyMbP5v {\n\tfont-size: 55px;\n\tfont-weight: bold;\n\tmargin-bottom: 15px;\n}\n\n._3KLmj9ZQkJaTvSjezlkPal {\n\tfont-style: italic;\n\tfont-size: 24px;\n\tline-height: 35px;\n\tmargin-bottom: 29px;\n}\n\n._1X2JHsGFfQ8zHFb2p6Poe3 {\n\tcolor: #3B66B2;\n\ttext-decoration: underline;\n}\n\n._1EJkoHOhNvfNBuPdCFRa4c {\n\tletter-spacing: 7px;\n\tfont-size: 35px;\n\tfont-weight: normal;\n\tcolor: #000;\n\ttext-transform: uppercase;\n\tborder: none;\n\tbackground-image: none;\n\tbackground-color: #FFD637;\n\theight: 84px;\n\tline-height: 84px;\n\tmin-width: 388px;\n\tcursor: pointer;\n}", ""]);
+	exports.push([module.id, "._2AacvD_Bs_6FQD2fvgE3V4 {\n\tfont-family: 'PT Serif', serif;\n}\n\n._3mcT3Wa6VFtN3D1Qr_gnuY {\n\tfont-family: 'Roboto', sans-serif;\n}\n\n._2Dx7WNmcO6FESoi0b5bsW4 {\n\tposition: relative;\n\tpadding: 40px 0;\n}\n\n._1pUxA4FA9frJDUzyjaQJ5V {\n\tfont-weight: bold;\n\tfont-size: 80px;\n\tline-height: 90px;\n\ttext-align: center;\n\tmargin-bottom: 25px;\n}\n\n._3OhH_3XUdficZmBKK8tTfn {\n\tcolor: #000;\n\ttext-decoration: none;\n\tfont-size: 36px;\n\tline-height: 42px;\n\tfont-weight: normal;\t\n}\n\n._1X5v7kim66JLubWczQ5L8Y {\n\tposition: absolute;\n\tleft: 68px;\n\ttop: 50px;\n}\n\n.JVddxANUB7kRqz7hPmNb6 {\n\tposition: absolute;\n\tright: 68px;\n\ttop: 50px;\n}\n\n._2KbTYNNrKtFU6Y38WbF4RQ {\n\twidth: 650px;\n\tmargin: auto;\n}\n\n.ShiC6JgIaOalBQVpIsYtL {\n\tmargin: auto;\n\twidth: 756px;\n}\n\n._1ZNJ4h3Uct4YGPwsOlP-a2 {\n\tborder: 5px solid #FFD637;\n\ttext-align: center;\n}\n\n._10prCLGoK4eiHXC-VVYaZu {\n\tpadding-top: 31px;\n}\n\n._25zew7Xg1S-FRibLyMbP5v {\n\tfont-size: 40px;\n\tfont-weight: bold;\n\tmargin-bottom: 17px;\n}\n\n._3KLmj9ZQkJaTvSjezlkPal {\n\tfont-style: italic;\n\tfont-size: 18px;\n\tline-height: 26px;\n\tmargin-bottom: 33px;\n}\n\n._1X2JHsGFfQ8zHFb2p6Poe3 {\n\tcolor: #3B66B2;\n\ttext-decoration: underline;\n}\n\n._1EJkoHOhNvfNBuPdCFRa4c {\n\tletter-spacing: 4px;\n\tfont-size: 22px;\n\tfont-weight: normal;\n\tcolor: #000;\n\ttext-transform: uppercase;\n\tborder: none;\n\tbackground-image: none;\n\tbackground-color: #FFD637;\n\theight: 62px;\n\tline-height: 62px;\n\tmin-width: 290px;\n\tcursor: pointer;\n}", ""]);
 	
 	// exports
 	exports.locals = {
@@ -14448,7 +14459,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".EjuHMmEBQUTkkWdhMM9aL {\n\tfont-family: 'PT Serif', serif;\n}\n\n.CrCeN_1WCXw5Zd2NM4Q8F {\n\tfont-family: 'Roboto', sans-serif;\n}\n\n._3CTqjvfvqaNiYSwea-xRxp {\n\tposition: relative;\n\tpadding: 40px 0;\n}\n\n._1bc3TDeNzxB_vHXeA6CxPE {\n\tfont-weight: bold;\n\tfont-size: 80px;\n\tline-height: 90px;\n\ttext-align: center;\n\tmargin-bottom: 25px;\n}\n\n._3sq63wYuQMBpVyXTPYOWsb {\n\tcolor: #000;\n\ttext-decoration: none;\n\tfont-size: 36px;\n\tline-height: 42px;\n\tfont-weight: normal;\t\n}\n\n._1ojTDvCIFcRJroEoW70dX2 {\n\tposition: absolute;\n\tleft: 68px;\n\ttop: 10px;\n}\n\n._2xJmdVj30d-qYvB3sA6oui {\n\tposition: absolute;\n\tright: 68px;\n\ttop: 10px;\n}\n\n._28wmEs02oI5SbmvcWWxPWy {\n\twidth: 650px;\n\tmargin: auto;\n}\n\n._2c_X9l_2tFGA0jZbDU9JRH {\n\tpadding: 60px 0 78px;\n}\n\n._2lXyS42srJX9Tol5flKXUR {\n\tfont-size: 31px;\n\ttext-transform: uppercase;\n\tmargin-bottom: 12px;\n\tletter-spacing: 7px;\n}", ""]);
+	exports.push([module.id, ".EjuHMmEBQUTkkWdhMM9aL {\n\tfont-family: 'PT Serif', serif;\n}\n\n.CrCeN_1WCXw5Zd2NM4Q8F {\n\tfont-family: 'Roboto', sans-serif;\n}\n\n._3CTqjvfvqaNiYSwea-xRxp {\n\tposition: relative;\n\tpadding: 40px 0;\n}\n\n._1bc3TDeNzxB_vHXeA6CxPE {\n\tfont-weight: bold;\n\tfont-size: 80px;\n\tline-height: 90px;\n\ttext-align: center;\n\tmargin-bottom: 25px;\n}\n\n._3sq63wYuQMBpVyXTPYOWsb {\n\tcolor: #000;\n\ttext-decoration: none;\n\tfont-size: 36px;\n\tline-height: 42px;\n\tfont-weight: normal;\t\n}\n\n._1ojTDvCIFcRJroEoW70dX2 {\n\tposition: absolute;\n\tleft: 68px;\n\ttop: 50px;\n}\n\n._2xJmdVj30d-qYvB3sA6oui {\n\tposition: absolute;\n\tright: 68px;\n\ttop: 50px;\n}\n\n._28wmEs02oI5SbmvcWWxPWy {\n\twidth: 650px;\n\tmargin: auto;\n}\n\n._2c_X9l_2tFGA0jZbDU9JRH {\n\tpadding: 40px 0 58px;\n}\n\n._2lXyS42srJX9Tol5flKXUR {\n\tfont-size: 23px;\n\ttext-transform: uppercase;\n\tmargin-bottom: 9px;\n\tletter-spacing: 4px;\n}", ""]);
 	
 	// exports
 	exports.locals = {
@@ -14481,9 +14492,9 @@
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.subtitle : stack1), depth0))
 	    + "\">\n	Абсолютно здоровых людей не бывает, но при некоторых<br>заболеваниях нельзя становиться донором: это опасно и для<br>донора, и для пациента. Пройдите тест или прочитайте<br><a href=\"#\" class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.link : stack1), depth0))
-	    + "\">полный список противопоказаний</a>\n</div>\n<button class="
+	    + "\">полный список противопоказаний</a>.\n</div>\n<button class="
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.button : stack1), depth0))
-	    + " data-action=\"test-start\">начать</button>";
+	    + " data-action=\"test-start\">начать тест</button>";
 	},"useData":true});
 
 /***/ },
@@ -15714,7 +15725,11 @@
 		_createClass(_class, [{
 			key: 'init',
 			value: function init() {
-				this.registerChild(new this.StepView(), 'test-step');
+				this.registerChild(new this.StepView({
+					testModel: this.testModel,
+					currentStepIndex: this.currentStepIndex,
+					stepsAmount: this.stepsAmount
+				}), 'test-step');
 				this.render();
 			}
 		}, {
@@ -15725,7 +15740,7 @@
 				return _underscore2.default.extend(data, {
 					testStyles: _test2.default,
 					gameStyles: _game2.default,
-					currentStepIndex: this.currentStepIndex,
+					currentStepIndex: this.currentStepIndex + 1,
 					stepsAmount: this.stepsAmount
 				});
 			}
@@ -15781,7 +15796,7 @@
 	
 	
 	// module
-	exports.push([module.id, "._2z2_VLsmJG-9-K9jLVP1Tt {\n\tfont-family: 'PT Serif', serif;\n}\n\n._1O9lMBRHgLfG2-d-MH6fww {\n\tfont-family: 'Roboto', sans-serif;\n}\n\n._3G-ZwMQSbgLrYp4_4SUzgm {\n\tposition: relative;\n\tpadding: 40px 0;\n}\n\n.UeNnLl6hSRRxz9caxMN4B {\n\tfont-weight: bold;\n\tfont-size: 80px;\n\tline-height: 90px;\n\ttext-align: center;\n\tmargin-bottom: 25px;\n}\n\n._2MRGzgt1i2cHL3sokq_EVV {\n\tcolor: #000;\n\ttext-decoration: none;\n\tfont-size: 36px;\n\tline-height: 42px;\n\tfont-weight: normal;\t\n}\n\n.AOntsMu5ooMdf7s5vQx_3 {\n\tposition: absolute;\n\tleft: 68px;\n\ttop: 10px;\n}\n\n._1Dt6WOZ1Vmy8HqWn1fop9 {\n\tposition: absolute;\n\tright: 68px;\n\ttop: 10px;\n}\n\n.pSLxKThll82xikb71rXLr {\n\twidth: 650px;\n\tmargin: auto;\n}\n\n._3HKYlb7Vl6Iztk4-tC_BvZ {\n\tpadding: 35px 35px 74px;\n}\n\n._3Njjgwm78gfB1FMqf-a_cY {\n\ttext-align: left;\n}\n\n._3yK5DUCZS4PgQcRO2of2A9 {\n\tfont-weight: bold;\n\tfont-style: 24px;\n}\n\n._3j7ZhRHuAh6zBz-poIMCzh {\n\tfont-style: 21px;\n}\n\n._3m4BXQ40TaSw_695CDQc5o {\n\tmargin-bottom: 40px;\n}\n\n._2MOpAMbY9csB-24EiZiL9M {\n\tdisplay: inline-block;\n\tborder: 1px solid #000;\n\theight: 54px;\n\tline-height: 54px;\n\twidth: 200px;\n\tpadding: 10px;\n\tfont-size: 30px;\n}", ""]);
+	exports.push([module.id, "._2z2_VLsmJG-9-K9jLVP1Tt {\n\tfont-family: 'PT Serif', serif;\n}\n\n._1O9lMBRHgLfG2-d-MH6fww {\n\tfont-family: 'Roboto', sans-serif;\n}\n\n._3G-ZwMQSbgLrYp4_4SUzgm {\n\tposition: relative;\n\tpadding: 40px 0;\n}\n\n.UeNnLl6hSRRxz9caxMN4B {\n\tfont-weight: bold;\n\tfont-size: 80px;\n\tline-height: 90px;\n\ttext-align: center;\n\tmargin-bottom: 25px;\n}\n\n._2MRGzgt1i2cHL3sokq_EVV {\n\tcolor: #000;\n\ttext-decoration: none;\n\tfont-size: 36px;\n\tline-height: 42px;\n\tfont-weight: normal;\t\n}\n\n.AOntsMu5ooMdf7s5vQx_3 {\n\tposition: absolute;\n\tleft: 68px;\n\ttop: 50px;\n}\n\n._1Dt6WOZ1Vmy8HqWn1fop9 {\n\tposition: absolute;\n\tright: 68px;\n\ttop: 50px;\n}\n\n.pSLxKThll82xikb71rXLr {\n\twidth: 650px;\n\tmargin: auto;\n}\n\n._3HKYlb7Vl6Iztk4-tC_BvZ {\n\tpadding: 25px 24px 54px;\n}\n\n._3Njjgwm78gfB1FMqf-a_cY {\n\ttext-align: left;\n}\n\n._3yK5DUCZS4PgQcRO2of2A9 {\n\tfont-weight: bold;\n\tfont-size: 18px;\n}\n\n._3j7ZhRHuAh6zBz-poIMCzh {\n\tfont-size: 16px;\n}\n\n._3m4BXQ40TaSw_695CDQc5o {\n\tmargin-bottom: 32px;\n}\n\n._2MOpAMbY9csB-24EiZiL9M {\n\tdisplay: inline-block;\n\tborder: 1px solid #000;\n\theight: 42px;\n    line-height: 42px;\n    width: 146px;\n\tpadding: 8px;\n\tfont-size: 20px;\n}", ""]);
 	
 	// exports
 	exports.locals = {
@@ -15797,8 +15812,8 @@
 		"stepHeader": "_3Njjgwm78gfB1FMqf-a_cY _1O9lMBRHgLfG2-d-MH6fww",
 		"stepInfo": "_3yK5DUCZS4PgQcRO2of2A9",
 		"stepTitle": "_3j7ZhRHuAh6zBz-poIMCzh",
-		"form": "_3m4BXQ40TaSw_695CDQc5o",
-		"input": "_2MOpAMbY9csB-24EiZiL9M _1O9lMBRHgLfG2-d-MH6fww"
+		"form": "_3m4BXQ40TaSw_695CDQc5o _1O9lMBRHgLfG2-d-MH6fww",
+		"input": "_2MOpAMbY9csB-24EiZiL9M _2z2_VLsmJG-9-K9jLVP1Tt"
 	};
 
 /***/ },
@@ -15827,6 +15842,154 @@
 
 /***/ },
 /* 39 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _underscore = __webpack_require__(2);
+	
+	var _underscore2 = _interopRequireDefault(_underscore);
+	
+	var _jquery = __webpack_require__(3);
+	
+	var _jquery2 = _interopRequireDefault(_jquery);
+	
+	var _base = __webpack_require__(5);
+	
+	var _base2 = _interopRequireDefault(_base);
+	
+	var _test = __webpack_require__(7);
+	
+	var _test2 = __webpack_require__(9);
+	
+	var _test3 = _interopRequireDefault(_test2);
+	
+	var _game = __webpack_require__(36);
+	
+	var _game2 = _interopRequireDefault(_game);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _class = function (_BaseView) {
+		_inherits(_class, _BaseView);
+	
+		function _class() {
+			_classCallCheck(this, _class);
+	
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(_class).apply(this, arguments));
+		}
+	
+		_createClass(_class, [{
+			key: 'init',
+			value: function init() {
+				this.render();
+			}
+		}, {
+			key: '_prepareData',
+			value: function _prepareData() {
+				var data = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	
+				return _underscore2.default.extend(data, {
+					testStyles: _test3.default,
+					gameStyles: _game2.default
+				});
+			}
+		}, {
+			key: '_inputAge',
+			value: function _inputAge(e) {
+				this.age = (0, _jquery2.default)(e.currentTarget).val();
+			}
+		}, {
+			key: '_appended',
+			value: function _appended() {
+				this.$el.find('[data-action="test-input"]').focus();
+			}
+		}, {
+			key: '_answer',
+			value: function _answer() {
+				if (this.age >= 45) {
+					this.testModel.set({
+						state: _test.states.FINISH,
+						result: false,
+						reason: _test.reasons.AGE,
+						data: {
+							age: this.age
+						}
+					});
+				} else {
+					if ((0, _test.isLastStep)(this.currentStepIndex, this.stepsAmount)) {
+						this.testModel.set({
+							state: _test.states.FINISH,
+							result: true
+						});
+					} else {
+						this.testModel.set({
+							step: this.currentStepIndex + 1
+						});
+					}
+				}
+			}
+		}, {
+			key: 'className',
+			get: function get() {
+				return _test3.default.step;
+			}
+		}, {
+			key: '_template',
+			get: function get() {
+				return __webpack_require__(40);
+			}
+		}, {
+			key: 'events',
+			get: function get() {
+				return {
+					'click [data-action="test-answer"]': '_answer',
+					'input [data-action="test-input"]': '_inputAge'
+				};
+			}
+		}]);
+
+		return _class;
+	}(_base2.default);
+
+	exports.default = _class;
+
+/***/ },
+/* 40 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Handlebars = __webpack_require__(16);
+	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
+	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
+	
+	  return "<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.title : stack1), depth0))
+	    + "\">Сколько вам лет?</div>\n<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.subtitle : stack1), depth0))
+	    + "\">Мы никому не скажем.</div>\n<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.form : stack1), depth0))
+	    + "\">\n	<input class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.input : stack1), depth0))
+	    + "\" data-action=\"test-input\"/>\n</div>\n<button class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.button : stack1), depth0))
+	    + "\" data-action=\"test-answer\">ответить</button>";
+	},"useData":true});
+
+/***/ },
+/* 41 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15876,6 +16039,11 @@
 				this.render();
 			}
 		}, {
+			key: '_appended',
+			value: function _appended() {
+				this.$el.find('[data-action="test-input"]').focus();
+			}
+		}, {
 			key: '_prepareData',
 			value: function _prepareData() {
 				var data = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
@@ -15893,100 +16061,6 @@
 		}, {
 			key: '_template',
 			get: function get() {
-				return __webpack_require__(40);
-			}
-		}]);
-
-		return _class;
-	}(_base2.default);
-
-	exports.default = _class;
-
-/***/ },
-/* 40 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Handlebars = __webpack_require__(16);
-	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
-	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
-	
-	  return "<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.title : stack1), depth0))
-	    + "\">Сколько вам лет?</div>\n<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.subtitle : stack1), depth0))
-	    + "\">Мы никому не скажем</div>\n<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.form : stack1), depth0))
-	    + "\">\n	<input class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.input : stack1), depth0))
-	    + "\" />\n</div>\n<button class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.button : stack1), depth0))
-	    + "\">ответить</button>";
-	},"useData":true});
-
-/***/ },
-/* 41 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _underscore = __webpack_require__(2);
-	
-	var _underscore2 = _interopRequireDefault(_underscore);
-	
-	var _base = __webpack_require__(5);
-	
-	var _base2 = _interopRequireDefault(_base);
-	
-	var _test = __webpack_require__(9);
-	
-	var _test2 = _interopRequireDefault(_test);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var _class = function (_BaseView) {
-		_inherits(_class, _BaseView);
-	
-		function _class() {
-			_classCallCheck(this, _class);
-	
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(_class).apply(this, arguments));
-		}
-	
-		_createClass(_class, [{
-			key: 'init',
-			value: function init() {
-				this.render();
-			}
-		}, {
-			key: '_prepareData',
-			value: function _prepareData() {
-				var data = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
-	
-				return _underscore2.default.extend(data, {
-					testStyles: _test2.default
-				});
-			}
-		}, {
-			key: 'className',
-			get: function get() {
-				return gameStyles.root;
-			}
-		}, {
-			key: '_template',
-			get: function get() {
 				return __webpack_require__(42);
 			}
 		}]);
@@ -15998,9 +16072,25 @@
 
 /***/ },
 /* 42 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-	module.exports = function(){return "";};
+	var Handlebars = __webpack_require__(16);
+	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
+	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
+	
+	  return "<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.title : stack1), depth0))
+	    + "\">Сколько вы весите?</div>\n<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.subtitle : stack1), depth0))
+	    + "\">Только между нами.</div>\n<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.form : stack1), depth0))
+	    + "\">\n	<input class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.input : stack1), depth0))
+	    + "\" data-action=\"test-input\"/>&nbsp;&nbsp;&nbsp;КГ\n</div>\n<button class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.button : stack1), depth0))
+	    + "\" data-action=\"test-answer\">ответить</button>";
+	},"useData":true});
 
 /***/ },
 /* 43 */
@@ -16155,13 +16245,9 @@
 	
 	  return "<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.styles : depth0)) != null ? stack1.pageRoot : stack1), depth0))
-	    + "\">\n	<a href=\"/#/why\" class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.styles : depth0)) != null ? stack1.pageNavPrev : stack1), depth0))
-	    + "\">Зачем<br>Сдавать</a>\n	<div class=\""
+	    + "\">\n	<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.styles : depth0)) != null ? stack1.pageTitle : stack1), depth0))
-	    + "\">Как сдать<br>костный мозг</div>\n	<a href=\"/#/where\" class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.styles : depth0)) != null ? stack1.pageNavNext : stack1), depth0))
-	    + "\">Где<br>сдать</a>\n	<div class=\""
+	    + "\">Как сдать<br>костный мозг</div>\n	>\n	<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.styles : depth0)) != null ? stack1.pageContainer : stack1), depth0))
 	    + "\">\n		<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.styles : depth0)) != null ? stack1.intro : stack1), depth0))
@@ -16428,7 +16514,7 @@
 	
 	
 	// module
-	exports.push([module.id, "._262Ej1jMDO2JTW3JIx8Tcp {\n\tmin-width: 1200px;\n}\n\n._1YDXoGjZVC7CsGamehZuyC {\n\tbackground-image: url('/static/main_artwork.jpg');\n\tbackground-size: cover;\n}\n\n._1YDXoGjZVC7CsGamehZuyC::after {\n\twidth: 100%;\n\tpadding-bottom: 34%;\n\tcontent: '';\n\theight: 0;\n\tdisplay: block;\n}", ""]);
+	exports.push([module.id, "._262Ej1jMDO2JTW3JIx8Tcp {\n\tmin-width: 1024px;\n}\n\n._1YDXoGjZVC7CsGamehZuyC {\n\tbackground-image: url('/static/main_artwork.jpg');\n\tbackground-size: cover;\n}\n\n._1YDXoGjZVC7CsGamehZuyC::after {\n\twidth: 100%;\n\tpadding-bottom: 34%;\n\tcontent: '';\n\theight: 0;\n\tdisplay: block;\n}", ""]);
 	
 	// exports
 	exports.locals = {

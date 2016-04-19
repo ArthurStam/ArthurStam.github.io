@@ -13,6 +13,12 @@ import styles from 'dev/styles/test.css';
 
 const states = { START: 'START', GAME: 'GAME', FINISH: 'FINISH' };
 
+const reasons = { AGE: 'AGE', WEIGHT: 'WEIGHT', AUTO: 'AUTO' };
+
+function isLastStep(stepIndex, stepsAmount) {
+	return stepIndex >= stepsAmount;
+}
+
 const steps = [{
 	View: AgeView
 }, {
@@ -51,7 +57,7 @@ export default class extends BaseView {
 
 	init() {
 		this.testModel = new TestModel();
-		this.listenTo(this.testModel, 'change:state', this._changeState);
+		this.listenTo(this.testModel, 'change:state change:step', this._changeState);
 		this._changeState();
 	}
 
@@ -63,8 +69,9 @@ export default class extends BaseView {
 				break;
 			case states.GAME:
 				this.registerChild(new GameView({
+					testModel: this.testModel,
 					stepsAmount: steps.length,
-					currentStepIndex: this.testModel.get('step') + 1,
+					currentStepIndex: this.testModel.get('step'),
 					StepView: steps[this.testModel.get('step')].View
 				}), 'test-container');
 				break;
@@ -79,3 +86,5 @@ export default class extends BaseView {
 		})
 	}
 }
+
+export { states, reasons, isLastStep }

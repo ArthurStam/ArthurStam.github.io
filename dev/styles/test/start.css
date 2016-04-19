@@ -1,13 +1,13 @@
 @import "../placeholders";
 
 .root {
-	padding: 60px 0 78px;
+	padding: 40px 0 58px;
 }
 
 .title {
 	composes: roboto;
-	font-size: 31px;
+	font-size: 23px;
 	text-transform: uppercase;
-	margin-bottom: 12px;
-	letter-spacing: 7px;
+	margin-bottom: 9px;
+	letter-spacing: 4px;
 }
