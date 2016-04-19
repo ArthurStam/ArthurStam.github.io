@@ -1,0 +1,49 @@
+.ptSerif {
+	font-family: 'PT Serif', serif;
+}
+
+.roboto {
+	font-family: 'Roboto', sans-serif;
+}
+
+.pageRoot {
+	position: relative;
+	padding: 40px 0;
+}
+
+.pageTitle {
+	composes: ptSerif;
+	font-weight: bold;
+	font-size: 80px;
+	line-height: 90px;
+	text-align: center;
+	margin-bottom: 25px;
+}
+
+.pageNav {
+	color: #000;
+	text-decoration: none;
+	composes: ptSerif;
+	font-size: 36px;
+	line-height: 42px;
+	font-weight: normal;	
+}
+
+.pageNavPrev {
+	composes: pageNav;
+	position: absolute;
+	left: 68px;
+	top: 50px;
+}
+
+.pageNavNext {
+	composes: pageNav;
+	position: absolute;
+	right: 68px;
+	top: 50px;
+}
+
+.pageContainer {
+	width: 650px;
+	margin: auto;
+}

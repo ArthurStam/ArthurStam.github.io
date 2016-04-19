@@ -1,0 +1,16 @@
+.root {
+	min-width: 1200px;
+}
+
+.artwork {
+	background-image: url('/static/main_artwork.jpg');
+	background-size: cover;
+
+	&::after {		
+		width: 100%;
+		padding-bottom: 34%;
+		content: '';
+		height: 0;
+		display: block;
+	}
+}

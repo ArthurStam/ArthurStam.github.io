@@ -1,4 +1,5 @@
 var path = require('path');
+var nestedRules = require('postcss-nested');
 
 module.exports = {
 	entry: './dev/app.js',
@@ -11,9 +12,9 @@ module.exports = {
 	module: {
 		loaders: [
 			{
-				test: /\.scss$/,
-				loaders: ['style', 'css', 'sass']
-			}, {
+                test:   /\.css$/,
+                loader: 'style-loader!css-loader?modules!postcss-loader'
+            }, {
 				test: /\.handlebars/,
 				loader: 'handlebars-loader',
 			}, {
@@ -27,9 +28,7 @@ module.exports = {
 		]
 	},
 
-	sassLoader: {
-		includePaths: [path.resolve(__dirname, './node_modules')]
-	},
+	postcss: [nestedRules, require('postcss-import')],
 
 	resolve: {
 		root: [
