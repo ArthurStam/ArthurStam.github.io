@@ -37,6 +37,25 @@
 	}
 }
 
+.formDisease {
+	text-align: left;
+	width: 560px;
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	height: 360px;
+
+	.checkbox {
+		width: calc(50% - 10px);
+
+		&:not(:last-child) {
+			margin-bottom: 23px;
+		}
+	}	
+}
+
 .radioInput {
 	display: none;
 
@@ -73,12 +92,56 @@
 	&::after {
 		display: block;
 		position: absolute;
-		left: 5px;
-		bottom: 5px;
+		left: 4px;
+		bottom: 4px;
 		width: 18px;
 		height: 18px;
 		background-color: #FFD637;
 		border-radius: 50%;
+		opacity: 0;
+		content: '';
+	}
+}
+
+.checkboxInput {
+	display: none;
+
+	&:checked + .checkboxLabel {
+
+		&::after {
+			opacity: 1;
+		}
+	}
+}
+
+.checkboxLabel {
+	composes: roboto;
+	font-size: 18px;
+	position: relative;
+	padding-left: 42px;
+	line-height: 26px;
+	display: inline-block;
+	cursor: pointer;
+
+	&::before {
+		display: block;
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 26px;
+		height: 26px;
+		border: 1px solid #000;
+		content: '';
+	}
+
+	&::after {
+		display: block;
+		position: absolute;
+		left: 4px;
+		top: 4px;
+		width: 18px;
+		height: 18px;
+		background-color: #FFD637;
 		opacity: 0;
 		content: '';
 	}

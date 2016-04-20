@@ -2,11 +2,11 @@
 <div class="{{testStyles.subtitle}}">Если у вас есть аутоимуннное заболевание, скорее всего,<br>вы об этом знаете. Если не уверены, сверьтесь<br><a href="{{testStyles.link}}">со списком аутоимунных заболеваний</a>.</div>
 <div class="{{gameStyles.form}} {{gameStyles.formAuto}}">
 	<div class="{{gameStyles.radio}}">
-		<input type="radio" name="game-auto-radio" id="game-auto-radio-true" class="{{gameStyles.radioInput}}">
+		<input type="radio" value="true" data-action="test-input" name="game-auto-radio" id="game-auto-radio-true" class="{{gameStyles.radioInput}}">
 		<label for="game-auto-radio-true" class="{{gameStyles.radioLabel}}">Да</label>
 	</div>
 	<div class="{{gameStyles.radio}}">
-		<input type="radio" name="game-auto-radio" id="game-auto-radio-false" class="{{gameStyles.radioInput}}">
+		<input type="radio" value="false" data-action="test-input" name="game-auto-radio" id="game-auto-radio-false" class="{{gameStyles.radioInput}}">
 		<label for="game-auto-radio-false" class="{{gameStyles.radioLabel}}">Нет</label>
 	</div>
 </div>

@@ -8,15 +8,17 @@ import GameView from 'dev/views/test/game';
 import AgeView from 'dev/views/test/age.js';
 import WeightView from 'dev/views/test/weight.js';
 import AutoView from 'dev/views/test/auto.js';
+import DiseaseView from 'dev/views/test/disease.js';
+import FinishView from 'dev/views/test/finish.js';
 
 import styles from 'dev/styles/test.css';
 
 const states = { START: 'START', GAME: 'GAME', FINISH: 'FINISH' };
 
-const reasons = { AGE: 'AGE', WEIGHT: 'WEIGHT', AUTO: 'AUTO' };
+const reasons = { AGE: 'AGE', WEIGHT: 'WEIGHT', AUTO: 'AUTO', DISEASE: 'DISEASE' };
 
 function isLastStep(stepIndex, stepsAmount) {
-	return stepIndex >= stepsAmount;
+	return stepIndex + 1 >= stepsAmount;
 }
 
 const steps = [{
@@ -25,14 +27,19 @@ const steps = [{
 	View: WeightView
 }, {
 	View: AutoView
+}, {
+	View: DiseaseView
 }];
 
 class TestModel extends Backbone.Model {
 
 	get defaults() {
 		return {
-			state: states.START,
-			step: 0
+			state: states.GAME,
+			step: 0,
+			result: true,
+			reason: null,
+			data: {}
 		}
 	}
 }
@@ -73,6 +80,11 @@ export default class extends BaseView {
 					stepsAmount: steps.length,
 					currentStepIndex: this.testModel.get('step'),
 					StepView: steps[this.testModel.get('step')].View
+				}), 'test-container');
+				break;
+			case states.FINISH:
+				this.registerChild(new FinishView({
+					testModel: this.testModel
 				}), 'test-container');
 				break;
 		}

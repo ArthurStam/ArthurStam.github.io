@@ -1,0 +1,24 @@
+<div class="{{finishStyles.header}}">
+	<div class="{{finishStyles.headerIcon}}">i</div>
+	<div class="{{finishStyles.headerText}}">Могу ли я стать донором?</div>
+</div>
+<div class="{{finishStyles.content}} {{#if testModel.result}}{{finishStyles.contentSuccess}}{{else}}{{finishStyles.contentFail}}{{/if}}">
+	{{#if testModel.result}}
+		<div class="{{finishStyles.success}}">
+			<div class="{{finishStyles.successTitle}}">Да!</div>
+			<div class="{{finishStyles.successText}}">
+				Вы можете стать донором и спасти чью-то жизнь.
+				Осталось только найти <a class="{{testStyles.link}}" href="#">удобный пункт сдачи крови</a>. 
+			</div>
+		<div>
+	{{else}}
+		<div class="{{finishStyles.fail}}">
+			<div class="{{finishStyles.failTitle}}">
+				Нет, но я могу помочь
+			</div>
+			<div class="{{finishStyles.failText}}">
+				Текст фейла
+			</div>
+		</div>
+	{{/if}}
+</div>

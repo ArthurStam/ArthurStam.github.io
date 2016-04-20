@@ -2,6 +2,10 @@
 	min-width: 1024px;
 }
 
+.root, .root *, .root *::before, .root *::after {
+	box-sizing: border-box;
+}
+
 .artwork {
 	background-image: url('/static/main_artwork.jpg');
 	background-size: cover;

@@ -1,0 +1,83 @@
+@import "../placeholders";
+
+.root {
+	padding: 24px;
+	text-align: left;
+}
+
+.header {
+	composes: roboto;
+	font-size: 0;
+	letter-spacing: 0;
+	line-height: 0;
+}
+
+.headerIcon {
+	width: 28px;
+	height: 28px;
+	text-align: center;
+	background-color: #000;
+	border-radius: 50%;
+	display: inline-block;
+	vertical-align: middle;
+	line-height: 28px;
+	color: #fff;
+	font-size: 15px;
+	font-weight: bold;
+	margin-right: 11px;
+}
+
+.headerText {
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 16px;
+}
+
+.content {
+	display: flex;
+	flex-direction: row;
+}
+
+.contentFail {
+	padding-top: 20px;
+	justify-content: flex-start;
+}
+
+.contentSuccess {
+	padding-top: 20px;
+	justify-content: flex-end;
+}
+
+.success {
+	width: 337px;
+}
+
+.successTitle {
+	composes: ptSerif;
+	font-size: 72px;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
+.successText {
+	composes: roboto;
+	font-size: 18px;
+	line-height: 26px;
+}
+
+.fail {
+
+}
+
+.failTitle {
+	composes: ptSerif;
+	font-size: 36px;
+	font-weight: bold;
+	margin-bottom: 15px;
+}
+
+.failText {
+	composes: roboto;
+	font-size: 18px;
+	line-height: 26px;
+}
