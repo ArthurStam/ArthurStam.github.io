@@ -47,3 +47,19 @@
 	width: 650px;
 	margin: auto;
 }
+
+.testButton {
+	composes: roboto;
+	letter-spacing: 4px;
+	font-size: 22px;
+	font-weight: normal;
+	color: #000;
+	text-transform: uppercase;
+	border: none;
+	background-image: none;
+	background-color: #FFD637;
+	height: 62px;
+	line-height: 62px;
+	min-width: 290px;
+	cursor: pointer;
+}

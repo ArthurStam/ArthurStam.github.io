@@ -1,4 +1,5 @@
 import _ from 'underscore';
+import $ from 'jquery';
 
 import BaseView from 'crimson-backbone/src/views/base';
 
@@ -20,6 +21,18 @@ export default class extends BaseView {
 			testStyles: testStyles,
 			gameStyles: gameStyles
 		});
+	}
+
+	_disable() {
+		this.$el.find('[data-action="test-submit"]').attr('disabled', 'disabled');
+	}
+
+	_enable() {
+		this.$el.find('[data-action="test-submit"]').removeAttr('disabled');
+	}
+
+	_appended() {
+		this._disable();
 	}
 
 	_goNext() {

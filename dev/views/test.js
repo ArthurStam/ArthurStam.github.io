@@ -35,13 +35,33 @@ class TestModel extends Backbone.Model {
 
 	get defaults() {
 		return {
-			state: states.GAME,
+			state: states.START,
 			step: 0,
 			result: true,
 			reason: null,
 			data: {}
 		}
 	}
+
+	get ageFail() { return this.get('reason') == reasons.AGE }
+
+	get age17() { return this.get('data').age == 17 }
+
+	get age16() { return this.get('data').age == 16 }
+
+	get age15_10() { return this.get('data').age <= 15 && this.get('data').age >= 10 }
+
+	get age45more() { return this.get('data').age > 45 }
+
+	get weightFail() { return this.get('reason') == reasons.WEIGHT }
+
+	get weight47less() { return this.get('data').weight <= 47 }
+
+	get weight48_49() { return this.get('data').weight == 49 || this.get('data').weight == 48 }
+
+	get autoFail() { return this.get('reason') == reasons.AUTO }
+
+	get diseaseFail() { return this.get('reason') == reasons.DISEASE }
 }
 
 export default class extends BaseView {
@@ -88,7 +108,6 @@ export default class extends BaseView {
 				}), 'test-container');
 				break;
 		}
-		this.appendChildren('test-container');
 		this.render();
 	}
 

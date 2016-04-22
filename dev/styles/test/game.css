@@ -20,10 +20,11 @@
 
 .form {
 	composes: roboto;
-	margin-bottom: 38px;
+	margin: 0;
 }
 
 .formAuto {
+	composes: form;
 	text-align: left;
 	width: 348px;
 	margin-left: auto;
@@ -38,14 +39,18 @@
 }
 
 .formDisease {
+	composes: form;
 	text-align: left;
 	width: 560px;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+.formDiseaseContainer {
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: column;
-	height: 360px;
+	height: 375px;
 
 	.checkbox {
 		width: calc(50% - 10px);
@@ -53,7 +58,7 @@
 		&:not(:last-child) {
 			margin-bottom: 23px;
 		}
-	}	
+	}
 }
 
 .radioInput {
@@ -165,6 +170,20 @@
 	transform: translate3d(0, 0, 0);
 	backface-visibility: hidden;
 	perspective: 1000px;
+}
+
+.actions {
+	text-align: center;
+	margin-top: 38px;
+}
+
+.submit {
+	composes: testButton;
+
+	&[disabled] {
+		opacity: 0.5;
+		cursor: default;
+	}
 }
 
 @keyframes shake {

@@ -2,7 +2,7 @@ import _ from 'underscore';
 
 import BaseView from 'crimson-backbone/src/views/base';
 
-import { states, isLastStep } from 'dev/views/test';
+import { states, isLastStep, reasons } from 'dev/views/test';
 
 import testStyles from 'dev/styles/test.css';
 import finishStyles from 'dev/styles/test/finish.css';
@@ -18,10 +18,11 @@ export default class extends BaseView {
 	}
 
 	_prepareData(data = {}) {
+
 		return _.extend(data, {
 			testStyles: testStyles,
 			finishStyles: finishStyles,
-			testModel: this.testModel.attributes
+			testModel: this.testModel
 		});
 	}
 }

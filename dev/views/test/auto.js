@@ -13,16 +13,17 @@ export default class extends StepView {
 
 	get events() {
 		return {
-			'click [data-action="test-answer"]': '_answer',
+			'submit [data-action="test-form"]': '_answer',
 			'change [data-action="test-input"]': '_changeAuto'
 		};
 	}
 
 	_changeAuto(e) {
 		this.auto = e.currentTarget.value === 'false' ? false : true;
+		this._enable();
 	}
 
-	_answer() {
+	_answer(e) {
 		if (_.isBoolean(this.auto)) {
 			if (this.auto === true) {
 				this.testModel.set({
@@ -34,5 +35,6 @@ export default class extends StepView {
 			 	this._goNext();
 			}
 		}
+		e.preventDefault();
 	}
 }

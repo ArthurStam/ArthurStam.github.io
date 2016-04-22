@@ -9,6 +9,9 @@ import testStyles from 'dev/styles/test.css';
 import gameStyles from 'dev/styles/test/game.css';
 
 const data = [{
+	text: 'Ничего',
+	danger: false
+}, {
 	text: 'ОРВИ',
 	danger: false
 }, {
@@ -22,7 +25,7 @@ const data = [{
 	danger: true
 }, {
 	text: 'Мне удаляли орган',
-	danger: false
+	danger: true
 }, {
 	text: 'Туберкулез',
 	danger: true
@@ -34,7 +37,7 @@ const data = [{
 	danger: true
 }, {
 	text: 'Хроническое заболевания сердечно-сосудистой системы',
-	danger: false
+	danger: true
 }, {
 	text: 'Злокачественное заболевание',
 	danger: true
@@ -49,7 +52,7 @@ export default class extends StepView {
 
 	get events() {
 		return {
-			'click [data-action="test-answer"]': '_answer',
+			'submit [data-action="test-form"]': '_answer',
 			'change [data-action="test-input"]': '_changeDisease'
 		};
 	}
@@ -66,13 +69,14 @@ export default class extends StepView {
 		} else {
 			delete this.selected[`item-${id}`]
 		}
+		Object.keys(this.selected).length ? this._enable() : this._disable();
 	}
 
 	_prepareData() {
 		return _.extend({ data: data }, super._prepareData());
 	}
 
-	_answer() {
+	_answer(e) {
 		let result = true;
 		for (let item in this.selected) {
 			if (this.selected[item].danger) {
@@ -92,5 +96,6 @@ export default class extends StepView {
 		} else {
 			this._goNext();
 		}
+		e.preventDefault();
 	}
 }

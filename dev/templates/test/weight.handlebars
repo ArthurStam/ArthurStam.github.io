@@ -1,6 +1,8 @@
 <div class="{{testStyles.title}}">Сколько вы весите?</div>
 <div class="{{testStyles.subtitle}}">Только между нами.</div>
-<div class="{{gameStyles.form}}">
-	<input class="{{gameStyles.input}}" data-action="test-input" max-length="3"/>&nbsp;&nbsp;КГ
-</div>
-<button class="{{testStyles.button}}" data-action="test-answer">ответить</button>
+<form class="{{gameStyles.form}}" data-action="test-form">
+	<input class="{{gameStyles.input}}" data-action="test-input" maxlength="3"/>&nbsp;&nbsp;КГ
+	<div class="{{gameStyles.actions}}">
+		<button class="{{gameStyles.submit}}" data-action="test-submit">ответить</button>
+	</div>
+</form>

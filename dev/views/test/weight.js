@@ -14,20 +14,23 @@ export default class extends StepView {
 
 	get events() {
 		return {
-			'click [data-action="test-answer"]': '_answer',
+			'submit [data-action="test-form"]': '_answer',
 			'input [data-action="test-input"]': '_inputWeight'
 		};
 	}
 
 	_inputWeight(e) {
-		this.weight = $(e.currentTarget).val() || undefined;
+		let value = $(e.currentTarget).val();
+		this.weight = value || undefined;
+		value ? this._enable() : this._disable();
 	}
 
 	_appended() {
+		super._appended();
 		this.$el.find('[data-action="test-input"]').focus();
 	}
 
-	_answer() {
+	_answer(e) {
 		if (isFinite(this.weight)) {
 			if (this.weight < 50) {
 				this.testModel.set({
@@ -54,5 +57,6 @@ export default class extends StepView {
 					.removeClass(gameStyles.inputInvalid);
 			}, 1000);
 		}
+		e.preventDefault();
 	}
 }

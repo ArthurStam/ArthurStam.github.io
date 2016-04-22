@@ -1,11 +1,15 @@
 <div class="{{testStyles.title}}">Что у вас<br>в медицинской карте?</div>
 <div class="{{testStyles.subtitle}}">Есть сейчас или было когда-то.</div>
-<div class="{{gameStyles.form}} {{gameStyles.formDisease}}">
-	{{#each data}}
-		<div class="{{../gameStyles.checkbox}}">
-			<input type="checkbox" value="true" data-action="test-input" name="game-auto-checkbox" id="game-auto-checkbox-{{@index}}" class="{{../gameStyles.checkboxInput}}" data-id={{@index}}>
-			<label for="game-auto-checkbox-{{@index}}" class="{{../gameStyles.checkboxLabel}}" {{#if this.danger}}data-danger="true"{{/if}}>{{this.text}}</label>
-		</div>
-	{{/each}}
-</div>
-<button class="{{testStyles.button}}" data-action="test-answer">ответить</button>
+<form class="{{gameStyles.formDisease}}" data-action="test-form">
+	<div class="{{gameStyles.formDiseaseContainer}}">
+		{{#each data}}
+			<div class="{{../gameStyles.checkbox}}">
+				<input type="checkbox" value="true" data-action="test-input" name="game-auto-checkbox" id="game-auto-checkbox-{{@index}}" class="{{../gameStyles.checkboxInput}}" data-id={{@index}}>
+				<label for="game-auto-checkbox-{{@index}}" class="{{../gameStyles.checkboxLabel}}" {{#if this.danger}}data-danger="true"{{/if}}>{{this.text}}</label>
+			</div>
+		{{/each}}
+	</div>
+	<div class="{{gameStyles.actions}}">
+		<button class="{{gameStyles.submit}}" data-action="test-submit">ответить</button>
+	</div>
+</form>
