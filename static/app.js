@@ -14564,7 +14564,7 @@
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.title : stack1), depth0))
 	    + "\">Могу ли я стать донором?</div>\n<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.subtitle : stack1), depth0))
-	    + "\">\n	Абсолютно здоровых людей не бывает, но при некоторых<br>заболеваниях нельзя становиться донором: это опасно и для<br>донора, и для пациента. Пройдите тест или прочитайте<br><a href=\"#\" class=\""
+	    + "\">\n	Абсолютно здоровых людей не бывает, но при некоторых<br>заболеваниях нельзя становиться донором: это опасно и для<br>донора, и для пациента. Пройдите тест или прочитайте<br><a href=\"#\" target=\"_blank\" class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.link : stack1), depth0))
 	    + "\">полный список противопоказаний</a>.\n</div>\n<button class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.button : stack1), depth0))
@@ -16409,7 +16409,7 @@
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.title : stack1), depth0))
 	    + "\">Есть ли у вас<br>аутоимунные заболевания?</div>\n<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.subtitle : stack1), depth0))
-	    + "\">Если у вас есть аутоимуннное заболевание, скорее всего,<br>вы об этом знаете. Если не уверены, сверьтесь<br><a href=\""
+	    + "\">Если у вас есть аутоимуннное заболевание, скорее всего,<br>вы об этом знаете. Если не уверены, сверьтесь<br><a href=\"#\" target=\"_blank\" class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.link : stack1), depth0))
 	    + "\">со списком аутоимунных заболеваний</a>.</div>\n<form class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.formAuto : stack1), depth0))
