@@ -62,6 +62,8 @@ class TestModel extends Backbone.Model {
 	get autoFail() { return this.get('reason') == reasons.AUTO }
 
 	get diseaseFail() { return this.get('reason') == reasons.DISEASE }
+
+	get success() { return this.get('result') }
 }
 
 export default class extends BaseView {

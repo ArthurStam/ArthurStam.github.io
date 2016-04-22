@@ -77,8 +77,15 @@
 }
 
 .failText {
+	composes: roboto;
 	width: 300px;
+	font-size: 18px;
+	line-height: 26px;
+}
+
+.share {
 	composes: roboto;
 	font-size: 18px;
 	line-height: 26px;
+	margin-top: 15px;
 }

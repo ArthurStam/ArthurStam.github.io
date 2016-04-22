@@ -13963,6 +13963,11 @@
 			get: function get() {
 				return this.get('reason') == reasons.DISEASE;
 			}
+		}, {
+			key: 'success',
+			get: function get() {
+				return this.get('result');
+			}
 		}]);
 	
 		return TestModel;
@@ -16644,6 +16649,8 @@
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
+	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+	
 	var _underscore = __webpack_require__(2);
 	
 	var _underscore2 = _interopRequireDefault(_underscore);
@@ -16651,6 +16658,10 @@
 	var _base = __webpack_require__(5);
 	
 	var _base2 = _interopRequireDefault(_base);
+	
+	var _share = __webpack_require__(67);
+	
+	var _share2 = _interopRequireDefault(_share);
 	
 	var _test = __webpack_require__(7);
 	
@@ -16670,6 +16681,30 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
+	var FinishShareView = function (_ShareView) {
+		_inherits(FinishShareView, _ShareView);
+	
+		function FinishShareView() {
+			_classCallCheck(this, FinishShareView);
+	
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(FinishShareView).apply(this, arguments));
+		}
+	
+		_createClass(FinishShareView, [{
+			key: '_prepareData',
+			value: function _prepareData() {
+				return _underscore2.default.extend(_get(Object.getPrototypeOf(FinishShareView.prototype), '_prepareData', this).call(this), { testStyles: _test3.default });
+			}
+		}, {
+			key: '_template',
+			get: function get() {
+				return __webpack_require__(69);
+			}
+		}]);
+	
+		return FinishShareView;
+	}(_share2.default);
+	
 	var _class = function (_BaseView) {
 		_inherits(_class, _BaseView);
 	
@@ -16682,6 +16717,18 @@
 		_createClass(_class, [{
 			key: 'init',
 			value: function init() {
+	
+				if (this.testModel.success) {
+					this.registerChild(new FinishShareView({
+						title: 'Я подхожу!',
+						description: 'Могу ли я быть донором костного мозга? Тест для тех, кто еще не знает. И сайт о том, зачем вообще сдавать костный мозг и где.'
+					}), 'test-share');
+				} else {
+					this.registerChild(new FinishShareView({
+						title: 'Хочу, но не могу.',
+						description: 'Могу ли я быть донором костного мозга? Тест для тех, кто еще не знает. И сайт о том, зачем вообще сдавать костный мозг и где.'
+					}), 'test-share');
+				}
 				this.render();
 			}
 		}, {
@@ -16748,7 +16795,7 @@
 	
 	
 	// module
-	exports.push([module.id, "._1d4LOFG7ce4Yl_v9yahPLG {\n\tfont-family: 'PT Serif', serif;\n}\n\n._2Wk5mQjdxGsAoWCMBYvX8r {\n\tfont-family: 'Roboto', sans-serif;\n}\n\n.cPjo0_1mhRuW3QRpfSic8 {\n\tposition: relative;\n\tpadding: 40px 0;\n}\n\n._1GXRR_1njCZ1yjk1gOI7sI {\n\tfont-weight: bold;\n\tfont-size: 80px;\n\tline-height: 90px;\n\ttext-align: center;\n\tmargin-bottom: 25px;\n}\n\n._3UbSolTzePGcYN_-Q0eUNY {\n\tcolor: #000;\n\ttext-decoration: none;\n\tfont-size: 36px;\n\tline-height: 42px;\n\tfont-weight: normal;\t\n}\n\n._1_MkKq430hfnIezYsIktpM {\n\tposition: absolute;\n\tleft: 68px;\n\ttop: 50px;\n}\n\n.BBG0gwqO48Jd6PxgoBhJ2 {\n\tposition: absolute;\n\tright: 68px;\n\ttop: 50px;\n}\n\n.fhxeoA5fPjfLuU7mfW5qb {\n\twidth: 650px;\n\tmargin: auto;\n}\n\n.I1VMUIro7nlV4Tgp07EiM {\n\tletter-spacing: 4px;\n\tfont-size: 22px;\n\tfont-weight: normal;\n\tcolor: #000;\n\ttext-transform: uppercase;\n\tborder: none;\n\tbackground-image: none;\n\tbackground-color: #FFD637;\n\theight: 62px;\n\tline-height: 62px;\n\tmin-width: 290px;\n\tcursor: pointer;\n}\n\n._3B-1CcHYxRdP4xmviYBWko {\n\tpadding: 24px;\n\ttext-align: left;\n}\n\n.BPlcspTWA-U5f8Dm8GR-4 {\n\tfont-size: 0;\n\tletter-spacing: 0;\n\tline-height: 0;\n}\n\n._2pkN-Ik882-3VtpKkxL3v8 {\n\twidth: 28px;\n\theight: 28px;\n\ttext-align: center;\n\tbackground-color: #000;\n\tborder-radius: 50%;\n\tdisplay: inline-block;\n\tvertical-align: middle;\n\tline-height: 28px;\n\tcolor: #fff;\n\tfont-size: 15px;\n\tfont-weight: bold;\n\tmargin-right: 11px;\n}\n\n.kZRWI19Iy-xWer-tCiQ37 {\n\tdisplay: inline-block;\n\tvertical-align: middle;\n\tfont-size: 16px;\n}\n\n._3CcTlLIxG3BS1PKJkuGDM2 {\n\tdisplay: flex;\n\tflex-direction: row;\n}\n\n.FS2caTlSXTucapYV8McOB {\n\tpadding-top: 20px;\n\tjustify-content: flex-start;\n}\n\n._3QjaZhGdzkNYAsbrUlSWIj {\n\tpadding-top: 20px;\n\tjustify-content: flex-end;\n}\n\n._2YIn_UKGPKJxia22ce210M {\n\twidth: 337px;\n}\n\n.R2RwFJKTaCz93ASxaWaNH {\n\tfont-size: 72px;\n\tfont-weight: bold;\n\tmargin-bottom: 20px;\n}\n\n._1HnD0zUaIRYJELjx-_Do2W {\n\tfont-size: 18px;\n\tline-height: 26px;\n}\n\n.UQMNwjI_mEdn198JXfMeZ {\n\n}\n\n._3OkmOfTEtzsuHlh2-X2xVK {\n\tfont-size: 36px;\n\tfont-weight: bold;\n\tmargin-bottom: 15px;\n}\n\n._1lZi4vkmIYBBcoC7Rz8Bt6 {\n\twidth: 300px;\n\tfont-size: 18px;\n\tline-height: 26px;\n}", ""]);
+	exports.push([module.id, "._1d4LOFG7ce4Yl_v9yahPLG {\n\tfont-family: 'PT Serif', serif;\n}\n\n._2Wk5mQjdxGsAoWCMBYvX8r {\n\tfont-family: 'Roboto', sans-serif;\n}\n\n.cPjo0_1mhRuW3QRpfSic8 {\n\tposition: relative;\n\tpadding: 40px 0;\n}\n\n._1GXRR_1njCZ1yjk1gOI7sI {\n\tfont-weight: bold;\n\tfont-size: 80px;\n\tline-height: 90px;\n\ttext-align: center;\n\tmargin-bottom: 25px;\n}\n\n._3UbSolTzePGcYN_-Q0eUNY {\n\tcolor: #000;\n\ttext-decoration: none;\n\tfont-size: 36px;\n\tline-height: 42px;\n\tfont-weight: normal;\t\n}\n\n._1_MkKq430hfnIezYsIktpM {\n\tposition: absolute;\n\tleft: 68px;\n\ttop: 50px;\n}\n\n.BBG0gwqO48Jd6PxgoBhJ2 {\n\tposition: absolute;\n\tright: 68px;\n\ttop: 50px;\n}\n\n.fhxeoA5fPjfLuU7mfW5qb {\n\twidth: 650px;\n\tmargin: auto;\n}\n\n.I1VMUIro7nlV4Tgp07EiM {\n\tletter-spacing: 4px;\n\tfont-size: 22px;\n\tfont-weight: normal;\n\tcolor: #000;\n\ttext-transform: uppercase;\n\tborder: none;\n\tbackground-image: none;\n\tbackground-color: #FFD637;\n\theight: 62px;\n\tline-height: 62px;\n\tmin-width: 290px;\n\tcursor: pointer;\n}\n\n._3B-1CcHYxRdP4xmviYBWko {\n\tpadding: 24px;\n\ttext-align: left;\n}\n\n.BPlcspTWA-U5f8Dm8GR-4 {\n\tfont-size: 0;\n\tletter-spacing: 0;\n\tline-height: 0;\n}\n\n._2pkN-Ik882-3VtpKkxL3v8 {\n\twidth: 28px;\n\theight: 28px;\n\ttext-align: center;\n\tbackground-color: #000;\n\tborder-radius: 50%;\n\tdisplay: inline-block;\n\tvertical-align: middle;\n\tline-height: 28px;\n\tcolor: #fff;\n\tfont-size: 15px;\n\tfont-weight: bold;\n\tmargin-right: 11px;\n}\n\n.kZRWI19Iy-xWer-tCiQ37 {\n\tdisplay: inline-block;\n\tvertical-align: middle;\n\tfont-size: 16px;\n}\n\n._3CcTlLIxG3BS1PKJkuGDM2 {\n\tdisplay: flex;\n\tflex-direction: row;\n}\n\n.FS2caTlSXTucapYV8McOB {\n\tpadding-top: 20px;\n\tjustify-content: flex-start;\n}\n\n._3QjaZhGdzkNYAsbrUlSWIj {\n\tpadding-top: 20px;\n\tjustify-content: flex-end;\n}\n\n._2YIn_UKGPKJxia22ce210M {\n\twidth: 337px;\n}\n\n.R2RwFJKTaCz93ASxaWaNH {\n\tfont-size: 72px;\n\tfont-weight: bold;\n\tmargin-bottom: 20px;\n}\n\n._1HnD0zUaIRYJELjx-_Do2W {\n\tfont-size: 18px;\n\tline-height: 26px;\n}\n\n.UQMNwjI_mEdn198JXfMeZ {\n\n}\n\n._3OkmOfTEtzsuHlh2-X2xVK {\n\tfont-size: 36px;\n\tfont-weight: bold;\n\tmargin-bottom: 15px;\n}\n\n._1lZi4vkmIYBBcoC7Rz8Bt6 {\n\twidth: 300px;\n\tfont-size: 18px;\n\tline-height: 26px;\n}\n\n.zT-TpgEF96c_-Es7rTxxo {\n\tfont-size: 18px;\n\tline-height: 26px;\n\tmargin-top: 15px;\n}", ""]);
 	
 	// exports
 	exports.locals = {
@@ -16773,7 +16820,8 @@
 		"successText": "_1HnD0zUaIRYJELjx-_Do2W _2Wk5mQjdxGsAoWCMBYvX8r",
 		"fail": "UQMNwjI_mEdn198JXfMeZ",
 		"failTitle": "_3OkmOfTEtzsuHlh2-X2xVK _1d4LOFG7ce4Yl_v9yahPLG",
-		"failText": "_1lZi4vkmIYBBcoC7Rz8Bt6 _2Wk5mQjdxGsAoWCMBYvX8r"
+		"failText": "_1lZi4vkmIYBBcoC7Rz8Bt6 _2Wk5mQjdxGsAoWCMBYvX8r",
+		"share": "zT-TpgEF96c_-Es7rTxxo _2Wk5mQjdxGsAoWCMBYvX8r"
 	};
 
 /***/ },
@@ -16801,7 +16849,9 @@
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.finishStyles : depth0)) != null ? stack1.successText : stack1), depth0))
 	    + "\">\n				Вы можете стать донором и спасти чью-то жизнь.\n				Осталось только найти <a class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.link : stack1), depth0))
-	    + "\" href=\"#\">удобный пункт сдачи крови</a>. \n			</div>\n		<div>\n\n";
+	    + "\" href=\"#\">удобный пункт сдачи крови</a>. \n			</div>\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.finishStyles : depth0)) != null ? stack1.share : stack1), depth0))
+	    + "\" data-view=\"test-share\"></div>\n		<div>\n\n";
 	},"7":function(container,depth0,helpers,partials,data) {
 	    var stack1, alias1=container.lambda, alias2=container.escapeExpression, alias3=depth0 != null ? depth0 : {};
 	
@@ -16827,7 +16877,9 @@
 	    + ((stack1 = helpers["if"].call(alias3,((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.autoFail : stack1),{"name":"if","hash":{},"fn":container.program(48, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
 	    + "\n"
 	    + ((stack1 = helpers["if"].call(alias3,((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.diseaseFail : stack1),{"name":"if","hash":{},"fn":container.program(50, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-	    + "\n			</div>\n		</div>\n\n";
+	    + "\n			</div>\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.finishStyles : depth0)) != null ? stack1.share : stack1), depth0))
+	    + "\" data-view=\"test-share\"></div>\n		</div>\n";
 	},"8":function(container,depth0,helpers,partials,data) {
 	    var stack1;
 	
@@ -17335,6 +17387,109 @@
 	
 	// exports
 
+
+/***/ },
+/* 67 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _base = __webpack_require__(5);
+	
+	var _base2 = _interopRequireDefault(_base);
+	
+	var _config = __webpack_require__(68);
+	
+	var _config2 = _interopRequireDefault(_config);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _class = function (_BaseView) {
+		_inherits(_class, _BaseView);
+	
+		function _class() {
+			_classCallCheck(this, _class);
+	
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(_class).apply(this, arguments));
+		}
+	
+		_createClass(_class, [{
+			key: 'init',
+			value: function init() {
+				this.shareUrl = _config2.default.api.url + '/share?title=' + encodeURIComponent(this.title) + '&description=' + encodeURIComponent(this.description) + '&image=' + encodeURIComponent(this.image) + '&redirect_url=' + encodeURIComponent(location.href);
+				this.render();
+			}
+		}, {
+			key: '_prepareData',
+			value: function _prepareData() {
+				return {
+					vkUrl: this._generateVkUrl(),
+					fbUrl: this._generateFbUrl()
+				};
+			}
+		}, {
+			key: '_generateVkUrl',
+			value: function _generateVkUrl() {
+				return 'https://vk.com/share.php?url=' + encodeURIComponent(this.shareUrl);
+			}
+		}, {
+			key: '_generateFbUrl',
+			value: function _generateFbUrl() {
+				return 'http://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(this.shareUrl);
+			}
+		}]);
+
+		return _class;
+	}(_base2.default);
+
+	exports.default = _class;
+
+/***/ },
+/* 68 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	exports.default = {
+		api: {
+			url: 'https://donor-api.herokuapp.com'
+		}
+	};
+
+/***/ },
+/* 69 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Handlebars = __webpack_require__(16);
+	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
+	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+	    var stack1, helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression, alias5=container.lambda;
+	
+	  return "Поделиться: <a href=\""
+	    + alias4(((helper = (helper = helpers.vkUrl || (depth0 != null ? depth0.vkUrl : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"vkUrl","hash":{},"data":data}) : helper)))
+	    + "\" target=\"_blank\" class=\""
+	    + alias4(alias5(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.link : stack1), depth0))
+	    + "\">Вконтакте</a>, <a href=\""
+	    + alias4(((helper = (helper = helpers.fbUrl || (depth0 != null ? depth0.fbUrl : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"fbUrl","hash":{},"data":data}) : helper)))
+	    + "\" target=\"_blank\" class=\""
+	    + alias4(alias5(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.link : stack1), depth0))
+	    + "\">Facebook</a>";
+	},"useData":true});
 
 /***/ }
 /******/ ]);
