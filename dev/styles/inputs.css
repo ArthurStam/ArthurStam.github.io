@@ -101,7 +101,7 @@
 	padding: 8px;
 	font-size: 24px;
 	text-align: center;
-	border-radius: none;
+	border-radius: 0;
 	box-shadow: none;
 }
 
