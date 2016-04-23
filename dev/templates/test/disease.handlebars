@@ -4,8 +4,8 @@
 	<div class="{{gameStyles.formDiseaseContainer}}">
 		{{#each data}}
 			<div class="{{../gameStyles.checkbox}}">
-				<input type="checkbox" value="true" data-action="test-input" name="game-auto-checkbox" id="game-auto-checkbox-{{@index}}" class="{{../gameStyles.checkboxInput}}" data-id={{@index}}>
-				<label for="game-auto-checkbox-{{@index}}" class="{{../gameStyles.checkboxLabel}}" {{#if this.danger}}data-danger="true"{{/if}}>{{this.text}}</label>
+				<input type="checkbox" data-action="test-input" name="game-auto-checkbox" id="game-auto-checkbox-{{@index}}" class="{{../inputsStyles.checkboxInput}}" data-id={{@index}}>
+				<label for="game-auto-checkbox-{{@index}}" class="{{../inputsStyles.checkboxLabel}}" {{#if this.danger}}data-danger="true"{{/if}}>{{this.text}}</label>
 			</div>
 		{{/each}}
 	</div>

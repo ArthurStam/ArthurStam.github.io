@@ -1,4 +1,5 @@
 @import "../placeholders";
+@import "../inputs";
 
 .root {
 	padding: 29px 31px 64px;
@@ -61,117 +62,6 @@
 	}
 }
 
-.radioInput {
-	display: none;
-
-	&:checked + .radioLabel {
-
-		&::after {
-			opacity: 1;
-		}
-	}
-}
-
-.radioLabel {
-	composes: roboto;
-	font-size: 18px;
-	position: relative;
-	padding-left: 42px;
-	height: 26px;
-	line-height: 26px;
-	display: inline-block;
-	cursor: pointer;
-
-	&::before {
-		display: block;
-		position: absolute;
-		left: 0;
-		bottom: 0;
-		width: 26px;
-		height: 26px;
-		border: 1px solid #000;
-		border-radius: 50%;
-		content: '';
-	}
-
-	&::after {
-		display: block;
-		position: absolute;
-		left: 4px;
-		bottom: 4px;
-		width: 18px;
-		height: 18px;
-		background-color: #FFD637;
-		border-radius: 50%;
-		opacity: 0;
-		content: '';
-	}
-}
-
-.checkboxInput {
-	display: none;
-
-	&:checked + .checkboxLabel {
-
-		&::after {
-			opacity: 1;
-		}
-	}
-}
-
-.checkboxLabel {
-	composes: roboto;
-	font-size: 18px;
-	position: relative;
-	padding-left: 42px;
-	line-height: 26px;
-	display: inline-block;
-	cursor: pointer;
-
-	&::before {
-		display: block;
-		position: absolute;
-		left: 0;
-		top: 0;
-		width: 26px;
-		height: 26px;
-		border: 1px solid #000;
-		content: '';
-	}
-
-	&::after {
-		display: block;
-		position: absolute;
-		left: 4px;
-		top: 4px;
-		width: 18px;
-		height: 18px;
-		background-color: #FFD637;
-		opacity: 0;
-		content: '';
-	}
-}
-
-.input {
-	composes: roboto;
-	font-weight: 300;
-	display: inline-block;
-	border: 1px solid #000;
-	height: 42px;
-    line-height: 42px;
-    width: 86px;
-	padding: 8px;
-	font-size: 24px;
-	text-align: center;
-}
-
-.inputInvalid {
-	animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
-	transform: translate3d(0, 0, 0);
-	backface-visibility: hidden;
-	perspective: 1000px;
-}
-
 .actions {
 	text-align: center;
 	margin-top: 38px;
@@ -184,22 +74,4 @@
 		opacity: 0.5;
 		cursor: default;
 	}
-}
-
-@keyframes shake {
-  10%, 90% {
-    transform: translate3d(-2px, 0, 0);
-  }
-  
-  20%, 80% {
-    transform: translate3d(3px, 0, 0);
-  }
-
-  30%, 50%, 70% {
-    transform: translate3d(-6px, 0, 0);
-  }
-
-  40%, 60% {
-    transform: translate3d(6px, 0, 0);
-  }
 }

@@ -49,13 +49,15 @@ class TestModel extends Backbone.Model {
 
 	get age16() { return this.get('data').age == 16 }
 
-	get age15_10() { return this.get('data').age <= 15 && this.get('data').age >= 10 }
+	get age15_10() { return this.get('data').age && this.get('data').age <= 15 && this.get('data').age >= 10 }
 
-	get age45more() { return this.get('data').age > 45 }
+	get age10less() { return this.get('data').age && this.get('data').age < 10 }
+
+	get age45more() { return this.get('data').age && this.get('data').age > 45 }
 
 	get weightFail() { return this.get('reason') == reasons.WEIGHT }
 
-	get weight47less() { return this.get('data').weight <= 47 }
+	get weight47less() { return this.get('data').weight && this.get('data').weight <= 47 }
 
 	get weight48_49() { return this.get('data').weight == 49 || this.get('data').weight == 48 }
 

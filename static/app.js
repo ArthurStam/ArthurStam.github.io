@@ -13931,12 +13931,17 @@
 		}, {
 			key: 'age15_10',
 			get: function get() {
-				return this.get('data').age <= 15 && this.get('data').age >= 10;
+				return this.get('data').age && this.get('data').age <= 15 && this.get('data').age >= 10;
+			}
+		}, {
+			key: 'age10less',
+			get: function get() {
+				return this.get('data').age && this.get('data').age < 10;
 			}
 		}, {
 			key: 'age45more',
 			get: function get() {
-				return this.get('data').age > 45;
+				return this.get('data').age && this.get('data').age > 45;
 			}
 		}, {
 			key: 'weightFail',
@@ -13946,7 +13951,7 @@
 		}, {
 			key: 'weight47less',
 			get: function get() {
-				return this.get('data').weight <= 47;
+				return this.get('data').weight && this.get('data').weight <= 47;
 			}
 		}, {
 			key: 'weight48_49',
@@ -15870,7 +15875,7 @@
 	
 	
 	// module
-	exports.push([module.id, "._2z2_VLsmJG-9-K9jLVP1Tt {\n\tfont-family: 'PT Serif', serif;\n}\n\n._1O9lMBRHgLfG2-d-MH6fww {\n\tfont-family: 'Roboto', sans-serif;\n}\n\n._3G-ZwMQSbgLrYp4_4SUzgm {\n\tposition: relative;\n\tpadding: 40px 0;\n}\n\n.UeNnLl6hSRRxz9caxMN4B {\n\tfont-weight: bold;\n\tfont-size: 80px;\n\tline-height: 90px;\n\ttext-align: center;\n\tmargin-bottom: 25px;\n}\n\n._2MRGzgt1i2cHL3sokq_EVV {\n\tcolor: #000;\n\ttext-decoration: none;\n\tfont-size: 36px;\n\tline-height: 42px;\n\tfont-weight: normal;\t\n}\n\n.AOntsMu5ooMdf7s5vQx_3 {\n\tposition: absolute;\n\tleft: 68px;\n\ttop: 50px;\n}\n\n._1Dt6WOZ1Vmy8HqWn1fop9 {\n\tposition: absolute;\n\tright: 68px;\n\ttop: 50px;\n}\n\n.pSLxKThll82xikb71rXLr {\n\twidth: 650px;\n\tmargin: auto;\n}\n\n._2CE5HGGJdYhvd4p_BDSblM {\n\tletter-spacing: 4px;\n\tfont-size: 22px;\n\tfont-weight: normal;\n\tcolor: #000;\n\ttext-transform: uppercase;\n\tborder: none;\n\tbackground-image: none;\n\tbackground-color: #FFD637;\n\theight: 62px;\n\tline-height: 62px;\n\tmin-width: 290px;\n\tcursor: pointer;\n}\n\n._3HKYlb7Vl6Iztk4-tC_BvZ {\n\tpadding: 29px 31px 64px;\n}\n\n._3Njjgwm78gfB1FMqf-a_cY {\n\ttext-align: left;\n}\n\n._3yK5DUCZS4PgQcRO2of2A9 {\n\tfont-weight: bold;\n\tfont-size: 18px;\n}\n\n._3j7ZhRHuAh6zBz-poIMCzh {\n\tfont-size: 16px;\n}\n\n._3m4BXQ40TaSw_695CDQc5o {\n\tmargin: 0;\n}\n\n.EjQqlofCJUMJf9KAV_dIh {\n\ttext-align: left;\n\twidth: 348px;\n\tmargin-left: auto;\n\tmargin-right: auto;\n}\n\n.EjQqlofCJUMJf9KAV_dIh ._1AqLMaC9TJ6xn7EKtufMhi:not(:last-child) {\n\tmargin-bottom: 23px;\n}\n\n.WQ9BEtiggpUohVS_zgPoD {\n\ttext-align: left;\n\twidth: 560px;\n\tmargin-left: auto;\n\tmargin-right: auto;\n}\n\n._2lOXnJo1wdTO1NE9f7TYGq {\n\tdisplay: flex;\n\tflex-wrap: wrap;\n\tflex-direction: column;\n\theight: 375px;\n}\n\n._2lOXnJo1wdTO1NE9f7TYGq ._5nZ_ma_l1V-rlYzO9KdDB {\n\twidth: calc(50% - 10px);\n}\n\n._2lOXnJo1wdTO1NE9f7TYGq ._5nZ_ma_l1V-rlYzO9KdDB:not(:last-child) {\n\tmargin-bottom: 23px;\n}\n\n._8wGuJCvPnbJsKhc9Y1id9 {\n\tdisplay: none;\n}\n\n._8wGuJCvPnbJsKhc9Y1id9:checked + .D3sGWpSmSHK5CeE8idsfd::after {\n\topacity: 1;\n}\n\n.D3sGWpSmSHK5CeE8idsfd {\n\tfont-size: 18px;\n\tposition: relative;\n\tpadding-left: 42px;\n\theight: 26px;\n\tline-height: 26px;\n\tdisplay: inline-block;\n\tcursor: pointer;\n}\n\n.D3sGWpSmSHK5CeE8idsfd::before {\n\tdisplay: block;\n\tposition: absolute;\n\tleft: 0;\n\tbottom: 0;\n\twidth: 26px;\n\theight: 26px;\n\tborder: 1px solid #000;\n\tborder-radius: 50%;\n\tcontent: '';\n}\n\n.D3sGWpSmSHK5CeE8idsfd::after {\n\tdisplay: block;\n\tposition: absolute;\n\tleft: 4px;\n\tbottom: 4px;\n\twidth: 18px;\n\theight: 18px;\n\tbackground-color: #FFD637;\n\tborder-radius: 50%;\n\topacity: 0;\n\tcontent: '';\n}\n\n.DDaxMrz22gkrEWBwlzl2e {\n\tdisplay: none;\n}\n\n.DDaxMrz22gkrEWBwlzl2e:checked + ._13dba_eO4R4Y723IM0u5Tb::after {\n\topacity: 1;\n}\n\n._13dba_eO4R4Y723IM0u5Tb {\n\tfont-size: 18px;\n\tposition: relative;\n\tpadding-left: 42px;\n\tline-height: 26px;\n\tdisplay: inline-block;\n\tcursor: pointer;\n}\n\n._13dba_eO4R4Y723IM0u5Tb::before {\n\tdisplay: block;\n\tposition: absolute;\n\tleft: 0;\n\ttop: 0;\n\twidth: 26px;\n\theight: 26px;\n\tborder: 1px solid #000;\n\tcontent: '';\n}\n\n._13dba_eO4R4Y723IM0u5Tb::after {\n\tdisplay: block;\n\tposition: absolute;\n\tleft: 4px;\n\ttop: 4px;\n\twidth: 18px;\n\theight: 18px;\n\tbackground-color: #FFD637;\n\topacity: 0;\n\tcontent: '';\n}\n\n._2MOpAMbY9csB-24EiZiL9M {\n\tfont-weight: 300;\n\tdisplay: inline-block;\n\tborder: 1px solid #000;\n\theight: 42px;\n    line-height: 42px;\n    width: 86px;\n\tpadding: 8px;\n\tfont-size: 24px;\n\ttext-align: center;\n}\n\n.D1iptXn6th8WuXHQs_StE {\n\tanimation: _3Cv0QJLmIwtRQxiqMm8G5g 0.82s cubic-bezier(.36,.07,.19,.97) both;\n\ttransform: translate3d(0, 0, 0);\n\tbackface-visibility: hidden;\n\tperspective: 1000px;\n}\n\n.CY-R0zNjVnWMwfVMTfk1u {\n\ttext-align: center;\n\tmargin-top: 38px;\n}\n\n._2CZqPcxXU3Ul18re9DhD6r {\n}\n\n._2CZqPcxXU3Ul18re9DhD6r[disabled] {\n\topacity: 0.5;\n\tcursor: default;\n}\n\n@keyframes _3Cv0QJLmIwtRQxiqMm8G5g {\n  10%, 90% {\n    transform: translate3d(-2px, 0, 0);\n  }\n  \n  20%, 80% {\n    transform: translate3d(3px, 0, 0);\n  }\n\n  30%, 50%, 70% {\n    transform: translate3d(-6px, 0, 0);\n  }\n\n  40%, 60% {\n    transform: translate3d(6px, 0, 0);\n  }\n}", ""]);
+	exports.push([module.id, "._2z2_VLsmJG-9-K9jLVP1Tt {\n\tfont-family: 'PT Serif', serif;\n}\n\n._1O9lMBRHgLfG2-d-MH6fww {\n\tfont-family: 'Roboto', sans-serif;\n}\n\n._3G-ZwMQSbgLrYp4_4SUzgm {\n\tposition: relative;\n\tpadding: 40px 0;\n}\n\n.UeNnLl6hSRRxz9caxMN4B {\n\tfont-weight: bold;\n\tfont-size: 80px;\n\tline-height: 90px;\n\ttext-align: center;\n\tmargin-bottom: 25px;\n}\n\n._2MRGzgt1i2cHL3sokq_EVV {\n\tcolor: #000;\n\ttext-decoration: none;\n\tfont-size: 36px;\n\tline-height: 42px;\n\tfont-weight: normal;\t\n}\n\n.AOntsMu5ooMdf7s5vQx_3 {\n\tposition: absolute;\n\tleft: 68px;\n\ttop: 50px;\n}\n\n._1Dt6WOZ1Vmy8HqWn1fop9 {\n\tposition: absolute;\n\tright: 68px;\n\ttop: 50px;\n}\n\n.pSLxKThll82xikb71rXLr {\n\twidth: 650px;\n\tmargin: auto;\n}\n\n._2CE5HGGJdYhvd4p_BDSblM {\n\tletter-spacing: 4px;\n\tfont-size: 22px;\n\tfont-weight: normal;\n\tcolor: #000;\n\ttext-transform: uppercase;\n\tborder: none;\n\tbackground-image: none;\n\tbackground-color: #FFD637;\n\theight: 62px;\n\tline-height: 62px;\n\tmin-width: 290px;\n\tcursor: pointer;\n}\n\n._8wGuJCvPnbJsKhc9Y1id9 {\n\tdisplay: none;\n\n\t&:checked + .D3sGWpSmSHK5CeE8idsfd {\n\t\tcolor: #f00;\n\n\t\t&::after {\n\t\t\topacity: 1;\n\t\t}\n\t}\n}\n\n.D3sGWpSmSHK5CeE8idsfd {\n\tfont-size: 18px;\n\tposition: relative;\n\tpadding-left: 42px;\n\theight: 26px;\n\tline-height: 26px;\n\tdisplay: inline-block;\n\tcursor: pointer;\n\n\t&::before {\n\t\tdisplay: block;\n\t\tposition: absolute;\n\t\tleft: 0;\n\t\tbottom: 0;\n\t\twidth: 26px;\n\t\theight: 26px;\n\t\tborder: 1px solid #000;\n\t\tborder-radius: 50%;\n\t\tcontent: '';\n\t}\n\n\t&::after {\n\t\tdisplay: block;\n\t\tposition: absolute;\n\t\tleft: 4px;\n\t\tbottom: 4px;\n\t\twidth: 18px;\n\t\theight: 18px;\n\t\tbackground-color: #FFD637;\n\t\tborder-radius: 50%;\n\t\topacity: 0;\n\t\tcontent: '';\n\t}\n}\n\n.DDaxMrz22gkrEWBwlzl2e {\n\tdisplay: none;\n\n\t&:checked + ._13dba_eO4R4Y723IM0u5Tb {\n\n\t\t&::after {\n\t\t\topacity: 1;\n\t\t}\n\t}\n}\n\n._13dba_eO4R4Y723IM0u5Tb {\n\tfont-size: 18px;\n\tposition: relative;\n\tpadding-left: 42px;\n\tline-height: 26px;\n\tdisplay: inline-block;\n\tcursor: pointer;\n\n\t&::before {\n\t\tdisplay: block;\n\t\tposition: absolute;\n\t\tleft: 0;\n\t\ttop: 0;\n\t\twidth: 26px;\n\t\theight: 26px;\n\t\tborder: 1px solid #000;\n\t\tcontent: '';\n\t}\n\n\t&::after {\n\t\tdisplay: block;\n\t\tposition: absolute;\n\t\tleft: 4px;\n\t\ttop: 4px;\n\t\twidth: 18px;\n\t\theight: 18px;\n\t\tbackground-color: #FFD637;\n\t\topacity: 0;\n\t\tcontent: '';\n\t}\n}\n\n._2MOpAMbY9csB-24EiZiL9M {\n\tfont-weight: 300;\n\tdisplay: inline-block;\n\tborder: 1px solid #000;\n\theight: 42px;\n    width: 86px;\n\tpadding: 8px;\n\tfont-size: 24px;\n\ttext-align: center;\n\tborder-radius: none;\n\tbox-shadow: none;\n}\n\n.D1iptXn6th8WuXHQs_StE {\n\tanimation: _3Cv0QJLmIwtRQxiqMm8G5g 0.82s cubic-bezier(.36,.07,.19,.97) both;\n\ttransform: translate3d(0, 0, 0);\n\tbackface-visibility: hidden;\n\tperspective: 1000px;\n}\n\n@keyframes _3Cv0QJLmIwtRQxiqMm8G5g {\n\t10%, 90% {\n\t\ttransform: translate3d(-2px, 0, 0);\n\t}\n\n\t20%, 80% {\n\t\ttransform: translate3d(3px, 0, 0);\n\t}\n\n\t30%, 50%, 70% {\n\t\ttransform: translate3d(-6px, 0, 0);\n\t}\n\n\t40%, 60% {\n\t\ttransform: translate3d(6px, 0, 0);\n\t}\n}\n\n._3HKYlb7Vl6Iztk4-tC_BvZ {\n\tpadding: 29px 31px 64px;\n}\n\n._3Njjgwm78gfB1FMqf-a_cY {\n\ttext-align: left;\n}\n\n._3yK5DUCZS4PgQcRO2of2A9 {\n\tfont-weight: bold;\n\tfont-size: 18px;\n}\n\n._3j7ZhRHuAh6zBz-poIMCzh {\n\tfont-size: 16px;\n}\n\n._3m4BXQ40TaSw_695CDQc5o {\n\tmargin: 0;\n}\n\n.EjQqlofCJUMJf9KAV_dIh {\n\ttext-align: left;\n\twidth: 348px;\n\tmargin-left: auto;\n\tmargin-right: auto;\n}\n\n.EjQqlofCJUMJf9KAV_dIh ._1AqLMaC9TJ6xn7EKtufMhi:not(:last-child) {\n\tmargin-bottom: 23px;\n}\n\n.WQ9BEtiggpUohVS_zgPoD {\n\ttext-align: left;\n\twidth: 560px;\n\tmargin-left: auto;\n\tmargin-right: auto;\n}\n\n._2lOXnJo1wdTO1NE9f7TYGq {\n\tdisplay: flex;\n\tflex-wrap: wrap;\n\tflex-direction: column;\n\theight: 375px;\n}\n\n._2lOXnJo1wdTO1NE9f7TYGq ._5nZ_ma_l1V-rlYzO9KdDB {\n\twidth: calc(50% - 10px);\n}\n\n._2lOXnJo1wdTO1NE9f7TYGq ._5nZ_ma_l1V-rlYzO9KdDB:not(:last-child) {\n\tmargin-bottom: 23px;\n}\n\n.CY-R0zNjVnWMwfVMTfk1u {\n\ttext-align: center;\n\tmargin-top: 38px;\n}\n\n._2CZqPcxXU3Ul18re9DhD6r {\n}\n\n._2CZqPcxXU3Ul18re9DhD6r[disabled] {\n\topacity: 0.5;\n\tcursor: default;\n}", ""]);
 	
 	// exports
 	exports.locals = {
@@ -15883,6 +15888,13 @@
 		"pageNavNext": "_1Dt6WOZ1Vmy8HqWn1fop9 _2MRGzgt1i2cHL3sokq_EVV _2z2_VLsmJG-9-K9jLVP1Tt",
 		"pageContainer": "pSLxKThll82xikb71rXLr",
 		"testButton": "_2CE5HGGJdYhvd4p_BDSblM _1O9lMBRHgLfG2-d-MH6fww",
+		"radioInput": "_8wGuJCvPnbJsKhc9Y1id9",
+		"radioLabel": "D3sGWpSmSHK5CeE8idsfd _1O9lMBRHgLfG2-d-MH6fww",
+		"checkboxInput": "DDaxMrz22gkrEWBwlzl2e",
+		"checkboxLabel": "_13dba_eO4R4Y723IM0u5Tb _1O9lMBRHgLfG2-d-MH6fww",
+		"input": "_2MOpAMbY9csB-24EiZiL9M _1O9lMBRHgLfG2-d-MH6fww",
+		"inputInvalid": "D1iptXn6th8WuXHQs_StE",
+		"shake": "_3Cv0QJLmIwtRQxiqMm8G5g",
 		"root": "_3HKYlb7Vl6Iztk4-tC_BvZ",
 		"stepHeader": "_3Njjgwm78gfB1FMqf-a_cY _1O9lMBRHgLfG2-d-MH6fww",
 		"stepInfo": "_3yK5DUCZS4PgQcRO2of2A9",
@@ -15893,13 +15905,6 @@
 		"formDisease": "WQ9BEtiggpUohVS_zgPoD _3m4BXQ40TaSw_695CDQc5o _1O9lMBRHgLfG2-d-MH6fww",
 		"formDiseaseContainer": "_2lOXnJo1wdTO1NE9f7TYGq",
 		"checkbox": "_5nZ_ma_l1V-rlYzO9KdDB",
-		"radioInput": "_8wGuJCvPnbJsKhc9Y1id9",
-		"radioLabel": "D3sGWpSmSHK5CeE8idsfd _1O9lMBRHgLfG2-d-MH6fww",
-		"checkboxInput": "DDaxMrz22gkrEWBwlzl2e",
-		"checkboxLabel": "_13dba_eO4R4Y723IM0u5Tb _1O9lMBRHgLfG2-d-MH6fww",
-		"input": "_2MOpAMbY9csB-24EiZiL9M _1O9lMBRHgLfG2-d-MH6fww",
-		"inputInvalid": "D1iptXn6th8WuXHQs_StE",
-		"shake": "_3Cv0QJLmIwtRQxiqMm8G5g",
 		"actions": "CY-R0zNjVnWMwfVMTfk1u",
 		"submit": "_2CZqPcxXU3Ul18re9DhD6r _2CE5HGGJdYhvd4p_BDSblM _1O9lMBRHgLfG2-d-MH6fww"
 	};
@@ -15999,7 +16004,7 @@
 			value: function _answer(e) {
 				var _this2 = this;
 	
-				if (isFinite(this.age)) {
+				if (isFinite(this.age) && this.age >= 0) {
 					if (this.age > 45 || this.age < 18) {
 						this.testModel.set({
 							state: _test.states.FINISH,
@@ -16074,6 +16079,10 @@
 	
 	var _game2 = _interopRequireDefault(_game);
 	
+	var _inputs = __webpack_require__(70);
+	
+	var _inputs2 = _interopRequireDefault(_inputs);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -16103,7 +16112,8 @@
 	
 				return _underscore2.default.extend(data, {
 					testStyles: _test3.default,
-					gameStyles: _game2.default
+					gameStyles: _game2.default,
+					inputsStyles: _inputs2.default
 				});
 			}
 		}, {
@@ -16163,7 +16173,7 @@
 	    + "\">Мы никому не расскажем.</div>\n<form class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.form : stack1), depth0))
 	    + "\" data-action=\"test-form\">\n	<input class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.input : stack1), depth0))
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.inputsStyles : depth0)) != null ? stack1.input : stack1), depth0))
 	    + "\" data-action=\"test-input\" maxlength=\"3\"/>\n	<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.actions : stack1), depth0))
 	    + "\">\n		<button class=\""
@@ -16242,7 +16252,7 @@
 			value: function _answer(e) {
 				var _this2 = this;
 	
-				if (isFinite(this.weight)) {
+				if (isFinite(this.weight) && this.weight >= 0) {
 					if (this.weight < 50) {
 						this.testModel.set({
 							state: _test.states.FINISH,
@@ -16299,7 +16309,7 @@
 	    + "\">Только между нами.</div>\n<form class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.form : stack1), depth0))
 	    + "\" data-action=\"test-form\">\n	<input class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.input : stack1), depth0))
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.inputsStyles : depth0)) != null ? stack1.input : stack1), depth0))
 	    + "\" data-action=\"test-input\" maxlength=\"3\"/>&nbsp;&nbsp;КГ\n	<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.actions : stack1), depth0))
 	    + "\">\n		<button class=\""
@@ -16416,15 +16426,15 @@
 	    + "\" data-action=\"test-form\">\n	<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.radio : stack1), depth0))
 	    + "\">\n		<input type=\"radio\" value=\"true\" data-action=\"test-input\" name=\"game-auto-radio\" id=\"game-auto-radio-true\" class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.radioInput : stack1), depth0))
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.inputsStyles : depth0)) != null ? stack1.radioInput : stack1), depth0))
 	    + "\">\n		<label for=\"game-auto-radio-true\" class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.radioLabel : stack1), depth0))
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.inputsStyles : depth0)) != null ? stack1.radioLabel : stack1), depth0))
 	    + "\">Да</label>\n	</div>\n	<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.radio : stack1), depth0))
 	    + "\">\n		<input type=\"radio\" value=\"false\" data-action=\"test-input\" name=\"game-auto-radio\" id=\"game-auto-radio-false\" class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.radioInput : stack1), depth0))
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.inputsStyles : depth0)) != null ? stack1.radioInput : stack1), depth0))
 	    + "\">\n		<label for=\"game-auto-radio-false\" class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.radioLabel : stack1), depth0))
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.inputsStyles : depth0)) != null ? stack1.radioLabel : stack1), depth0))
 	    + "\">Нет</label>\n	</div>\n	<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.actions : stack1), depth0))
 	    + "\">\n		<button class=\""
@@ -16600,16 +16610,16 @@
 	
 	  return "			<div class=\""
 	    + alias2(alias1(((stack1 = (depths[1] != null ? depths[1].gameStyles : depths[1])) != null ? stack1.checkbox : stack1), depth0))
-	    + "\">\n				<input type=\"checkbox\" value=\"true\" data-action=\"test-input\" name=\"game-auto-checkbox\" id=\"game-auto-checkbox-"
+	    + "\">\n				<input type=\"checkbox\" data-action=\"test-input\" name=\"game-auto-checkbox\" id=\"game-auto-checkbox-"
 	    + alias2(((helper = (helper = helpers.index || (data && data.index)) != null ? helper : alias4),(typeof helper === alias5 ? helper.call(alias3,{"name":"index","hash":{},"data":data}) : helper)))
 	    + "\" class=\""
-	    + alias2(alias1(((stack1 = (depths[1] != null ? depths[1].gameStyles : depths[1])) != null ? stack1.checkboxInput : stack1), depth0))
+	    + alias2(alias1(((stack1 = (depths[1] != null ? depths[1].inputsStyles : depths[1])) != null ? stack1.checkboxInput : stack1), depth0))
 	    + "\" data-id="
 	    + alias2(((helper = (helper = helpers.index || (data && data.index)) != null ? helper : alias4),(typeof helper === alias5 ? helper.call(alias3,{"name":"index","hash":{},"data":data}) : helper)))
 	    + ">\n				<label for=\"game-auto-checkbox-"
 	    + alias2(((helper = (helper = helpers.index || (data && data.index)) != null ? helper : alias4),(typeof helper === alias5 ? helper.call(alias3,{"name":"index","hash":{},"data":data}) : helper)))
 	    + "\" class=\""
-	    + alias2(alias1(((stack1 = (depths[1] != null ? depths[1].gameStyles : depths[1])) != null ? stack1.checkboxLabel : stack1), depth0))
+	    + alias2(alias1(((stack1 = (depths[1] != null ? depths[1].inputsStyles : depths[1])) != null ? stack1.checkboxLabel : stack1), depth0))
 	    + "\" "
 	    + ((stack1 = helpers["if"].call(alias3,(depth0 != null ? depth0.danger : depth0),{"name":"if","hash":{},"fn":container.program(2, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
 	    + ">"
@@ -16655,6 +16665,10 @@
 	
 	var _underscore2 = _interopRequireDefault(_underscore);
 	
+	var _backbone = __webpack_require__(1);
+	
+	var _backbone2 = _interopRequireDefault(_backbone);
+	
 	var _base = __webpack_require__(5);
 	
 	var _base2 = _interopRequireDefault(_base);
@@ -16672,6 +16686,10 @@
 	var _finish = __webpack_require__(49);
 	
 	var _finish2 = _interopRequireDefault(_finish);
+	
+	var _inputs = __webpack_require__(70);
+	
+	var _inputs2 = _interopRequireDefault(_inputs);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -16705,6 +16723,28 @@
 		return FinishShareView;
 	}(_share2.default);
 	
+	var ShareModel = function (_Backbone$Model) {
+		_inherits(ShareModel, _Backbone$Model);
+	
+		function ShareModel() {
+			_classCallCheck(this, ShareModel);
+	
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(ShareModel).apply(this, arguments));
+		}
+	
+		_createClass(ShareModel, [{
+			key: 'defaults',
+			get: function get() {
+				return {
+					title: '',
+					description: ''
+				};
+			}
+		}]);
+	
+		return ShareModel;
+	}(_backbone2.default.Model);
+	
 	var _class = function (_BaseView) {
 		_inherits(_class, _BaseView);
 	
@@ -16717,19 +16757,59 @@
 		_createClass(_class, [{
 			key: 'init',
 			value: function init() {
+				this.shareModel = new ShareModel();
+				this.shareView = this.registerChild(new FinishShareView({
+					shareModel: this.shareModel
+				}), 'test-share');
 	
 				if (this.testModel.success) {
-					this.registerChild(new FinishShareView({
-						title: 'Я подхожу!',
-						description: 'Могу ли я быть донором костного мозга? Тест для тех, кто еще не знает. И сайт о том, зачем вообще сдавать костный мозг и где.'
-					}), 'test-share');
+					this.shareModel.set('title', 'Я подхожу!');
+					this.shareModel.set('description', 'Могу ли я быть донором костного мозга? Тест для тех, кто еще не знает. И сайт о том, зачем вообще сдавать костный мозг и где.');
 				} else {
-					this.registerChild(new FinishShareView({
-						title: 'Хочу, но не могу.',
-						description: 'Могу ли я быть донором костного мозга? Тест для тех, кто еще не знает. И сайт о том, зачем вообще сдавать костный мозг и где.'
-					}), 'test-share');
+					this.shareModel.set('title', 'Хочу, но не могу.');
+					this.shareModel.set('description', 'Могу ли я быть донором костного мозга? Тест для тех, кто еще не знает. И сайт о том, зачем вообще сдавать костный мозг и где.');
 				}
+	
+				this.shareView.render();
 				this.render();
+			}
+		}, {
+			key: '_agreementChange',
+			value: function _agreementChange(e) {
+				switch (e.currentTarget.checked) {
+					case false:
+						this.shareModel.set('description', 'Могу ли я быть донором костного мозга? Тест для тех, кто еще не знает. И сайт о том, зачем вообще сдавать костный мозг и где.');
+						break;
+					case true:
+						if (this.testModel.age17) {
+							this.shareModel.set('description', 'Мой результат: Пока вы не можете стать донором костного мозга, потому что слишком молоды — в доноры берут с 18 лет. Ждем вас через год!');
+						}
+						if (this.testModel.age16) {
+							this.shareModel.set('description', 'Мой результат: Пока вы не можете стать донором костного мозга, потому что слишком молоды — в доноры берут с 18 лет. Ждем вас через 2 года!');
+						}
+						if (this.testModel.age15_10) {
+							this.shareModel.set('description', 'Мой результат: Но помочь вы можете уже сейчас. Расскажите о проекте друзьям: если кто-то из них станет донором, вы спасете не одну, а несколько жизней.');
+						}
+						if (this.testModel.age45more) {
+							this.shareModel.set('description', 'Мой результат: Донором можно стать до 60 лет, но типирование — дорогая процедура, поэтому важно, чтобы потенциальные доноры числились в регистре как можно дольше. Поэтому кровь на типирование берут до 45 лет.');
+						}
+						if (this.testModel.age10less) {
+							this.shareModel.set('description', 'Мой результат: Пока вы не можете стать донором костного мозга, потому что слишком молоды — в доноры берут только совершеннолетних. Ждем вас после 18!');
+						}
+						if (this.testModel.weight47less) {
+							this.shareModel.set('description', 'Мой результат: Вы не можете стать донором костного мозга, потому что в доноры берут людей весом от 50 килограмм. ');
+						}
+						if (this.testModel.weight48_49) {
+							this.shareModel.set('description', 'Мой результат: Сейчас вы не можете стать донором костного мозга, потому что в доноры берут людей весом от 50 килограммов. Но вы очень близки! Пройдите тест ещё раз, указав, что весите 50 килограмм, и посмотрите, нет ли у вас других противопоказаний. Если нет — ждём вас через пару килограммов!');
+						}
+						if (this.testModel.autoFail) {
+							this.shareModel.set('description', 'Мой результат: Вы не можете стать донором костного мозга, потому что аутоиммунные заболевания — абсолютное противопоказание.');
+						}
+						if (this.testModel.diseaseFail) {
+							this.shareModel.set('description', 'Мой результат: Вы не можете стать донором костного мозга, потому что у вас есть противопоказания. У человека, которому нужна пересадка, очень слабый иммунитет. Поэтому даже если вы болели очень давно, врачи решают не рисковать.');
+						}
+						break;
+				}
 			}
 		}, {
 			key: '_prepareData',
@@ -16740,6 +16820,7 @@
 				return _underscore2.default.extend(data, {
 					testStyles: _test3.default,
 					finishStyles: _finish2.default,
+					inputStyles: _inputs2.default,
 					testModel: this.testModel
 				});
 			}
@@ -16752,6 +16833,13 @@
 			key: 'className',
 			get: function get() {
 				return _finish2.default.root;
+			}
+		}, {
+			key: 'events',
+			get: function get() {
+				return {
+					'change [data-action="test-finish-agreement"]': '_agreementChange'
+				};
 			}
 		}]);
 
@@ -16795,7 +16883,7 @@
 	
 	
 	// module
-	exports.push([module.id, "._1d4LOFG7ce4Yl_v9yahPLG {\n\tfont-family: 'PT Serif', serif;\n}\n\n._2Wk5mQjdxGsAoWCMBYvX8r {\n\tfont-family: 'Roboto', sans-serif;\n}\n\n.cPjo0_1mhRuW3QRpfSic8 {\n\tposition: relative;\n\tpadding: 40px 0;\n}\n\n._1GXRR_1njCZ1yjk1gOI7sI {\n\tfont-weight: bold;\n\tfont-size: 80px;\n\tline-height: 90px;\n\ttext-align: center;\n\tmargin-bottom: 25px;\n}\n\n._3UbSolTzePGcYN_-Q0eUNY {\n\tcolor: #000;\n\ttext-decoration: none;\n\tfont-size: 36px;\n\tline-height: 42px;\n\tfont-weight: normal;\t\n}\n\n._1_MkKq430hfnIezYsIktpM {\n\tposition: absolute;\n\tleft: 68px;\n\ttop: 50px;\n}\n\n.BBG0gwqO48Jd6PxgoBhJ2 {\n\tposition: absolute;\n\tright: 68px;\n\ttop: 50px;\n}\n\n.fhxeoA5fPjfLuU7mfW5qb {\n\twidth: 650px;\n\tmargin: auto;\n}\n\n.I1VMUIro7nlV4Tgp07EiM {\n\tletter-spacing: 4px;\n\tfont-size: 22px;\n\tfont-weight: normal;\n\tcolor: #000;\n\ttext-transform: uppercase;\n\tborder: none;\n\tbackground-image: none;\n\tbackground-color: #FFD637;\n\theight: 62px;\n\tline-height: 62px;\n\tmin-width: 290px;\n\tcursor: pointer;\n}\n\n._3B-1CcHYxRdP4xmviYBWko {\n\tpadding: 24px;\n\ttext-align: left;\n}\n\n.BPlcspTWA-U5f8Dm8GR-4 {\n\tfont-size: 0;\n\tletter-spacing: 0;\n\tline-height: 0;\n}\n\n._2pkN-Ik882-3VtpKkxL3v8 {\n\twidth: 28px;\n\theight: 28px;\n\ttext-align: center;\n\tbackground-color: #000;\n\tborder-radius: 50%;\n\tdisplay: inline-block;\n\tvertical-align: middle;\n\tline-height: 28px;\n\tcolor: #fff;\n\tfont-size: 15px;\n\tfont-weight: bold;\n\tmargin-right: 11px;\n}\n\n.kZRWI19Iy-xWer-tCiQ37 {\n\tdisplay: inline-block;\n\tvertical-align: middle;\n\tfont-size: 16px;\n}\n\n._3CcTlLIxG3BS1PKJkuGDM2 {\n\tdisplay: flex;\n\tflex-direction: row;\n}\n\n.FS2caTlSXTucapYV8McOB {\n\tpadding-top: 20px;\n\tjustify-content: flex-start;\n}\n\n._3QjaZhGdzkNYAsbrUlSWIj {\n\tpadding-top: 20px;\n\tjustify-content: flex-end;\n}\n\n._2YIn_UKGPKJxia22ce210M {\n\twidth: 337px;\n}\n\n.R2RwFJKTaCz93ASxaWaNH {\n\tfont-size: 72px;\n\tfont-weight: bold;\n\tmargin-bottom: 20px;\n}\n\n._1HnD0zUaIRYJELjx-_Do2W {\n\tfont-size: 18px;\n\tline-height: 26px;\n}\n\n.UQMNwjI_mEdn198JXfMeZ {\n\n}\n\n._3OkmOfTEtzsuHlh2-X2xVK {\n\tfont-size: 36px;\n\tfont-weight: bold;\n\tmargin-bottom: 15px;\n}\n\n._1lZi4vkmIYBBcoC7Rz8Bt6 {\n\twidth: 300px;\n\tfont-size: 18px;\n\tline-height: 26px;\n}\n\n.zT-TpgEF96c_-Es7rTxxo {\n\tfont-size: 18px;\n\tline-height: 26px;\n\tmargin-top: 15px;\n}", ""]);
+	exports.push([module.id, "._1d4LOFG7ce4Yl_v9yahPLG {\n\tfont-family: 'PT Serif', serif;\n}\n\n._2Wk5mQjdxGsAoWCMBYvX8r {\n\tfont-family: 'Roboto', sans-serif;\n}\n\n.cPjo0_1mhRuW3QRpfSic8 {\n\tposition: relative;\n\tpadding: 40px 0;\n}\n\n._1GXRR_1njCZ1yjk1gOI7sI {\n\tfont-weight: bold;\n\tfont-size: 80px;\n\tline-height: 90px;\n\ttext-align: center;\n\tmargin-bottom: 25px;\n}\n\n._3UbSolTzePGcYN_-Q0eUNY {\n\tcolor: #000;\n\ttext-decoration: none;\n\tfont-size: 36px;\n\tline-height: 42px;\n\tfont-weight: normal;\t\n}\n\n._1_MkKq430hfnIezYsIktpM {\n\tposition: absolute;\n\tleft: 68px;\n\ttop: 50px;\n}\n\n.BBG0gwqO48Jd6PxgoBhJ2 {\n\tposition: absolute;\n\tright: 68px;\n\ttop: 50px;\n}\n\n.fhxeoA5fPjfLuU7mfW5qb {\n\twidth: 650px;\n\tmargin: auto;\n}\n\n.I1VMUIro7nlV4Tgp07EiM {\n\tletter-spacing: 4px;\n\tfont-size: 22px;\n\tfont-weight: normal;\n\tcolor: #000;\n\ttext-transform: uppercase;\n\tborder: none;\n\tbackground-image: none;\n\tbackground-color: #FFD637;\n\theight: 62px;\n\tline-height: 62px;\n\tmin-width: 290px;\n\tcursor: pointer;\n}\n\n._3B-1CcHYxRdP4xmviYBWko {\n\tpadding: 24px;\n\ttext-align: left;\n}\n\n.BPlcspTWA-U5f8Dm8GR-4 {\n\tfont-size: 0;\n\tletter-spacing: 0;\n\tline-height: 0;\n}\n\n._2pkN-Ik882-3VtpKkxL3v8 {\n\twidth: 28px;\n\theight: 28px;\n\ttext-align: center;\n\tbackground-color: #000;\n\tborder-radius: 50%;\n\tdisplay: inline-block;\n\tvertical-align: middle;\n\tline-height: 28px;\n\tcolor: #fff;\n\tfont-size: 15px;\n\tfont-weight: bold;\n\tmargin-right: 11px;\n}\n\n.kZRWI19Iy-xWer-tCiQ37 {\n\tdisplay: inline-block;\n\tvertical-align: middle;\n\tfont-size: 16px;\n}\n\n._3CcTlLIxG3BS1PKJkuGDM2 {\n\tdisplay: flex;\n\tflex-direction: row;\n}\n\n.FS2caTlSXTucapYV8McOB {\n\tpadding-top: 20px;\n\tjustify-content: flex-start;\n}\n\n._3QjaZhGdzkNYAsbrUlSWIj {\n\tpadding-top: 20px;\n\tjustify-content: flex-end;\n}\n\n._2YIn_UKGPKJxia22ce210M {\n\twidth: 337px;\n}\n\n.R2RwFJKTaCz93ASxaWaNH {\n\tfont-size: 72px;\n\tfont-weight: bold;\n\tmargin-bottom: 20px;\n}\n\n._1HnD0zUaIRYJELjx-_Do2W {\n\tfont-size: 18px;\n\tline-height: 26px;\n}\n\n.UQMNwjI_mEdn198JXfMeZ {\n\n}\n\n._3OkmOfTEtzsuHlh2-X2xVK {\n\tfont-size: 36px;\n\tfont-weight: bold;\n\tmargin-bottom: 15px;\n}\n\n._1lZi4vkmIYBBcoC7Rz8Bt6 {\n\twidth: 300px;\n\tfont-size: 18px;\n\tline-height: 26px;\n}\n\n.zT-TpgEF96c_-Es7rTxxo {\n\tfont-size: 18px;\n\tline-height: 26px;\n\tmargin-top: 15px;\n}\n\n._2S4dD-WewjwRgF4ALZRwgR {\n\tmargin-top: 15px;\n}", ""]);
 	
 	// exports
 	exports.locals = {
@@ -16821,7 +16909,8 @@
 		"fail": "UQMNwjI_mEdn198JXfMeZ",
 		"failTitle": "_3OkmOfTEtzsuHlh2-X2xVK _1d4LOFG7ce4Yl_v9yahPLG",
 		"failText": "_1lZi4vkmIYBBcoC7Rz8Bt6 _2Wk5mQjdxGsAoWCMBYvX8r",
-		"share": "zT-TpgEF96c_-Es7rTxxo _2Wk5mQjdxGsAoWCMBYvX8r"
+		"share": "zT-TpgEF96c_-Es7rTxxo _2Wk5mQjdxGsAoWCMBYvX8r",
+		"agreement": "_2S4dD-WewjwRgF4ALZRwgR"
 	};
 
 /***/ },
@@ -16872,12 +16961,18 @@
 	    + "\">\n				\n"
 	    + ((stack1 = helpers["if"].call(alias3,((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.ageFail : stack1),{"name":"if","hash":{},"fn":container.program(28, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
 	    + "\n"
-	    + ((stack1 = helpers["if"].call(alias3,((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.weightFail : stack1),{"name":"if","hash":{},"fn":container.program(42, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + ((stack1 = helpers["if"].call(alias3,((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.weightFail : stack1),{"name":"if","hash":{},"fn":container.program(43, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
 	    + "\n"
-	    + ((stack1 = helpers["if"].call(alias3,((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.autoFail : stack1),{"name":"if","hash":{},"fn":container.program(48, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + ((stack1 = helpers["if"].call(alias3,((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.autoFail : stack1),{"name":"if","hash":{},"fn":container.program(49, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
 	    + "\n"
-	    + ((stack1 = helpers["if"].call(alias3,((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.diseaseFail : stack1),{"name":"if","hash":{},"fn":container.program(50, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + ((stack1 = helpers["if"].call(alias3,((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.diseaseFail : stack1),{"name":"if","hash":{},"fn":container.program(51, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
 	    + "\n			</div>\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.finishStyles : depth0)) != null ? stack1.agreement : stack1), depth0))
+	    + "\">\n				<input type=\"checkbox\" data-action=\"test-finish-agreement\" id=\"test-finish-agreement\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.inputStyles : depth0)) != null ? stack1.checkboxInput : stack1), depth0))
+	    + "\">\n				<label for=\"test-finish-agreement\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.inputStyles : depth0)) != null ? stack1.checkboxLabel : stack1), depth0))
+	    + "\">\n					Рассказать в посте, почему<br>я не подхожу\n				</label>\n			</div>\n			<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.finishStyles : depth0)) != null ? stack1.share : stack1), depth0))
 	    + "\" data-view=\"test-share\"></div>\n		</div>\n";
 	},"8":function(container,depth0,helpers,partials,data) {
@@ -16943,22 +17038,26 @@
 	},"38":function(container,depth0,helpers,partials,data) {
 	    return "						Донором можно стать до 60 лет, но типирование — дорогая процедура, поэтому важно, чтобы потенциальные доноры числились в регистре как можно дольше. Поэтому кровь на типирование берут до 45 лет.\n						<br/>\n						<br/>\n						Но вы все равно можете помочь. Расскажите о проекте друзьям: если кто-то из них станет донором, вы спасете не одну, а несколько жизней. \n";
 	},"40":function(container,depth0,helpers,partials,data) {
+	    var stack1;
+	
+	  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.age10less : stack1),{"name":"if","hash":{},"fn":container.program(41, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "");
+	},"41":function(container,depth0,helpers,partials,data) {
 	    return "						Пока вы не можете стать донором костного мозга, потому что слишком молоды — в доноры берут только совершеннолетних. Ждем вас после 18!\n						<br/>\n						<br/>\n						Но помочь вы можете уже сейчас. Расскажите о проекте друзьям: если кто-то из них станет донором, вы спасете не одну, а несколько жизней.\n					";
-	},"42":function(container,depth0,helpers,partials,data) {
-	    var stack1;
-	
-	  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.weight47less : stack1),{"name":"if","hash":{},"fn":container.program(43, data, 0),"inverse":container.program(45, data, 0),"data":data})) != null ? stack1 : "");
 	},"43":function(container,depth0,helpers,partials,data) {
-	    return "						Вы не можете стать донором костного мозга, потому что в доноры берут людей весом от 50 килограмм. \n						<br>\n						<br>\n						Но вы все равно можете помочь. Расскажите о проекте друзьям: если кто-то из них станет донором, вы спасете не одну, а несколько жизней. \n";
-	},"45":function(container,depth0,helpers,partials,data) {
 	    var stack1;
 	
-	  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.weight48_49 : stack1),{"name":"if","hash":{},"fn":container.program(46, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "");
+	  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.weight47less : stack1),{"name":"if","hash":{},"fn":container.program(44, data, 0),"inverse":container.program(46, data, 0),"data":data})) != null ? stack1 : "");
+	},"44":function(container,depth0,helpers,partials,data) {
+	    return "						Вы не можете стать донором костного мозга, потому что в доноры берут людей весом от 50 килограмм. \n						<br>\n						<br>\n						Но вы все равно можете помочь. Расскажите о проекте друзьям: если кто-то из них станет донором, вы спасете не одну, а несколько жизней. \n";
 	},"46":function(container,depth0,helpers,partials,data) {
+	    var stack1;
+	
+	  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.weight48_49 : stack1),{"name":"if","hash":{},"fn":container.program(47, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "");
+	},"47":function(container,depth0,helpers,partials,data) {
 	    return "						Сейчас вы не можете стать донором костного мозга, потому что в доноры берут людей весом от 50 килограммов. Но вы очень близки! Пройдите тест ещё раз, указав, что весите 50 килограмм, и посмотрите, нет ли у вас других противопоказаний. Если нет — ждём вас через пару килограммов!\n						<br>\n						<br>\n						Но вы все равно можете помочь. Расскажите о проекте друзьям: если кто-то из них станет донором, вы спасете не одну, а несколько жизней. \n					";
-	},"48":function(container,depth0,helpers,partials,data) {
+	},"49":function(container,depth0,helpers,partials,data) {
 	    return "					Вы не можете стать донором костного мозга, потому что аутоиммунные заболевания — абсолютное противопоказание. \n					<br>\n					<br>\n					Но вы все равно можете помочь. Расскажите о проекте друзьям: если кто-то из них станет донором, вы спасете не одну, а несколько жизней. \n";
-	},"50":function(container,depth0,helpers,partials,data) {
+	},"51":function(container,depth0,helpers,partials,data) {
 	    return "					Вы не можете стать донором костного мозга, потому что у вас есть противопоказания. У человека, которому нужна пересадка, очень слабый иммунитет. Поэтому даже если вы болели очень давно, врачи решают не рисковать. \n					<br>\n					<br>\n					Но вы все равно можете помочь. Расскажите о проекте друзьям: если кто-то из них станет донором, вы спасете не одну, а несколько жизней. \n";
 	},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
 	    var stack1, alias1=container.lambda, alias2=container.escapeExpression, alias3=depth0 != null ? depth0 : {};
@@ -17428,26 +17527,26 @@
 		_createClass(_class, [{
 			key: 'init',
 			value: function init() {
-				this.shareUrl = _config2.default.api.url + '/share?title=' + encodeURIComponent(this.title) + '&description=' + encodeURIComponent(this.description) + '&image=' + encodeURIComponent(this.image) + '&redirect_url=' + encodeURIComponent(location.href);
-				this.render();
+				this.listenTo(this.shareModel, 'change', this.render);
 			}
 		}, {
 			key: '_prepareData',
 			value: function _prepareData() {
+				var shareUrl = _config2.default.api.url + '/share?title=' + encodeURIComponent(this.shareModel.get('title')) + '&description=' + encodeURIComponent(this.shareModel.get('description')) + '&image=' + encodeURIComponent(this.shareModel.get('image')) + '&redirect_url=' + encodeURIComponent(location.href);
 				return {
-					vkUrl: this._generateVkUrl(),
-					fbUrl: this._generateFbUrl()
+					vkUrl: this._generateVkUrl(shareUrl),
+					fbUrl: this._generateFbUrl(shareUrl)
 				};
 			}
 		}, {
 			key: '_generateVkUrl',
-			value: function _generateVkUrl() {
-				return 'https://vk.com/share.php?url=' + encodeURIComponent(this.shareUrl);
+			value: function _generateVkUrl(shareUrl) {
+				return 'https://vk.com/share.php?url=' + encodeURIComponent(shareUrl);
 			}
 		}, {
 			key: '_generateFbUrl',
-			value: function _generateFbUrl() {
-				return 'http://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(this.shareUrl);
+			value: function _generateFbUrl(shareUrl) {
+				return 'http://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl);
 			}
 		}]);
 
@@ -17490,6 +17589,63 @@
 	    + alias4(alias5(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.link : stack1), depth0))
 	    + "\">Facebook</a>";
 	},"useData":true});
+
+/***/ },
+/* 70 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(71);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(12)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js?modules!./../../node_modules/postcss-loader/index.js!./inputs.css", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js?modules!./../../node_modules/postcss-loader/index.js!./inputs.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 71 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(11)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "._2KgyiJDrTM8cRmCPeJ02XZ {\n\tfont-family: 'PT Serif', serif;\n}\n\n._36TM1OhCdObbBwjF2OhjKO {\n\tfont-family: 'Roboto', sans-serif;\n}\n\n._2Bug5WFDMouSh2Bkd4zQsx {\n\tposition: relative;\n\tpadding: 40px 0;\n}\n\n.kFGjtM7jQdIjghp3eCVA- {\n\tfont-weight: bold;\n\tfont-size: 80px;\n\tline-height: 90px;\n\ttext-align: center;\n\tmargin-bottom: 25px;\n}\n\n._16I3MODWJdDgHErKSjOoEO {\n\tcolor: #000;\n\ttext-decoration: none;\n\tfont-size: 36px;\n\tline-height: 42px;\n\tfont-weight: normal;\t\n}\n\n._2qATpW56t9f9aJEpnZXX4v {\n\tposition: absolute;\n\tleft: 68px;\n\ttop: 50px;\n}\n\n._2Vl9Y8y__6SSpbIwJkqBL6 {\n\tposition: absolute;\n\tright: 68px;\n\ttop: 50px;\n}\n\n._3JDP7a6KJh7RjoPK3CY_l4 {\n\twidth: 650px;\n\tmargin: auto;\n}\n\n._2P91SPuSu6wgz2R67mobk1 {\n\tletter-spacing: 4px;\n\tfont-size: 22px;\n\tfont-weight: normal;\n\tcolor: #000;\n\ttext-transform: uppercase;\n\tborder: none;\n\tbackground-image: none;\n\tbackground-color: #FFD637;\n\theight: 62px;\n\tline-height: 62px;\n\tmin-width: 290px;\n\tcursor: pointer;\n}\n\n._10fHIjkbAdfadwMqaQz6Pc {\n\tdisplay: none;\n}\n\n._10fHIjkbAdfadwMqaQz6Pc:checked + ._1qRt3sNTNbILEj2ckyiMuH::after {\n\topacity: 1;\n}\n\n._1qRt3sNTNbILEj2ckyiMuH {\n\tfont-size: 18px;\n\tposition: relative;\n\tpadding-left: 42px;\n\theight: 26px;\n\tline-height: 26px;\n\tdisplay: inline-block;\n\tcursor: pointer;\n}\n\n._1qRt3sNTNbILEj2ckyiMuH::before {\n\tdisplay: block;\n\tposition: absolute;\n\tleft: 0;\n\tbottom: 0;\n\twidth: 26px;\n\theight: 26px;\n\tborder: 1px solid #000;\n\tborder-radius: 50%;\n\tcontent: '';\n}\n\n._1qRt3sNTNbILEj2ckyiMuH::after {\n\tdisplay: block;\n\tposition: absolute;\n\tleft: 4px;\n\tbottom: 4px;\n\twidth: 18px;\n\theight: 18px;\n\tbackground-color: #FFD637;\n\tborder-radius: 50%;\n\topacity: 0;\n\tcontent: '';\n}\n\n.jX-n3oTShl9DdR8pTgsJO {\n\tdisplay: none;\n}\n\n.jX-n3oTShl9DdR8pTgsJO:checked + ._1cpV2qSiHdrEnfAa1NIoLC::after {\n\topacity: 1;\n}\n\n._1cpV2qSiHdrEnfAa1NIoLC {\n\tfont-size: 18px;\n\tposition: relative;\n\tpadding-left: 42px;\n\tline-height: 26px;\n\tdisplay: inline-block;\n\tcursor: pointer;\n}\n\n._1cpV2qSiHdrEnfAa1NIoLC::before {\n\tdisplay: block;\n\tposition: absolute;\n\tleft: 0;\n\ttop: 0;\n\twidth: 26px;\n\theight: 26px;\n\tborder: 1px solid #000;\n\tcontent: '';\n}\n\n._1cpV2qSiHdrEnfAa1NIoLC::after {\n\tdisplay: block;\n\tposition: absolute;\n\tleft: 4px;\n\ttop: 4px;\n\twidth: 18px;\n\theight: 18px;\n\tbackground-color: #FFD637;\n\topacity: 0;\n\tcontent: '';\n}\n\n._3lp0pnIvm8INrj2DL5oHcL {\n\tfont-weight: 300;\n\tdisplay: inline-block;\n\tborder: 1px solid #000;\n\theight: 42px;\n    width: 86px;\n\tpadding: 8px;\n\tfont-size: 24px;\n\ttext-align: center;\n\tborder-radius: none;\n\tbox-shadow: none;\n}\n\n.u5lqlNo6_x0Aq3I55gEjP {\n\tanimation: _1lP-KYA1WVO-YcgrRmr9_W 0.82s cubic-bezier(.36,.07,.19,.97) both;\n\ttransform: translate3d(0, 0, 0);\n\tbackface-visibility: hidden;\n\tperspective: 1000px;\n}\n\n@keyframes _1lP-KYA1WVO-YcgrRmr9_W {\n\t10%, 90% {\n\t\ttransform: translate3d(-2px, 0, 0);\n\t}\n\n\t20%, 80% {\n\t\ttransform: translate3d(3px, 0, 0);\n\t}\n\n\t30%, 50%, 70% {\n\t\ttransform: translate3d(-6px, 0, 0);\n\t}\n\n\t40%, 60% {\n\t\ttransform: translate3d(6px, 0, 0);\n\t}\n}", ""]);
+	
+	// exports
+	exports.locals = {
+		"ptSerif": "_2KgyiJDrTM8cRmCPeJ02XZ",
+		"roboto": "_36TM1OhCdObbBwjF2OhjKO",
+		"pageRoot": "_2Bug5WFDMouSh2Bkd4zQsx",
+		"pageTitle": "kFGjtM7jQdIjghp3eCVA- _2KgyiJDrTM8cRmCPeJ02XZ",
+		"pageNav": "_16I3MODWJdDgHErKSjOoEO _2KgyiJDrTM8cRmCPeJ02XZ",
+		"pageNavPrev": "_2qATpW56t9f9aJEpnZXX4v _16I3MODWJdDgHErKSjOoEO _2KgyiJDrTM8cRmCPeJ02XZ",
+		"pageNavNext": "_2Vl9Y8y__6SSpbIwJkqBL6 _16I3MODWJdDgHErKSjOoEO _2KgyiJDrTM8cRmCPeJ02XZ",
+		"pageContainer": "_3JDP7a6KJh7RjoPK3CY_l4",
+		"testButton": "_2P91SPuSu6wgz2R67mobk1 _36TM1OhCdObbBwjF2OhjKO",
+		"radioInput": "_10fHIjkbAdfadwMqaQz6Pc",
+		"radioLabel": "_1qRt3sNTNbILEj2ckyiMuH _36TM1OhCdObbBwjF2OhjKO",
+		"checkboxInput": "jX-n3oTShl9DdR8pTgsJO",
+		"checkboxLabel": "_1cpV2qSiHdrEnfAa1NIoLC _36TM1OhCdObbBwjF2OhjKO",
+		"input": "_3lp0pnIvm8INrj2DL5oHcL _36TM1OhCdObbBwjF2OhjKO",
+		"inputInvalid": "u5lqlNo6_x0Aq3I55gEjP",
+		"shake": "_1lP-KYA1WVO-YcgrRmr9_W"
+	};
 
 /***/ }
 /******/ ]);

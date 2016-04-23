@@ -31,7 +31,7 @@ export default class extends StepView {
 	}
 
 	_answer(e) {
-		if (isFinite(this.age)) {
+		if (isFinite(this.age) && this.age >= 0) {
 			if (this.age > 45 || this.age < 18) {
 				this.testModel.set({
 					state: states.FINISH,

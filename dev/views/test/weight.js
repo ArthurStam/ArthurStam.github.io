@@ -31,7 +31,7 @@ export default class extends StepView {
 	}
 
 	_answer(e) {
-		if (isFinite(this.weight)) {
+		if (isFinite(this.weight) && this.weight >= 0) {
 			if (this.weight < 50) {
 				this.testModel.set({
 					state: states.FINISH,

@@ -74,7 +74,7 @@
 						<br/>
 						<br/>
 						Но вы все равно можете помочь. Расскажите о проекте друзьям: если кто-то из них станет донором, вы спасете не одну, а несколько жизней. 
-					{{else}}
+					{{else if testModel.age10less}}
 						Пока вы не можете стать донором костного мозга, потому что слишком молоды — в доноры берут только совершеннолетних. Ждем вас после 18!
 						<br/>
 						<br/>
@@ -110,6 +110,12 @@
 					Но вы все равно можете помочь. Расскажите о проекте друзьям: если кто-то из них станет донором, вы спасете не одну, а несколько жизней. 
 				{{/if}}
 
+			</div>
+			<div class="{{finishStyles.agreement}}">
+				<input type="checkbox" data-action="test-finish-agreement" id="test-finish-agreement" class="{{inputStyles.checkboxInput}}">
+				<label for="test-finish-agreement" class="{{inputStyles.checkboxLabel}}">
+					Рассказать в посте, почему<br>я не подхожу
+				</label>
 			</div>
 			<div class="{{finishStyles.share}}" data-view="test-share"></div>
 		</div>

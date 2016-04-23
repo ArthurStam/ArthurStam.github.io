@@ -7,6 +7,7 @@ import { states, isLastStep } from 'dev/views/test';
 
 import testStyles from 'dev/styles/test.css';
 import gameStyles from 'dev/styles/test/game.css';
+import inputsStyles from 'dev/styles/inputs.css';
 
 export default class extends BaseView {
 
@@ -19,7 +20,8 @@ export default class extends BaseView {
 	_prepareData(data = {}) {
 		return _.extend(data, {
 			testStyles: testStyles,
-			gameStyles: gameStyles
+			gameStyles: gameStyles,
+			inputsStyles: inputsStyles
 		});
 	}
 
