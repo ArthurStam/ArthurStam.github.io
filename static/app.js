@@ -14564,7 +14564,7 @@
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.title : stack1), depth0))
 	    + "\">Могу ли я стать донором?</div>\n<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.subtitle : stack1), depth0))
-	    + "\">\n	Абсолютно здоровых людей не бывает, но при некоторых<br>заболеваниях нельзя становиться донором: это опасно и для<br>донора, и для пациента. Пройдите тест или прочитайте<br><a href=\"#\" target=\"_blank\" class=\""
+	    + "\">\n	Абсолютно здоровых людей не бывает, но при некоторых<br>заболеваниях нельзя становиться донором: это опасно и для<br>донора, и для пациента. Пройдите тест или прочитайте<br><a href=\"#\" class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.link : stack1), depth0))
 	    + "\">полный список противопоказаний</a>.\n</div>\n<button class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.button : stack1), depth0))
@@ -17324,7 +17324,7 @@
 	
 	
 	// module
-	exports.push([module.id, "._262Ej1jMDO2JTW3JIx8Tcp {\n\tmin-width: 1024px;\n}\n\n._262Ej1jMDO2JTW3JIx8Tcp, ._262Ej1jMDO2JTW3JIx8Tcp *, ._262Ej1jMDO2JTW3JIx8Tcp *::before, ._262Ej1jMDO2JTW3JIx8Tcp *::after {\n\tbox-sizing: border-box;\n}\n\n._1YDXoGjZVC7CsGamehZuyC {\n\tbackground-image: url('/static/main_artwork.jpg');\n\tbackground-size: cover;\n}\n\n._1YDXoGjZVC7CsGamehZuyC::after {\n\twidth: 100%;\n\tpadding-bottom: 34%;\n\tcontent: '';\n\theight: 0;\n\tdisplay: block;\n}", ""]);
+	exports.push([module.id, "._262Ej1jMDO2JTW3JIx8Tcp {\n\tmin-width: 1024px;\n}\n\n._262Ej1jMDO2JTW3JIx8Tcp, ._262Ej1jMDO2JTW3JIx8Tcp *, ._262Ej1jMDO2JTW3JIx8Tcp *::before, ._262Ej1jMDO2JTW3JIx8Tcp *::after {\n\tbox-sizing: border-box;\n\ttext-size-adjust: none;\n\t-moz-text-size-adjust: none;\n\t-webkit-text-size-adjust: none;\n\t-ms-text-size-adjust: none;\n}\n\n._1YDXoGjZVC7CsGamehZuyC {\n\tbackground-image: url('/static/main_artwork.jpg');\n\tbackground-size: cover;\n}\n\n._1YDXoGjZVC7CsGamehZuyC::after {\n\twidth: 100%;\n\tpadding-bottom: 34%;\n\tcontent: '';\n\theight: 0;\n\tdisplay: block;\n}", ""]);
 	
 	// exports
 	exports.locals = {
