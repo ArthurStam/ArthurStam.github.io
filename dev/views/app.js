@@ -6,10 +6,10 @@ import BaseView from 'crimson-backbone/src/views/base';
 
 import How from 'dev/views/how';
 import Why from 'dev/views/why';
-import Where from 'dev/views/where';
 // import ShareView from 'dev/views/share';
 
 // import GeoModel from 'dev/models/geo';
+import CountersModel from 'dev/models/counters';
 
 import styles from 'dev/styles/app.css';
 
@@ -20,23 +20,20 @@ export default class extends BaseView {
 	get _pages() {
 		return {
 			how: How,
-			why: Why,
-			where: Where
+			why: Why
 		}
 	}
 
 	get className() { return styles.root }
 
 	init() {
-		// this.geoModel = new GeoModel();
 
 		this._router = new Backbone.Router({
 			routes: {
-				'': this._routeHandler.bind(this, 'how'),
+				'': this._routeHandler.bind(this, 'why'),
 				'how': this._routeHandler.bind(this, 'how'),
 				'why': this._routeHandler.bind(this, 'why'),
-				'where': this._routeHandler.bind(this, 'where'),
-				':whatever': this._redirect.bind(this, 'how')
+				':whatever': this._redirect.bind(this, 'why')
 			}
 		});
 		!Backbone.History.started && Backbone.history.start();
@@ -63,8 +60,8 @@ export default class extends BaseView {
 		// }
 	}
 
-	_redirect(pageName) {
-		this._router.navigate('how', true);
+	_redirect(pageName = 'why') {
+		this._router.navigate(pageName, true);
 	}
 
 	_routeHandler(pageName) {

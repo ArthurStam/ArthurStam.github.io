@@ -4,7 +4,7 @@ export default (params={}) => {
 	return new Promise((resolve, reject) => {
 		$.ajax(params).done((response) => {
 			resolve(response);
-		}).error(() => {
+		}).error((response) => {
 			reject(response);			
 		});
 	});

@@ -1,12 +1,8 @@
-@import "../placeholders";
-@import "../inputs";
-
 .root {
 	padding: 29px 31px 64px;
 }
 
 .stepHeader {
-	composes: roboto;
 	text-align: left;
 }
 
@@ -20,7 +16,6 @@
 }
 
 .form {
-	composes: roboto;
 	margin: 0;
 }
 
@@ -65,13 +60,4 @@
 .actions {
 	text-align: center;
 	margin-top: 38px;
-}
-
-.submit {
-	composes: testButton;
-
-	&[disabled] {
-		opacity: 0.5;
-		cursor: default;
-	}
 }

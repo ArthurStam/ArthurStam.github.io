@@ -1,5 +1,5 @@
 var path = require('path');
-var nestedRules = require('postcss-nested');
+
 
 module.exports = {
 	entry: './dev/app.js',
@@ -28,7 +28,7 @@ module.exports = {
 		]
 	},
 
-	postcss: [nestedRules, require('postcss-import')],
+	postcss: [require('postcss-import'), require('postcss-extend'), require('postcss-nested'), require('postcss-simple-vars')],
 
 	resolve: {
 		root: [

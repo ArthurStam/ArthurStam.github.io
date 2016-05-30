@@ -60,7 +60,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	__webpack_require__(65);
+	__webpack_require__(74);
 	
 	var $appContainer = (0, _jquery2.default)('[data-role="app"]'),
 	    appView = new _app2.default();
@@ -13482,15 +13482,15 @@
 	
 	var _how2 = _interopRequireDefault(_how);
 	
-	var _why = __webpack_require__(56);
+	var _why = __webpack_require__(35);
 	
 	var _why2 = _interopRequireDefault(_why);
 	
-	var _where = __webpack_require__(60);
+	var _counters = __webpack_require__(66);
 	
-	var _where2 = _interopRequireDefault(_where);
+	var _counters2 = _interopRequireDefault(_counters);
 	
-	var _app = __webpack_require__(62);
+	var _app = __webpack_require__(71);
 	
 	var _app2 = _interopRequireDefault(_app);
 	
@@ -13504,6 +13504,7 @@
 	// import ShareView from 'dev/views/share';
 	
 	// import GeoModel from 'dev/models/geo';
+	
 	
 	var _class = function (_BaseView) {
 		_inherits(_class, _BaseView);
@@ -13519,15 +13520,12 @@
 			value: function init() {
 				var _this2 = this;
 	
-				// this.geoModel = new GeoModel();
-	
 				this._router = new _backbone2.default.Router({
 					routes: {
-						'': this._routeHandler.bind(this, 'how'),
+						'': this._routeHandler.bind(this, 'why'),
 						'how': this._routeHandler.bind(this, 'how'),
 						'why': this._routeHandler.bind(this, 'why'),
-						'where': this._routeHandler.bind(this, 'where'),
-						':whatever': this._redirect.bind(this, 'how')
+						':whatever': this._redirect.bind(this, 'why')
 					}
 				});
 				!_backbone2.default.History.started && _backbone2.default.history.start();
@@ -13555,8 +13553,10 @@
 			}
 		}, {
 			key: '_redirect',
-			value: function _redirect(pageName) {
-				this._router.navigate('how', true);
+			value: function _redirect() {
+				var pageName = arguments.length <= 0 || arguments[0] === undefined ? 'why' : arguments[0];
+	
+				this._router.navigate(pageName, true);
 			}
 		}, {
 			key: '_routeHandler',
@@ -13584,15 +13584,14 @@
 		}, {
 			key: '_template',
 			get: function get() {
-				return __webpack_require__(64);
+				return __webpack_require__(73);
 			}
 		}, {
 			key: '_pages',
 			get: function get() {
 				return {
 					how: _how2.default,
-					why: _why2.default,
-					where: _where2.default
+					why: _why2.default
 				};
 			}
 		}, {
@@ -13758,11 +13757,15 @@
 	
 	var _base2 = _interopRequireDefault(_base);
 	
-	var _test = __webpack_require__(7);
+	var _page = __webpack_require__(7);
 	
-	var _test2 = _interopRequireDefault(_test);
+	var _page2 = _interopRequireDefault(_page);
 	
-	var _how = __webpack_require__(53);
+	var _typography = __webpack_require__(11);
+	
+	var _typography2 = _interopRequireDefault(_typography);
+	
+	var _how = __webpack_require__(13);
 	
 	var _how2 = _interopRequireDefault(_how);
 	
@@ -13786,8 +13789,21 @@
 		_createClass(_class, [{
 			key: 'init',
 			value: function init() {
-				this.registerChild(new _test2.default(), 'how-test');
 				this.render();
+			}
+		}, {
+			key: '_appended',
+			value: function _appended() {
+				var _this2 = this;
+	
+				ymaps.ready(function () {
+					_this2.myMap && _this2.myMap.destroy();
+	
+					_this2.myMap = new ymaps.Map('map', {
+						center: [59.939095, 30.315868],
+						zoom: 10
+					});
+				});
 			}
 		}, {
 			key: '_prepareData',
@@ -13795,13 +13811,15 @@
 				var data = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 	
 				return _underscore2.default.extend(data, {
-					styles: _how2.default
+					page: _page2.default,
+					typography: _typography2.default,
+					how: _how2.default
 				});
 			}
 		}, {
 			key: '_template',
 			get: function get() {
-				return __webpack_require__(55);
+				return __webpack_require__(15);
 			}
 		}]);
 
@@ -13814,348 +13832,20 @@
 /* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	exports.isLastStep = exports.reasons = exports.states = undefined;
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _backbone = __webpack_require__(1);
-	
-	var _backbone2 = _interopRequireDefault(_backbone);
-	
-	var _underscore = __webpack_require__(2);
-	
-	var _underscore2 = _interopRequireDefault(_underscore);
-	
-	var _base = __webpack_require__(5);
-	
-	var _base2 = _interopRequireDefault(_base);
-	
-	var _start2 = __webpack_require__(8);
-	
-	var _start3 = _interopRequireDefault(_start2);
-	
-	var _game = __webpack_require__(35);
-	
-	var _game2 = _interopRequireDefault(_game);
-	
-	var _age = __webpack_require__(39);
-	
-	var _age2 = _interopRequireDefault(_age);
-	
-	var _weight = __webpack_require__(42);
-	
-	var _weight2 = _interopRequireDefault(_weight);
-	
-	var _auto = __webpack_require__(44);
-	
-	var _auto2 = _interopRequireDefault(_auto);
-	
-	var _disease = __webpack_require__(46);
-	
-	var _disease2 = _interopRequireDefault(_disease);
-	
-	var _finish = __webpack_require__(48);
-	
-	var _finish2 = _interopRequireDefault(_finish);
-	
-	var _test = __webpack_require__(9);
-	
-	var _test2 = _interopRequireDefault(_test);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var states = { START: 'START', GAME: 'GAME', FINISH: 'FINISH' };
-	
-	var reasons = { AGE: 'AGE', WEIGHT: 'WEIGHT', AUTO: 'AUTO', DISEASE: 'DISEASE' };
-	
-	function isLastStep(stepIndex, stepsAmount) {
-		return stepIndex + 1 >= stepsAmount;
-	}
-	
-	var steps = [{
-		View: _age2.default
-	}, {
-		View: _weight2.default
-	}, {
-		View: _auto2.default
-	}, {
-		View: _disease2.default
-	}];
-	
-	var TestModel = function (_Backbone$Model) {
-		_inherits(TestModel, _Backbone$Model);
-	
-		function TestModel() {
-			_classCallCheck(this, TestModel);
-	
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(TestModel).apply(this, arguments));
-		}
-	
-		_createClass(TestModel, [{
-			key: 'defaults',
-			get: function get() {
-				return {
-					state: states.START,
-					step: 0,
-					result: true,
-					reason: null,
-					data: {}
-				};
-			}
-		}, {
-			key: 'ageFail',
-			get: function get() {
-				return this.get('reason') == reasons.AGE;
-			}
-		}, {
-			key: 'age17',
-			get: function get() {
-				return this.get('data').age == 17;
-			}
-		}, {
-			key: 'age16',
-			get: function get() {
-				return this.get('data').age == 16;
-			}
-		}, {
-			key: 'age15_10',
-			get: function get() {
-				return this.get('data').age && this.get('data').age <= 15 && this.get('data').age >= 10;
-			}
-		}, {
-			key: 'age10less',
-			get: function get() {
-				return this.get('data').age && this.get('data').age < 10;
-			}
-		}, {
-			key: 'age45more',
-			get: function get() {
-				return this.get('data').age && this.get('data').age > 45;
-			}
-		}, {
-			key: 'weightFail',
-			get: function get() {
-				return this.get('reason') == reasons.WEIGHT;
-			}
-		}, {
-			key: 'weight47less',
-			get: function get() {
-				return this.get('data').weight && this.get('data').weight <= 47;
-			}
-		}, {
-			key: 'weight48_49',
-			get: function get() {
-				return this.get('data').weight == 49 || this.get('data').weight == 48;
-			}
-		}, {
-			key: 'autoFail',
-			get: function get() {
-				return this.get('reason') == reasons.AUTO;
-			}
-		}, {
-			key: 'diseaseFail',
-			get: function get() {
-				return this.get('reason') == reasons.DISEASE;
-			}
-		}, {
-			key: 'success',
-			get: function get() {
-				return this.get('result');
-			}
-		}]);
-	
-		return TestModel;
-	}(_backbone2.default.Model);
-	
-	var _class = function (_BaseView) {
-		_inherits(_class, _BaseView);
-	
-		function _class() {
-			_classCallCheck(this, _class);
-	
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(_class).apply(this, arguments));
-		}
-	
-		_createClass(_class, [{
-			key: '_prepareData',
-			value: function _prepareData() {
-				var data = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
-	
-				return _underscore2.default.extend(data, {
-					styles: _test2.default
-				});
-			}
-		}, {
-			key: 'init',
-			value: function init() {
-				this.testModel = new TestModel();
-				this.listenTo(this.testModel, 'change:state change:step', this._changeState);
-				this._changeState();
-			}
-		}, {
-			key: '_changeState',
-			value: function _changeState() {
-				this.removeChildren('test-container');
-				switch (this.testModel.get('state')) {
-					case states.START:
-						this.registerChild(new _start3.default(), 'test-container');
-						break;
-					case states.GAME:
-						this.registerChild(new _game2.default({
-							testModel: this.testModel,
-							stepsAmount: steps.length,
-							currentStepIndex: this.testModel.get('step'),
-							StepView: steps[this.testModel.get('step')].View
-						}), 'test-container');
-						break;
-					case states.FINISH:
-						this.registerChild(new _finish2.default({
-							testModel: this.testModel
-						}), 'test-container');
-						break;
-				}
-				this.render();
-			}
-		}, {
-			key: '_start',
-			value: function _start() {
-				this.testModel.set({
-					state: states.GAME
-				});
-			}
-		}, {
-			key: 'className',
-			get: function get() {
-				return _test2.default.root;
-			}
-		}, {
-			key: '_template',
-			get: function get() {
-				return __webpack_require__(52);
-			}
-		}, {
-			key: 'events',
-			get: function get() {
-				return {
-					'click [data-action="test-start"]': '_start'
-				};
-			}
-		}]);
-	
-		return _class;
-	}(_base2.default);
-	
-	exports.default = _class;
-	exports.states = states;
-	exports.reasons = reasons;
-	exports.isLastStep = isLastStep;
-
-/***/ },
-/* 8 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _underscore = __webpack_require__(2);
-	
-	var _underscore2 = _interopRequireDefault(_underscore);
-	
-	var _base = __webpack_require__(5);
-	
-	var _base2 = _interopRequireDefault(_base);
-	
-	var _test = __webpack_require__(9);
-	
-	var _test2 = _interopRequireDefault(_test);
-	
-	var _start = __webpack_require__(13);
-	
-	var _start2 = _interopRequireDefault(_start);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var _class = function (_BaseView) {
-		_inherits(_class, _BaseView);
-	
-		function _class() {
-			_classCallCheck(this, _class);
-	
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(_class).apply(this, arguments));
-		}
-	
-		_createClass(_class, [{
-			key: 'init',
-			value: function init() {
-				this.render();
-			}
-		}, {
-			key: '_prepareData',
-			value: function _prepareData() {
-				var data = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
-	
-				return _underscore2.default.extend(data, {
-					testStyles: _test2.default,
-					startStyles: _start2.default
-				});
-			}
-		}, {
-			key: '_template',
-			get: function get() {
-				return __webpack_require__(15);
-			}
-		}, {
-			key: 'className',
-			get: function get() {
-				return _start2.default.root;
-			}
-		}]);
-
-		return _class;
-	}(_base2.default);
-
-	exports.default = _class;
-
-/***/ },
-/* 9 */
-/***/ function(module, exports, __webpack_require__) {
-
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(10);
+	var content = __webpack_require__(8);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(12)(content, {});
+	var update = __webpack_require__(10)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js?modules!./../../node_modules/postcss-loader/index.js!./test.css", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js?modules!./../../node_modules/postcss-loader/index.js!./test.css");
+			module.hot.accept("!!./../../node_modules/css-loader/index.js?modules!./../../node_modules/postcss-loader/index.js!./page.css", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js?modules!./../../node_modules/postcss-loader/index.js!./page.css");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -14165,38 +13855,32 @@
 	}
 
 /***/ },
-/* 10 */
+/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(11)();
+	exports = module.exports = __webpack_require__(9)();
 	// imports
 	
 	
 	// module
-	exports.push([module.id, "._2AacvD_Bs_6FQD2fvgE3V4 {\n\tfont-family: 'PT Serif', serif;\n}\n\n._3mcT3Wa6VFtN3D1Qr_gnuY {\n\tfont-family: 'Roboto', sans-serif;\n}\n\n._2Dx7WNmcO6FESoi0b5bsW4 {\n\tposition: relative;\n\tpadding: 40px 0;\n}\n\n._1pUxA4FA9frJDUzyjaQJ5V {\n\tfont-weight: bold;\n\tfont-size: 80px;\n\tline-height: 90px;\n\ttext-align: center;\n\tmargin-bottom: 25px;\n}\n\n._3OhH_3XUdficZmBKK8tTfn {\n\tcolor: #000;\n\ttext-decoration: none;\n\tfont-size: 36px;\n\tline-height: 42px;\n\tfont-weight: normal;\t\n}\n\n._1X5v7kim66JLubWczQ5L8Y {\n\tposition: absolute;\n\tleft: 68px;\n\ttop: 50px;\n}\n\n.JVddxANUB7kRqz7hPmNb6 {\n\tposition: absolute;\n\tright: 68px;\n\ttop: 50px;\n}\n\n._2KbTYNNrKtFU6Y38WbF4RQ {\n\twidth: 650px;\n\tmargin: auto;\n}\n\n.sJtCfXgP_JzyIfog4ZUJ5 {\n\tletter-spacing: 4px;\n\tfont-size: 22px;\n\tfont-weight: normal;\n\tcolor: #000;\n\ttext-transform: uppercase;\n\tborder: none;\n\tbackground-image: none;\n\tbackground-color: #FFD637;\n\theight: 62px;\n\tline-height: 62px;\n\tmin-width: 290px;\n\tcursor: pointer;\n}\n\n.ShiC6JgIaOalBQVpIsYtL {\n\tmargin: auto;\n\twidth: 756px;\n}\n\n._1ZNJ4h3Uct4YGPwsOlP-a2 {\n\tborder: 3px solid #FFD637;\n\ttext-align: center;\n}\n\n._10prCLGoK4eiHXC-VVYaZu {\n\tpadding-top: 40px;\n}\n\n._25zew7Xg1S-FRibLyMbP5v {\n\tfont-size: 40px;\n\tline-height: 45px;\n\tfont-weight: bold;\n\tmargin-bottom: 15px;\n}\n\n._3KLmj9ZQkJaTvSjezlkPal {\n\tfont-weight: 300;\n\tfont-size: 18px;\n\tline-height: 26px;\n\tmargin-bottom: 35px;\n\tletter-spacing: -0.2px;\n}\n\n._1X2JHsGFfQ8zHFb2p6Poe3 {\n\tcolor: #3B66B2;\n\ttext-decoration: underline;\n}\n\n._1EJkoHOhNvfNBuPdCFRa4c {\n}", ""]);
+	exports.push([module.id, "._1qYSRV45fgKNO9VAvI4i5T {\n\tmargin: 50px 0;\n}\n\n._1QFXZkT9hFspnGBHrgzOla {\n\tposition: relative;\n\tpadding: 0 0 40px;\n}\n\n.iHIj2vUWlJL27N8tZtKfa {\n\twidth: 657px;\n\tmargin: auto;\n}\n\n._2AX1khG2HUetQLrpLQ2Ioz {\n\tpadding: 50px 0;\n\tbackground-color: rgba(9, 159, 175, 0.27);\n\tmargin-bottom: 50px;\n}\n\n.gugwRJ4TwKTo5q8bqDByV {\n\tfont-size: 14px;\n\tline-height: 24px;\n\tfont-weight: 300;\n\tdisplay: flex;\n}\n\n._22yIhYV_EDPENQPJXpEc0b {\n\tmargin-right: 10px;\n}\n\n._3ADqk9sqv_g_3Ljm--pxe6 {\n\tdisplay: flex;\n}\n\n._4Ya342wPkWM_FsdYgqEO3 {\n\twidth: 73px;\n\theight: 73px;\n\tbackground-color: #078599;\n\tcursor: pointer;\n\tbackground-position: center center;\n\tbackground-repeat: no-repeat;\n}\n\n._4Ya342wPkWM_FsdYgqEO3:not(:last-child) {\n\tmargin-right: 27px;\n}\n\n._13oZ_bkdLFEBVldflzbvFw {\n\tbackground-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAqCAMAAADoIdnnAAAApVBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+4/eNVAAAANnRSTlMAAAUMEhUYKSw3PEBBUF5fa29wjpKUm52mrK6+wcTGyMrNztja3d7k7PDy8/T19vf4+fr7/f5JyMCUAAAAsElEQVR42u3Q2Q6CQAyF4YriNo67uOG+iwIC9v0fTchMlCjV3nnDf/0lTQ8UWP2bgapubV3E6Ljst2hm2kGEujPJivsQn61J1rvhK4tihpdSXptitSDF/AbFmq4SwWa6OIRlinV8xVYQZwDFuvroBJJ+svEXJqUcajaXSaVMhhfHuSt2deKwks3eM1ksAhY78dgOOC/4s2wmhBjoQWwRV2XOm7OcfbCQx1A1IhjRf9kDR21MuYsfLhwAAAAASUVORK5CYII=);\n}\n\n.ycxEEsNyx2pf-iez_itU0 {\n\tbackground-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAbCAMAAAA5zj1cAAABSlBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////9mcS2dAAAAbXRSTlMAAAEDBQYHCAoLDA0OEBITFBUXGB8iJCcoKi8wMTQ2OTs8QEFCREZHSEpMTU5PUFJWXWdscHJ4fH5/gISLlJqhqK6ztba4u7y9w8TGx8vO0dLW2Nna29ze4uPk5ebp6uvs7u/w8/T2+Pn6+/3+kKCElQAAAUlJREFUeNq10+k3AlEYBvBHScSQNUskQpZkZ8iSrexLZFdMUnT//6/uXO/tzjhnzvGl59Pz3Pd35tug7p+pBQSaNE1rhhn32mWJMfaZ0fEnHGaYSNIFYDjLKP3i7DmjecHhHfWo+OQerVkB5xjlhcMl6gfiNEFrUqwjCRMc+vI0guDppjFijpB0b20cYoXWLnharTAl4QJM6HunOQpAoz4EICrdvktArNO+8ig4AHiz1F878QtbcvSyCvQomKBaGQdBLNJTOYRpqnHEGGUDVVh/TW/5+TS1k+UitWO3ghhjjqkEYIHYcYS3sMGOnKOcsUHEHGExYoPYcpTlKRtsOLWfS9+2byqI9huru/f3ZZUcJEjy3AJ1oOu5up78VojGTQXjAIIf1blNUCaclpewOSMFOb8IqvTqqQfDMA69YgWSJa4KxqNeg//6BxI74A3iZZBUAAAAAElFTkSuQmCC);\n}", ""]);
 	
 	// exports
 	exports.locals = {
-		"ptSerif": "_2AacvD_Bs_6FQD2fvgE3V4",
-		"roboto": "_3mcT3Wa6VFtN3D1Qr_gnuY",
-		"pageRoot": "_2Dx7WNmcO6FESoi0b5bsW4",
-		"pageTitle": "_1pUxA4FA9frJDUzyjaQJ5V _2AacvD_Bs_6FQD2fvgE3V4",
-		"pageNav": "_3OhH_3XUdficZmBKK8tTfn _2AacvD_Bs_6FQD2fvgE3V4",
-		"pageNavPrev": "_1X5v7kim66JLubWczQ5L8Y _3OhH_3XUdficZmBKK8tTfn _2AacvD_Bs_6FQD2fvgE3V4",
-		"pageNavNext": "JVddxANUB7kRqz7hPmNb6 _3OhH_3XUdficZmBKK8tTfn _2AacvD_Bs_6FQD2fvgE3V4",
-		"pageContainer": "_2KbTYNNrKtFU6Y38WbF4RQ",
-		"testButton": "sJtCfXgP_JzyIfog4ZUJ5 _3mcT3Wa6VFtN3D1Qr_gnuY",
-		"root": "ShiC6JgIaOalBQVpIsYtL",
-		"container": "_1ZNJ4h3Uct4YGPwsOlP-a2",
-		"step": "_10prCLGoK4eiHXC-VVYaZu",
-		"title": "_25zew7Xg1S-FRibLyMbP5v _2AacvD_Bs_6FQD2fvgE3V4",
-		"subtitle": "_3KLmj9ZQkJaTvSjezlkPal _3mcT3Wa6VFtN3D1Qr_gnuY",
-		"link": "_1X2JHsGFfQ8zHFb2p6Poe3",
-		"button": "_1EJkoHOhNvfNBuPdCFRa4c sJtCfXgP_JzyIfog4ZUJ5 _3mcT3Wa6VFtN3D1Qr_gnuY"
+		"section": "_1qYSRV45fgKNO9VAvI4i5T",
+		"root": "_1QFXZkT9hFspnGBHrgzOla",
+		"container": "iHIj2vUWlJL27N8tZtKfa",
+		"footer": "_2AX1khG2HUetQLrpLQ2Ioz",
+		"credentials": "gugwRJ4TwKTo5q8bqDByV",
+		"credentialsImage": "_22yIhYV_EDPENQPJXpEc0b",
+		"share": "_3ADqk9sqv_g_3Ljm--pxe6",
+		"shareItem": "_4Ya342wPkWM_FsdYgqEO3",
+		"shareItemFb": "_13oZ_bkdLFEBVldflzbvFw _4Ya342wPkWM_FsdYgqEO3",
+		"shareItemVk": "ycxEEsNyx2pf-iez_itU0 _4Ya342wPkWM_FsdYgqEO3"
 	};
 
 /***/ },
-/* 11 */
+/* 9 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -14251,7 +13935,7 @@
 	};
 
 /***/ },
-/* 12 */
+/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -14503,6 +14187,62 @@
 
 
 /***/ },
+/* 11 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(12);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(10)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js?modules!./../../node_modules/postcss-loader/index.js!./typography.css", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js?modules!./../../node_modules/postcss-loader/index.js!./typography.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 12 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(9)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, ".mCMeBlawmTHgj-kOia8gK {\n\tfont-family: 'Roboto', sans-serif;\n\tfont-size: 16px;\n\tline-height: 24px;\n\tfont-weight: 300;\n}\n\n.Yld6iXMiFH4Vt7IopVoky {\n\tfont-family: 'Roboto', sans-serif;\n\tfont-size: 48px;\n\tline-height: 55px;\n\tfont-weight: 700;\n\ttext-align: center;\n}\n\n._3uvNU1E_zK3vlKn7iIK57u {\n\tfont-family: 'Roboto', sans-serif;\n\tfont-size: 30px;\n\tline-height: 18px;\n\tfont-weight: 700;\n\tmargin-bottom: 23px;\n}\n\n._3lv3I_riifEMhkoO2Dukx_ {\n}\n\n._3lv3I_riifEMhkoO2Dukx_:not(:last-child) {\n\tmargin-bottom: 23px;\n}\n\n._2hyzGKrHnqHZ4dKDiYJjSk {\n\tcolor: #078599;\n\ttext-decoration: underline;\n}\n\n._2H3KkHxmbHI3WvlhyzZCnq {\n\tfont-weight: 700;\n}\n\n.x5OPdyuVfERXP6Zae2_p3 {\n\tfont-family: 'Roboto', sans-serif;\n\tcolor: #078599;\n\tfont-weight: 400;\n}\n\n._3NPcCWvioPO4gSH3wqBu96 {\n\tfont-size: 54px;\n\tline-height: 56px;\n\tfont-weight: 700;\n\tmargin-bottom: -4px;\n}\n\n._3dPZLkyD7-DdI3_7WT-B1F {\n\tline-height: 23px;\n}\n\n._256MTZBCB1RaS5QMBrDnjm {\n\tfont-size: 12px;\n}\n\n._3rskhd6gSf-w_n0a8nK10n {\n\tdisplay: flex;\n}\n\n._3rskhd6gSf-w_n0a8nK10n .x5OPdyuVfERXP6Zae2_p3, ._3rskhd6gSf-w_n0a8nK10n ._3c59ynQ1xcQwe4miRYkPbZ {\n\tflex-shrink: 0;\n\tmargin-left: 24px;\n}\n\n._3rskhd6gSf-w_n0a8nK10n ._3c59ynQ1xcQwe4miRYkPbZ {\n\twidth: 196px;\n}\n\n._1GUWZ5UGIjNQxoLL6Q2miN {\n\tjustify-content: space-between;\n}\n\n._2q4iT4rckcnIidE1puWG0d {\n\tfont-family: 'Roboto', sans-serif;\n\twidth: 768px;\n\tmargin-left: calc( ( 657px - 768px ) / 2 );\n\tpadding: 50px calc( ( 768px - 657px ) / 2 ) 64px;\n\tbackground-color: rgba(9, 159, 175, 0.27);\n}\n\n._3abqwcGNOd_J3E1Oi-yi6N {\n\tflex-shrink: 0;\n}\n\n._3abqwcGNOd_J3E1Oi-yi6N:first-child {\n\twidth: 44%;\n}\n\n._3abqwcGNOd_J3E1Oi-yi6N:last-child {\n\twidth: 50%;\n}", ""]);
+	
+	// exports
+	exports.locals = {
+		"text": "mCMeBlawmTHgj-kOia8gK",
+		"header": "Yld6iXMiFH4Vt7IopVoky",
+		"subheader": "_3uvNU1E_zK3vlKn7iIK57u",
+		"paragraph": "_3lv3I_riifEMhkoO2Dukx_ mCMeBlawmTHgj-kOia8gK",
+		"link": "_2hyzGKrHnqHZ4dKDiYJjSk",
+		"bold": "_2H3KkHxmbHI3WvlhyzZCnq mCMeBlawmTHgj-kOia8gK",
+		"footnote": "x5OPdyuVfERXP6Zae2_p3",
+		"footnoteCounter": "_3NPcCWvioPO4gSH3wqBu96",
+		"footnoteText": "_3dPZLkyD7-DdI3_7WT-B1F",
+		"footnoteMeta": "_256MTZBCB1RaS5QMBrDnjm",
+		"float": "_3rskhd6gSf-w_n0a8nK10n",
+		"media": "_3c59ynQ1xcQwe4miRYkPbZ",
+		"floatJustifyBetween": "_1GUWZ5UGIjNQxoLL6Q2miN _3rskhd6gSf-w_n0a8nK10n",
+		"note": "_2q4iT4rckcnIidE1puWG0d",
+		"col2": "_3abqwcGNOd_J3E1Oi-yi6N"
+	};
+
+/***/ },
 /* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -14512,14 +14252,14 @@
 	var content = __webpack_require__(14);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(12)(content, {});
+	var update = __webpack_require__(10)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js?modules!./../../../node_modules/postcss-loader/index.js!./start.css", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js?modules!./../../../node_modules/postcss-loader/index.js!./start.css");
+			module.hot.accept("!!./../../node_modules/css-loader/index.js?modules!./../../node_modules/postcss-loader/index.js!./how.css", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js?modules!./../../node_modules/postcss-loader/index.js!./how.css");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -14532,26 +14272,30 @@
 /* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(11)();
+	exports = module.exports = __webpack_require__(9)();
 	// imports
 	
 	
 	// module
-	exports.push([module.id, ".EjuHMmEBQUTkkWdhMM9aL {\n\tfont-family: 'PT Serif', serif;\n}\n\n.CrCeN_1WCXw5Zd2NM4Q8F {\n\tfont-family: 'Roboto', sans-serif;\n}\n\n._3CTqjvfvqaNiYSwea-xRxp {\n\tposition: relative;\n\tpadding: 40px 0;\n}\n\n._1bc3TDeNzxB_vHXeA6CxPE {\n\tfont-weight: bold;\n\tfont-size: 80px;\n\tline-height: 90px;\n\ttext-align: center;\n\tmargin-bottom: 25px;\n}\n\n._3sq63wYuQMBpVyXTPYOWsb {\n\tcolor: #000;\n\ttext-decoration: none;\n\tfont-size: 36px;\n\tline-height: 42px;\n\tfont-weight: normal;\t\n}\n\n._1ojTDvCIFcRJroEoW70dX2 {\n\tposition: absolute;\n\tleft: 68px;\n\ttop: 50px;\n}\n\n._2xJmdVj30d-qYvB3sA6oui {\n\tposition: absolute;\n\tright: 68px;\n\ttop: 50px;\n}\n\n._28wmEs02oI5SbmvcWWxPWy {\n\twidth: 650px;\n\tmargin: auto;\n}\n\n._1wWaUx95Dc9MkYqK6fRDXo {\n\tletter-spacing: 4px;\n\tfont-size: 22px;\n\tfont-weight: normal;\n\tcolor: #000;\n\ttext-transform: uppercase;\n\tborder: none;\n\tbackground-image: none;\n\tbackground-color: #FFD637;\n\theight: 62px;\n\tline-height: 62px;\n\tmin-width: 290px;\n\tcursor: pointer;\n}\n\n._2c_X9l_2tFGA0jZbDU9JRH {\n\tpadding: 40px 0 58px;\n}\n\n._2lXyS42srJX9Tol5flKXUR {\n\tfont-size: 23px;\n\ttext-transform: uppercase;\n\tmargin-bottom: 9px;\n\tletter-spacing: 4px;\n}", ""]);
+	exports.push([module.id, "._1WejIhpkUMh4VTkZQk4pv3 {\n\tmax-width: 1024px;\n\tmargin-left: auto;\n\tmargin-right: auto;\n\tmargin-top: 40px;\n}\n\n._1WejIhpkUMh4VTkZQk4pv3 img {\n\tmax-width: 100%;\n}\n\n._1WejIhpkUMh4VTkZQk4pv3 {\n\tmargin-bottom: -50px;\n}\n\n._35cLu0FiJi8Aya9kANGLJP {\n\tfont-size: 27px;\n\tfont-weight: bold;\n\tcolor: inherit;\n}\n\n._97IAdnFwwX7o6UPALTnL6 {\n\tmargin-top: 8px;\n}\n\n.HuN9t2QlrbX1i05Ufjyww {\n\twidth: 170px;\n}\n\n._1lODHij9o9HfotBQjjNm1N {\n\theight: 160px;\n}\n\n._16uNMo0YxWsGGoEf8l36O2 {\n\tmargin-top: -30px;\n\tmargin-bottom: -15px;\n\twidth: 768px;\n\tmargin-left: calc( ( 657px - 768px ) / 2 );\n}\n\n._1JUaYIX0pZ6y5TiSwfSVJX {\n\tmargin-bottom: 20px;\n}\n\n._31SNx6Pg9lMDJFG77PbM6u {\n\tdisplay: flex;\n}\n\n._1mLSKjOuj5mKLEKXod9IKp {\n\twidth: 306px;\n\theight: 240px;\n\tmargin-right: 15px;\n\tflex-shrink: 0;\n}\n\n.mQRPkQMFqN3wx9eoZSWpY {\n\n}\n\n._1Ua2wPj4wlSWCvPKaa_vny {\n\tfont-weight: 700;\n\tmargin-bottom: 7px;\n}\n\n._2RRDmumvbQsIVyhjaf7TTw {\n\tmargin-bottom: 7px;\n}\n\n._2q-RfHocjKPjEkTkhF3kSW {\n\tmargin-bottom: 7px;\n}\n\n._1FErJrDjG-s_tsb4PPzfIt {\n\n}\n\n._3cODNT2e0X3yLiS8TW2Y7k {\n\tmargin-top: 7px;\n\tdisplay: inline-block;\n\tcursor: pointer;\n}\n\n._3cODNT2e0X3yLiS8TW2Y7k:hover {\n\ttext-decoration: underline;\n}", ""]);
 	
 	// exports
 	exports.locals = {
-		"ptSerif": "EjuHMmEBQUTkkWdhMM9aL",
-		"roboto": "CrCeN_1WCXw5Zd2NM4Q8F",
-		"pageRoot": "_3CTqjvfvqaNiYSwea-xRxp",
-		"pageTitle": "_1bc3TDeNzxB_vHXeA6CxPE EjuHMmEBQUTkkWdhMM9aL",
-		"pageNav": "_3sq63wYuQMBpVyXTPYOWsb EjuHMmEBQUTkkWdhMM9aL",
-		"pageNavPrev": "_1ojTDvCIFcRJroEoW70dX2 _3sq63wYuQMBpVyXTPYOWsb EjuHMmEBQUTkkWdhMM9aL",
-		"pageNavNext": "_2xJmdVj30d-qYvB3sA6oui _3sq63wYuQMBpVyXTPYOWsb EjuHMmEBQUTkkWdhMM9aL",
-		"pageContainer": "_28wmEs02oI5SbmvcWWxPWy",
-		"testButton": "_1wWaUx95Dc9MkYqK6fRDXo CrCeN_1WCXw5Zd2NM4Q8F",
-		"root": "_2c_X9l_2tFGA0jZbDU9JRH",
-		"title": "_2lXyS42srJX9Tol5flKXUR CrCeN_1WCXw5Zd2NM4Q8F"
+		"artwork": "_1WejIhpkUMh4VTkZQk4pv3",
+		"contactEmail": "_35cLu0FiJi8Aya9kANGLJP",
+		"contactText": "_97IAdnFwwX7o6UPALTnL6",
+		"doctorImage": "HuN9t2QlrbX1i05Ufjyww",
+		"typeImage": "_1lODHij9o9HfotBQjjNm1N",
+		"whatNextImage": "_16uNMo0YxWsGGoEf8l36O2",
+		"findCity": "_1JUaYIX0pZ6y5TiSwfSVJX",
+		"findContainer": "_31SNx6Pg9lMDJFG77PbM6u",
+		"findMap": "_1mLSKjOuj5mKLEKXod9IKp",
+		"findPoint": "mQRPkQMFqN3wx9eoZSWpY",
+		"findPointName": "_1Ua2wPj4wlSWCvPKaa_vny",
+		"findPointAddress": "_2RRDmumvbQsIVyhjaf7TTw",
+		"findPointTime": "_2q-RfHocjKPjEkTkhF3kSW",
+		"findPointMeta": "_1FErJrDjG-s_tsb4PPzfIt",
+		"findShowMore": "_3cODNT2e0X3yLiS8TW2Y7k"
 	};
 
 /***/ },
@@ -14564,16 +14308,248 @@
 	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
 	
 	  return "<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.startStyles : depth0)) != null ? stack1.title : stack1), depth0))
-	    + "\">тест</div>\n<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.title : stack1), depth0))
-	    + "\">Могу ли я стать донором?</div>\n<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.subtitle : stack1), depth0))
-	    + "\">\n	Абсолютно здоровых людей не бывает, но при некоторых<br>заболеваниях нельзя становиться донором: это опасно и для<br>донора, и для пациента. Пройдите тест или прочитайте<br><a href=\"#\" class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.link : stack1), depth0))
-	    + "\">полный список противопоказаний</a>.\n</div>\n<button class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.button : stack1), depth0))
-	    + "\" data-action=\"test-start\">начать</button>";
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.root : stack1), depth0))
+	    + "\">\n	<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.artwork : stack1), depth0))
+	    + "\">\n		<img src=\"/static/how_artwork.png\">\n	</div>\n	<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.styles : depth0)) != null ? stack1.pageContainer : stack1), depth0))
+	    + "\">\n		<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.styles : depth0)) != null ? stack1.test : stack1), depth0))
+	    + "\" data-view=\"how-test\"></div>\n	</div>\n	<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.container : stack1), depth0))
+	    + "\">\n		<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.header : stack1), depth0))
+	    + "\">Как стать<br>донором костного мозга</div>\n		<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
+	    + "\">\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.text : stack1), depth0))
+	    + "\">\n				О донорстве костного мозга знают мало, поэтому многие боятся становиться донорами. Кто-то думает, что костный мозг вырезают из костей, другие слышали, что врач иглой протыкает позвоночник. Мы хотим развеять безосновательные страхи и рассказать, как все происходит на самом деле — шаг за шагом.\n			</div>\n		</div>\n		<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
+	    + "\">\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
+	    + "\">Первый шаг. Найти, где сдать кровь</div>\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1["float"] : stack1), depth0))
+	    + " "
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.text : stack1), depth0))
+	    + "\">\n					Чтобы вступить в регистр потенциальных доноров костного мозга, нужно сдать кровь на типирование. Типирование — это тест на тканевую совместимость между донором и реципиентом. От этой совместимости зависит, приживется ли костный мозг в новом организме.\n				</div>\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnote : stack1), depth0))
+	    + "\">\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnoteText : stack1), depth0))
+	    + "\">\n						Для 100% генетической совместимости\n						<br>\n						донора и пациента должны совпасть\n						<br>\n						10 четырехзначных параметров ДНК.\n						<br>\n						Вероятность совпадения 1:10000.\n						<br>\n						Для транплантации достаточно\n						<br>\n						90% совместимости\n					</div>\n				</div>\n			</div>\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n				Специальных пунктов сдачи крови на типирование нет. Вступить в регистр можно в некоторых пунктах переливания крови и в лабораториях регистра. Выберите свой город и найдите удобный пункт. \n			</div>\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.find : stack1), depth0))
+	    + "\">\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findCity : stack1), depth0))
+	    + "\">\n					<select>\n						<option>Санкт-Петербург</option>\n						<option>Москва</option>\n					</select>\n				</div>\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findContainer : stack1), depth0))
+	    + "\">\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findMap : stack1), depth0))
+	    + "\" id=\"map\">\n					</div>\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findMainPoint : stack1), depth0))
+	    + "\">\n						<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findPoint : stack1), depth0))
+	    + " "
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.text : stack1), depth0))
+	    + "\">\n							<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findPointName : stack1), depth0))
+	    + "\">Институт детской гематологии и трансплантологии им. Р.М. Горбачевой</div>\n							<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findPointAddress : stack1), depth0))
+	    + "\">\n								Ст.м. Петроградская, ул. Рентгена, 12, 10 эт., каб. 1007. \n							</div>\n							<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findPointTime : stack1), depth0))
+	    + "\">\n								Время работы: вторник 16:00 - 19:00, четверг 10:00 - 12:00.\n							</div>\n							<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findPointMeta : stack1), depth0))
+	    + "\">\n								Записываться заранее не нужно, просто приходите.\n							</div>\n						</div>\n						<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findShowMore : stack1), depth0))
+	    + " "
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.text : stack1), depth0))
+	    + "\">\n							Все пункты в Санкт-Петербурге..\n						</div>\n					</div>\n				</div>\n			</div>\n		</div>\n		<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
+	    + "\">\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
+	    + "\">Второй шаг. Сдать кровь</div>\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1["float"] : stack1), depth0))
+	    + " "
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n				<div>\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n						В пункте приёма крови вы заполняете анкету и подписываете соглашение. Соглашение подтверждает, что вы вступаете в регистр добровольно и знаете о всех этапах донорства.\n					</div>\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n						Тут же вы сдаете 10 мл крови.  \n					</div>\n				</div>\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnote : stack1), depth0))
+	    + "\">\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n						<a href=\"#\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
+	    + "\">\n							Анкета\n							<br>\n							о состоянии здоровья\n						</a>\n					</div>\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n						<a href=\"#\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
+	    + "\">\n							Соглашение \n							<br>\n							о вступлении в регистр\n						</a>\n					</div>\n				</div>\n			</div>\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n				Поздравляем, вы в регистре! Вы попадаете в регистр автоматически после того, как вашу кровь протипируют в лаборатории. Сотрудники регистра  позвонят, только если ваш костный мозг кому-то подойдет. \n			</div>\n		</div>\n		<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
+	    + "\">\n			<div class="
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.note : stack1), depth0))
+	    + ">\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
+	    + "\">Персональные данные под защитой</div>\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.floatJustifyBetween : stack1), depth0))
+	    + "\">\n						<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.col2 : stack1), depth0))
+	    + "\">\n							<span class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.bold : stack1), depth0))
+	    + "\">Регистр не раскрывает ваши данные</span>\n							<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n								Пробирку с анализом подписывают девятизначным кодом. Этот же код пишут на анкете с вашими персональными данными. Результаты типирования и код хранятся в одной базе, а персональные данные – в другой.\n							</div>\n							<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n								База с персональными данными находится на отдельном сервере без выхода в интернет. Сотрудник сопоставит код и имя, только если кому-то  подойдут ваши клетки.\n							</div>\n						</div>\n						<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.col2 : stack1), depth0))
+	    + "\">\n							<span class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.bold : stack1), depth0))
+	    + "\">Регистр не раскрывает данные пациента</span>\n							<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n								О реципиенте вам скажут немного: пол, возраст, вес и как в общих чертах прошла трасплантация.\n							</div>\n							<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n								Срок анонимности – два года. Потом сотрудник регистра предложит донору и реципиенту написать друг другу письма и, если оба согласятся, встретиться.\n							</div>	\n						</div>\n					</div>\n				</div>\n			</div>\n		</div>\n		<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
+	    + "\">\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
+	    + "\">Третий шаг. Ждать</div>\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1["float"] : stack1), depth0))
+	    + " "
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n				<div>\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n						Потенциальный донор может подойти кому-то на следующий день, через несколько лет или вообще никогда не подойти. \n					</div>\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n						Помните, что мы увеличиваем регистр, чтобы спасать жизни. Поэтому оцените свои силы заранее и вступайте в регистр с твердым намерением стать реальным донором. \n					</div>\n				</div>\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnote : stack1), depth0))
+	    + "\">\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.contact : stack1), depth0))
+	    + "\">\n						<a href=\"mailto:donor@advita.ru\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.contactEmail : stack1), depth0))
+	    + "\">donor@advita.ru</a>\n						<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.contactText : stack1), depth0))
+	    + "\">\n							Обо всех изменениях пишите\n							<br>\n							в фонд Advita — мы передадим\n							<br>\n							информацию в регистр.\n							<br>\n							И неважно, откуда вы и где\n							<br>\n							сдавали кровь\n						</div>\n					</div>\n				</div>\n			</div>\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n				Люди, которые числятся в регистре, но в последний момент отказываются от реального донорства, зря тратят деньги благотворительных организаций и время пациента – время, которое может быть решающим. \n			</div>\n		</div>\n		<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
+	    + "\">\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
+	    + "\">Четвертый шаг. Пройти обследование</div>\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1["float"] : stack1), depth0))
+	    + "\">\n				<div>\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n						Итак, прошло время, и ваши клетки кому-то подошли. Сотрудник регистра звонит вам и спрашивает, готовы ли вы стать реальным донором.\n					</div>	\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n						Если соглашаетесь, вам назначают более детальное, развернутое типирование — чтобы убедиться, что подходите. Если точно подходите, проходите обследование. Какое — зависит от состояния здоровья. Это в любом случае будет обычный биохимический анализ крови. Если вас что-то беспокоит, врач назначит дополнительные анализы.\n					</div>\n				</div>\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.media : stack1), depth0))
+	    + "\">\n					<img class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.doctorImage : stack1), depth0))
+	    + "\" src=\"/static/doctor.png\">\n				</div>\n			</div>	\n		</div>\n		<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
+	    + "\">\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
+	    + "\">Пятый шаг. Стать донором</div>\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n				Забрать костный мозг от донора можно двумя способами. Каким будут брать у вас, вы выбираете сами.\n			</div>\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.floatJustifyBetween : stack1), depth0))
+	    + "\">\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.col2 : stack1), depth0))
+	    + "\">\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.type : stack1), depth0))
+	    + "\">\n						<img src=\"/static/spit.png\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.typeImage : stack1), depth0))
+	    + "\">\n						<span class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.bold : stack1), depth0))
+	    + "\">Из тазовой кости</span>\n						<br>\n						<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.text : stack1), depth0))
+	    + "\">\n							Врач проколет тазовую кость и возьмет небольшую часть костного мозга. Вы будете под общим наркозом. Операция займёт около 30 минут. Во время операции вы ничего не почувствуете, но несколько дней после операции будут «ныть кости». Вы легко снимете дискомфорт обезболивающими таблетками. \n						</div>\n					</div>\n				</div>\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.col2 : stack1), depth0))
+	    + "\">\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.type : stack1), depth0))
+	    + "\">\n						<img src=\"/static/kapelnitsa.png\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.typeImage : stack1), depth0))
+	    + "\">\n						<span class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.bold : stack1), depth0))
+	    + "\">Из вены</span>\n						<br>\n						<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.text : stack1), depth0))
+	    + "\">\n							У вас берут кровь из вены одной руки и возвращают в вену на другой руке. По дороге кровь проходит через сепаратор, отлавливающий клетки костного мозга. Процедура занимает пять-шесть часов. Анестезия не нужна, вы находитесь в сознании и успеваете посмотреть три любимых фильма или поспать. \n						</div>	\n					</div>\n				</div>\n			</div>\n		</div>\n		<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
+	    + "\">\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
+	    + "\">Что потом</div>\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n				Через два года после успешной трансплантации у донора и реципиента спросят, хотят ли они познакомиться. Если оба согласятся, состоится встреча. \n			</div>\n		</div>\n		<img src=\"/static/obyatye.png\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.whatNextImage : stack1), depth0))
+	    + "\">\n		<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
+	    + "\">\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.floatJustifyBetween : stack1), depth0))
+	    + "\">\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.col2 : stack1), depth0))
+	    + "\">\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n						«И вот они встретились. Два черноглазых парня, — одному 14, другому 42, чем-то неуловимо похожие друг на друга и почти стопроцентные братья по крови»\n					</div>\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n						<a href=\"#\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
+	    + "\">История от Юлии Варенцовой</a>\n					</div>\n				</div>\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.col2 : stack1), depth0))
+	    + "\">\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n						«И вот они встретились. Два черноглазых парня, — одному 14, другому 42, чем-то неуловимо похожие друг на друга и почти стопроцентные братья по крови»\n					</div>\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n						<a href=\"#\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
+	    + "\">Репортаж Валерия Панюшкина</a>\n					</div>\n				</div>\n			</div>\n		</div>\n	</div>\n	<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.footer : stack1), depth0))
+	    + "\">\n		<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.container : stack1), depth0))
+	    + "\">\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.goToFirst : stack1), depth0))
+	    + "\">\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.goToFirstImage : stack1), depth0))
+	    + "\">\n					</div>\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.goToFirstText : stack1), depth0))
+	    + "\">\n						<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n							Если вы решили стать донором костного мозга, сделайте первый шаг — найдите пункт, в котором сможете сдать кровь и вступить в регистр. \n						</div>\n						<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n							<a href=\"#\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
+	    + "\">Найти удобный пункт</a>\n						</div>\n					</div>\n				</div>\n			</div>\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n				Если сомневаетесь, <a href=\"#\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
+	    + "\">узнайте больше на сайте Advita</a>\n				<br>\n				или <a href=\"#\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
+	    + "\">задайте вопрос координаторам проекта</a>.\n			</div>\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n				В любом случае расскажите о донорстве костного мозга друзьям.\n				<br>\n				Так вы можете спасти чью-то жизнь, даже если не вступите в регистр. \n			</div>\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.share : stack1), depth0))
+	    + "\">\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.shareItemFb : stack1), depth0))
+	    + "\"></div>\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.shareItemVk : stack1), depth0))
+	    + "\"></div>\n			</div>\n		</div>\n	</div>\n	<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.container : stack1), depth0))
+	    + "\">\n		<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.credentials : stack1), depth0))
+	    + "\">\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.credentialsImage : stack1), depth0))
+	    + "\">\n				<img src=\"/static/credentials_why.png\">\n			</div>\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.credentialsText : stack1), depth0))
+	    + "\">\n				Сделала Алиса Яннау в Школе редакторов Бюро Горбунова. \n				<br>\n				Иллюстратор — Марина Савицкая, разработчик — Артур Стамбульцян.\n				<br>\n				<a href=\"#\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
+	    + "\">Пользовательское соглашение</a>.\n			</div>	\n		</div>\n	</div>\n</div>";
 	},"useData":true});
 
 /***/ },
@@ -15776,11 +15752,607 @@
 	
 	var _base2 = _interopRequireDefault(_base);
 	
-	var _test = __webpack_require__(9);
+	var _test = __webpack_require__(36);
 	
 	var _test2 = _interopRequireDefault(_test);
 	
-	var _game = __webpack_require__(36);
+	var _counters = __webpack_require__(66);
+	
+	var _counters2 = _interopRequireDefault(_counters);
+	
+	var _page = __webpack_require__(7);
+	
+	var _page2 = _interopRequireDefault(_page);
+	
+	var _typography = __webpack_require__(11);
+	
+	var _typography2 = _interopRequireDefault(_typography);
+	
+	var _why = __webpack_require__(68);
+	
+	var _why2 = _interopRequireDefault(_why);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _class = function (_BaseView) {
+		_inherits(_class, _BaseView);
+	
+		function _class() {
+			_classCallCheck(this, _class);
+	
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(_class).apply(this, arguments));
+		}
+	
+		_createClass(_class, [{
+			key: 'init',
+			value: function init() {
+				var _this2 = this;
+	
+				this.countersModel = new _counters2.default();
+	
+				this.registerChild(new _test2.default(), 'how-test');
+	
+				this.countersModel.fetchPotentialDonors().then(function () {
+					_this2.render();
+				}, function () {});
+	
+				this.render();
+			}
+		}, {
+			key: '_prepareData',
+			value: function _prepareData() {
+				var data = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	
+				return _underscore2.default.extend(data, {
+					page: _page2.default,
+					typography: _typography2.default,
+					why: _why2.default,
+					data: {
+						potentialDonors: this.countersModel.potentialDonors
+					}
+				});
+			}
+		}, {
+			key: '_template',
+			get: function get() {
+				return __webpack_require__(70);
+			}
+		}]);
+
+		return _class;
+	}(_base2.default);
+
+	exports.default = _class;
+
+/***/ },
+/* 36 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	exports.isLastStep = exports.reasons = exports.states = undefined;
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _backbone = __webpack_require__(1);
+	
+	var _backbone2 = _interopRequireDefault(_backbone);
+	
+	var _underscore = __webpack_require__(2);
+	
+	var _underscore2 = _interopRequireDefault(_underscore);
+	
+	var _base = __webpack_require__(5);
+	
+	var _base2 = _interopRequireDefault(_base);
+	
+	var _start2 = __webpack_require__(37);
+	
+	var _start3 = _interopRequireDefault(_start2);
+	
+	var _game = __webpack_require__(45);
+	
+	var _game2 = _interopRequireDefault(_game);
+	
+	var _age = __webpack_require__(49);
+	
+	var _age2 = _interopRequireDefault(_age);
+	
+	var _weight = __webpack_require__(52);
+	
+	var _weight2 = _interopRequireDefault(_weight);
+	
+	var _auto = __webpack_require__(54);
+	
+	var _auto2 = _interopRequireDefault(_auto);
+	
+	var _disease = __webpack_require__(56);
+	
+	var _disease2 = _interopRequireDefault(_disease);
+	
+	var _finish = __webpack_require__(58);
+	
+	var _finish2 = _interopRequireDefault(_finish);
+	
+	var _test = __webpack_require__(38);
+	
+	var _test2 = _interopRequireDefault(_test);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var states = { START: 'START', GAME: 'GAME', FINISH: 'FINISH' };
+	
+	var reasons = { AGE: 'AGE', WEIGHT: 'WEIGHT', AUTO: 'AUTO', DISEASE: 'DISEASE' };
+	
+	function isLastStep(stepIndex, stepsAmount) {
+		return stepIndex + 1 >= stepsAmount;
+	}
+	
+	var steps = [{
+		View: _age2.default
+	}, {
+		View: _weight2.default
+	}, {
+		View: _auto2.default
+	}, {
+		View: _disease2.default
+	}];
+	
+	var TestModel = function (_Backbone$Model) {
+		_inherits(TestModel, _Backbone$Model);
+	
+		function TestModel() {
+			_classCallCheck(this, TestModel);
+	
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(TestModel).apply(this, arguments));
+		}
+	
+		_createClass(TestModel, [{
+			key: 'defaults',
+			get: function get() {
+				return {
+					state: states.START,
+					step: 0,
+					result: true,
+					reason: null,
+					data: {}
+				};
+			}
+		}, {
+			key: 'ageFail',
+			get: function get() {
+				return this.get('reason') == reasons.AGE;
+			}
+		}, {
+			key: 'age17',
+			get: function get() {
+				return this.get('data').age == 17;
+			}
+		}, {
+			key: 'age16',
+			get: function get() {
+				return this.get('data').age == 16;
+			}
+		}, {
+			key: 'age15_10',
+			get: function get() {
+				return this.get('data').age && this.get('data').age <= 15 && this.get('data').age >= 10;
+			}
+		}, {
+			key: 'age10less',
+			get: function get() {
+				return this.get('data').age && this.get('data').age < 10;
+			}
+		}, {
+			key: 'age45more',
+			get: function get() {
+				return this.get('data').age && this.get('data').age > 45;
+			}
+		}, {
+			key: 'weightFail',
+			get: function get() {
+				return this.get('reason') == reasons.WEIGHT;
+			}
+		}, {
+			key: 'weight47less',
+			get: function get() {
+				return this.get('data').weight && this.get('data').weight <= 47;
+			}
+		}, {
+			key: 'weight48_49',
+			get: function get() {
+				return this.get('data').weight == 49 || this.get('data').weight == 48;
+			}
+		}, {
+			key: 'autoFail',
+			get: function get() {
+				return this.get('reason') == reasons.AUTO;
+			}
+		}, {
+			key: 'diseaseFail',
+			get: function get() {
+				return this.get('reason') == reasons.DISEASE;
+			}
+		}, {
+			key: 'success',
+			get: function get() {
+				return this.get('result');
+			}
+		}]);
+	
+		return TestModel;
+	}(_backbone2.default.Model);
+	
+	var _class = function (_BaseView) {
+		_inherits(_class, _BaseView);
+	
+		function _class() {
+			_classCallCheck(this, _class);
+	
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(_class).apply(this, arguments));
+		}
+	
+		_createClass(_class, [{
+			key: '_prepareData',
+			value: function _prepareData() {
+				var data = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	
+				return _underscore2.default.extend(data, {
+					styles: _test2.default
+				});
+			}
+		}, {
+			key: 'init',
+			value: function init() {
+				this.testModel = new TestModel();
+				this.listenTo(this.testModel, 'change:state change:step', this._changeState);
+				this._changeState();
+			}
+		}, {
+			key: '_changeState',
+			value: function _changeState() {
+				this.removeChildren('test-container');
+				switch (this.testModel.get('state')) {
+					case states.START:
+						this.registerChild(new _start3.default(), 'test-container');
+						break;
+					case states.GAME:
+						this.registerChild(new _game2.default({
+							testModel: this.testModel,
+							stepsAmount: steps.length,
+							currentStepIndex: this.testModel.get('step'),
+							StepView: steps[this.testModel.get('step')].View
+						}), 'test-container');
+						break;
+					case states.FINISH:
+						this.registerChild(new _finish2.default({
+							testModel: this.testModel
+						}), 'test-container');
+						break;
+				}
+				this.render();
+			}
+		}, {
+			key: '_start',
+			value: function _start() {
+				this.testModel.set({
+					state: states.GAME
+				});
+			}
+		}, {
+			key: 'className',
+			get: function get() {
+				return _test2.default.root;
+			}
+		}, {
+			key: '_template',
+			get: function get() {
+				return __webpack_require__(65);
+			}
+		}, {
+			key: 'events',
+			get: function get() {
+				return {
+					'click [data-action="test-start"]': '_start'
+				};
+			}
+		}]);
+	
+		return _class;
+	}(_base2.default);
+	
+	exports.default = _class;
+	exports.states = states;
+	exports.reasons = reasons;
+	exports.isLastStep = isLastStep;
+
+/***/ },
+/* 37 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _underscore = __webpack_require__(2);
+	
+	var _underscore2 = _interopRequireDefault(_underscore);
+	
+	var _base = __webpack_require__(5);
+	
+	var _base2 = _interopRequireDefault(_base);
+	
+	var _test = __webpack_require__(38);
+	
+	var _test2 = _interopRequireDefault(_test);
+	
+	var _start = __webpack_require__(40);
+	
+	var _start2 = _interopRequireDefault(_start);
+	
+	var _inputs = __webpack_require__(42);
+	
+	var _inputs2 = _interopRequireDefault(_inputs);
+	
+	var _typography = __webpack_require__(11);
+	
+	var _typography2 = _interopRequireDefault(_typography);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _class = function (_BaseView) {
+		_inherits(_class, _BaseView);
+	
+		function _class() {
+			_classCallCheck(this, _class);
+	
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(_class).apply(this, arguments));
+		}
+	
+		_createClass(_class, [{
+			key: 'init',
+			value: function init() {
+				this.render();
+			}
+		}, {
+			key: '_prepareData',
+			value: function _prepareData() {
+				var data = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	
+				return _underscore2.default.extend(data, {
+					testStyles: _test2.default,
+					startStyles: _start2.default,
+					inputsStyles: _inputs2.default,
+					typography: _typography2.default
+				});
+			}
+		}, {
+			key: '_template',
+			get: function get() {
+				return __webpack_require__(44);
+			}
+		}, {
+			key: 'className',
+			get: function get() {
+				return _start2.default.root;
+			}
+		}]);
+
+		return _class;
+	}(_base2.default);
+
+	exports.default = _class;
+
+/***/ },
+/* 38 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(39);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(10)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js?modules!./../../node_modules/postcss-loader/index.js!./test.css", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js?modules!./../../node_modules/postcss-loader/index.js!./test.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 39 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(9)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, ".ShiC6JgIaOalBQVpIsYtL {\n\tmargin: auto;\n\twidth: 756px;\n\tmin-height: 474px;\n\tposition: relative;\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: flex-start;\n}\n\n.ShiC6JgIaOalBQVpIsYtL::after {\n\tposition: absolute;\n\tleft: 0;\n\ttop: 0;\n\tz-index: 1;\n\twidth: 100%;\n\theight: 100%;\n\tbackground-image: url(\"/static/test_bg.png\");\n\tbackground-position: center center;\n\tbackground-size: auto 474px;\n\tbackground-repeat: no-repeat;\n\topacity: 0.35;\n\tcontent: '';\n}\n\n._1ZNJ4h3Uct4YGPwsOlP-a2 {\n\twidth: 100%;\n\tposition: relative;\n\tz-index: 2;\n\ttext-align: center;\n}\n\n._10prCLGoK4eiHXC-VVYaZu {\n\tpadding-top: 40px;\n}\n\n._25zew7Xg1S-FRibLyMbP5v {\n\tfont-family: 'Roboto', sans-serif;\n\tfont-size: 40px;\n\tline-height: 45px;\n\tfont-weight: bold;\n\tmargin-bottom: 15px;\n}\n\n._3KLmj9ZQkJaTvSjezlkPal {\n\tfont-family: 'Roboto', sans-serif;\n\tfont-weight: 300;\n\tfont-size: 18px;\n\tline-height: 26px;\n\tmargin-bottom: 35px;\n\tletter-spacing: -0.2px;\n}", ""]);
+	
+	// exports
+	exports.locals = {
+		"root": "ShiC6JgIaOalBQVpIsYtL",
+		"container": "_1ZNJ4h3Uct4YGPwsOlP-a2",
+		"step": "_10prCLGoK4eiHXC-VVYaZu",
+		"title": "_25zew7Xg1S-FRibLyMbP5v",
+		"subtitle": "_3KLmj9ZQkJaTvSjezlkPal"
+	};
+
+/***/ },
+/* 40 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(41);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(10)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js?modules!./../../../node_modules/postcss-loader/index.js!./start.css", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js?modules!./../../../node_modules/postcss-loader/index.js!./start.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 41 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(9)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "._2c_X9l_2tFGA0jZbDU9JRH {\n\tpadding: 40px 0 58px;\n}\n\n._2lXyS42srJX9Tol5flKXUR {\n\tfont-size: 23px;\n\ttext-transform: uppercase;\n\tmargin-bottom: 9px;\n\tletter-spacing: 4px;\n}", ""]);
+	
+	// exports
+	exports.locals = {
+		"root": "_2c_X9l_2tFGA0jZbDU9JRH",
+		"title": "_2lXyS42srJX9Tol5flKXUR"
+	};
+
+/***/ },
+/* 42 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(43);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(10)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js?modules!./../../node_modules/postcss-loader/index.js!./inputs.css", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js?modules!./../../node_modules/postcss-loader/index.js!./inputs.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 43 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(9)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "._10fHIjkbAdfadwMqaQz6Pc {\n\tdisplay: none;\n}\n\n._10fHIjkbAdfadwMqaQz6Pc:checked + ._1qRt3sNTNbILEj2ckyiMuH::after {\n\topacity: 1;\n}\n\n._1qRt3sNTNbILEj2ckyiMuH {\n\tfont-family: 'Roboto', sans-serif;\n\tfont-size: 18px;\n\tposition: relative;\n\tpadding-left: 42px;\n\theight: 26px;\n\tline-height: 26px;\n\tdisplay: inline-block;\n\tcursor: pointer;\n}\n\n._1qRt3sNTNbILEj2ckyiMuH::before {\n\tdisplay: block;\n\tposition: absolute;\n\tleft: 0;\n\tbottom: 0;\n\twidth: 26px;\n\theight: 26px;\n\tborder: 1px solid #000;\n\tborder-radius: 50%;\n\tcontent: '';\n}\n\n._1qRt3sNTNbILEj2ckyiMuH::after {\n\tdisplay: block;\n\tposition: absolute;\n\tleft: 4px;\n\tbottom: 4px;\n\twidth: 18px;\n\theight: 18px;\n\tbackground-color: #FFD637;\n\tborder-radius: 50%;\n\topacity: 0;\n\tcontent: '';\n}\n\n.jX-n3oTShl9DdR8pTgsJO {\n\tdisplay: none;\n}\n\n.jX-n3oTShl9DdR8pTgsJO:checked + ._1cpV2qSiHdrEnfAa1NIoLC::after {\n\topacity: 1;\n}\n\n._1cpV2qSiHdrEnfAa1NIoLC {\n\tfont-family: 'Roboto', sans-serif;\n\tfont-size: 18px;\n\tposition: relative;\n\tpadding-left: 42px;\n\tline-height: 26px;\n\tdisplay: inline-block;\n\tcursor: pointer;\n}\n\n._1cpV2qSiHdrEnfAa1NIoLC::before {\n\tdisplay: block;\n\tposition: absolute;\n\tleft: 0;\n\ttop: 0;\n\twidth: 26px;\n\theight: 26px;\n\tborder: 1px solid #000;\n\tcontent: '';\n}\n\n._1cpV2qSiHdrEnfAa1NIoLC::after {\n\tdisplay: block;\n\tposition: absolute;\n\tleft: 4px;\n\ttop: 4px;\n\twidth: 18px;\n\theight: 18px;\n\tbackground-color: #FFD637;\n\topacity: 0;\n\tcontent: '';\n}\n\n._3lp0pnIvm8INrj2DL5oHcL {\n\tfont-family: 'Roboto', sans-serif;\n\tfont-weight: 300;\n\tdisplay: inline-block;\n\tborder: 1px solid #000;\n\theight: 42px;\n    width: 86px;\n\tpadding: 8px;\n\tfont-size: 24px;\n\ttext-align: center;\n\tborder-radius: 0;\n\tbox-shadow: none;\n}\n\n._3kVhXjYTQ-iYqCY9buu_8L {\n\tfont-family: 'Roboto', sans-serif;\n\tletter-spacing: 4px;\n\tfont-size: 22px;\n\tfont-weight: 300;\n\tcolor: #000;\n\ttext-transform: uppercase;\n\tborder: none;\n\tbackground-image: none;\n\tbackground-color: #f0c730;\n\theight: 62px;\n\tline-height: 62px;\n\tmin-width: 290px;\n\tcursor: pointer;\n\tborder-radius: 5px;\n\tcolor: #fff;\n\ttransform: translate3d(0,0,0);\n\tbox-shadow: 3px 3px 0px 0px #c89d25;\n\ttransition: all 0.15s ease;\n}\n\n._3kVhXjYTQ-iYqCY9buu_8L:hover {\n\tbackground-color: #dfb52b;\n}\n\n._3kVhXjYTQ-iYqCY9buu_8L[disabled] {\n\tbox-shadow: none;\n\topacity: 0.7;\n\tcursor: default;\n\tbackground-color: #f0c730;\n}\n\n._3kVhXjYTQ-iYqCY9buu_8L:active {\n\tposition: relative;\n\ttransform: translate3d(2px,2px,0);\n\tbox-shadow: 1px 1px 0px 0px #c89d25;\n}\n\n.u5lqlNo6_x0Aq3I55gEjP {\n\tanimation: _1lP-KYA1WVO-YcgrRmr9_W 0.82s cubic-bezier(.36,.07,.19,.97) both;\n\ttransform: translate3d(0, 0, 0);\n\tbackface-visibility: hidden;\n\tperspective: 1000px;\n}\n\n@keyframes _1lP-KYA1WVO-YcgrRmr9_W {\n\t10%, 90% {\n\t\ttransform: translate3d(-2px, 0, 0);\n\t}\n\n\t20%, 80% {\n\t\ttransform: translate3d(3px, 0, 0);\n\t}\n\n\t30%, 50%, 70% {\n\t\ttransform: translate3d(-6px, 0, 0);\n\t}\n\n\t40%, 60% {\n\t\ttransform: translate3d(6px, 0, 0);\n\t}\n}", ""]);
+	
+	// exports
+	exports.locals = {
+		"radioInput": "_10fHIjkbAdfadwMqaQz6Pc",
+		"radioLabel": "_1qRt3sNTNbILEj2ckyiMuH",
+		"checkboxInput": "jX-n3oTShl9DdR8pTgsJO",
+		"checkboxLabel": "_1cpV2qSiHdrEnfAa1NIoLC",
+		"input": "_3lp0pnIvm8INrj2DL5oHcL",
+		"button": "_3kVhXjYTQ-iYqCY9buu_8L",
+		"inputInvalid": "u5lqlNo6_x0Aq3I55gEjP",
+		"shake": "_1lP-KYA1WVO-YcgrRmr9_W"
+	};
+
+/***/ },
+/* 44 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Handlebars = __webpack_require__(16);
+	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
+	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
+	
+	  return "<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.startStyles : depth0)) != null ? stack1.title : stack1), depth0))
+	    + "\">тест</div>\n<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.title : stack1), depth0))
+	    + "\">Могу ли я стать донором?</div>\n<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.subtitle : stack1), depth0))
+	    + "\">\n	Пройдите тест и узнайте, можете ли вы стать донором\n	<br>\n	костного мозга. Тест рассказывает про абсолютные\n	<br>\n	противопоказания, все ограничения смотрите\n	<br>\n	<a href=\"#\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
+	    + "\">полный список противопоказаний</a>.\n</div>\n<button class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.inputsStyles : depth0)) != null ? stack1.button : stack1), depth0))
+	    + "\" data-action=\"test-start\">начать</button>";
+	},"useData":true});
+
+/***/ },
+/* 45 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _underscore = __webpack_require__(2);
+	
+	var _underscore2 = _interopRequireDefault(_underscore);
+	
+	var _base = __webpack_require__(5);
+	
+	var _base2 = _interopRequireDefault(_base);
+	
+	var _test = __webpack_require__(38);
+	
+	var _test2 = _interopRequireDefault(_test);
+	
+	var _game = __webpack_require__(46);
 	
 	var _game2 = _interopRequireDefault(_game);
 	
@@ -15831,7 +16403,7 @@
 		}, {
 			key: '_template',
 			get: function get() {
-				return __webpack_require__(38);
+				return __webpack_require__(48);
 			}
 		}]);
 
@@ -15841,16 +16413,16 @@
 	exports.default = _class;
 
 /***/ },
-/* 36 */
+/* 46 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(37);
+	var content = __webpack_require__(47);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(12)(content, {});
+	var update = __webpack_require__(10)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -15867,50 +16439,33 @@
 	}
 
 /***/ },
-/* 37 */
+/* 47 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(11)();
+	exports = module.exports = __webpack_require__(9)();
 	// imports
 	
 	
 	// module
-	exports.push([module.id, "._2z2_VLsmJG-9-K9jLVP1Tt {\n\tfont-family: 'PT Serif', serif;\n}\n\n._1O9lMBRHgLfG2-d-MH6fww {\n\tfont-family: 'Roboto', sans-serif;\n}\n\n._3G-ZwMQSbgLrYp4_4SUzgm {\n\tposition: relative;\n\tpadding: 40px 0;\n}\n\n.UeNnLl6hSRRxz9caxMN4B {\n\tfont-weight: bold;\n\tfont-size: 80px;\n\tline-height: 90px;\n\ttext-align: center;\n\tmargin-bottom: 25px;\n}\n\n._2MRGzgt1i2cHL3sokq_EVV {\n\tcolor: #000;\n\ttext-decoration: none;\n\tfont-size: 36px;\n\tline-height: 42px;\n\tfont-weight: normal;\t\n}\n\n.AOntsMu5ooMdf7s5vQx_3 {\n\tposition: absolute;\n\tleft: 68px;\n\ttop: 50px;\n}\n\n._1Dt6WOZ1Vmy8HqWn1fop9 {\n\tposition: absolute;\n\tright: 68px;\n\ttop: 50px;\n}\n\n.pSLxKThll82xikb71rXLr {\n\twidth: 650px;\n\tmargin: auto;\n}\n\n._2CE5HGGJdYhvd4p_BDSblM {\n\tletter-spacing: 4px;\n\tfont-size: 22px;\n\tfont-weight: normal;\n\tcolor: #000;\n\ttext-transform: uppercase;\n\tborder: none;\n\tbackground-image: none;\n\tbackground-color: #FFD637;\n\theight: 62px;\n\tline-height: 62px;\n\tmin-width: 290px;\n\tcursor: pointer;\n}\n\n._8wGuJCvPnbJsKhc9Y1id9 {\n\tdisplay: none;\n\n\t&:checked + .D3sGWpSmSHK5CeE8idsfd {\n\t\tcolor: #f00;\n\n\t\t&::after {\n\t\t\topacity: 1;\n\t\t}\n\t}\n}\n\n.D3sGWpSmSHK5CeE8idsfd {\n\tfont-size: 18px;\n\tposition: relative;\n\tpadding-left: 42px;\n\theight: 26px;\n\tline-height: 26px;\n\tdisplay: inline-block;\n\tcursor: pointer;\n\n\t&::before {\n\t\tdisplay: block;\n\t\tposition: absolute;\n\t\tleft: 0;\n\t\tbottom: 0;\n\t\twidth: 26px;\n\t\theight: 26px;\n\t\tborder: 1px solid #000;\n\t\tborder-radius: 50%;\n\t\tcontent: '';\n\t}\n\n\t&::after {\n\t\tdisplay: block;\n\t\tposition: absolute;\n\t\tleft: 4px;\n\t\tbottom: 4px;\n\t\twidth: 18px;\n\t\theight: 18px;\n\t\tbackground-color: #FFD637;\n\t\tborder-radius: 50%;\n\t\topacity: 0;\n\t\tcontent: '';\n\t}\n}\n\n.DDaxMrz22gkrEWBwlzl2e {\n\tdisplay: none;\n\n\t&:checked + ._13dba_eO4R4Y723IM0u5Tb {\n\n\t\t&::after {\n\t\t\topacity: 1;\n\t\t}\n\t}\n}\n\n._13dba_eO4R4Y723IM0u5Tb {\n\tfont-size: 18px;\n\tposition: relative;\n\tpadding-left: 42px;\n\tline-height: 26px;\n\tdisplay: inline-block;\n\tcursor: pointer;\n\n\t&::before {\n\t\tdisplay: block;\n\t\tposition: absolute;\n\t\tleft: 0;\n\t\ttop: 0;\n\t\twidth: 26px;\n\t\theight: 26px;\n\t\tborder: 1px solid #000;\n\t\tcontent: '';\n\t}\n\n\t&::after {\n\t\tdisplay: block;\n\t\tposition: absolute;\n\t\tleft: 4px;\n\t\ttop: 4px;\n\t\twidth: 18px;\n\t\theight: 18px;\n\t\tbackground-color: #FFD637;\n\t\topacity: 0;\n\t\tcontent: '';\n\t}\n}\n\n._2MOpAMbY9csB-24EiZiL9M {\n\tfont-weight: 300;\n\tdisplay: inline-block;\n\tborder: 1px solid #000;\n\theight: 42px;\n    width: 86px;\n\tpadding: 8px;\n\tfont-size: 24px;\n\ttext-align: center;\n\tborder-radius: none;\n\tbox-shadow: none;\n}\n\n.D1iptXn6th8WuXHQs_StE {\n\tanimation: _3Cv0QJLmIwtRQxiqMm8G5g 0.82s cubic-bezier(.36,.07,.19,.97) both;\n\ttransform: translate3d(0, 0, 0);\n\tbackface-visibility: hidden;\n\tperspective: 1000px;\n}\n\n@keyframes _3Cv0QJLmIwtRQxiqMm8G5g {\n\t10%, 90% {\n\t\ttransform: translate3d(-2px, 0, 0);\n\t}\n\n\t20%, 80% {\n\t\ttransform: translate3d(3px, 0, 0);\n\t}\n\n\t30%, 50%, 70% {\n\t\ttransform: translate3d(-6px, 0, 0);\n\t}\n\n\t40%, 60% {\n\t\ttransform: translate3d(6px, 0, 0);\n\t}\n}\n\n._3HKYlb7Vl6Iztk4-tC_BvZ {\n\tpadding: 29px 31px 64px;\n}\n\n._3Njjgwm78gfB1FMqf-a_cY {\n\ttext-align: left;\n}\n\n._3yK5DUCZS4PgQcRO2of2A9 {\n\tfont-weight: bold;\n\tfont-size: 18px;\n}\n\n._3j7ZhRHuAh6zBz-poIMCzh {\n\tfont-size: 16px;\n}\n\n._3m4BXQ40TaSw_695CDQc5o {\n\tmargin: 0;\n}\n\n.EjQqlofCJUMJf9KAV_dIh {\n\ttext-align: left;\n\twidth: 348px;\n\tmargin-left: auto;\n\tmargin-right: auto;\n}\n\n.EjQqlofCJUMJf9KAV_dIh ._1AqLMaC9TJ6xn7EKtufMhi:not(:last-child) {\n\tmargin-bottom: 23px;\n}\n\n.WQ9BEtiggpUohVS_zgPoD {\n\ttext-align: left;\n\twidth: 560px;\n\tmargin-left: auto;\n\tmargin-right: auto;\n}\n\n._2lOXnJo1wdTO1NE9f7TYGq {\n\tdisplay: flex;\n\tflex-wrap: wrap;\n\tflex-direction: column;\n\theight: 375px;\n}\n\n._2lOXnJo1wdTO1NE9f7TYGq ._5nZ_ma_l1V-rlYzO9KdDB {\n\twidth: calc(50% - 10px);\n}\n\n._2lOXnJo1wdTO1NE9f7TYGq ._5nZ_ma_l1V-rlYzO9KdDB:not(:last-child) {\n\tmargin-bottom: 23px;\n}\n\n.CY-R0zNjVnWMwfVMTfk1u {\n\ttext-align: center;\n\tmargin-top: 38px;\n}\n\n._2CZqPcxXU3Ul18re9DhD6r {\n}\n\n._2CZqPcxXU3Ul18re9DhD6r[disabled] {\n\topacity: 0.5;\n\tcursor: default;\n}", ""]);
+	exports.push([module.id, "._3HKYlb7Vl6Iztk4-tC_BvZ {\n\tpadding: 29px 31px 64px;\n}\n\n._3Njjgwm78gfB1FMqf-a_cY {\n\ttext-align: left;\n}\n\n._3yK5DUCZS4PgQcRO2of2A9 {\n\tfont-weight: bold;\n\tfont-size: 18px;\n}\n\n._3j7ZhRHuAh6zBz-poIMCzh {\n\tfont-size: 16px;\n}\n\n._3m4BXQ40TaSw_695CDQc5o {\n\tmargin: 0;\n}\n\n.EjQqlofCJUMJf9KAV_dIh {\n\ttext-align: left;\n\twidth: 348px;\n\tmargin-left: auto;\n\tmargin-right: auto;\n}\n\n.EjQqlofCJUMJf9KAV_dIh ._1AqLMaC9TJ6xn7EKtufMhi:not(:last-child) {\n\tmargin-bottom: 23px;\n}\n\n.WQ9BEtiggpUohVS_zgPoD {\n\ttext-align: left;\n\twidth: 560px;\n\tmargin-left: auto;\n\tmargin-right: auto;\n}\n\n._2lOXnJo1wdTO1NE9f7TYGq {\n\tdisplay: flex;\n\tflex-wrap: wrap;\n\tflex-direction: column;\n\theight: 375px;\n}\n\n._2lOXnJo1wdTO1NE9f7TYGq ._5nZ_ma_l1V-rlYzO9KdDB {\n\twidth: calc(50% - 10px);\n}\n\n._2lOXnJo1wdTO1NE9f7TYGq ._5nZ_ma_l1V-rlYzO9KdDB:not(:last-child) {\n\tmargin-bottom: 23px;\n}\n\n.CY-R0zNjVnWMwfVMTfk1u {\n\ttext-align: center;\n\tmargin-top: 38px;\n}", ""]);
 	
 	// exports
 	exports.locals = {
-		"ptSerif": "_2z2_VLsmJG-9-K9jLVP1Tt",
-		"roboto": "_1O9lMBRHgLfG2-d-MH6fww",
-		"pageRoot": "_3G-ZwMQSbgLrYp4_4SUzgm",
-		"pageTitle": "UeNnLl6hSRRxz9caxMN4B _2z2_VLsmJG-9-K9jLVP1Tt",
-		"pageNav": "_2MRGzgt1i2cHL3sokq_EVV _2z2_VLsmJG-9-K9jLVP1Tt",
-		"pageNavPrev": "AOntsMu5ooMdf7s5vQx_3 _2MRGzgt1i2cHL3sokq_EVV _2z2_VLsmJG-9-K9jLVP1Tt",
-		"pageNavNext": "_1Dt6WOZ1Vmy8HqWn1fop9 _2MRGzgt1i2cHL3sokq_EVV _2z2_VLsmJG-9-K9jLVP1Tt",
-		"pageContainer": "pSLxKThll82xikb71rXLr",
-		"testButton": "_2CE5HGGJdYhvd4p_BDSblM _1O9lMBRHgLfG2-d-MH6fww",
-		"radioInput": "_8wGuJCvPnbJsKhc9Y1id9",
-		"radioLabel": "D3sGWpSmSHK5CeE8idsfd _1O9lMBRHgLfG2-d-MH6fww",
-		"checkboxInput": "DDaxMrz22gkrEWBwlzl2e",
-		"checkboxLabel": "_13dba_eO4R4Y723IM0u5Tb _1O9lMBRHgLfG2-d-MH6fww",
-		"input": "_2MOpAMbY9csB-24EiZiL9M _1O9lMBRHgLfG2-d-MH6fww",
-		"inputInvalid": "D1iptXn6th8WuXHQs_StE",
-		"shake": "_3Cv0QJLmIwtRQxiqMm8G5g",
 		"root": "_3HKYlb7Vl6Iztk4-tC_BvZ",
-		"stepHeader": "_3Njjgwm78gfB1FMqf-a_cY _1O9lMBRHgLfG2-d-MH6fww",
+		"stepHeader": "_3Njjgwm78gfB1FMqf-a_cY",
 		"stepInfo": "_3yK5DUCZS4PgQcRO2of2A9",
 		"stepTitle": "_3j7ZhRHuAh6zBz-poIMCzh",
-		"form": "_3m4BXQ40TaSw_695CDQc5o _1O9lMBRHgLfG2-d-MH6fww",
-		"formAuto": "EjQqlofCJUMJf9KAV_dIh _3m4BXQ40TaSw_695CDQc5o _1O9lMBRHgLfG2-d-MH6fww",
+		"form": "_3m4BXQ40TaSw_695CDQc5o",
+		"formAuto": "EjQqlofCJUMJf9KAV_dIh _3m4BXQ40TaSw_695CDQc5o",
 		"radio": "_1AqLMaC9TJ6xn7EKtufMhi",
-		"formDisease": "WQ9BEtiggpUohVS_zgPoD _3m4BXQ40TaSw_695CDQc5o _1O9lMBRHgLfG2-d-MH6fww",
+		"formDisease": "WQ9BEtiggpUohVS_zgPoD _3m4BXQ40TaSw_695CDQc5o",
 		"formDiseaseContainer": "_2lOXnJo1wdTO1NE9f7TYGq",
 		"checkbox": "_5nZ_ma_l1V-rlYzO9KdDB",
-		"actions": "CY-R0zNjVnWMwfVMTfk1u",
-		"submit": "_2CZqPcxXU3Ul18re9DhD6r _2CE5HGGJdYhvd4p_BDSblM _1O9lMBRHgLfG2-d-MH6fww"
+		"actions": "CY-R0zNjVnWMwfVMTfk1u"
 	};
 
 /***/ },
-/* 38 */
+/* 48 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Handlebars = __webpack_require__(16);
@@ -15934,7 +16489,7 @@
 	},"useData":true});
 
 /***/ },
-/* 39 */
+/* 49 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15955,17 +16510,17 @@
 	
 	var _jquery2 = _interopRequireDefault(_jquery);
 	
-	var _step = __webpack_require__(40);
+	var _step = __webpack_require__(50);
 	
 	var _step2 = _interopRequireDefault(_step);
 	
-	var _test = __webpack_require__(7);
+	var _test = __webpack_require__(36);
 	
-	var _test2 = __webpack_require__(9);
+	var _test2 = __webpack_require__(38);
 	
 	var _test3 = _interopRequireDefault(_test2);
 	
-	var _game = __webpack_require__(36);
+	var _game = __webpack_require__(46);
 	
 	var _game2 = _interopRequireDefault(_game);
 	
@@ -16028,7 +16583,7 @@
 		}, {
 			key: '_template',
 			get: function get() {
-				return __webpack_require__(41);
+				return __webpack_require__(51);
 			}
 		}, {
 			key: 'events',
@@ -16046,7 +16601,7 @@
 	exports.default = _class;
 
 /***/ },
-/* 40 */
+/* 50 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16069,19 +16624,23 @@
 	
 	var _base2 = _interopRequireDefault(_base);
 	
-	var _test = __webpack_require__(7);
+	var _test = __webpack_require__(36);
 	
-	var _test2 = __webpack_require__(9);
+	var _test2 = __webpack_require__(38);
 	
 	var _test3 = _interopRequireDefault(_test2);
 	
-	var _game = __webpack_require__(36);
+	var _game = __webpack_require__(46);
 	
 	var _game2 = _interopRequireDefault(_game);
 	
-	var _inputs = __webpack_require__(70);
+	var _inputs = __webpack_require__(42);
 	
 	var _inputs2 = _interopRequireDefault(_inputs);
+	
+	var _typography = __webpack_require__(11);
+	
+	var _typography2 = _interopRequireDefault(_typography);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -16113,7 +16672,8 @@
 				return _underscore2.default.extend(data, {
 					testStyles: _test3.default,
 					gameStyles: _game2.default,
-					inputsStyles: _inputs2.default
+					inputsStyles: _inputs2.default,
+					typography: _typography2.default
 				});
 			}
 		}, {
@@ -16158,7 +16718,7 @@
 	exports.default = _class;
 
 /***/ },
-/* 41 */
+/* 51 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Handlebars = __webpack_require__(16);
@@ -16177,12 +16737,12 @@
 	    + "\" data-action=\"test-input\" maxlength=\"3\"/>\n	<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.actions : stack1), depth0))
 	    + "\">\n		<button class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.submit : stack1), depth0))
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.inputsStyles : depth0)) != null ? stack1.button : stack1), depth0))
 	    + "\" data-action=\"test-submit\">ответить</button>\n	</div>\n</form>";
 	},"useData":true});
 
 /***/ },
-/* 42 */
+/* 52 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16203,17 +16763,17 @@
 	
 	var _jquery2 = _interopRequireDefault(_jquery);
 	
-	var _step = __webpack_require__(40);
+	var _step = __webpack_require__(50);
 	
 	var _step2 = _interopRequireDefault(_step);
 	
-	var _test = __webpack_require__(7);
+	var _test = __webpack_require__(36);
 	
-	var _test2 = __webpack_require__(9);
+	var _test2 = __webpack_require__(38);
 	
 	var _test3 = _interopRequireDefault(_test2);
 	
-	var _game = __webpack_require__(36);
+	var _game = __webpack_require__(46);
 	
 	var _game2 = _interopRequireDefault(_game);
 	
@@ -16276,7 +16836,7 @@
 		}, {
 			key: '_template',
 			get: function get() {
-				return __webpack_require__(43);
+				return __webpack_require__(53);
 			}
 		}, {
 			key: 'events',
@@ -16294,7 +16854,7 @@
 	exports.default = _class;
 
 /***/ },
-/* 43 */
+/* 53 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Handlebars = __webpack_require__(16);
@@ -16313,12 +16873,12 @@
 	    + "\" data-action=\"test-input\" maxlength=\"3\"/>&nbsp;&nbsp;КГ\n	<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.actions : stack1), depth0))
 	    + "\">\n		<button class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.submit : stack1), depth0))
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.inputsStyles : depth0)) != null ? stack1.button : stack1), depth0))
 	    + "\" data-action=\"test-submit\">ответить</button>\n	</div>\n</form>";
 	},"useData":true});
 
 /***/ },
-/* 44 */
+/* 54 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16333,17 +16893,17 @@
 	
 	var _underscore2 = _interopRequireDefault(_underscore);
 	
-	var _step = __webpack_require__(40);
+	var _step = __webpack_require__(50);
 	
 	var _step2 = _interopRequireDefault(_step);
 	
-	var _test = __webpack_require__(7);
+	var _test = __webpack_require__(36);
 	
-	var _test2 = __webpack_require__(9);
+	var _test2 = __webpack_require__(38);
 	
 	var _test3 = _interopRequireDefault(_test2);
 	
-	var _game = __webpack_require__(36);
+	var _game = __webpack_require__(46);
 	
 	var _game2 = _interopRequireDefault(_game);
 	
@@ -16389,7 +16949,7 @@
 		}, {
 			key: '_template',
 			get: function get() {
-				return __webpack_require__(45);
+				return __webpack_require__(55);
 			}
 		}, {
 			key: 'events',
@@ -16407,7 +16967,7 @@
 	exports.default = _class;
 
 /***/ },
-/* 45 */
+/* 55 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Handlebars = __webpack_require__(16);
@@ -16420,7 +16980,7 @@
 	    + "\">Есть ли у вас<br>аутоимунные заболевания?</div>\n<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.subtitle : stack1), depth0))
 	    + "\">Если у вас есть аутоимуннное заболевание, скорее всего,<br>вы об этом знаете. Если не уверены, сверьтесь<br><a href=\"#\" target=\"_blank\" class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.link : stack1), depth0))
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
 	    + "\">со списком аутоимунных заболеваний</a>.</div>\n<form class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.formAuto : stack1), depth0))
 	    + "\" data-action=\"test-form\">\n	<div class=\""
@@ -16438,12 +16998,12 @@
 	    + "\">Нет</label>\n	</div>\n	<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.actions : stack1), depth0))
 	    + "\">\n		<button class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.submit : stack1), depth0))
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.inputsStyles : depth0)) != null ? stack1.button : stack1), depth0))
 	    + "\" data-action=\"test-submit\">ответить</button>\n	</div>\n</form>";
 	},"useData":true});
 
 /***/ },
-/* 46 */
+/* 56 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16464,17 +17024,17 @@
 	
 	var _jquery2 = _interopRequireDefault(_jquery);
 	
-	var _step = __webpack_require__(40);
+	var _step = __webpack_require__(50);
 	
 	var _step2 = _interopRequireDefault(_step);
 	
-	var _test = __webpack_require__(7);
+	var _test = __webpack_require__(36);
 	
-	var _test2 = __webpack_require__(9);
+	var _test2 = __webpack_require__(38);
 	
 	var _test3 = _interopRequireDefault(_test2);
 	
-	var _game = __webpack_require__(36);
+	var _game = __webpack_require__(46);
 	
 	var _game2 = _interopRequireDefault(_game);
 	
@@ -16582,7 +17142,7 @@
 		}, {
 			key: '_template',
 			get: function get() {
-				return __webpack_require__(47);
+				return __webpack_require__(57);
 			}
 		}, {
 			key: 'events',
@@ -16600,7 +17160,7 @@
 	exports.default = _class;
 
 /***/ },
-/* 47 */
+/* 57 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Handlebars = __webpack_require__(16);
@@ -16643,12 +17203,12 @@
 	    + "	</div>\n	<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.actions : stack1), depth0))
 	    + "\">\n		<button class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.submit : stack1), depth0))
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.inputsStyles : depth0)) != null ? stack1.button : stack1), depth0))
 	    + "\" data-action=\"test-submit\">ответить</button>\n	</div>\n</form>";
 	},"useData":true,"useDepths":true});
 
 /***/ },
-/* 48 */
+/* 58 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16673,21 +17233,21 @@
 	
 	var _base2 = _interopRequireDefault(_base);
 	
-	var _share = __webpack_require__(67);
+	var _share = __webpack_require__(59);
 	
 	var _share2 = _interopRequireDefault(_share);
 	
-	var _test = __webpack_require__(7);
+	var _test = __webpack_require__(36);
 	
-	var _test2 = __webpack_require__(9);
+	var _test2 = __webpack_require__(38);
 	
 	var _test3 = _interopRequireDefault(_test2);
 	
-	var _finish = __webpack_require__(49);
+	var _finish = __webpack_require__(61);
 	
 	var _finish2 = _interopRequireDefault(_finish);
 	
-	var _inputs = __webpack_require__(70);
+	var _inputs = __webpack_require__(42);
 	
 	var _inputs2 = _interopRequireDefault(_inputs);
 	
@@ -16716,7 +17276,7 @@
 		}, {
 			key: '_template',
 			get: function get() {
-				return __webpack_require__(69);
+				return __webpack_require__(63);
 			}
 		}]);
 	
@@ -16827,7 +17387,7 @@
 		}, {
 			key: '_template',
 			get: function get() {
-				return __webpack_require__(51);
+				return __webpack_require__(64);
 			}
 		}, {
 			key: 'className',
@@ -16849,16 +17409,99 @@
 	exports.default = _class;
 
 /***/ },
-/* 49 */
+/* 59 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _base = __webpack_require__(5);
+	
+	var _base2 = _interopRequireDefault(_base);
+	
+	var _config = __webpack_require__(60);
+	
+	var _config2 = _interopRequireDefault(_config);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _class = function (_BaseView) {
+		_inherits(_class, _BaseView);
+	
+		function _class() {
+			_classCallCheck(this, _class);
+	
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(_class).apply(this, arguments));
+		}
+	
+		_createClass(_class, [{
+			key: 'init',
+			value: function init() {
+				this.listenTo(this.shareModel, 'change', this.render);
+			}
+		}, {
+			key: '_prepareData',
+			value: function _prepareData() {
+				var shareUrl = _config2.default.api.url + '/share?title=' + encodeURIComponent(this.shareModel.get('title')) + '&description=' + encodeURIComponent(this.shareModel.get('description')) + '&image=' + encodeURIComponent(this.shareModel.get('image')) + '&redirect_url=' + encodeURIComponent(location.href);
+				return {
+					vkUrl: this._generateVkUrl(shareUrl),
+					fbUrl: this._generateFbUrl(shareUrl)
+				};
+			}
+		}, {
+			key: '_generateVkUrl',
+			value: function _generateVkUrl(shareUrl) {
+				return 'https://vk.com/share.php?url=' + encodeURIComponent(shareUrl);
+			}
+		}, {
+			key: '_generateFbUrl',
+			value: function _generateFbUrl(shareUrl) {
+				return 'http://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl);
+			}
+		}]);
+
+		return _class;
+	}(_base2.default);
+
+	exports.default = _class;
+
+/***/ },
+/* 60 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	exports.default = {
+		api: {
+			url: 'https://donor-api.herokuapp.com'
+		}
+	};
+
+/***/ },
+/* 61 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(50);
+	var content = __webpack_require__(62);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(12)(content, {});
+	var update = __webpack_require__(10)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -16875,46 +17518,57 @@
 	}
 
 /***/ },
-/* 50 */
+/* 62 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(11)();
+	exports = module.exports = __webpack_require__(9)();
 	// imports
 	
 	
 	// module
-	exports.push([module.id, "._1d4LOFG7ce4Yl_v9yahPLG {\n\tfont-family: 'PT Serif', serif;\n}\n\n._2Wk5mQjdxGsAoWCMBYvX8r {\n\tfont-family: 'Roboto', sans-serif;\n}\n\n.cPjo0_1mhRuW3QRpfSic8 {\n\tposition: relative;\n\tpadding: 40px 0;\n}\n\n._1GXRR_1njCZ1yjk1gOI7sI {\n\tfont-weight: bold;\n\tfont-size: 80px;\n\tline-height: 90px;\n\ttext-align: center;\n\tmargin-bottom: 25px;\n}\n\n._3UbSolTzePGcYN_-Q0eUNY {\n\tcolor: #000;\n\ttext-decoration: none;\n\tfont-size: 36px;\n\tline-height: 42px;\n\tfont-weight: normal;\t\n}\n\n._1_MkKq430hfnIezYsIktpM {\n\tposition: absolute;\n\tleft: 68px;\n\ttop: 50px;\n}\n\n.BBG0gwqO48Jd6PxgoBhJ2 {\n\tposition: absolute;\n\tright: 68px;\n\ttop: 50px;\n}\n\n.fhxeoA5fPjfLuU7mfW5qb {\n\twidth: 650px;\n\tmargin: auto;\n}\n\n.I1VMUIro7nlV4Tgp07EiM {\n\tletter-spacing: 4px;\n\tfont-size: 22px;\n\tfont-weight: normal;\n\tcolor: #000;\n\ttext-transform: uppercase;\n\tborder: none;\n\tbackground-image: none;\n\tbackground-color: #FFD637;\n\theight: 62px;\n\tline-height: 62px;\n\tmin-width: 290px;\n\tcursor: pointer;\n}\n\n._3B-1CcHYxRdP4xmviYBWko {\n\tpadding: 24px;\n\ttext-align: left;\n}\n\n.BPlcspTWA-U5f8Dm8GR-4 {\n\tfont-size: 0;\n\tletter-spacing: 0;\n\tline-height: 0;\n}\n\n._2pkN-Ik882-3VtpKkxL3v8 {\n\twidth: 28px;\n\theight: 28px;\n\ttext-align: center;\n\tbackground-color: #000;\n\tborder-radius: 50%;\n\tdisplay: inline-block;\n\tvertical-align: middle;\n\tline-height: 28px;\n\tcolor: #fff;\n\tfont-size: 15px;\n\tfont-weight: bold;\n\tmargin-right: 11px;\n}\n\n.kZRWI19Iy-xWer-tCiQ37 {\n\tdisplay: inline-block;\n\tvertical-align: middle;\n\tfont-size: 16px;\n}\n\n._3CcTlLIxG3BS1PKJkuGDM2 {\n\tdisplay: flex;\n\tflex-direction: row;\n}\n\n.FS2caTlSXTucapYV8McOB {\n\tpadding-top: 20px;\n\tjustify-content: flex-start;\n}\n\n._3QjaZhGdzkNYAsbrUlSWIj {\n\tpadding-top: 20px;\n\tjustify-content: flex-end;\n}\n\n._2YIn_UKGPKJxia22ce210M {\n\twidth: 337px;\n}\n\n.R2RwFJKTaCz93ASxaWaNH {\n\tfont-size: 72px;\n\tfont-weight: bold;\n\tmargin-bottom: 20px;\n}\n\n._1HnD0zUaIRYJELjx-_Do2W {\n\tfont-size: 18px;\n\tline-height: 26px;\n}\n\n.UQMNwjI_mEdn198JXfMeZ {\n\n}\n\n._3OkmOfTEtzsuHlh2-X2xVK {\n\tfont-size: 36px;\n\tfont-weight: bold;\n\tmargin-bottom: 15px;\n}\n\n._1lZi4vkmIYBBcoC7Rz8Bt6 {\n\twidth: 300px;\n\tfont-size: 18px;\n\tline-height: 26px;\n}\n\n.zT-TpgEF96c_-Es7rTxxo {\n\tfont-size: 18px;\n\tline-height: 26px;\n\tmargin-top: 15px;\n}\n\n._2S4dD-WewjwRgF4ALZRwgR {\n\tmargin-top: 15px;\n}", ""]);
+	exports.push([module.id, "._3B-1CcHYxRdP4xmviYBWko {\n\tpadding: 24px;\n\ttext-align: left;\n}\n\n.BPlcspTWA-U5f8Dm8GR-4 {\n\tfont-size: 0;\n\tletter-spacing: 0;\n\tline-height: 0;\n}\n\n._2pkN-Ik882-3VtpKkxL3v8 {\n\twidth: 28px;\n\theight: 28px;\n\ttext-align: center;\n\tbackground-color: #000;\n\tborder-radius: 50%;\n\tdisplay: inline-block;\n\tvertical-align: middle;\n\tline-height: 28px;\n\tcolor: #fff;\n\tfont-size: 15px;\n\tfont-weight: bold;\n\tmargin-right: 11px;\n}\n\n.kZRWI19Iy-xWer-tCiQ37 {\n\tdisplay: inline-block;\n\tvertical-align: middle;\n\tfont-size: 16px;\n}\n\n._3CcTlLIxG3BS1PKJkuGDM2 {\n\tdisplay: flex;\n\tflex-direction: row;\n}\n\n.FS2caTlSXTucapYV8McOB {\n\tpadding-top: 20px;\n\tjustify-content: flex-start;\n}\n\n._3QjaZhGdzkNYAsbrUlSWIj {\n\tpadding-top: 20px;\n\tjustify-content: flex-end;\n}\n\n._2YIn_UKGPKJxia22ce210M {\n\twidth: 337px;\n}\n\n.R2RwFJKTaCz93ASxaWaNH {\n\tfont-size: 72px;\n\tfont-weight: bold;\n\tmargin-bottom: 20px;\n}\n\n._1HnD0zUaIRYJELjx-_Do2W {\n\tfont-size: 18px;\n\tline-height: 26px;\n}\n\n.UQMNwjI_mEdn198JXfMeZ {\n\n}\n\n._3OkmOfTEtzsuHlh2-X2xVK {\n\tfont-size: 36px;\n\tfont-weight: bold;\n\tmargin-bottom: 15px;\n}\n\n._1lZi4vkmIYBBcoC7Rz8Bt6 {\n\twidth: 300px;\n\tfont-size: 18px;\n\tline-height: 26px;\n}\n\n.zT-TpgEF96c_-Es7rTxxo {\n\tfont-size: 18px;\n\tline-height: 26px;\n\tmargin-top: 15px;\n}\n\n._2S4dD-WewjwRgF4ALZRwgR {\n\tmargin-top: 15px;\n}", ""]);
 	
 	// exports
 	exports.locals = {
-		"ptSerif": "_1d4LOFG7ce4Yl_v9yahPLG",
-		"roboto": "_2Wk5mQjdxGsAoWCMBYvX8r",
-		"pageRoot": "cPjo0_1mhRuW3QRpfSic8",
-		"pageTitle": "_1GXRR_1njCZ1yjk1gOI7sI _1d4LOFG7ce4Yl_v9yahPLG",
-		"pageNav": "_3UbSolTzePGcYN_-Q0eUNY _1d4LOFG7ce4Yl_v9yahPLG",
-		"pageNavPrev": "_1_MkKq430hfnIezYsIktpM _3UbSolTzePGcYN_-Q0eUNY _1d4LOFG7ce4Yl_v9yahPLG",
-		"pageNavNext": "BBG0gwqO48Jd6PxgoBhJ2 _3UbSolTzePGcYN_-Q0eUNY _1d4LOFG7ce4Yl_v9yahPLG",
-		"pageContainer": "fhxeoA5fPjfLuU7mfW5qb",
-		"testButton": "I1VMUIro7nlV4Tgp07EiM _2Wk5mQjdxGsAoWCMBYvX8r",
 		"root": "_3B-1CcHYxRdP4xmviYBWko",
-		"header": "BPlcspTWA-U5f8Dm8GR-4 _2Wk5mQjdxGsAoWCMBYvX8r",
+		"header": "BPlcspTWA-U5f8Dm8GR-4",
 		"headerIcon": "_2pkN-Ik882-3VtpKkxL3v8",
 		"headerText": "kZRWI19Iy-xWer-tCiQ37",
 		"content": "_3CcTlLIxG3BS1PKJkuGDM2",
 		"contentFail": "FS2caTlSXTucapYV8McOB",
 		"contentSuccess": "_3QjaZhGdzkNYAsbrUlSWIj",
 		"success": "_2YIn_UKGPKJxia22ce210M",
-		"successTitle": "R2RwFJKTaCz93ASxaWaNH _1d4LOFG7ce4Yl_v9yahPLG",
-		"successText": "_1HnD0zUaIRYJELjx-_Do2W _2Wk5mQjdxGsAoWCMBYvX8r",
+		"successTitle": "R2RwFJKTaCz93ASxaWaNH",
+		"successText": "_1HnD0zUaIRYJELjx-_Do2W",
 		"fail": "UQMNwjI_mEdn198JXfMeZ",
-		"failTitle": "_3OkmOfTEtzsuHlh2-X2xVK _1d4LOFG7ce4Yl_v9yahPLG",
-		"failText": "_1lZi4vkmIYBBcoC7Rz8Bt6 _2Wk5mQjdxGsAoWCMBYvX8r",
-		"share": "zT-TpgEF96c_-Es7rTxxo _2Wk5mQjdxGsAoWCMBYvX8r",
+		"failTitle": "_3OkmOfTEtzsuHlh2-X2xVK",
+		"failText": "_1lZi4vkmIYBBcoC7Rz8Bt6",
+		"share": "zT-TpgEF96c_-Es7rTxxo",
 		"agreement": "_2S4dD-WewjwRgF4ALZRwgR"
 	};
 
 /***/ },
-/* 51 */
+/* 63 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Handlebars = __webpack_require__(16);
+	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
+	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+	    var stack1, helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression, alias5=container.lambda;
+	
+	  return "Поделиться: <a href=\""
+	    + alias4(((helper = (helper = helpers.vkUrl || (depth0 != null ? depth0.vkUrl : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"vkUrl","hash":{},"data":data}) : helper)))
+	    + "\" target=\"_blank\" class=\""
+	    + alias4(alias5(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
+	    + "\">Вконтакте</a>, <a href=\""
+	    + alias4(((helper = (helper = helpers.fbUrl || (depth0 != null ? depth0.fbUrl : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"fbUrl","hash":{},"data":data}) : helper)))
+	    + "\" target=\"_blank\" class=\""
+	    + alias4(alias5(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
+	    + "\">Facebook</a>";
+	},"useData":true});
+
+/***/ },
+/* 64 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Handlebars = __webpack_require__(16);
@@ -16937,7 +17591,7 @@
 	    + "\">Да!</div>\n			<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.finishStyles : depth0)) != null ? stack1.successText : stack1), depth0))
 	    + "\">\n				Вы можете стать донором и спасти чью-то жизнь.\n				Осталось только найти <a class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.link : stack1), depth0))
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
 	    + "\" href=\"#\">удобный пункт сдачи крови</a>. \n			</div>\n			<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.finishStyles : depth0)) != null ? stack1.share : stack1), depth0))
 	    + "\" data-view=\"test-share\"></div>\n		<div>\n\n";
@@ -17078,7 +17732,7 @@
 	},"useData":true});
 
 /***/ },
-/* 52 */
+/* 65 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Handlebars = __webpack_require__(16);
@@ -17092,23 +17746,133 @@
 	},"useData":true});
 
 /***/ },
-/* 53 */
+/* 66 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _backbone = __webpack_require__(1);
+	
+	var _backbone2 = _interopRequireDefault(_backbone);
+	
+	var _underscore = __webpack_require__(2);
+	
+	var _underscore2 = _interopRequireDefault(_underscore);
+	
+	var _ajax = __webpack_require__(67);
+	
+	var _ajax2 = _interopRequireDefault(_ajax);
+	
+	var _config = __webpack_require__(60);
+	
+	var _config2 = _interopRequireDefault(_config);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _class = function (_Backbone$Model) {
+		_inherits(_class, _Backbone$Model);
+	
+		function _class() {
+			_classCallCheck(this, _class);
+	
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(_class).apply(this, arguments));
+		}
+	
+		_createClass(_class, [{
+			key: 'fetchPotentialDonors',
+			value: function fetchPotentialDonors(lat, lon) {
+				var _this2 = this;
+	
+				return new Promise(function (resolve, reject) {
+					(0, _ajax2.default)({
+						url: _config2.default.api.url + '/potential_donors',
+						type: 'get'
+					}).then(function (response) {
+						_this2.set('potentialDonors', response.value);
+						resolve(response);
+					}, function () {
+						reject();
+					});
+				});
+			}
+		}, {
+			key: 'defaults',
+			get: function get() {
+				return {
+					potentialDonors: null
+				};
+			}
+		}, {
+			key: 'potentialDonors',
+			get: function get() {
+				var value = this.get('potentialDonors');
+				return value ? value.toLocaleString('ru-RU') : 0;
+			}
+		}]);
+	
+		return _class;
+	}(_backbone2.default.Model);
+	
+	exports.default = _class;
+
+/***/ },
+/* 67 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _jquery = __webpack_require__(3);
+	
+	var _jquery2 = _interopRequireDefault(_jquery);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = function () {
+		var params = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	
+		return new Promise(function (resolve, reject) {
+			_jquery2.default.ajax(params).done(function (response) {
+				resolve(response);
+			}).error(function (response) {
+				reject(response);
+			});
+		});
+	};
+
+/***/ },
+/* 68 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(54);
+	var content = __webpack_require__(69);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(12)(content, {});
+	var update = __webpack_require__(10)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js?modules!./../../node_modules/postcss-loader/index.js!./how.css", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js?modules!./../../node_modules/postcss-loader/index.js!./how.css");
+			module.hot.accept("!!./../../node_modules/css-loader/index.js?modules!./../../node_modules/postcss-loader/index.js!./why.css", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js?modules!./../../node_modules/postcss-loader/index.js!./why.css");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -17118,32 +17882,28 @@
 	}
 
 /***/ },
-/* 54 */
+/* 69 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(11)();
+	exports = module.exports = __webpack_require__(9)();
 	// imports
 	
 	
 	// module
-	exports.push([module.id, "._1B9SP1FugEJ5cJqsm_SCOw {\n\tfont-family: 'PT Serif', serif;\n}\n\n.plxHP0CBwYcG0JjdSjOeo {\n\tfont-family: 'Roboto', sans-serif;\n}\n\n._2Ff0kleAmhDk1yTqS-10Ju {\n\tposition: relative;\n\tpadding: 40px 0;\n}\n\n._3DKEOPJk_rWl7oBQgg2eob {\n\tfont-weight: bold;\n\tfont-size: 80px;\n\tline-height: 90px;\n\ttext-align: center;\n\tmargin-bottom: 25px;\n}\n\n.WQXxx3CSK121cKntsfjLu {\n\tcolor: #000;\n\ttext-decoration: none;\n\tfont-size: 36px;\n\tline-height: 42px;\n\tfont-weight: normal;\t\n}\n\n._1imqUUujZvrN2TOeRMLT3p {\n\tposition: absolute;\n\tleft: 68px;\n\ttop: 50px;\n}\n\n._2BTqarSAjn711nc7gnsQdm {\n\tposition: absolute;\n\tright: 68px;\n\ttop: 50px;\n}\n\n._1jYBZPg95njqAujsEqVUs2 {\n\twidth: 650px;\n\tmargin: auto;\n}\n\n.EpebCqXctlRnc0IbFPoTf {\n\tletter-spacing: 4px;\n\tfont-size: 22px;\n\tfont-weight: normal;\n\tcolor: #000;\n\ttext-transform: uppercase;\n\tborder: none;\n\tbackground-image: none;\n\tbackground-color: #FFD637;\n\theight: 62px;\n\tline-height: 62px;\n\tmin-width: 290px;\n\tcursor: pointer;\n}\n\n._2uY5tNXqIYAaxml_t_acd5 {\n\tfont-size: 24px;\n\tline-height: 35px;\n\tfont-style: italic;\n\tmargin-bottom: 30px;\n}", ""]);
+	exports.push([module.id, "._3wblAYxY0Ty93Y37IcWleG {\n\tmax-width: 1024px;\n\tmargin-left: auto;\n\tmargin-right: auto;\n\tmargin-top: 40px;\n}\n\n._3wblAYxY0Ty93Y37IcWleG img {\n\tmax-width: 100%;\n}\n\n._3wblAYxY0Ty93Y37IcWleG {\n\tmargin-bottom: 20px;\n}\n\n._2kCWKAdKZWO2l1mHuhHod3 {\n\tmargin-left: calc( ( 657px - 768px ) / 2 );\n}\n\n._85xiBWTT3XB0Ok82A_jpG {\n\tdisplay: flex;\n}\n\n._14jXJwRb11AzJ-fIr7B-MM {\n\tflex-shrink: 0;\n\tmargin-right: 20px;\n}\n\n._2Skk9CJ2BsZ5Lgik74tm-8 {\n\twidth: 92px;\n}\n\n._1u70M5syH458JPMKFR15eL {\n\tfont-size: 27px;\n\tline-height: 35px;\n\tfont-weight: 300;\n}", ""]);
 	
 	// exports
 	exports.locals = {
-		"ptSerif": "_1B9SP1FugEJ5cJqsm_SCOw",
-		"roboto": "plxHP0CBwYcG0JjdSjOeo",
-		"pageRoot": "_2Ff0kleAmhDk1yTqS-10Ju",
-		"pageTitle": "_3DKEOPJk_rWl7oBQgg2eob _1B9SP1FugEJ5cJqsm_SCOw",
-		"pageNav": "WQXxx3CSK121cKntsfjLu _1B9SP1FugEJ5cJqsm_SCOw",
-		"pageNavPrev": "_1imqUUujZvrN2TOeRMLT3p WQXxx3CSK121cKntsfjLu _1B9SP1FugEJ5cJqsm_SCOw",
-		"pageNavNext": "_2BTqarSAjn711nc7gnsQdm WQXxx3CSK121cKntsfjLu _1B9SP1FugEJ5cJqsm_SCOw",
-		"pageContainer": "_1jYBZPg95njqAujsEqVUs2",
-		"testButton": "EpebCqXctlRnc0IbFPoTf plxHP0CBwYcG0JjdSjOeo",
-		"intro": "_2uY5tNXqIYAaxml_t_acd5 plxHP0CBwYcG0JjdSjOeo"
+		"artwork": "_3wblAYxY0Ty93Y37IcWleG",
+		"test": "_2kCWKAdKZWO2l1mHuhHod3",
+		"goal": "_85xiBWTT3XB0Ok82A_jpG",
+		"goalAuthor": "_14jXJwRb11AzJ-fIr7B-MM",
+		"goalAuthorPhoto": "_2Skk9CJ2BsZ5Lgik74tm-8",
+		"goalText": "_1u70M5syH458JPMKFR15eL"
 	};
 
 /***/ },
-/* 55 */
+/* 70 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Handlebars = __webpack_require__(16);
@@ -17152,253 +17912,133 @@
 	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
 	
 	  return "<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.styles : depth0)) != null ? stack1.pageRoot : stack1), depth0))
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.root : stack1), depth0))
 	    + "\">\n	<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.styles : depth0)) != null ? stack1.pageTitle : stack1), depth0))
-	    + "\">Как сдать<br>костный мозг</div>\n	<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.styles : depth0)) != null ? stack1.pageContainer : stack1), depth0))
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.why : depth0)) != null ? stack1.artwork : stack1), depth0))
+	    + "\">\n		<img src=\"/static/why_artwork.png\">\n	</div>\n	<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.container : stack1), depth0))
 	    + "\">\n		<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.styles : depth0)) != null ? stack1.intro : stack1), depth0))
-	    + "\">\n			Сдавая кровь в регистр, вы становитесь потенциальным донором костного мозга. Реальным донором вы станете, когда кому-то подойдут ваши клетки. Это может случиться сразу же, через год, 15 лет или никогда. Но внимательно прочитайте все этапы донорства уже сейчас и оцените свои силы. Чтобы в случае необходимости не подвести нуждающегося в помощи человека.  \n		</div>\n	</div>\n	<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.styles : depth0)) != null ? stack1.test : stack1), depth0))
-	    + "\" data-view=\"how-test\"></div>\n</div>";
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.header : stack1), depth0))
+	    + "\">Зачем становиться<br>донором костного мозга</div>\n		<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
+	    + "\">\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.text : stack1), depth0))
+	    + "\">\n				Костный мозг — это орган кроветворной системы, на вид — жидкая субстанция. Он содержит стволовые клетки и продуцирует все кровяные клетки в организме. Если у человека онкологическое, иммунологическое или ау тоимунное заболевание, врачи назначают пересадку костного мозга. Часто это последний шанс спасти человеку жизнь.\n			</div>\n		</div>\n		<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
+	    + "\">\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
+	    + "\">Как ищут доноров</div>\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n				Когда человеку нужен костный мозг, в первую очередь проверяют его родственников. Шансы невелики — в случае братьев и сестёр вероятность 1:4, а у родителей и детей ещё меньше. Если среди родных доноров не нашлось, ищут неродственных доноров — для этого нужен специальный регистр.\n			</div>\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1["float"] : stack1), depth0))
+	    + "\">\n					<div>\n						Регистр — это база потенциальных доноров костного мозга. Потенциальный донор — еще не донор: у него не забирают костный мозг, он только числится в регистре. Реальным донором человек становится, когда кому-то подходит его костный мозг. Чем больше в регистре потенциальных доноров, тем выше вероятность найти пациенту реального донора.\n					</div>\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnote : stack1), depth0))
+	    + "\">\n						<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnoteCounter : stack1), depth0))
+	    + "\">\n							"
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.data : depth0)) != null ? stack1.potentialDonors : stack1), depth0))
+	    + "\n						</div>\n						<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnoteText : stack1), depth0))
+	    + "\">\n							потенциальных\n							<br>\n							доноров в регистре\n							<br>\n							на 27 мая 2016 года.\n						</div>\n						<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnoteMeta : stack1), depth0))
+	    + "\">\n							Информация с сайта Русфонда\n						</div>	\n					</div>\n				</div>\n			</div>\n		</div>\n		<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
+	    + "\">\n			<div class="
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.note : stack1), depth0))
+	    + ">\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
+	    + "\">Зачем увеличивать национальный регистр</div>\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n					Регистр потенциальных доноров костного мозга есть в каждой развитой стране. Очень большой регистр в Германии – 6 миллионов  потенциальных доноров. Можно  пользоваться зарубежными регистрами, но важно развивать свой: \n				</div>	\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.floatJustifyBetween : stack1), depth0))
+	    + "\">\n						<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.col2 : stack1), depth0))
+	    + "\">\n							В&nbsp;национальном регистре выше шанс найти подходящего донора, потому что в&nbsp;каждой стране свои генетические особенности.\n						</div>\n						<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.col2 : stack1), depth0))
+	    + "\">\n							Искать в&nbsp;национальном регистре гораздо дешевле. Поиск в&nbsp;российском регистре стоит 150-300 тысяч рублей, а&nbsp;в&nbsp;зарубежных&nbsp;&mdash; 18&nbsp;000&nbsp;евро.\n						</div>\n					</div>\n				</div>\n			</div>\n		</div>\n		<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
+	    + "\">\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.why : depth0)) != null ? stack1.goal : stack1), depth0))
+	    + "\">\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.why : depth0)) != null ? stack1.goalAuthor : stack1), depth0))
+	    + "\">\n					<img src=\"/static/grinberg.png\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.why : depth0)) != null ? stack1.goalAuthorPhoto : stack1), depth0))
+	    + "\"/>\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.why : depth0)) != null ? stack1.goalAuthorInfo : stack1), depth0))
+	    + "\">\n						<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.text : stack1), depth0))
+	    + "\">\n							Павел Гринберг,\n							<br>\n							исполнительный директор\n							<br>\n							фонда Advita\n						</div>\n					</div>\n				</div>\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.why : depth0)) != null ? stack1.goalText : stack1), depth0))
+	    + "\">\n					«Наша цель – 500 тысяч потенциальных доноров в регистре. Столько нужно, чтобы находить костный мозг половине российских пациентов»\n				</div>\n			</div>\n		</div>\n		<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
+	    + "\">\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
+	    + "\">Как спасти жизнь</div>\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1["float"] : stack1), depth0))
+	    + "\">\n					<div>\n						Мы увеличиваем регистр, чтобы повысить вероятность того, что пациент найдет подходящего донора и выздоровеет. Но система работает только потому, что находятся люди, которые хотят безвозмездно помогать. Сначала они вступают в регистр и становятся потенциальными донорами, а когда их костный мозг подходит, идут на реальное донорство. \n					</div>\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnote : stack1), depth0))
+	    + "\">\n						<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnoteCounter : stack1), depth0))
+	    + "\">\n							2 609\n						</div>\n						<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnoteText : stack1), depth0))
+	    + "\">\n							человек \n							<br>\n							вступили в регистр\n							<br>\n							за последний месяц\n						</div>\n					</div>\n				</div>\n			</div>\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n				После пересадки новые клетки костного мозга в организме реципиента размножаются и производят здоровое потомство. У пациента восстанавливается нормальное кроветворение организма, увеличивается стойкость к вирусам. Получить здоровые клетки можно только от донора – другой возможности нет. \n			</div>\n		</div>\n		<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
+	    + "\">\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
+	    + "\">Кто может помочь</div>\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n				При некоторых заболеваниях нельзя становиться донором костного мозга — это может быть опасно и для донора, и для реципиента. Врачи не рискуют здоровьем донора ради спасения другого человека и отменяют пересадку при малейшей угрозе. Для здорового человека процедура безопасна. \n			</div>\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1["float"] : stack1), depth0))
+	    + "\">\n					<div>\n						Другое дело — организм пациента, который нуждается в пересадке. Он и так ослаблен болезнью. Перед пересадкой донорских клеток пациент проходит курс сильной химиотерапии, которая убивает его больной костный мозг. Иммунитет пациента не справится с болезнями донора, поэтому важно пересадить максимально здоровый костный мозг. \n					</div>\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnote : stack1), depth0))
+	    + "\">\n						<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnoteText : stack1), depth0))
+	    + "\">\n							Если вы — донор крови,\n							<br>\n							вы можете быть\n							<br>\n							и донором костного\n							<br>\n							мозга. Противопоказания\n							<br>\n							для обеих процедур\n							<br>\n							совпадают\n						</div>\n					</div>\n				</div>\n			</div>\n		</div>\n		<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
+	    + "\">\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.why : depth0)) != null ? stack1.test : stack1), depth0))
+	    + "\" data-view=\"how-test\"></div>\n		</div>\n	</div>\n	<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.footer : stack1), depth0))
+	    + "\">\n		<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.container : stack1), depth0))
+	    + "\">\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n				Если вы подходите и задумались о донорстве, узнайте,\n				<br>\n				<a class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
+	    + "\" href=\"/#/how\">как стать донором костного мозга</a>. \n			</div>\n		</div>\n	</div>\n	<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.container : stack1), depth0))
+	    + "\">\n		<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.credentials : stack1), depth0))
+	    + "\">\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.credentialsImage : stack1), depth0))
+	    + "\">\n				<img src=\"/static/credentials_why.png\">\n			</div>\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.credentialsText : stack1), depth0))
+	    + "\">\n				Сделала Алиса Яннау в Школе редакторов Бюро Горбунова. \n				<br>\n				Иллюстратор — Марина Савицкая, разработчик — Артур Стамбульцян.\n				<br>\n				<a href=\"#\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
+	    + "\">Пользовательское соглашение</a>.\n			</div>	\n		</div>\n	</div>\n</div>";
 	},"useData":true});
 
 /***/ },
-/* 56 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _underscore = __webpack_require__(2);
-	
-	var _underscore2 = _interopRequireDefault(_underscore);
-	
-	var _base = __webpack_require__(5);
-	
-	var _base2 = _interopRequireDefault(_base);
-	
-	var _placeholders = __webpack_require__(57);
-	
-	var _placeholders2 = _interopRequireDefault(_placeholders);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var _class = function (_BaseView) {
-		_inherits(_class, _BaseView);
-	
-		function _class() {
-			_classCallCheck(this, _class);
-	
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(_class).apply(this, arguments));
-		}
-	
-		_createClass(_class, [{
-			key: 'init',
-			value: function init() {
-				this.render();
-			}
-		}, {
-			key: '_prepareData',
-			value: function _prepareData() {
-				var data = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
-	
-				return _underscore2.default.extend(data, {
-					styles: _placeholders2.default
-				});
-			}
-		}, {
-			key: '_template',
-			get: function get() {
-				return __webpack_require__(59);
-			}
-		}]);
-
-		return _class;
-	}(_base2.default);
-
-	exports.default = _class;
-
-/***/ },
-/* 57 */
+/* 71 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(58);
+	var content = __webpack_require__(72);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(12)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js?modules!./../../node_modules/postcss-loader/index.js!./placeholders.css", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js?modules!./../../node_modules/postcss-loader/index.js!./placeholders.css");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 58 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(11)();
-	// imports
-	
-	
-	// module
-	exports.push([module.id, "._31LIxS8EUbIS2GZsgavXX4 {\n\tfont-family: 'PT Serif', serif;\n}\n\n._7IYHGttZhdxeWqmXa2pXA {\n\tfont-family: 'Roboto', sans-serif;\n}\n\n._2ktGuIjH_jfm4bMSKRgdc4 {\n\tposition: relative;\n\tpadding: 40px 0;\n}\n\n._2R07vqWnGSoq-1ZHXuetvP {\n\tfont-weight: bold;\n\tfont-size: 80px;\n\tline-height: 90px;\n\ttext-align: center;\n\tmargin-bottom: 25px;\n}\n\n._29v091XTbsQLitZzIeFTfg {\n\tcolor: #000;\n\ttext-decoration: none;\n\tfont-size: 36px;\n\tline-height: 42px;\n\tfont-weight: normal;\t\n}\n\n._1SgYZVrWf_0QCo-iCZc_fn {\n\tposition: absolute;\n\tleft: 68px;\n\ttop: 50px;\n}\n\n._1x6ZdJkMKcDtalpwgTSvyp {\n\tposition: absolute;\n\tright: 68px;\n\ttop: 50px;\n}\n\n.xyTw0uBB_SKVwwfEDJLop {\n\twidth: 650px;\n\tmargin: auto;\n}\n\n._3HljxenLVC8kZT-rG-LzTY {\n\tletter-spacing: 4px;\n\tfont-size: 22px;\n\tfont-weight: normal;\n\tcolor: #000;\n\ttext-transform: uppercase;\n\tborder: none;\n\tbackground-image: none;\n\tbackground-color: #FFD637;\n\theight: 62px;\n\tline-height: 62px;\n\tmin-width: 290px;\n\tcursor: pointer;\n}", ""]);
-	
-	// exports
-	exports.locals = {
-		"ptSerif": "_31LIxS8EUbIS2GZsgavXX4",
-		"roboto": "_7IYHGttZhdxeWqmXa2pXA",
-		"pageRoot": "_2ktGuIjH_jfm4bMSKRgdc4",
-		"pageTitle": "_2R07vqWnGSoq-1ZHXuetvP _31LIxS8EUbIS2GZsgavXX4",
-		"pageNav": "_29v091XTbsQLitZzIeFTfg _31LIxS8EUbIS2GZsgavXX4",
-		"pageNavPrev": "_1SgYZVrWf_0QCo-iCZc_fn _29v091XTbsQLitZzIeFTfg _31LIxS8EUbIS2GZsgavXX4",
-		"pageNavNext": "_1x6ZdJkMKcDtalpwgTSvyp _29v091XTbsQLitZzIeFTfg _31LIxS8EUbIS2GZsgavXX4",
-		"pageContainer": "xyTw0uBB_SKVwwfEDJLop",
-		"testButton": "_3HljxenLVC8kZT-rG-LzTY _7IYHGttZhdxeWqmXa2pXA"
-	};
-
-/***/ },
-/* 59 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Handlebars = __webpack_require__(16);
-	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
-	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
-	
-	  return "<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.styles : depth0)) != null ? stack1.pageRoot : stack1), depth0))
-	    + "\">\n	<a href=\"/#/where\" class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.styles : depth0)) != null ? stack1.pageNavPrev : stack1), depth0))
-	    + "\">Где<br>сдать</a>\n	<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.styles : depth0)) != null ? stack1.pageTitle : stack1), depth0))
-	    + "\">Зачем сдавать<br>костный мозг</div>\n	<a href=\"/#/how\" class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.styles : depth0)) != null ? stack1.pageNavNext : stack1), depth0))
-	    + "\">Как<br>Сдавать</a>\n</div>";
-	},"useData":true});
-
-/***/ },
-/* 60 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _underscore = __webpack_require__(2);
-	
-	var _underscore2 = _interopRequireDefault(_underscore);
-	
-	var _base = __webpack_require__(5);
-	
-	var _base2 = _interopRequireDefault(_base);
-	
-	var _placeholders = __webpack_require__(57);
-	
-	var _placeholders2 = _interopRequireDefault(_placeholders);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var _class = function (_BaseView) {
-		_inherits(_class, _BaseView);
-	
-		function _class() {
-			_classCallCheck(this, _class);
-	
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(_class).apply(this, arguments));
-		}
-	
-		_createClass(_class, [{
-			key: 'init',
-			value: function init() {
-				this.render();
-			}
-		}, {
-			key: '_prepareData',
-			value: function _prepareData() {
-				var data = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
-	
-				return _underscore2.default.extend(data, {
-					styles: _placeholders2.default
-				});
-			}
-		}, {
-			key: '_template',
-			get: function get() {
-				return __webpack_require__(61);
-			}
-		}]);
-
-		return _class;
-	}(_base2.default);
-
-	exports.default = _class;
-
-/***/ },
-/* 61 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Handlebars = __webpack_require__(16);
-	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
-	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
-	
-	  return "<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.styles : depth0)) != null ? stack1.pageRoot : stack1), depth0))
-	    + "\">\n	<a href=\"/#/how\" class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.styles : depth0)) != null ? stack1.pageNavPrev : stack1), depth0))
-	    + "\">Как<br>сдать</a>\n	<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.styles : depth0)) != null ? stack1.pageTitle : stack1), depth0))
-	    + "\">Где сдать<br>костный мозг</div>\n	<a href=\"/#/why\" class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.styles : depth0)) != null ? stack1.pageNavNext : stack1), depth0))
-	    + "\">Зачем<br>Сдавать</a>\n</div>";
-	},"useData":true});
-
-/***/ },
-/* 62 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-	
-	// load the styles
-	var content = __webpack_require__(63);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(12)(content, {});
+	var update = __webpack_require__(10)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -17415,49 +18055,46 @@
 	}
 
 /***/ },
-/* 63 */
+/* 72 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(11)();
+	exports = module.exports = __webpack_require__(9)();
 	// imports
 	
 	
 	// module
-	exports.push([module.id, "._262Ej1jMDO2JTW3JIx8Tcp {\n\tmin-width: 1024px;\n}\n\n._262Ej1jMDO2JTW3JIx8Tcp, ._262Ej1jMDO2JTW3JIx8Tcp *, ._262Ej1jMDO2JTW3JIx8Tcp *::before, ._262Ej1jMDO2JTW3JIx8Tcp *::after {\n\tbox-sizing: border-box;\n\ttext-size-adjust: none;\n\t-moz-text-size-adjust: none;\n\t-webkit-text-size-adjust: none;\n\t-ms-text-size-adjust: none;\n}\n\n._1YDXoGjZVC7CsGamehZuyC {\n\tbackground-image: url('/static/main_artwork.jpg');\n\tbackground-size: cover;\n}\n\n._1YDXoGjZVC7CsGamehZuyC::after {\n\twidth: 100%;\n\tpadding-bottom: 34%;\n\tcontent: '';\n\theight: 0;\n\tdisplay: block;\n}", ""]);
+	exports.push([module.id, "._262Ej1jMDO2JTW3JIx8Tcp {\n\tmin-width: 1024px;\n}\n\n._262Ej1jMDO2JTW3JIx8Tcp, ._262Ej1jMDO2JTW3JIx8Tcp *, ._262Ej1jMDO2JTW3JIx8Tcp *::before, ._262Ej1jMDO2JTW3JIx8Tcp *::after {\n\tbox-sizing: border-box;\n\toutline: none;\n\ttext-size-adjust: none;\n\t-moz-text-size-adjust: none;\n\t-webkit-text-size-adjust: none;\n\t-ms-text-size-adjust: none;\n}", ""]);
 	
 	// exports
 	exports.locals = {
-		"root": "_262Ej1jMDO2JTW3JIx8Tcp",
-		"artwork": "_1YDXoGjZVC7CsGamehZuyC"
+		"root": "_262Ej1jMDO2JTW3JIx8Tcp"
 	};
 
 /***/ },
-/* 64 */
+/* 73 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Handlebars = __webpack_require__(16);
 	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
 	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
+	    var stack1;
 	
 	  return "<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.styles : depth0)) != null ? stack1.artwork : stack1), depth0))
-	    + "\"></div>\n<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.styles : depth0)) != null ? stack1.container : stack1), depth0))
-	    + "\" data-view=\"app-container\">\n	\n</div>";
+	    + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? depth0.styles : depth0)) != null ? stack1.container : stack1), depth0))
+	    + "\" data-view=\"app-container\"></div>";
 	},"useData":true});
 
 /***/ },
-/* 65 */
+/* 74 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(66);
+	var content = __webpack_require__(75);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(12)(content, {});
+	var update = __webpack_require__(10)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -17474,178 +18111,18 @@
 	}
 
 /***/ },
-/* 66 */
+/* 75 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(11)();
+	exports = module.exports = __webpack_require__(9)();
 	// imports
 	
 	
 	// module
-	exports.push([module.id, "body {\n\tmargin: 0;\n\tpadding: 0;\n\tfont-family: 'Merriweather', serif;\n}", ""]);
+	exports.push([module.id, "body {\n\tmargin: 0;\n\tpadding: 0;\n\tfont-family: 'Roboto', sans-serif;\n}\n\nimg {\n\tdisplay: block;\n}\n\na {\n\ttext-decoration: none;\n}", ""]);
 	
 	// exports
 
-
-/***/ },
-/* 67 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _base = __webpack_require__(5);
-	
-	var _base2 = _interopRequireDefault(_base);
-	
-	var _config = __webpack_require__(68);
-	
-	var _config2 = _interopRequireDefault(_config);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var _class = function (_BaseView) {
-		_inherits(_class, _BaseView);
-	
-		function _class() {
-			_classCallCheck(this, _class);
-	
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(_class).apply(this, arguments));
-		}
-	
-		_createClass(_class, [{
-			key: 'init',
-			value: function init() {
-				this.listenTo(this.shareModel, 'change', this.render);
-			}
-		}, {
-			key: '_prepareData',
-			value: function _prepareData() {
-				var shareUrl = _config2.default.api.url + '/share?title=' + encodeURIComponent(this.shareModel.get('title')) + '&description=' + encodeURIComponent(this.shareModel.get('description')) + '&image=' + encodeURIComponent(this.shareModel.get('image')) + '&redirect_url=' + encodeURIComponent(location.href);
-				return {
-					vkUrl: this._generateVkUrl(shareUrl),
-					fbUrl: this._generateFbUrl(shareUrl)
-				};
-			}
-		}, {
-			key: '_generateVkUrl',
-			value: function _generateVkUrl(shareUrl) {
-				return 'https://vk.com/share.php?url=' + encodeURIComponent(shareUrl);
-			}
-		}, {
-			key: '_generateFbUrl',
-			value: function _generateFbUrl(shareUrl) {
-				return 'http://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl);
-			}
-		}]);
-
-		return _class;
-	}(_base2.default);
-
-	exports.default = _class;
-
-/***/ },
-/* 68 */
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	exports.default = {
-		api: {
-			url: 'https://donor-api.herokuapp.com'
-		}
-	};
-
-/***/ },
-/* 69 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Handlebars = __webpack_require__(16);
-	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
-	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-	    var stack1, helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression, alias5=container.lambda;
-	
-	  return "Поделиться: <a href=\""
-	    + alias4(((helper = (helper = helpers.vkUrl || (depth0 != null ? depth0.vkUrl : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"vkUrl","hash":{},"data":data}) : helper)))
-	    + "\" target=\"_blank\" class=\""
-	    + alias4(alias5(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.link : stack1), depth0))
-	    + "\">Вконтакте</a>, <a href=\""
-	    + alias4(((helper = (helper = helpers.fbUrl || (depth0 != null ? depth0.fbUrl : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"fbUrl","hash":{},"data":data}) : helper)))
-	    + "\" target=\"_blank\" class=\""
-	    + alias4(alias5(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.link : stack1), depth0))
-	    + "\">Facebook</a>";
-	},"useData":true});
-
-/***/ },
-/* 70 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-	
-	// load the styles
-	var content = __webpack_require__(71);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(12)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js?modules!./../../node_modules/postcss-loader/index.js!./inputs.css", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js?modules!./../../node_modules/postcss-loader/index.js!./inputs.css");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 71 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(11)();
-	// imports
-	
-	
-	// module
-	exports.push([module.id, "._2KgyiJDrTM8cRmCPeJ02XZ {\n\tfont-family: 'PT Serif', serif;\n}\n\n._36TM1OhCdObbBwjF2OhjKO {\n\tfont-family: 'Roboto', sans-serif;\n}\n\n._2Bug5WFDMouSh2Bkd4zQsx {\n\tposition: relative;\n\tpadding: 40px 0;\n}\n\n.kFGjtM7jQdIjghp3eCVA- {\n\tfont-weight: bold;\n\tfont-size: 80px;\n\tline-height: 90px;\n\ttext-align: center;\n\tmargin-bottom: 25px;\n}\n\n._16I3MODWJdDgHErKSjOoEO {\n\tcolor: #000;\n\ttext-decoration: none;\n\tfont-size: 36px;\n\tline-height: 42px;\n\tfont-weight: normal;\t\n}\n\n._2qATpW56t9f9aJEpnZXX4v {\n\tposition: absolute;\n\tleft: 68px;\n\ttop: 50px;\n}\n\n._2Vl9Y8y__6SSpbIwJkqBL6 {\n\tposition: absolute;\n\tright: 68px;\n\ttop: 50px;\n}\n\n._3JDP7a6KJh7RjoPK3CY_l4 {\n\twidth: 650px;\n\tmargin: auto;\n}\n\n._2P91SPuSu6wgz2R67mobk1 {\n\tletter-spacing: 4px;\n\tfont-size: 22px;\n\tfont-weight: normal;\n\tcolor: #000;\n\ttext-transform: uppercase;\n\tborder: none;\n\tbackground-image: none;\n\tbackground-color: #FFD637;\n\theight: 62px;\n\tline-height: 62px;\n\tmin-width: 290px;\n\tcursor: pointer;\n}\n\n._10fHIjkbAdfadwMqaQz6Pc {\n\tdisplay: none;\n}\n\n._10fHIjkbAdfadwMqaQz6Pc:checked + ._1qRt3sNTNbILEj2ckyiMuH::after {\n\topacity: 1;\n}\n\n._1qRt3sNTNbILEj2ckyiMuH {\n\tfont-size: 18px;\n\tposition: relative;\n\tpadding-left: 42px;\n\theight: 26px;\n\tline-height: 26px;\n\tdisplay: inline-block;\n\tcursor: pointer;\n}\n\n._1qRt3sNTNbILEj2ckyiMuH::before {\n\tdisplay: block;\n\tposition: absolute;\n\tleft: 0;\n\tbottom: 0;\n\twidth: 26px;\n\theight: 26px;\n\tborder: 1px solid #000;\n\tborder-radius: 50%;\n\tcontent: '';\n}\n\n._1qRt3sNTNbILEj2ckyiMuH::after {\n\tdisplay: block;\n\tposition: absolute;\n\tleft: 4px;\n\tbottom: 4px;\n\twidth: 18px;\n\theight: 18px;\n\tbackground-color: #FFD637;\n\tborder-radius: 50%;\n\topacity: 0;\n\tcontent: '';\n}\n\n.jX-n3oTShl9DdR8pTgsJO {\n\tdisplay: none;\n}\n\n.jX-n3oTShl9DdR8pTgsJO:checked + ._1cpV2qSiHdrEnfAa1NIoLC::after {\n\topacity: 1;\n}\n\n._1cpV2qSiHdrEnfAa1NIoLC {\n\tfont-size: 18px;\n\tposition: relative;\n\tpadding-left: 42px;\n\tline-height: 26px;\n\tdisplay: inline-block;\n\tcursor: pointer;\n}\n\n._1cpV2qSiHdrEnfAa1NIoLC::before {\n\tdisplay: block;\n\tposition: absolute;\n\tleft: 0;\n\ttop: 0;\n\twidth: 26px;\n\theight: 26px;\n\tborder: 1px solid #000;\n\tcontent: '';\n}\n\n._1cpV2qSiHdrEnfAa1NIoLC::after {\n\tdisplay: block;\n\tposition: absolute;\n\tleft: 4px;\n\ttop: 4px;\n\twidth: 18px;\n\theight: 18px;\n\tbackground-color: #FFD637;\n\topacity: 0;\n\tcontent: '';\n}\n\n._3lp0pnIvm8INrj2DL5oHcL {\n\tfont-weight: 300;\n\tdisplay: inline-block;\n\tborder: 1px solid #000;\n\theight: 42px;\n    width: 86px;\n\tpadding: 8px;\n\tfont-size: 24px;\n\ttext-align: center;\n\tborder-radius: 0;\n\tbox-shadow: none;\n}\n\n.u5lqlNo6_x0Aq3I55gEjP {\n\tanimation: _1lP-KYA1WVO-YcgrRmr9_W 0.82s cubic-bezier(.36,.07,.19,.97) both;\n\ttransform: translate3d(0, 0, 0);\n\tbackface-visibility: hidden;\n\tperspective: 1000px;\n}\n\n@keyframes _1lP-KYA1WVO-YcgrRmr9_W {\n\t10%, 90% {\n\t\ttransform: translate3d(-2px, 0, 0);\n\t}\n\n\t20%, 80% {\n\t\ttransform: translate3d(3px, 0, 0);\n\t}\n\n\t30%, 50%, 70% {\n\t\ttransform: translate3d(-6px, 0, 0);\n\t}\n\n\t40%, 60% {\n\t\ttransform: translate3d(6px, 0, 0);\n\t}\n}", ""]);
-	
-	// exports
-	exports.locals = {
-		"ptSerif": "_2KgyiJDrTM8cRmCPeJ02XZ",
-		"roboto": "_36TM1OhCdObbBwjF2OhjKO",
-		"pageRoot": "_2Bug5WFDMouSh2Bkd4zQsx",
-		"pageTitle": "kFGjtM7jQdIjghp3eCVA- _2KgyiJDrTM8cRmCPeJ02XZ",
-		"pageNav": "_16I3MODWJdDgHErKSjOoEO _2KgyiJDrTM8cRmCPeJ02XZ",
-		"pageNavPrev": "_2qATpW56t9f9aJEpnZXX4v _16I3MODWJdDgHErKSjOoEO _2KgyiJDrTM8cRmCPeJ02XZ",
-		"pageNavNext": "_2Vl9Y8y__6SSpbIwJkqBL6 _16I3MODWJdDgHErKSjOoEO _2KgyiJDrTM8cRmCPeJ02XZ",
-		"pageContainer": "_3JDP7a6KJh7RjoPK3CY_l4",
-		"testButton": "_2P91SPuSu6wgz2R67mobk1 _36TM1OhCdObbBwjF2OhjKO",
-		"radioInput": "_10fHIjkbAdfadwMqaQz6Pc",
-		"radioLabel": "_1qRt3sNTNbILEj2ckyiMuH _36TM1OhCdObbBwjF2OhjKO",
-		"checkboxInput": "jX-n3oTShl9DdR8pTgsJO",
-		"checkboxLabel": "_1cpV2qSiHdrEnfAa1NIoLC _36TM1OhCdObbBwjF2OhjKO",
-		"input": "_3lp0pnIvm8INrj2DL5oHcL _36TM1OhCdObbBwjF2OhjKO",
-		"inputInvalid": "u5lqlNo6_x0Aq3I55gEjP",
-		"shake": "_1lP-KYA1WVO-YcgrRmr9_W"
-	};
 
 /***/ }
 /******/ ]);

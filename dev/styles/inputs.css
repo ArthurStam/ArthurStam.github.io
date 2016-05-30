@@ -1,4 +1,4 @@
-@import "./placeholders";
+@import "./variables";
 
 .radioInput {
 	display: none;
@@ -12,7 +12,7 @@
 }
 
 .radioLabel {
-	composes: roboto;
+	font-family: $roboto;
 	font-size: 18px;
 	position: relative;
 	padding-left: 42px;
@@ -40,7 +40,7 @@
 		bottom: 4px;
 		width: 18px;
 		height: 18px;
-		background-color: #FFD637;
+		background-color: $yellow;
 		border-radius: 50%;
 		opacity: 0;
 		content: '';
@@ -59,7 +59,7 @@
 }
 
 .checkboxLabel {
-	composes: roboto;
+	font-family: $roboto;
 	font-size: 18px;
 	position: relative;
 	padding-left: 42px;
@@ -85,14 +85,14 @@
 		top: 4px;
 		width: 18px;
 		height: 18px;
-		background-color: #FFD637;
+		background-color: $yellow;
 		opacity: 0;
 		content: '';
 	}
 }
 
 .input {
-	composes: roboto;
+	font-family: $roboto;
 	font-weight: 300;
 	display: inline-block;
 	border: 1px solid #000;
@@ -103,6 +103,44 @@
 	text-align: center;
 	border-radius: 0;
 	box-shadow: none;
+}
+
+.button {
+	font-family: $roboto;
+	letter-spacing: 4px;
+	font-size: 22px;
+	font-weight: 300;
+	color: #000;
+	text-transform: uppercase;
+	border: none;
+	background-image: none;
+	background-color: #f0c730;
+	height: 62px;
+	line-height: 62px;
+	min-width: 290px;
+	cursor: pointer;
+	border-radius: 5px;
+	color: #fff;
+	transform: translate3d(0,0,0);
+	box-shadow: 3px 3px 0px 0px #c89d25;
+	transition: all 0.15s ease;
+
+	&:hover {
+		background-color: #dfb52b;
+	}
+
+	&[disabled] {
+		box-shadow: none;
+		opacity: 0.7;
+		cursor: default;
+		background-color: #f0c730;
+	}
+
+	&:active {
+		position: relative;
+		transform: translate3d(2px,2px,0);
+		box-shadow: 1px 1px 0px 0px #c89d25;
+	}
 }
 
 .inputInvalid {

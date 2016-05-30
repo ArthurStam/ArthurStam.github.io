@@ -1,9 +1,78 @@
+@import "./variables";
 @import "./placeholders";
 
-.intro {
-	composes: roboto;
-	font-size: 24px;
-	line-height: 35px;
-	font-style: italic;
-	margin-bottom: 30px;
+.artwork {
+	@extend %pageArtwork;
+	margin-bottom: -50px;
+}
+
+.contactEmail {
+	font-size: 27px;
+	font-weight: bold;
+	color: inherit;
+}
+
+.contactText {
+	margin-top: 8px;
+}
+
+.doctorImage {
+	width: 170px;
+}
+
+.typeImage {
+	height: 160px;
+}
+
+.whatNextImage {
+	margin-top: -30px;
+	margin-bottom: -15px;
+	width: 768px;
+	margin-left: calc( ( 657px - 768px ) / 2 );
+}
+
+.findCity {
+	margin-bottom: 20px;
+}
+
+.findContainer {
+	display: flex;
+}
+
+.findMap {
+	width: 306px;
+	height: 240px;
+	margin-right: 15px;
+	flex-shrink: 0;
+}
+
+.findPoint {
+
+}
+
+.findPointName {
+	font-weight: 700;
+	margin-bottom: 7px;
+}
+
+.findPointAddress {
+	margin-bottom: 7px;
+}
+
+.findPointTime {
+	margin-bottom: 7px;
+}
+
+.findPointMeta {
+
+}
+
+.findShowMore {
+	margin-top: 7px;
+	display: inline-block;
+	cursor: pointer;
+
+	&:hover {
+		text-decoration: underline;
+	}
 }

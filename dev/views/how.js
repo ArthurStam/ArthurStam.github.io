@@ -2,22 +2,35 @@ import _ from 'underscore';
 
 import BaseView from 'crimson-backbone/src/views/base';
 
-import TestView from 'dev/views/test';
-
-import styles from 'dev/styles/how.css';
+import page from 'dev/styles/page.css';
+import typography from 'dev/styles/typography.css';
+import how from 'dev/styles/how.css';
 
 export default class extends BaseView {
 
 	get _template() { return require('dev/templates/how.handlebars'); }
 
 	init() {
-		this.registerChild(new TestView(), 'how-test');
 		this.render();
+
+	}
+
+	_appended() {
+		ymaps.ready(() => {
+			this.myMap && this.myMap.destroy();
+
+			this.myMap = new ymaps.Map('map', {
+				center: [59.939095, 30.315868],
+				zoom: 10
+			});
+		});
 	}
 
 	_prepareData(data = {}) {
 		return _.extend(data, {
-			styles: styles
+			page: page,
+			typography: typography,
+			how: how
 		});
 	}
 }

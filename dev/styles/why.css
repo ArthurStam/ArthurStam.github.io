@@ -1,0 +1,29 @@
+@import "./placeholders";
+
+.artwork {
+	@extend %pageArtwork;
+	margin-bottom: 20px;
+}
+
+.test {
+	margin-left: calc( ( 657px - 768px ) / 2 );
+}
+
+.goal {
+	display: flex;
+}
+
+.goalAuthor {
+	flex-shrink: 0;
+	margin-right: 20px;
+}
+
+.goalAuthorPhoto {
+	width: 92px;
+}
+
+.goalText {
+	font-size: 27px;
+	line-height: 35px;
+	font-weight: 300;
+}
