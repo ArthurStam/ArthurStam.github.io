@@ -62,22 +62,20 @@
 
 }
 
-.failTitle {
-	font-size: 36px;
-	font-weight: bold;
-	margin-bottom: 15px;
+.failText {
+	width: 340px;
 }
 
-.failText {
-	width: 300px;
-	font-size: 18px;
-	line-height: 26px;
+.failImage {
+	position: absolute;
+	z-index: 1;
+    right: -130px;
+    bottom: -80px;
+    width: 410px;
 }
 
 .share {
-	font-size: 18px;
-	line-height: 26px;
-	margin-top: 15px;
+	margin-top: 40px;
 }
 
 .agreement {
