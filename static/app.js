@@ -13556,12 +13556,19 @@
 			value: function _redirect() {
 				var pageName = arguments.length <= 0 || arguments[0] === undefined ? 'why' : arguments[0];
 	
+				this._scrollTo(0);
 				this._router.navigate(pageName, true);
 			}
 		}, {
 			key: '_routeHandler',
 			value: function _routeHandler(pageName) {
+				this._scrollTo(0);
 				this._renderPage(pageName);
+			}
+		}, {
+			key: '_scrollTo',
+			value: function _scrollTo(position) {
+				(0, _jquery2.default)('body, html').scrollTop(position);
 			}
 		}, {
 			key: '_prepareData',
@@ -13598,6 +13605,19 @@
 			key: 'className',
 			get: function get() {
 				return _app2.default.root;
+			}
+		}, {
+			key: 'events',
+			get: function get() {
+				var _this3 = this;
+	
+				return {
+					'click [data-action="scroll-to"]': function clickDataActionScrollTo(e) {
+						var $element = (0, _jquery2.default)('' + (0, _jquery2.default)(e.currentTarget).data('element'));
+						$element.length && _this3._scrollTo($element.offset().top);
+						return false;
+					}
+				};
 			}
 		}]);
 
@@ -14326,7 +14346,7 @@
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.text : stack1), depth0))
 	    + "\">\n				О донорстве костного мозга знают мало, поэтому многие боятся становиться донорами. Кто-то думает, что костный мозг вырезают из костей, другие слышали, что врач иглой протыкает позвоночник. Мы хотим развеять безосновательные страхи и рассказать, как все происходит на самом деле — шаг за шагом.\n			</div>\n		</div>\n		<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
-	    + "\">\n			<div class=\""
+	    + "\" id=\"first-step\">\n			<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
 	    + "\">Первый шаг. Найти, где сдать кровь</div>\n			<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1["float"] : stack1), depth0))
@@ -14524,7 +14544,7 @@
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
 	    + "\">\n							Если вы решили стать донором костного мозга, сделайте первый шаг — найдите пункт, в котором сможете сдать кровь и вступить в регистр. \n						</div>\n						<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n							<a href=\"#\" class=\""
+	    + "\">\n							<a href=\"#\" data-action=\"scroll-to\" data-element=\"#first-step\" class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
 	    + "\">Найти удобный пункт</a>\n						</div>\n					</div>\n				</div>\n			</div>\n			<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))

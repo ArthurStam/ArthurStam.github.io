@@ -26,6 +26,16 @@ export default class extends BaseView {
 
 	get className() { return styles.root }
 
+	get events() {
+		return {
+			'click [data-action="scroll-to"]': (e) => {
+				let $element = $(`${ $(e.currentTarget).data('element') }`);
+				$element.length && this._scrollTo($element.offset().top);
+				return false;
+			}
+		}
+	}
+
 	init() {
 
 		this._router = new Backbone.Router({
@@ -61,11 +71,17 @@ export default class extends BaseView {
 	}
 
 	_redirect(pageName = 'why') {
+		this._scrollTo(0);
 		this._router.navigate(pageName, true);
 	}
 
 	_routeHandler(pageName) {
+		this._scrollTo(0);
 		this._renderPage(pageName);
+	}
+
+	_scrollTo(position) {
+		$('body, html').scrollTop(position);
 	}
 
 	_prepareData(data={}) {
