@@ -13769,6 +13769,10 @@
 	
 	var _how2 = _interopRequireDefault(_how);
 	
+	var _share = __webpack_require__(76);
+	
+	var _share2 = _interopRequireDefault(_share);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -13813,7 +13817,8 @@
 				return _underscore2.default.extend(data, {
 					page: _page2.default,
 					typography: _typography2.default,
-					how: _how2.default
+					how: _how2.default,
+					share: _share2.default
 				});
 			}
 		}, {
@@ -13863,7 +13868,7 @@
 	
 	
 	// module
-	exports.push([module.id, "._1qYSRV45fgKNO9VAvI4i5T {\n\tmargin: 50px 0;\n}\n\n._1QFXZkT9hFspnGBHrgzOla {\n\tposition: relative;\n\tpadding: 0 0 40px;\n}\n\n.iHIj2vUWlJL27N8tZtKfa {\n\twidth: 657px;\n\tmargin: auto;\n}\n\n._2AX1khG2HUetQLrpLQ2Ioz {\n\tpadding: 50px 0;\n\tbackground-color: rgba(9, 159, 175, 0.27);\n\tmargin-bottom: 50px;\n}\n\n.gugwRJ4TwKTo5q8bqDByV {\n\tfont-size: 14px;\n\tline-height: 24px;\n\tfont-weight: 300;\n\tdisplay: flex;\n}\n\n._22yIhYV_EDPENQPJXpEc0b {\n\tmargin-right: 10px;\n}\n\n._3ADqk9sqv_g_3Ljm--pxe6 {\n\tdisplay: flex;\n}\n\n._4Ya342wPkWM_FsdYgqEO3 {\n\twidth: 73px;\n\theight: 73px;\n\tbackground-color: #078599;\n\tcursor: pointer;\n\tbackground-position: center center;\n\tbackground-repeat: no-repeat;\n}\n\n._4Ya342wPkWM_FsdYgqEO3:not(:last-child) {\n\tmargin-right: 27px;\n}\n\n._13oZ_bkdLFEBVldflzbvFw {\n\tbackground-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAqCAMAAADoIdnnAAAApVBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+4/eNVAAAANnRSTlMAAAUMEhUYKSw3PEBBUF5fa29wjpKUm52mrK6+wcTGyMrNztja3d7k7PDy8/T19vf4+fr7/f5JyMCUAAAAsElEQVR42u3Q2Q6CQAyF4YriNo67uOG+iwIC9v0fTchMlCjV3nnDf/0lTQ8UWP2bgapubV3E6Ljst2hm2kGEujPJivsQn61J1rvhK4tihpdSXptitSDF/AbFmq4SwWa6OIRlinV8xVYQZwDFuvroBJJ+svEXJqUcajaXSaVMhhfHuSt2deKwks3eM1ksAhY78dgOOC/4s2wmhBjoQWwRV2XOm7OcfbCQx1A1IhjRf9kDR21MuYsfLhwAAAAASUVORK5CYII=);\n}\n\n.ycxEEsNyx2pf-iez_itU0 {\n\tbackground-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAbCAMAAAA5zj1cAAABSlBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////9mcS2dAAAAbXRSTlMAAAEDBQYHCAoLDA0OEBITFBUXGB8iJCcoKi8wMTQ2OTs8QEFCREZHSEpMTU5PUFJWXWdscHJ4fH5/gISLlJqhqK6ztba4u7y9w8TGx8vO0dLW2Nna29ze4uPk5ebp6uvs7u/w8/T2+Pn6+/3+kKCElQAAAUlJREFUeNq10+k3AlEYBvBHScSQNUskQpZkZ8iSrexLZFdMUnT//6/uXO/tzjhnzvGl59Pz3Pd35tug7p+pBQSaNE1rhhn32mWJMfaZ0fEnHGaYSNIFYDjLKP3i7DmjecHhHfWo+OQerVkB5xjlhcMl6gfiNEFrUqwjCRMc+vI0guDppjFijpB0b20cYoXWLnharTAl4QJM6HunOQpAoz4EICrdvktArNO+8ig4AHiz1F878QtbcvSyCvQomKBaGQdBLNJTOYRpqnHEGGUDVVh/TW/5+TS1k+UitWO3ghhjjqkEYIHYcYS3sMGOnKOcsUHEHGExYoPYcpTlKRtsOLWfS9+2byqI9huru/f3ZZUcJEjy3AJ1oOu5up78VojGTQXjAIIf1blNUCaclpewOSMFOb8IqvTqqQfDMA69YgWSJa4KxqNeg//6BxI74A3iZZBUAAAAAElFTkSuQmCC);\n}", ""]);
+	exports.push([module.id, "._1qYSRV45fgKNO9VAvI4i5T {\n\tmargin: 50px 0;\n}\n\n._1QFXZkT9hFspnGBHrgzOla {\n\tposition: relative;\n\tpadding: 0 0 40px;\n}\n\n.iHIj2vUWlJL27N8tZtKfa {\n\twidth: 657px;\n\tmargin: auto;\n}\n\n._2AX1khG2HUetQLrpLQ2Ioz {\n\tpadding: 50px 0;\n\tbackground-color: rgba(9, 159, 175, 0.27);\n\tmargin-bottom: 50px;\n}\n\n.gugwRJ4TwKTo5q8bqDByV {\n\tfont-size: 14px;\n\tline-height: 24px;\n\tfont-weight: 300;\n\tdisplay: flex;\n}\n\n._22yIhYV_EDPENQPJXpEc0b {\n\tmargin-right: 10px;\n}", ""]);
 	
 	// exports
 	exports.locals = {
@@ -13872,11 +13877,7 @@
 		"container": "iHIj2vUWlJL27N8tZtKfa",
 		"footer": "_2AX1khG2HUetQLrpLQ2Ioz",
 		"credentials": "gugwRJ4TwKTo5q8bqDByV",
-		"credentialsImage": "_22yIhYV_EDPENQPJXpEc0b",
-		"share": "_3ADqk9sqv_g_3Ljm--pxe6",
-		"shareItem": "_4Ya342wPkWM_FsdYgqEO3",
-		"shareItemFb": "_13oZ_bkdLFEBVldflzbvFw _4Ya342wPkWM_FsdYgqEO3",
-		"shareItemVk": "ycxEEsNyx2pf-iez_itU0 _4Ya342wPkWM_FsdYgqEO3"
+		"credentialsImage": "_22yIhYV_EDPENQPJXpEc0b"
 	};
 
 /***/ },
@@ -14221,7 +14222,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".mCMeBlawmTHgj-kOia8gK {\n\tfont-family: 'Roboto', sans-serif;\n\tfont-size: 16px;\n\tline-height: 24px;\n\tfont-weight: 300;\n}\n\n.Yld6iXMiFH4Vt7IopVoky {\n\tfont-family: 'Roboto', sans-serif;\n\tfont-size: 48px;\n\tline-height: 55px;\n\tfont-weight: 700;\n\ttext-align: center;\n}\n\n._3uvNU1E_zK3vlKn7iIK57u {\n\tfont-family: 'Roboto', sans-serif;\n\tfont-size: 30px;\n\tline-height: 18px;\n\tfont-weight: 700;\n\tmargin-bottom: 23px;\n}\n\n._3lv3I_riifEMhkoO2Dukx_ {\n}\n\n._3lv3I_riifEMhkoO2Dukx_:not(:last-child) {\n\tmargin-bottom: 23px;\n}\n\n._2hyzGKrHnqHZ4dKDiYJjSk {\n\tcolor: #078599;\n\ttext-decoration: underline;\n}\n\n._2H3KkHxmbHI3WvlhyzZCnq {\n\tfont-weight: 700;\n}\n\n.x5OPdyuVfERXP6Zae2_p3 {\n\tfont-family: 'Roboto', sans-serif;\n\tcolor: #078599;\n\tfont-weight: 400;\n}\n\n._3NPcCWvioPO4gSH3wqBu96 {\n\tfont-size: 54px;\n\tline-height: 56px;\n\tfont-weight: 700;\n\tmargin-bottom: -4px;\n}\n\n._3dPZLkyD7-DdI3_7WT-B1F {\n\tline-height: 23px;\n}\n\n._256MTZBCB1RaS5QMBrDnjm {\n\tfont-size: 12px;\n}\n\n._3rskhd6gSf-w_n0a8nK10n {\n\tdisplay: flex;\n}\n\n._3rskhd6gSf-w_n0a8nK10n .x5OPdyuVfERXP6Zae2_p3, ._3rskhd6gSf-w_n0a8nK10n ._3c59ynQ1xcQwe4miRYkPbZ {\n\tflex-shrink: 0;\n\tmargin-left: 24px;\n}\n\n._3rskhd6gSf-w_n0a8nK10n ._3c59ynQ1xcQwe4miRYkPbZ {\n\twidth: 196px;\n}\n\n._1GUWZ5UGIjNQxoLL6Q2miN {\n\tjustify-content: space-between;\n}\n\n._2q4iT4rckcnIidE1puWG0d {\n\tfont-family: 'Roboto', sans-serif;\n\twidth: 768px;\n\tmargin-left: calc( ( 657px - 768px ) / 2 );\n\tpadding: 50px calc( ( 768px - 657px ) / 2 ) 64px;\n\tbackground-color: rgba(9, 159, 175, 0.27);\n}\n\n._3abqwcGNOd_J3E1Oi-yi6N {\n\tflex-shrink: 0;\n}\n\n._3abqwcGNOd_J3E1Oi-yi6N:first-child {\n\twidth: 44%;\n}\n\n._3abqwcGNOd_J3E1Oi-yi6N:last-child {\n\twidth: 50%;\n}", ""]);
+	exports.push([module.id, ".mCMeBlawmTHgj-kOia8gK {\n\tfont-family: 'Roboto', sans-serif;\n\tfont-size: 16px;\n\tline-height: 24px;\n\tfont-weight: 300;\n}\n\n.Yld6iXMiFH4Vt7IopVoky {\n\tfont-family: 'Roboto', sans-serif;\n\tfont-size: 48px;\n\tline-height: 55px;\n\tfont-weight: 700;\n\ttext-align: center;\n}\n\n._3uvNU1E_zK3vlKn7iIK57u {\n\tfont-family: 'Roboto', sans-serif;\n\tfont-size: 30px;\n\tline-height: 32px;\n\tfont-weight: 700;\n\tmargin-bottom: 23px;\n}\n\n._3lv3I_riifEMhkoO2Dukx_ {\n}\n\n._3lv3I_riifEMhkoO2Dukx_:not(:last-child) {\n\tmargin-bottom: 23px;\n}\n\n._2hyzGKrHnqHZ4dKDiYJjSk {\n\tcolor: #078599;\n\ttext-decoration: underline;\n}\n\n._2H3KkHxmbHI3WvlhyzZCnq {\n\tfont-weight: 700;\n}\n\n.x5OPdyuVfERXP6Zae2_p3 {\n\tfont-family: 'Roboto', sans-serif;\n\tcolor: #078599;\n\tfont-weight: 400;\n}\n\n._3NPcCWvioPO4gSH3wqBu96 {\n\tfont-size: 54px;\n\tline-height: 56px;\n\tfont-weight: 700;\n\tmargin-bottom: -4px;\n}\n\n._3dPZLkyD7-DdI3_7WT-B1F {\n\tline-height: 23px;\n}\n\n._256MTZBCB1RaS5QMBrDnjm {\n\tfont-size: 12px;\n}\n\n._3rskhd6gSf-w_n0a8nK10n {\n\tdisplay: flex;\n}\n\n._3rskhd6gSf-w_n0a8nK10n .x5OPdyuVfERXP6Zae2_p3, ._3rskhd6gSf-w_n0a8nK10n ._3c59ynQ1xcQwe4miRYkPbZ {\n\tflex-shrink: 0;\n\tmargin-left: 24px;\n}\n\n._3rskhd6gSf-w_n0a8nK10n ._3c59ynQ1xcQwe4miRYkPbZ {\n\twidth: 196px;\n}\n\n._1GUWZ5UGIjNQxoLL6Q2miN {\n\tjustify-content: space-between;\n}\n\n._2q4iT4rckcnIidE1puWG0d {\n\tfont-family: 'Roboto', sans-serif;\n\twidth: 768px;\n\tmargin-left: calc( ( 657px - 768px ) / 2 );\n\tpadding: 50px calc( ( 768px - 657px ) / 2 ) 64px;\n\tbackground-color: rgba(9, 159, 175, 0.27);\n}\n\n._3abqwcGNOd_J3E1Oi-yi6N {\n\tflex-shrink: 0;\n}\n\n._3abqwcGNOd_J3E1Oi-yi6N:first-child {\n\twidth: 44%;\n}\n\n._3abqwcGNOd_J3E1Oi-yi6N:last-child {\n\twidth: 50%;\n}", ""]);
 	
 	// exports
 	exports.locals = {
@@ -14305,7 +14306,7 @@
 	var Handlebars = __webpack_require__(16);
 	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
 	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
+	    var stack1, helper, alias1=container.lambda, alias2=container.escapeExpression, alias3=depth0 != null ? depth0 : {}, alias4=helpers.helperMissing, alias5="function";
 	
 	  return "<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.root : stack1), depth0))
@@ -14534,12 +14535,16 @@
 	    + "\">задайте вопрос координаторам проекта</a>.\n			</div>\n			<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
 	    + "\">\n				В любом случае расскажите о донорстве костного мозга друзьям.\n				<br>\n				Так вы можете спасти чью-то жизнь, даже если не вступите в регистр. \n			</div>\n			<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.share : stack1), depth0))
-	    + "\">\n				<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.shareItemFb : stack1), depth0))
-	    + "\"></div>\n				<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.shareItemVk : stack1), depth0))
-	    + "\"></div>\n			</div>\n		</div>\n	</div>\n	<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.share : depth0)) != null ? stack1.container : stack1), depth0))
+	    + "\">\n				<a href=\""
+	    + alias2(((helper = (helper = helpers.vkUrl || (depth0 != null ? depth0.vkUrl : depth0)) != null ? helper : alias4),(typeof helper === alias5 ? helper.call(alias3,{"name":"vkUrl","hash":{},"data":data}) : helper)))
+	    + "\" target=\"_blank\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.share : depth0)) != null ? stack1.itemVk : stack1), depth0))
+	    + "\"></a>\n				<a href=\""
+	    + alias2(((helper = (helper = helpers.fbUrl || (depth0 != null ? depth0.fbUrl : depth0)) != null ? helper : alias4),(typeof helper === alias5 ? helper.call(alias3,{"name":"fbUrl","hash":{},"data":data}) : helper)))
+	    + "\" target=\"_blank\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.share : depth0)) != null ? stack1.itemFb : stack1), depth0))
+	    + "\"></a>	\n			</div>\n		</div>\n	</div>\n	<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.container : stack1), depth0))
 	    + "\">\n		<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.credentials : stack1), depth0))
@@ -16203,15 +16208,14 @@
 	
 	
 	// module
-	exports.push([module.id, ".ShiC6JgIaOalBQVpIsYtL {\n\tmargin: auto;\n\twidth: 756px;\n\tmin-height: 474px;\n\tposition: relative;\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: flex-start;\n}\n\n.ShiC6JgIaOalBQVpIsYtL::after {\n\tposition: absolute;\n\tleft: 0;\n\ttop: 0;\n\tz-index: 1;\n\twidth: 100%;\n\theight: 100%;\n\tbackground-image: url(\"/static/test_bg.png\");\n\tbackground-position: center center;\n\tbackground-size: auto 474px;\n\tbackground-repeat: no-repeat;\n\topacity: 0.35;\n\tcontent: '';\n}\n\n._1ZNJ4h3Uct4YGPwsOlP-a2 {\n\twidth: 100%;\n\tposition: relative;\n\tz-index: 2;\n\ttext-align: center;\n}\n\n._10prCLGoK4eiHXC-VVYaZu {\n\tpadding-top: 40px;\n}\n\n._25zew7Xg1S-FRibLyMbP5v {\n\tfont-family: 'Roboto', sans-serif;\n\tfont-size: 40px;\n\tline-height: 45px;\n\tfont-weight: bold;\n\tmargin-bottom: 15px;\n}\n\n._3KLmj9ZQkJaTvSjezlkPal {\n\tfont-family: 'Roboto', sans-serif;\n\tfont-weight: 300;\n\tfont-size: 18px;\n\tline-height: 26px;\n\tmargin-bottom: 35px;\n\tletter-spacing: -0.2px;\n}", ""]);
+	exports.push([module.id, ".ShiC6JgIaOalBQVpIsYtL {\n\tmargin: auto;\n\tposition: relative;\n}\n\n._1ZNJ4h3Uct4YGPwsOlP-a2 {\n\tposition: relative;\n\tz-index: 2;\n\ttext-align: center;\n}\n\n._10prCLGoK4eiHXC-VVYaZu {\n\t\n}\n\n._2a18C1cpDnHlHQPP919Gwu {\n\tfont-size: 16px;\n\ttext-transform: uppercase;\n\tmargin-bottom: 14px;\n\tletter-spacing: 4px;\n}\n\n/*.title {\n\tfont-family: 'Roboto', sans-serif;\n\tfont-size: 40px;\n\tline-height: 45px;\n\tfont-weight: bold;\n\tmargin-bottom: 15px;\n}\n\n.subtitle {\n\tfont-family: 'Roboto', sans-serif;\n\tfont-weight: 300;\n\tfont-size: 18px;\n\tline-height: 26px;\n\tmargin-bottom: 35px;\n\tletter-spacing: -0.2px;\n}*/", ""]);
 	
 	// exports
 	exports.locals = {
 		"root": "ShiC6JgIaOalBQVpIsYtL",
 		"container": "_1ZNJ4h3Uct4YGPwsOlP-a2",
 		"step": "_10prCLGoK4eiHXC-VVYaZu",
-		"title": "_25zew7Xg1S-FRibLyMbP5v",
-		"subtitle": "_3KLmj9ZQkJaTvSjezlkPal"
+		"test": "_2a18C1cpDnHlHQPP919Gwu"
 	};
 
 /***/ },
@@ -16249,12 +16253,13 @@
 	
 	
 	// module
-	exports.push([module.id, "._2c_X9l_2tFGA0jZbDU9JRH {\n\tpadding: 40px 0 58px;\n}\n\n._2lXyS42srJX9Tol5flKXUR {\n\tfont-size: 23px;\n\ttext-transform: uppercase;\n\tmargin-bottom: 9px;\n\tletter-spacing: 4px;\n}", ""]);
+	exports.push([module.id, "._2c_X9l_2tFGA0jZbDU9JRH {\n\twidth: 758px;\n\tleft: calc( ( 657px - 758px ) / 2 );\n\tpadding: 85px 0 0;\n\tposition: relative;\n\tmin-height: 474px;\n}\n\n._2c_X9l_2tFGA0jZbDU9JRH::after {\n\tposition: absolute;\n\tleft: 0;\n\ttop: 0;\n\tz-index: 1;\n\twidth: 100%;\n\theight: 100%;\n\tbackground-image: url(\"/static/test_bg.png\");\n\tbackground-position: center center;\n\tbackground-size: auto 474px;\n\tbackground-repeat: no-repeat;\n\topacity: 0.35;\n\tcontent: '';\n}\n\n.HTG0JT2qR5xnUiu13GRMe {\n\tposition: relative;\n\tz-index: 2;\n}\n\n._28psnc6FGdBBukliEFLXCe {\n\tmargin-top: 70px;\n}", ""]);
 	
 	// exports
 	exports.locals = {
 		"root": "_2c_X9l_2tFGA0jZbDU9JRH",
-		"title": "_2lXyS42srJX9Tol5flKXUR"
+		"container": "HTG0JT2qR5xnUiu13GRMe",
+		"actions": "_28psnc6FGdBBukliEFLXCe"
 	};
 
 /***/ },
@@ -16292,7 +16297,7 @@
 	
 	
 	// module
-	exports.push([module.id, "._10fHIjkbAdfadwMqaQz6Pc {\n\tdisplay: none;\n}\n\n._10fHIjkbAdfadwMqaQz6Pc:checked + ._1qRt3sNTNbILEj2ckyiMuH::after {\n\topacity: 1;\n}\n\n._1qRt3sNTNbILEj2ckyiMuH {\n\tfont-family: 'Roboto', sans-serif;\n\tfont-size: 18px;\n\tposition: relative;\n\tpadding-left: 42px;\n\theight: 26px;\n\tline-height: 26px;\n\tdisplay: inline-block;\n\tcursor: pointer;\n}\n\n._1qRt3sNTNbILEj2ckyiMuH::before {\n\tdisplay: block;\n\tposition: absolute;\n\tleft: 0;\n\tbottom: 0;\n\twidth: 26px;\n\theight: 26px;\n\tborder: 1px solid #000;\n\tborder-radius: 50%;\n\tcontent: '';\n}\n\n._1qRt3sNTNbILEj2ckyiMuH::after {\n\tdisplay: block;\n\tposition: absolute;\n\tleft: 4px;\n\tbottom: 4px;\n\twidth: 18px;\n\theight: 18px;\n\tbackground-color: #FFD637;\n\tborder-radius: 50%;\n\topacity: 0;\n\tcontent: '';\n}\n\n.jX-n3oTShl9DdR8pTgsJO {\n\tdisplay: none;\n}\n\n.jX-n3oTShl9DdR8pTgsJO:checked + ._1cpV2qSiHdrEnfAa1NIoLC::after {\n\topacity: 1;\n}\n\n._1cpV2qSiHdrEnfAa1NIoLC {\n\tfont-family: 'Roboto', sans-serif;\n\tfont-size: 18px;\n\tposition: relative;\n\tpadding-left: 42px;\n\tline-height: 26px;\n\tdisplay: inline-block;\n\tcursor: pointer;\n}\n\n._1cpV2qSiHdrEnfAa1NIoLC::before {\n\tdisplay: block;\n\tposition: absolute;\n\tleft: 0;\n\ttop: 0;\n\twidth: 26px;\n\theight: 26px;\n\tborder: 1px solid #000;\n\tcontent: '';\n}\n\n._1cpV2qSiHdrEnfAa1NIoLC::after {\n\tdisplay: block;\n\tposition: absolute;\n\tleft: 4px;\n\ttop: 4px;\n\twidth: 18px;\n\theight: 18px;\n\tbackground-color: #FFD637;\n\topacity: 0;\n\tcontent: '';\n}\n\n._3lp0pnIvm8INrj2DL5oHcL {\n\tfont-family: 'Roboto', sans-serif;\n\tfont-weight: 300;\n\tdisplay: inline-block;\n\tborder: 1px solid #000;\n\theight: 42px;\n    width: 86px;\n\tpadding: 8px;\n\tfont-size: 24px;\n\ttext-align: center;\n\tborder-radius: 0;\n\tbox-shadow: none;\n}\n\n._3kVhXjYTQ-iYqCY9buu_8L {\n\tfont-family: 'Roboto', sans-serif;\n\tletter-spacing: 4px;\n\tfont-size: 22px;\n\tfont-weight: 300;\n\tcolor: #000;\n\ttext-transform: uppercase;\n\tborder: none;\n\tbackground-image: none;\n\tbackground-color: #f0c730;\n\theight: 62px;\n\tline-height: 62px;\n\tmin-width: 290px;\n\tcursor: pointer;\n\tborder-radius: 5px;\n\tcolor: #fff;\n\ttransform: translate3d(0,0,0);\n\tbox-shadow: 3px 3px 0px 0px #c89d25;\n\ttransition: all 0.15s ease;\n}\n\n._3kVhXjYTQ-iYqCY9buu_8L:hover {\n\tbackground-color: #dfb52b;\n}\n\n._3kVhXjYTQ-iYqCY9buu_8L[disabled] {\n\tbox-shadow: none;\n\topacity: 0.7;\n\tcursor: default;\n\tbackground-color: #f0c730;\n}\n\n._3kVhXjYTQ-iYqCY9buu_8L:active {\n\tposition: relative;\n\ttransform: translate3d(2px,2px,0);\n\tbox-shadow: 1px 1px 0px 0px #c89d25;\n}\n\n.u5lqlNo6_x0Aq3I55gEjP {\n\tanimation: _1lP-KYA1WVO-YcgrRmr9_W 0.82s cubic-bezier(.36,.07,.19,.97) both;\n\ttransform: translate3d(0, 0, 0);\n\tbackface-visibility: hidden;\n\tperspective: 1000px;\n}\n\n@keyframes _1lP-KYA1WVO-YcgrRmr9_W {\n\t10%, 90% {\n\t\ttransform: translate3d(-2px, 0, 0);\n\t}\n\n\t20%, 80% {\n\t\ttransform: translate3d(3px, 0, 0);\n\t}\n\n\t30%, 50%, 70% {\n\t\ttransform: translate3d(-6px, 0, 0);\n\t}\n\n\t40%, 60% {\n\t\ttransform: translate3d(6px, 0, 0);\n\t}\n}", ""]);
+	exports.push([module.id, "._10fHIjkbAdfadwMqaQz6Pc {\n\tdisplay: none;\n}\n\n._10fHIjkbAdfadwMqaQz6Pc:checked + ._1qRt3sNTNbILEj2ckyiMuH::after {\n\topacity: 1;\n}\n\n._1qRt3sNTNbILEj2ckyiMuH {\n\tfont-family: 'Roboto', sans-serif;\n\tfont-weight: 300;\n\tfont-size: 16px;\n\tposition: relative;\n\tpadding-left: 42px;\n\theight: 26px;\n\tline-height: 26px;\n\tdisplay: inline-block;\n\tcursor: pointer;\n}\n\n._1qRt3sNTNbILEj2ckyiMuH::before {\n\tdisplay: block;\n\tposition: absolute;\n\tleft: 0;\n\tbottom: 0;\n\twidth: 26px;\n\theight: 26px;\n\tborder: 1px solid #000;\n\tborder-radius: 50%;\n\tcontent: '';\n}\n\n._1qRt3sNTNbILEj2ckyiMuH::after {\n\tdisplay: block;\n\tposition: absolute;\n\tleft: 4px;\n\tbottom: 4px;\n\twidth: 18px;\n\theight: 18px;\n\tbackground-color: #FFD637;\n\tborder-radius: 50%;\n\ttransition: all 0.15s ease;\n\topacity: 0;\n\tcontent: '';\n}\n\n.jX-n3oTShl9DdR8pTgsJO {\n\tdisplay: none;\n}\n\n.jX-n3oTShl9DdR8pTgsJO:checked + ._1cpV2qSiHdrEnfAa1NIoLC::after {\n\topacity: 1;\n}\n\n._1cpV2qSiHdrEnfAa1NIoLC {\n\tfont-family: 'Roboto', sans-serif;\n\tfont-weight: 300;\n\tfont-size: 16px;\n\tposition: relative;\n\tpadding-left: 42px;\n\tline-height: 26px;\n\tdisplay: inline-block;\n\tcursor: pointer;\n}\n\n._1cpV2qSiHdrEnfAa1NIoLC::before {\n\tdisplay: block;\n\tposition: absolute;\n\tleft: 0;\n\ttop: 0;\n\twidth: 26px;\n\theight: 26px;\n\tborder: 1px solid #000;\n\tcontent: '';\n}\n\n._1cpV2qSiHdrEnfAa1NIoLC::after {\n\tdisplay: block;\n\tposition: absolute;\n\tleft: 4px;\n\ttop: 4px;\n\twidth: 18px;\n\theight: 18px;\n\ttransition: all 0.15s ease;\n\tbackground-color: #FFD637;\n\topacity: 0;\n\tcontent: '';\n}\n\n._3lp0pnIvm8INrj2DL5oHcL {\n\tfont-family: 'Roboto', sans-serif;\n\tfont-weight: 300;\n\tdisplay: inline-block;\n\tborder: 1px solid #000;\n\theight: 42px;\n    width: 86px;\n\tpadding: 8px;\n\tfont-size: 24px;\n\ttext-align: center;\n\tborder-radius: 0;\n\tbox-shadow: none;\n}\n\n._3kVhXjYTQ-iYqCY9buu_8L {\n\tfont-family: 'Roboto', sans-serif;\n\tletter-spacing: 4px;\n\tfont-size: 22px;\n\tfont-weight: 300;\n\tcolor: #000;\n\ttext-transform: uppercase;\n\tborder: none;\n\tbackground-image: none;\n\tbackground-color: #f0c730;\n\theight: 62px;\n\tline-height: 62px;\n\tmin-width: 290px;\n\tcursor: pointer;\n\tborder-radius: 5px;\n\tcolor: #fff;\n\ttransform: translate3d(0,0,0);\n\tbox-shadow: 3px 3px 0px 0px #c89d25;\n\ttransition: all 0.15s ease;\n}\n\n._3kVhXjYTQ-iYqCY9buu_8L:hover {\n\tbackground-color: #dfb52b;\n}\n\n._3kVhXjYTQ-iYqCY9buu_8L[disabled] {\n\tbox-shadow: none;\n\topacity: 0.7;\n\tcursor: default;\n\tbackground-color: #f0c730;\n}\n\n._3kVhXjYTQ-iYqCY9buu_8L:active {\n\tposition: relative;\n\ttransform: translate3d(2px,2px,0);\n\tbox-shadow: 1px 1px 0px 0px #c89d25;\n}\n\n.u5lqlNo6_x0Aq3I55gEjP {\n\tanimation: _1lP-KYA1WVO-YcgrRmr9_W 0.82s cubic-bezier(.36,.07,.19,.97) both;\n\ttransform: translate3d(0, 0, 0);\n\tbackface-visibility: hidden;\n\tperspective: 1000px;\n}\n\n@keyframes _1lP-KYA1WVO-YcgrRmr9_W {\n\t10%, 90% {\n\t\ttransform: translate3d(-2px, 0, 0);\n\t}\n\n\t20%, 80% {\n\t\ttransform: translate3d(3px, 0, 0);\n\t}\n\n\t30%, 50%, 70% {\n\t\ttransform: translate3d(-6px, 0, 0);\n\t}\n\n\t40%, 60% {\n\t\ttransform: translate3d(6px, 0, 0);\n\t}\n}", ""]);
 	
 	// exports
 	exports.locals = {
@@ -16316,16 +16321,20 @@
 	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
 	
 	  return "<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.startStyles : depth0)) != null ? stack1.title : stack1), depth0))
-	    + "\">тест</div>\n<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.title : stack1), depth0))
-	    + "\">Могу ли я стать донором?</div>\n<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.subtitle : stack1), depth0))
-	    + "\">\n	Пройдите тест и узнайте, можете ли вы стать донором\n	<br>\n	костного мозга. Тест рассказывает про абсолютные\n	<br>\n	противопоказания, все ограничения смотрите\n	<br>\n	<a href=\"#\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.startStyles : depth0)) != null ? stack1.container : stack1), depth0))
+	    + "\">\n	<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.test : stack1), depth0))
+	    + "\">тест</div>\n	<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
+	    + "\">Могу ли я стать донором?</div>\n	<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n		Пройдите тест и узнайте, можете ли вы стать донором\n		<br>\n		костного мозга. Тест рассказывает про абсолютные\n		<br>\n		противопоказания, все ограничения смотрите\n		<br>\n		<a href=\"#\" class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
-	    + "\">полный список противопоказаний</a>.\n</div>\n<button class=\""
+	    + "\">полный список противопоказаний</a>.\n	</div>\n	<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.startStyles : depth0)) != null ? stack1.actions : stack1), depth0))
+	    + "\">\n		<button class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.inputsStyles : depth0)) != null ? stack1.button : stack1), depth0))
-	    + "\" data-action=\"test-start\">начать</button>";
+	    + "\" data-action=\"test-start\">начать</button>\n	</div>\n</div>	";
 	},"useData":true});
 
 /***/ },
@@ -16447,14 +16456,11 @@
 	
 	
 	// module
-	exports.push([module.id, "._3HKYlb7Vl6Iztk4-tC_BvZ {\n\tpadding: 29px 31px 64px;\n}\n\n._3Njjgwm78gfB1FMqf-a_cY {\n\ttext-align: left;\n}\n\n._3yK5DUCZS4PgQcRO2of2A9 {\n\tfont-weight: bold;\n\tfont-size: 18px;\n}\n\n._3j7ZhRHuAh6zBz-poIMCzh {\n\tfont-size: 16px;\n}\n\n._3m4BXQ40TaSw_695CDQc5o {\n\tmargin: 0;\n}\n\n.EjQqlofCJUMJf9KAV_dIh {\n\ttext-align: left;\n\twidth: 348px;\n\tmargin-left: auto;\n\tmargin-right: auto;\n}\n\n.EjQqlofCJUMJf9KAV_dIh ._1AqLMaC9TJ6xn7EKtufMhi:not(:last-child) {\n\tmargin-bottom: 23px;\n}\n\n.WQ9BEtiggpUohVS_zgPoD {\n\ttext-align: left;\n\twidth: 560px;\n\tmargin-left: auto;\n\tmargin-right: auto;\n}\n\n._2lOXnJo1wdTO1NE9f7TYGq {\n\tdisplay: flex;\n\tflex-wrap: wrap;\n\tflex-direction: column;\n\theight: 375px;\n}\n\n._2lOXnJo1wdTO1NE9f7TYGq ._5nZ_ma_l1V-rlYzO9KdDB {\n\twidth: calc(50% - 10px);\n}\n\n._2lOXnJo1wdTO1NE9f7TYGq ._5nZ_ma_l1V-rlYzO9KdDB:not(:last-child) {\n\tmargin-bottom: 23px;\n}\n\n.CY-R0zNjVnWMwfVMTfk1u {\n\ttext-align: center;\n\tmargin-top: 38px;\n}", ""]);
+	exports.push([module.id, "._3HKYlb7Vl6Iztk4-tC_BvZ {\n\ttext-align: left;\n\tmargin: auto;\n}\n\n._3m4BXQ40TaSw_695CDQc5o {\n\tmargin: 0;\n}\n\n.EjQqlofCJUMJf9KAV_dIh {\n\ttext-align: left;\n}\n\n.EjQqlofCJUMJf9KAV_dIh ._1AqLMaC9TJ6xn7EKtufMhi:not(:last-child) {\n\tmargin-bottom: 23px;\n}\n\n.WQ9BEtiggpUohVS_zgPoD {\n\ttext-align: left;\n}\n\n._2lOXnJo1wdTO1NE9f7TYGq {\n\tdisplay: flex;\n\tflex-wrap: wrap;\n\tflex-direction: column;\n\theight: 200px;\n}\n\n._2lOXnJo1wdTO1NE9f7TYGq ._5nZ_ma_l1V-rlYzO9KdDB {\n\twidth: calc(50% - 10px);\n}\n\n._2lOXnJo1wdTO1NE9f7TYGq ._5nZ_ma_l1V-rlYzO9KdDB:not(:last-child) {\n\tmargin-bottom: 23px;\n}\n\n.CY-R0zNjVnWMwfVMTfk1u {\n\t\n}", ""]);
 	
 	// exports
 	exports.locals = {
 		"root": "_3HKYlb7Vl6Iztk4-tC_BvZ",
-		"stepHeader": "_3Njjgwm78gfB1FMqf-a_cY",
-		"stepInfo": "_3yK5DUCZS4PgQcRO2of2A9",
-		"stepTitle": "_3j7ZhRHuAh6zBz-poIMCzh",
 		"form": "_3m4BXQ40TaSw_695CDQc5o",
 		"formAuto": "EjQqlofCJUMJf9KAV_dIh _3m4BXQ40TaSw_695CDQc5o",
 		"radio": "_1AqLMaC9TJ6xn7EKtufMhi",
@@ -16471,19 +16477,11 @@
 	var Handlebars = __webpack_require__(16);
 	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
 	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-	    var stack1, helper, alias1=container.lambda, alias2=container.escapeExpression, alias3=depth0 != null ? depth0 : {}, alias4=helpers.helperMissing, alias5="function";
+	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
 	
 	  return "<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.stepHeader : stack1), depth0))
-	    + "\">\n	<span class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.stepInfo : stack1), depth0))
-	    + "\">"
-	    + alias2(((helper = (helper = helpers.currentStepIndex || (depth0 != null ? depth0.currentStepIndex : depth0)) != null ? helper : alias4),(typeof helper === alias5 ? helper.call(alias3,{"name":"currentStepIndex","hash":{},"data":data}) : helper)))
-	    + "/"
-	    + alias2(((helper = (helper = helpers.stepsAmount || (depth0 != null ? depth0.stepsAmount : depth0)) != null ? helper : alias4),(typeof helper === alias5 ? helper.call(alias3,{"name":"stepsAmount","hash":{},"data":data}) : helper)))
-	    + "</span>\n	<span class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.stepTitle : stack1), depth0))
-	    + "\">Могу ли я стать донором?</span>\n</div>\n<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.test : stack1), depth0))
+	    + "\">тест</div>\n<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.stepContent : stack1), depth0))
 	    + "\" data-view=\"test-step\"></div>";
 	},"useData":true});
@@ -16727,18 +16725,20 @@
 	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
 	
 	  return "<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.title : stack1), depth0))
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
 	    + "\">Сколько вам лет?</div>\n<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.subtitle : stack1), depth0))
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
 	    + "\">Мы никому не расскажем.</div>\n<form class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.form : stack1), depth0))
-	    + "\" data-action=\"test-form\">\n	<input class=\""
+	    + "\" data-action=\"test-form\">\n	<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n		<input class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.inputsStyles : depth0)) != null ? stack1.input : stack1), depth0))
-	    + "\" data-action=\"test-input\" maxlength=\"3\"/>\n	<div class=\""
+	    + "\" data-action=\"test-input\" maxlength=\"3\"/>\n	</div>	\n	<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.actions : stack1), depth0))
 	    + "\">\n		<button class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.inputsStyles : depth0)) != null ? stack1.button : stack1), depth0))
-	    + "\" data-action=\"test-submit\">ответить</button>\n	</div>\n</form>";
+	    + "\" data-action=\"test-submit\">дальше</button>\n	</div>\n</form>";
 	},"useData":true});
 
 /***/ },
@@ -16863,18 +16863,20 @@
 	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
 	
 	  return "<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.title : stack1), depth0))
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
 	    + "\">Сколько вы весите?</div>\n<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.subtitle : stack1), depth0))
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
 	    + "\">Только между нами.</div>\n<form class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.form : stack1), depth0))
-	    + "\" data-action=\"test-form\">\n	<input class=\""
+	    + "\" data-action=\"test-form\">\n	<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n		<input class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.inputsStyles : depth0)) != null ? stack1.input : stack1), depth0))
-	    + "\" data-action=\"test-input\" maxlength=\"3\"/>&nbsp;&nbsp;КГ\n	<div class=\""
+	    + "\" data-action=\"test-input\" maxlength=\"3\"/>&nbsp;&nbsp;КГ\n	</div>\n	<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.actions : stack1), depth0))
 	    + "\">\n		<button class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.inputsStyles : depth0)) != null ? stack1.button : stack1), depth0))
-	    + "\" data-action=\"test-submit\">ответить</button>\n	</div>\n</form>";
+	    + "\" data-action=\"test-submit\">дальше</button>\n	</div>\n</form>";
 	},"useData":true});
 
 /***/ },
@@ -16976,30 +16978,32 @@
 	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
 	
 	  return "<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.title : stack1), depth0))
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
 	    + "\">Есть ли у вас<br>аутоимунные заболевания?</div>\n<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.subtitle : stack1), depth0))
-	    + "\">Если у вас есть аутоимуннное заболевание, скорее всего,<br>вы об этом знаете. Если не уверены, сверьтесь<br><a href=\"#\" target=\"_blank\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n	Если у вас есть аутоимуннное заболевание, скорее всего, вы об этом знаете. Если не уверены, сверьтесь <a href=\"#\" target=\"_blank\" class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
-	    + "\">со списком аутоимунных заболеваний</a>.</div>\n<form class=\""
+	    + "\">со списком аутоимунных заболеваний</a>.\n</div>\n<form class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.formAuto : stack1), depth0))
 	    + "\" data-action=\"test-form\">\n	<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n		<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.radio : stack1), depth0))
-	    + "\">\n		<input type=\"radio\" value=\"true\" data-action=\"test-input\" name=\"game-auto-radio\" id=\"game-auto-radio-true\" class=\""
+	    + "\">\n			<input type=\"radio\" value=\"true\" data-action=\"test-input\" name=\"game-auto-radio\" id=\"game-auto-radio-true\" class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.inputsStyles : depth0)) != null ? stack1.radioInput : stack1), depth0))
-	    + "\">\n		<label for=\"game-auto-radio-true\" class=\""
+	    + "\">\n			<label for=\"game-auto-radio-true\" class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.inputsStyles : depth0)) != null ? stack1.radioLabel : stack1), depth0))
-	    + "\">Да</label>\n	</div>\n	<div class=\""
+	    + "\">Да</label>\n		</div>\n		<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.radio : stack1), depth0))
-	    + "\">\n		<input type=\"radio\" value=\"false\" data-action=\"test-input\" name=\"game-auto-radio\" id=\"game-auto-radio-false\" class=\""
+	    + "\">\n			<input type=\"radio\" value=\"false\" data-action=\"test-input\" name=\"game-auto-radio\" id=\"game-auto-radio-false\" class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.inputsStyles : depth0)) != null ? stack1.radioInput : stack1), depth0))
-	    + "\">\n		<label for=\"game-auto-radio-false\" class=\""
+	    + "\">\n			<label for=\"game-auto-radio-false\" class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.inputsStyles : depth0)) != null ? stack1.radioLabel : stack1), depth0))
-	    + "\">Нет</label>\n	</div>\n	<div class=\""
+	    + "\">Нет</label>\n		</div>\n	</div>	\n	<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.actions : stack1), depth0))
 	    + "\">\n		<button class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.inputsStyles : depth0)) != null ? stack1.button : stack1), depth0))
-	    + "\" data-action=\"test-submit\">ответить</button>\n	</div>\n</form>";
+	    + "\" data-action=\"test-submit\">дальше</button>\n	</div>\n</form>";
 	},"useData":true});
 
 /***/ },
@@ -17047,41 +17051,26 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	var data = [{
-		text: 'Ничего',
+		text: 'Ничего серьезнее ОРВИ',
 		danger: false
-	}, {
-		text: 'ОРВИ',
-		danger: false
-	}, {
-		text: 'ВИЧ',
-		danger: true
-	}, {
-		text: 'Гепатит B и C',
-		danger: true
-	}, {
-		text: 'Психическое расстройство',
-		danger: true
 	}, {
 		text: 'Мне удаляли орган',
+		danger: true
+	}, {
+		text: 'Малярия',
 		danger: true
 	}, {
 		text: 'Туберкулез',
 		danger: true
 	}, {
-		text: 'К врачу не хожу, чувствую себя хорошо',
-		danger: false
-	}, {
-		text: 'Малярия',
-		danger: true
-	}, {
-		text: 'Хроническое заболевания сердечно-сосудистой системы',
+		text: 'Психическое расстройство',
 		danger: true
 	}, {
 		text: 'Злокачественное заболевание',
 		danger: true
 	}, {
-		text: 'Хроническое заболевания дыхателных путей',
-		danger: true
+		text: 'Органическое заболевание центральной нервной системы',
+		danger: false
 	}];
 	
 	var _class = function (_StepView) {
@@ -17191,9 +17180,9 @@
 	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
 	
 	  return "<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.title : stack1), depth0))
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
 	    + "\">Что у вас<br>в медицинской карте?</div>\n<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.subtitle : stack1), depth0))
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
 	    + "\">Есть сейчас или было когда-то.</div>\n<form class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.formDisease : stack1), depth0))
 	    + "\" data-action=\"test-form\">\n	<div class=\""
@@ -17204,7 +17193,7 @@
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.actions : stack1), depth0))
 	    + "\">\n		<button class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.inputsStyles : depth0)) != null ? stack1.button : stack1), depth0))
-	    + "\" data-action=\"test-submit\">ответить</button>\n	</div>\n</form>";
+	    + "\" data-action=\"test-submit\">дальше</button>\n	</div>\n</form>";
 	},"useData":true,"useDepths":true});
 
 /***/ },
@@ -17247,9 +17236,17 @@
 	
 	var _finish2 = _interopRequireDefault(_finish);
 	
+	var _share3 = __webpack_require__(76);
+	
+	var _share4 = _interopRequireDefault(_share3);
+	
 	var _inputs = __webpack_require__(42);
 	
 	var _inputs2 = _interopRequireDefault(_inputs);
+	
+	var _typography = __webpack_require__(11);
+	
+	var _typography2 = _interopRequireDefault(_typography);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -17271,7 +17268,7 @@
 		_createClass(FinishShareView, [{
 			key: '_prepareData',
 			value: function _prepareData() {
-				return _underscore2.default.extend(_get(Object.getPrototypeOf(FinishShareView.prototype), '_prepareData', this).call(this), { testStyles: _test3.default });
+				return _underscore2.default.extend(_get(Object.getPrototypeOf(FinishShareView.prototype), '_prepareData', this).call(this), { testStyles: _test3.default, share: _share4.default });
 			}
 		}, {
 			key: '_template',
@@ -17381,7 +17378,8 @@
 					testStyles: _test3.default,
 					finishStyles: _finish2.default,
 					inputStyles: _inputs2.default,
-					testModel: this.testModel
+					testModel: this.testModel,
+					typography: _typography2.default
 				});
 			}
 		}, {
@@ -17526,7 +17524,7 @@
 	
 	
 	// module
-	exports.push([module.id, "._3B-1CcHYxRdP4xmviYBWko {\n\tpadding: 24px;\n\ttext-align: left;\n}\n\n.BPlcspTWA-U5f8Dm8GR-4 {\n\tfont-size: 0;\n\tletter-spacing: 0;\n\tline-height: 0;\n}\n\n._2pkN-Ik882-3VtpKkxL3v8 {\n\twidth: 28px;\n\theight: 28px;\n\ttext-align: center;\n\tbackground-color: #000;\n\tborder-radius: 50%;\n\tdisplay: inline-block;\n\tvertical-align: middle;\n\tline-height: 28px;\n\tcolor: #fff;\n\tfont-size: 15px;\n\tfont-weight: bold;\n\tmargin-right: 11px;\n}\n\n.kZRWI19Iy-xWer-tCiQ37 {\n\tdisplay: inline-block;\n\tvertical-align: middle;\n\tfont-size: 16px;\n}\n\n._3CcTlLIxG3BS1PKJkuGDM2 {\n\tdisplay: flex;\n\tflex-direction: row;\n}\n\n.FS2caTlSXTucapYV8McOB {\n\tpadding-top: 20px;\n\tjustify-content: flex-start;\n}\n\n._3QjaZhGdzkNYAsbrUlSWIj {\n\tpadding-top: 20px;\n\tjustify-content: flex-end;\n}\n\n._2YIn_UKGPKJxia22ce210M {\n\twidth: 337px;\n}\n\n.R2RwFJKTaCz93ASxaWaNH {\n\tfont-size: 72px;\n\tfont-weight: bold;\n\tmargin-bottom: 20px;\n}\n\n._1HnD0zUaIRYJELjx-_Do2W {\n\tfont-size: 18px;\n\tline-height: 26px;\n}\n\n.UQMNwjI_mEdn198JXfMeZ {\n\n}\n\n._3OkmOfTEtzsuHlh2-X2xVK {\n\tfont-size: 36px;\n\tfont-weight: bold;\n\tmargin-bottom: 15px;\n}\n\n._1lZi4vkmIYBBcoC7Rz8Bt6 {\n\twidth: 300px;\n\tfont-size: 18px;\n\tline-height: 26px;\n}\n\n.zT-TpgEF96c_-Es7rTxxo {\n\tfont-size: 18px;\n\tline-height: 26px;\n\tmargin-top: 15px;\n}\n\n._2S4dD-WewjwRgF4ALZRwgR {\n\tmargin-top: 15px;\n}", ""]);
+	exports.push([module.id, "._3B-1CcHYxRdP4xmviYBWko {\n\ttext-align: left;\n}\n\n.BPlcspTWA-U5f8Dm8GR-4 {\n\tfont-size: 0;\n\tletter-spacing: 0;\n\tline-height: 0;\n}\n\n._2pkN-Ik882-3VtpKkxL3v8 {\n\twidth: 28px;\n\theight: 28px;\n\ttext-align: center;\n\tbackground-color: #000;\n\tborder-radius: 50%;\n\tdisplay: inline-block;\n\tvertical-align: middle;\n\tline-height: 28px;\n\tcolor: #fff;\n\tfont-size: 15px;\n\tfont-weight: bold;\n\tmargin-right: 11px;\n}\n\n.kZRWI19Iy-xWer-tCiQ37 {\n\tdisplay: inline-block;\n\tvertical-align: middle;\n\tfont-size: 16px;\n}\n\n._3CcTlLIxG3BS1PKJkuGDM2 {\n\tdisplay: flex;\n\tflex-direction: row;\n}\n\n.FS2caTlSXTucapYV8McOB {\n\tjustify-content: flex-start;\n}\n\n._3QjaZhGdzkNYAsbrUlSWIj {\n\tjustify-content: flex-start;\n\tposition: relative;\n}\n\n._1HnD0zUaIRYJELjx-_Do2W {\n\tposition: relative;\n\tz-index: 2;\n}\n\n.VEb7briyZ5oEkc3yeKD1A {\n\tposition: absolute;\n\tz-index: 1;\n\tleft: 107px;\n    top: -55px;\n    width: 646px;\n}\n\n.UQMNwjI_mEdn198JXfMeZ {\n\n}\n\n._3OkmOfTEtzsuHlh2-X2xVK {\n\tfont-size: 36px;\n\tfont-weight: bold;\n\tmargin-bottom: 15px;\n}\n\n._1lZi4vkmIYBBcoC7Rz8Bt6 {\n\twidth: 300px;\n\tfont-size: 18px;\n\tline-height: 26px;\n}\n\n.zT-TpgEF96c_-Es7rTxxo {\n\tfont-size: 18px;\n\tline-height: 26px;\n\tmargin-top: 15px;\n}\n\n._2S4dD-WewjwRgF4ALZRwgR {\n\tmargin-top: 15px;\n}", ""]);
 	
 	// exports
 	exports.locals = {
@@ -17537,9 +17535,8 @@
 		"content": "_3CcTlLIxG3BS1PKJkuGDM2",
 		"contentFail": "FS2caTlSXTucapYV8McOB",
 		"contentSuccess": "_3QjaZhGdzkNYAsbrUlSWIj",
-		"success": "_2YIn_UKGPKJxia22ce210M",
-		"successTitle": "R2RwFJKTaCz93ASxaWaNH",
 		"successText": "_1HnD0zUaIRYJELjx-_Do2W",
+		"successImage": "VEb7briyZ5oEkc3yeKD1A",
 		"fail": "UQMNwjI_mEdn198JXfMeZ",
 		"failTitle": "_3OkmOfTEtzsuHlh2-X2xVK",
 		"failText": "_1lZi4vkmIYBBcoC7Rz8Bt6",
@@ -17554,17 +17551,19 @@
 	var Handlebars = __webpack_require__(16);
 	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
 	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-	    var stack1, helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression, alias5=container.lambda;
+	    var stack1, helper, alias1=container.lambda, alias2=container.escapeExpression, alias3=depth0 != null ? depth0 : {}, alias4=helpers.helperMissing, alias5="function";
 	
-	  return "Поделиться: <a href=\""
-	    + alias4(((helper = (helper = helpers.vkUrl || (depth0 != null ? depth0.vkUrl : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"vkUrl","hash":{},"data":data}) : helper)))
+	  return "<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.share : depth0)) != null ? stack1.container : stack1), depth0))
+	    + "\">\n	<a href=\""
+	    + alias2(((helper = (helper = helpers.vkUrl || (depth0 != null ? depth0.vkUrl : depth0)) != null ? helper : alias4),(typeof helper === alias5 ? helper.call(alias3,{"name":"vkUrl","hash":{},"data":data}) : helper)))
 	    + "\" target=\"_blank\" class=\""
-	    + alias4(alias5(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
-	    + "\">Вконтакте</a>, <a href=\""
-	    + alias4(((helper = (helper = helpers.fbUrl || (depth0 != null ? depth0.fbUrl : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"fbUrl","hash":{},"data":data}) : helper)))
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.share : depth0)) != null ? stack1.itemVk : stack1), depth0))
+	    + "\"></a>\n	<a href=\""
+	    + alias2(((helper = (helper = helpers.fbUrl || (depth0 != null ? depth0.fbUrl : depth0)) != null ? helper : alias4),(typeof helper === alias5 ? helper.call(alias3,{"name":"fbUrl","hash":{},"data":data}) : helper)))
 	    + "\" target=\"_blank\" class=\""
-	    + alias4(alias5(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
-	    + "\">Facebook</a>";
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.share : depth0)) != null ? stack1.itemFb : stack1), depth0))
+	    + "\"></a>	\n</div>\n";
 	},"useData":true});
 
 /***/ },
@@ -17586,22 +17585,28 @@
 	
 	  return "\n		<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.finishStyles : depth0)) != null ? stack1.success : stack1), depth0))
+	    + "\">\n			<img src=\"/static/test_success.png\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.finishStyles : depth0)) != null ? stack1.successImage : stack1), depth0))
 	    + "\">\n			<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.finishStyles : depth0)) != null ? stack1.successTitle : stack1), depth0))
-	    + "\">Да!</div>\n			<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.finishStyles : depth0)) != null ? stack1.successText : stack1), depth0))
-	    + "\">\n				Вы можете стать донором и спасти чью-то жизнь.\n				Осталось только найти <a class=\""
+	    + "\">	\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">Да!</div>\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n					Вы можете стать донором\n					<br>\n					и спасти чью-то жизнь.\n					<br>\n					Для этого вступите \n					<br>\n					в регистр — сдайте кровь\n					<br>\n					на типирование\n					<br>\n					<a class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
-	    + "\" href=\"#\">удобный пункт сдачи крови</a>. \n			</div>\n			<div class=\""
+	    + "\" href=\"#\">в специальном пункте</a>.\n				</div>\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n					Расскажите о проекте\n					<br>\n					друзьям, чтобы спасти\n					<br>\n					еще больше жизней.\n				</div>\n				<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.finishStyles : depth0)) != null ? stack1.share : stack1), depth0))
-	    + "\" data-view=\"test-share\"></div>\n		<div>\n\n";
+	    + "\" data-view=\"test-share\"></div>\n			</div>	\n		<div>\n\n";
 	},"7":function(container,depth0,helpers,partials,data) {
 	    var stack1, alias1=container.lambda, alias2=container.escapeExpression, alias3=depth0 != null ? depth0 : {};
 	
 	  return "\n		<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.finishStyles : depth0)) != null ? stack1.fail : stack1), depth0))
 	    + "\">\n			<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.finishStyles : depth0)) != null ? stack1.failTitle : stack1), depth0))
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
 	    + "\">\n\n"
 	    + ((stack1 = helpers["if"].call(alias3,((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.ageFail : stack1),{"name":"if","hash":{},"fn":container.program(8, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
 	    + "\n"
@@ -17611,7 +17616,7 @@
 	    + "\n"
 	    + ((stack1 = helpers["if"].call(alias3,((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.diseaseFail : stack1),{"name":"if","hash":{},"fn":container.program(26, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
 	    + "\n			</div>\n			<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.finishStyles : depth0)) != null ? stack1.failText : stack1), depth0))
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
 	    + "\">\n				\n"
 	    + ((stack1 = helpers["if"].call(alias3,((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.ageFail : stack1),{"name":"if","hash":{},"fn":container.program(28, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
 	    + "\n"
@@ -17717,12 +17722,10 @@
 	    var stack1, alias1=container.lambda, alias2=container.escapeExpression, alias3=depth0 != null ? depth0 : {};
 	
 	  return "<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.finishStyles : depth0)) != null ? stack1.header : stack1), depth0))
-	    + "\">\n	<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.finishStyles : depth0)) != null ? stack1.headerIcon : stack1), depth0))
-	    + "\">i</div>\n	<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.finishStyles : depth0)) != null ? stack1.headerText : stack1), depth0))
-	    + "\">Могу ли я стать донором?</div>\n</div>\n<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.test : stack1), depth0))
+	    + "\">тест</div>\n<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
+	    + "\">Могу ли я стать донором?</div>\n<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.finishStyles : depth0)) != null ? stack1.content : stack1), depth0))
 	    + " "
 	    + ((stack1 = helpers["if"].call(alias3,((stack1 = ((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.attributes : stack1)) != null ? stack1.result : stack1),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.program(3, data, 0),"data":data})) != null ? stack1 : "")
@@ -17890,7 +17893,7 @@
 	
 	
 	// module
-	exports.push([module.id, "._3wblAYxY0Ty93Y37IcWleG {\n\tmax-width: 1024px;\n\tmargin-left: auto;\n\tmargin-right: auto;\n\tmargin-top: 40px;\n}\n\n._3wblAYxY0Ty93Y37IcWleG img {\n\tmax-width: 100%;\n}\n\n._3wblAYxY0Ty93Y37IcWleG {\n\tmargin-bottom: 20px;\n}\n\n._2kCWKAdKZWO2l1mHuhHod3 {\n\tmargin-left: calc( ( 657px - 768px ) / 2 );\n}\n\n._85xiBWTT3XB0Ok82A_jpG {\n\tdisplay: flex;\n}\n\n._14jXJwRb11AzJ-fIr7B-MM {\n\tflex-shrink: 0;\n\tmargin-right: 20px;\n}\n\n._2Skk9CJ2BsZ5Lgik74tm-8 {\n\twidth: 92px;\n}\n\n._1u70M5syH458JPMKFR15eL {\n\tfont-size: 27px;\n\tline-height: 35px;\n\tfont-weight: 300;\n}", ""]);
+	exports.push([module.id, "._3wblAYxY0Ty93Y37IcWleG {\n\tmax-width: 1024px;\n\tmargin-left: auto;\n\tmargin-right: auto;\n\tmargin-top: 40px;\n}\n._3wblAYxY0Ty93Y37IcWleG img {\n\tmax-width: 100%;\n}\n._3wblAYxY0Ty93Y37IcWleG {\n\tmargin-bottom: 20px;\n}\n._2kCWKAdKZWO2l1mHuhHod3 {\n\tpadding-bottom: 80px;\n}\n._85xiBWTT3XB0Ok82A_jpG {\n\tdisplay: flex;\n}\n._14jXJwRb11AzJ-fIr7B-MM {\n\tflex-shrink: 0;\n\tmargin-right: 20px;\n}\n._2Skk9CJ2BsZ5Lgik74tm-8 {\n\twidth: 92px;\n}\n._1u70M5syH458JPMKFR15eL {\n\tfont-size: 27px;\n\tline-height: 35px;\n\tfont-weight: 300;\n}", ""]);
 	
 	// exports
 	exports.locals = {
@@ -18004,10 +18007,8 @@
 	    + "\">\n						<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnoteText : stack1), depth0))
 	    + "\">\n							Если вы — донор крови,\n							<br>\n							вы можете быть\n							<br>\n							и донором костного\n							<br>\n							мозга. Противопоказания\n							<br>\n							для обеих процедур\n							<br>\n							совпадают\n						</div>\n					</div>\n				</div>\n			</div>\n		</div>\n		<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
-	    + "\">\n			<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.why : depth0)) != null ? stack1.test : stack1), depth0))
-	    + "\" data-view=\"how-test\"></div>\n		</div>\n	</div>\n	<div class=\""
+	    + "\" data-view=\"how-test\"></div>\n	</div>\n	<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.footer : stack1), depth0))
 	    + "\">\n		<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.container : stack1), depth0))
@@ -18123,6 +18124,50 @@
 	
 	// exports
 
+
+/***/ },
+/* 76 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(77);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(10)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js?modules!./../../node_modules/postcss-loader/index.js!./share.css", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js?modules!./../../node_modules/postcss-loader/index.js!./share.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 77 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(9)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "._1HVXvv6s3Rx1WEHy8-yNhU {\n\tdisplay: flex;\n}\n\n._3E0EZYTWKvfZdpvH1JanaD, ._1C4zK2wtyxK0jeS4xlTVO5 {\n\twidth: 73px;\n\theight: 73px;\n\tborder-radius: 4px;\n\tborder: 2px solid #078599;\n\tbackground-color: transparent;\n\tcursor: pointer;\n\tbackground-position: center center;\n\tbackground-repeat: no-repeat;\n}\n\n._3E0EZYTWKvfZdpvH1JanaD:hover, ._1C4zK2wtyxK0jeS4xlTVO5:hover {\n\tbackground-color: rgba(9, 159, 175, 0.27);\n}\n\n._3E0EZYTWKvfZdpvH1JanaD:active, ._1C4zK2wtyxK0jeS4xlTVO5:active {\n\tbackground-color: #078599;\n}\n\n._3E0EZYTWKvfZdpvH1JanaD:not(:last-child), ._1C4zK2wtyxK0jeS4xlTVO5:not(:last-child) {\n\tmargin-right: 27px;\n}\n\n._3E0EZYTWKvfZdpvH1JanaD {\n\tbackground-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAgCAMAAAAsVwj+AAAAKlBMVEUAAAAHhZkHhZkHhZkHhZkHhZkHhZkHhZkHhZkHhZkHhZkHhZkHhZkHhZlcyRY1AAAADXRSTlMAECAwQGBwn6+/z9/vGp7ulQAAAE1JREFUeAHlzbEeQDAQg/GqQ+Pk/V/XT25onYXZt+W/pPSq2bDWnQoxJ00VELvDwgQtg1MdbYMLGFWNAcpLmAEwwlUx3vsOngHP21/BCRujDnfQYzzxAAAAAElFTkSuQmCC);\n}\n\n._3E0EZYTWKvfZdpvH1JanaD:active {\n\tbackground-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAqCAMAAADoIdnnAAAApVBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+4/eNVAAAANnRSTlMAAAUMEhUYKSw3PEBBUF5fa29wjpKUm52mrK6+wcTGyMrNztja3d7k7PDy8/T19vf4+fr7/f5JyMCUAAAAsElEQVR42u3Q2Q6CQAyF4YriNo67uOG+iwIC9v0fTchMlCjV3nnDf/0lTQ8UWP2bgapubV3E6Ljst2hm2kGEujPJivsQn61J1rvhK4tihpdSXptitSDF/AbFmq4SwWa6OIRlinV8xVYQZwDFuvroBJJ+svEXJqUcajaXSaVMhhfHuSt2deKwks3eM1ksAhY78dgOOC/4s2wmhBjoQWwRV2XOm7OcfbCQx1A1IhjRf9kDR21MuYsfLhwAAAAASUVORK5CYII=);\n}\n\n._1C4zK2wtyxK0jeS4xlTVO5 {\n\tbackground-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAWCAMAAACFUC6CAAAAM1BMVEUAAAAHhZkHhZkHhZkHhZkHhZkHhZkHhZkHhZkHhZkHhZkHhZkHhZkHhZkHhZkHhZkHhZlxe57MAAAAEHRSTlMAECAwQFBgcICPn6+/z9/vIxqCigAAAL5JREFUeAGNkNGygyAMRBcIaKmY/P/XXi4lJXHqjOdtZw8riAs0SPgBlb2zRXQyy4fmzuX/lmbF6JRDJoSRZbVBR8qo1KSV9AtVPpyj2q2YRMxKtAHZitUMXifJiCRKAuzkZkV7wx1wkxyWGIBNvQOTqA9/r8ckJF7nFW3l9V0voZlfqgSWybdldhdUstxywnE8FSPLHRWOIk/N+thsl/a8M4Mzq8svb75lkXs2mwTHxq5JKzZ4wq4rEZ2kSRh/b/Qg5V97S/kAAAAASUVORK5CYII=);\n}\n\n._1C4zK2wtyxK0jeS4xlTVO5:active {\n\tbackground-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAbCAMAAAA5zj1cAAABSlBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////9mcS2dAAAAbXRSTlMAAAEDBQYHCAoLDA0OEBITFBUXGB8iJCcoKi8wMTQ2OTs8QEFCREZHSEpMTU5PUFJWXWdscHJ4fH5/gISLlJqhqK6ztba4u7y9w8TGx8vO0dLW2Nna29ze4uPk5ebp6uvs7u/w8/T2+Pn6+/3+kKCElQAAAUlJREFUeNq10+k3AlEYBvBHScSQNUskQpZkZ8iSrexLZFdMUnT//6/uXO/tzjhnzvGl59Pz3Pd35tug7p+pBQSaNE1rhhn32mWJMfaZ0fEnHGaYSNIFYDjLKP3i7DmjecHhHfWo+OQerVkB5xjlhcMl6gfiNEFrUqwjCRMc+vI0guDppjFijpB0b20cYoXWLnharTAl4QJM6HunOQpAoz4EICrdvktArNO+8ig4AHiz1F878QtbcvSyCvQomKBaGQdBLNJTOYRpqnHEGGUDVVh/TW/5+TS1k+UitWO3ghhjjqkEYIHYcYS3sMGOnKOcsUHEHGExYoPYcpTlKRtsOLWfS9+2byqI9huru/f3ZZUcJEjy3AJ1oOu5up78VojGTQXjAIIf1blNUCaclpewOSMFOb8IqvTqqQfDMA69YgWSJa4KxqNeg//6BxI74A3iZZBUAAAAAElFTkSuQmCC);\n}", ""]);
+	
+	// exports
+	exports.locals = {
+		"container": "_1HVXvv6s3Rx1WEHy8-yNhU",
+		"itemFb": "_3E0EZYTWKvfZdpvH1JanaD",
+		"itemVk": "_1C4zK2wtyxK0jeS4xlTVO5"
+	};
 
 /***/ }
 /******/ ]);

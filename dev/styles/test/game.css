@@ -1,18 +1,8 @@
+@import "../variables";
+
 .root {
-	padding: 29px 31px 64px;
-}
-
-.stepHeader {
 	text-align: left;
-}
-
-.stepInfo {
-	font-weight: bold;
-	font-size: 18px;
-}
-
-.stepTitle {
-	font-size: 16px;
+	margin: auto;
 }
 
 .form {
@@ -22,14 +12,11 @@
 .formAuto {
 	composes: form;
 	text-align: left;
-	width: 348px;
-	margin-left: auto;
-	margin-right: auto;
 
 	.radio {
 
 		&:not(:last-child) {
-			margin-bottom: 23px;
+			margin-bottom: $paragraphMargin;
 		}
 	}
 }
@@ -37,27 +24,23 @@
 .formDisease {
 	composes: form;
 	text-align: left;
-	width: 560px;
-	margin-left: auto;
-	margin-right: auto;
 }
 
 .formDiseaseContainer {
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: column;
-	height: 375px;
+	height: 200px;
 
 	.checkbox {
 		width: calc(50% - 10px);
 
 		&:not(:last-child) {
-			margin-bottom: 23px;
+			margin-bottom: $paragraphMargin;
 		}
 	}
 }
 
 .actions {
-	text-align: center;
-	margin-top: 38px;
+	
 }

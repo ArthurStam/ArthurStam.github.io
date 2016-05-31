@@ -1,24 +1,41 @@
-<div class="{{finishStyles.header}}">
-	<div class="{{finishStyles.headerIcon}}">i</div>
-	<div class="{{finishStyles.headerText}}">Могу ли я стать донором?</div>
-</div>
+<div class="{{testStyles.test}}">тест</div>
+<div class="{{typography.subheader}}">Могу ли я стать донором?</div>
 <div class="{{finishStyles.content}} {{#if testModel.attributes.result}}{{finishStyles.contentSuccess}}{{else}}{{finishStyles.contentFail}}{{/if}}">
 
 	{{#if testModel.attributes.result}}
 
 		<div class="{{finishStyles.success}}">
-			<div class="{{finishStyles.successTitle}}">Да!</div>
-			<div class="{{finishStyles.successText}}">
-				Вы можете стать донором и спасти чью-то жизнь.
-				Осталось только найти <a class="{{typography.link}}" href="#">удобный пункт сдачи крови</a>. 
-			</div>
-			<div class="{{finishStyles.share}}" data-view="test-share"></div>
+			<img src="/static/test_success.png" class="{{finishStyles.successImage}}">
+			<div class="{{finishStyles.successText}}">	
+				<div class="{{typography.paragraph}}">Да!</div>
+				<div class="{{typography.paragraph}}">
+					Вы можете стать донором
+					<br>
+					и спасти чью-то жизнь.
+					<br>
+					Для этого вступите 
+					<br>
+					в регистр — сдайте кровь
+					<br>
+					на типирование
+					<br>
+					<a class="{{typography.link}}" href="#">в специальном пункте</a>.
+				</div>
+				<div class="{{typography.paragraph}}">
+					Расскажите о проекте
+					<br>
+					друзьям, чтобы спасти
+					<br>
+					еще больше жизней.
+				</div>
+				<div class="{{finishStyles.share}}" data-view="test-share"></div>
+			</div>	
 		<div>
 
 	{{else}}
 
 		<div class="{{finishStyles.fail}}">
-			<div class="{{finishStyles.failTitle}}">
+			<div class="{{typography.paragraph}}">
 
 				{{#if testModel.ageFail}}
 					{{#if testModel.age17}}
@@ -51,7 +68,7 @@
 				{{/if}}
 
 			</div>
-			<div class="{{finishStyles.failText}}">
+			<div class="{{typography.paragraph}}">
 				
 				{{#if testModel.ageFail}}
 					{{#if testModel.age17}}

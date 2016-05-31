@@ -8,14 +8,16 @@ import { states, isLastStep, reasons } from 'dev/views/test';
 
 import testStyles from 'dev/styles/test.css';
 import finishStyles from 'dev/styles/test/finish.css';
+import shareStyles from 'dev/styles/share.css';
 import inputStyles from 'dev/styles/inputs.css';
+import typography from 'dev/styles/typography.css';
 
 class FinishShareView extends ShareView {
 
 	get _template() { return require('dev/templates/test/share.handlebars'); }
 
 	_prepareData() {
-		return _.extend(super._prepareData(), { testStyles: testStyles });
+		return _.extend(super._prepareData(), { testStyles: testStyles, share: shareStyles });
 	}
 }
 
@@ -84,7 +86,8 @@ export default class extends BaseView {
 			testStyles: testStyles,
 			finishStyles: finishStyles,
 			inputStyles: inputStyles,
-			testModel: this.testModel
+			testModel: this.testModel,
+			typography: typography
 		});
 	}
 }

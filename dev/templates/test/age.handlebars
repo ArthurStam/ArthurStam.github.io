@@ -1,8 +1,10 @@
-<div class="{{testStyles.title}}">Сколько вам лет?</div>
-<div class="{{testStyles.subtitle}}">Мы никому не расскажем.</div>
+<div class="{{typography.subheader}}">Сколько вам лет?</div>
+<div class="{{typography.paragraph}}">Мы никому не расскажем.</div>
 <form class="{{gameStyles.form}}" data-action="test-form">
-	<input class="{{inputsStyles.input}}" data-action="test-input" maxlength="3"/>
+	<div class="{{typography.paragraph}}">
+		<input class="{{inputsStyles.input}}" data-action="test-input" maxlength="3"/>
+	</div>	
 	<div class="{{gameStyles.actions}}">
-		<button class="{{inputsStyles.button}}" data-action="test-submit">ответить</button>
+		<button class="{{inputsStyles.button}}" data-action="test-submit">дальше</button>
 	</div>
 </form>

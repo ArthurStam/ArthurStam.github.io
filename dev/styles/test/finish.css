@@ -1,5 +1,6 @@
+@import "../variables";
+
 .root {
-	padding: 24px;
 	text-align: left;
 }
 
@@ -36,28 +37,25 @@
 }
 
 .contentFail {
-	padding-top: 20px;
 	justify-content: flex-start;
 }
 
 .contentSuccess {
-	padding-top: 20px;
-	justify-content: flex-end;
-}
-
-.success {
-	width: 337px;
-}
-
-.successTitle {
-	font-size: 72px;
-	font-weight: bold;
-	margin-bottom: 20px;
+	justify-content: flex-start;
+	position: relative;
 }
 
 .successText {
-	font-size: 18px;
-	line-height: 26px;
+	position: relative;
+	z-index: 2;
+}
+
+.successImage {
+	position: absolute;
+	z-index: 1;
+	left: 107px;
+    top: -55px;
+    width: 646px;
 }
 
 .fail {

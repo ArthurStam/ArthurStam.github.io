@@ -9,41 +9,26 @@ import testStyles from 'dev/styles/test.css';
 import gameStyles from 'dev/styles/test/game.css';
 
 const data = [{
-	text: 'Ничего',
+	text: 'Ничего серьезнее ОРВИ',
 	danger: false
-}, {
-	text: 'ОРВИ',
-	danger: false
-}, {
-	text: 'ВИЧ',
-	danger: true
-}, {
-	text: 'Гепатит B и C',
-	danger: true
-}, {
-	text: 'Психическое расстройство',
-	danger: true
 }, {
 	text: 'Мне удаляли орган',
+	danger: true
+}, {
+	text: 'Малярия',
 	danger: true
 }, {
 	text: 'Туберкулез',
 	danger: true
 }, {
-	text: 'К врачу не хожу, чувствую себя хорошо',
-	danger: false
-}, {
-	text: 'Малярия',
-	danger: true
-}, {
-	text: 'Хроническое заболевания сердечно-сосудистой системы',
+	text: 'Психическое расстройство',
 	danger: true
 }, {
 	text: 'Злокачественное заболевание',
 	danger: true
 }, {
-	text: 'Хроническое заболевания дыхателных путей',
-	danger: true
+	text: 'Органическое заболевание центральной нервной системы',
+	danger: false
 }];
 
 export default class extends StepView {

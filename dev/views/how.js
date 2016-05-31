@@ -5,6 +5,7 @@ import BaseView from 'crimson-backbone/src/views/base';
 import page from 'dev/styles/page.css';
 import typography from 'dev/styles/typography.css';
 import how from 'dev/styles/how.css';
+import share from 'dev/styles/share.css';
 
 export default class extends BaseView {
 
@@ -30,7 +31,8 @@ export default class extends BaseView {
 		return _.extend(data, {
 			page: page,
 			typography: typography,
-			how: how
+			how: how,
+			share: share
 		});
 	}
 }
