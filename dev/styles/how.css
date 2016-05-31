@@ -3,7 +3,8 @@
 
 .artwork {
 	@extend %pageArtwork;
-	margin-bottom: -50px;
+	width: 796px;
+	margin-bottom: -42px;
 }
 
 .contactEmail {

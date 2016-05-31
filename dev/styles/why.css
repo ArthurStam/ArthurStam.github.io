@@ -3,7 +3,8 @@
 
 .artwork {
 	@extend %pageArtwork;
-	margin-bottom: 20px;
+	width: 730px;
+	margin-bottom: 58px;
 }
 
 .test {

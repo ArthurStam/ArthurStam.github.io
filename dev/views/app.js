@@ -32,6 +32,14 @@ export default class extends BaseView {
 				let $element = $(`${ $(e.currentTarget).data('element') }`);
 				$element.length && this._scrollTo($element.offset().top);
 				return false;
+			},
+
+			'click [data-action="redirect-and-scroll-to"]': (e) => {
+				let pageName = $(e.currentTarget).data('page');
+				this._redirect(pageName);
+				let $element = $(`${ $(e.currentTarget).data('element') }`);
+				$element.length && this._scrollTo($element.offset().top);
+				return false;
 			}
 		}
 	}
@@ -94,7 +102,8 @@ export default class extends BaseView {
 
 	_renderPage(pageName) {
 		this.removeChildren('app-container');
-		this.registerChild(new this._pages[pageName], 'app-container');
+		let pageView = this.registerChild(new this._pages[pageName], 'app-container');
 		this.appendChildren('app-container');
+		return pageView;
 	}
 }

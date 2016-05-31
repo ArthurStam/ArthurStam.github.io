@@ -1,7 +1,14 @@
 @import "./variables";
 
 .section {
-	margin: $sectionMargin 0;
+	
+	&:not(:first-child) {
+		margin-top: $sectionMargin;
+	}
+
+	&:not(:last-child) {
+		margin-bottom: $sectionMargin;
+	}
 }
 
 .root {

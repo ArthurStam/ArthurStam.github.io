@@ -1,6 +1,6 @@
 import _ from 'underscore';
 
-import BaseView from 'crimson-backbone/src/views/base';
+import PageView from 'dev/views/page';
 import TestView from 'dev/views/test';
 
 import CountersModel from 'dev/models/counters';
@@ -9,7 +9,7 @@ import page from 'dev/styles/page.css';
 import typography from 'dev/styles/typography.css';
 import why from 'dev/styles/why.css';
 
-export default class extends BaseView {
+export default class extends PageView {
 
 	get _template() { return require('dev/templates/why.handlebars'); }
 

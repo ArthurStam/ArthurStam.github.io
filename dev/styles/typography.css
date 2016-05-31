@@ -26,6 +26,10 @@
 .paragraph {
 	composes: text;
 
+	&:not(:first-child) {
+		margin-top: $paragraphMargin;
+	}
+
 	&:not(:last-child) {
 		margin-bottom: $paragraphMargin;
 	}
@@ -48,6 +52,7 @@
 }
 
 .footnoteCounter {
+	display: block;
 	font-size: 54px;
 	line-height: 56px;
 	font-weight: 700;
@@ -55,10 +60,12 @@
 }
 
 .footnoteText {
+	display: block;
 	line-height: 23px;
 }
 
 .footnoteMeta {
+	display: block;
 	font-size: 12px;
 }
 
