@@ -13784,9 +13784,21 @@
 	
 	var _underscore2 = _interopRequireDefault(_underscore);
 	
+	var _jquery = __webpack_require__(3);
+	
+	var _jquery2 = _interopRequireDefault(_jquery);
+	
+	var _backbone = __webpack_require__(1);
+	
+	var _backbone2 = _interopRequireDefault(_backbone);
+	
 	var _page = __webpack_require__(78);
 	
 	var _page2 = _interopRequireDefault(_page);
+	
+	var _share = __webpack_require__(59);
+	
+	var _share2 = _interopRequireDefault(_share);
 	
 	var _page3 = __webpack_require__(7);
 	
@@ -13796,13 +13808,17 @@
 	
 	var _typography2 = _interopRequireDefault(_typography);
 	
+	var _inputs = __webpack_require__(42);
+	
+	var _inputs2 = _interopRequireDefault(_inputs);
+	
 	var _how = __webpack_require__(13);
 	
 	var _how2 = _interopRequireDefault(_how);
 	
-	var _share = __webpack_require__(76);
+	var _share3 = __webpack_require__(76);
 	
-	var _share2 = _interopRequireDefault(_share);
+	var _share4 = _interopRequireDefault(_share3);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -13811,6 +13827,108 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var cities = [{
+		value: null,
+		name: 'Выберите город'
+	}, {
+		value: 'murmansk',
+		coords: [68.969563, 33.07454],
+		name: 'Мурманск',
+		points: [{
+			name: 'Мурманская Областная Станция Переливания Крови',
+			address: 'ул. Павлова, 6',
+			time: 'предварительная запись с 15 до 18.00',
+			phone: '8 (8152) 25-02-61 (62 доктора)',
+			info: 'Принимают только доноров, на типирование можно сдать со второго раза, процедуру объясняют при записи'
+		}, {
+			name: 'CMD – Центр молекулярной диагностики',
+			address: 'Пр. Кольский, д. 61',
+			time: 'до сентября 2016 прием приостановлен, только группы от 20 человек',
+			phone: '8 (8152) 20-77-68',
+			info: 'до сентября 2016 прием приостановлен, только группы от 20 человек'
+		}, {
+			name: 'CMD – Центр молекулярной диагностики',
+			address: 'Ул. Лобова, д. 4',
+			time: 'до сентября 2016 прием приостановлен, только группы от 20 человек',
+			phone: '8 (8152) 20-77-68',
+			info: 'до сентября 2016 прием приостановлен, только группы от 20 человек'
+		}]
+	}, {
+		value: 'spb',
+		coords: [59.939095, 30.315868],
+		name: 'Санкт-Петербург',
+		points: [{
+			name: 'Институт детской гематологии и трансплантологии им. Р.М. Горбачевой',
+			address: 'Ст.м. Петроградская, ул. Рентгена, 12, 10 эт., каб. 1007',
+			time: 'вторник 16:00 - 19:00, четверг 10:00 - 12:00',
+			info: 'Записываться заранее не нужно, просто приходите'
+		}, {
+			name: 'ПСПбГМУ им. Павлова',
+			address: 'Ст.м. Петроградская, ул. Льва Толстого д. 19, корп. 53',
+			time: 'понедельник - четверг, с 8.30 до 11.30',
+			phone: '+7 (812) 429-24-13',
+			info: 'При себе иметь паспорт с пропиской в любом городе РФ'
+		}, {
+			name: 'Санкт-Петербургская детская инфекционная больница № 5 им. Н.Ф.Филатова',
+			address: 'Ст. м. Купчино, ул. Бухарестская, д. 134',
+			time: 'понедельник - пятница, с 9.00 до 12.00',
+			phone: '+7 (812) 366-71-66',
+			info: 'При себе иметь паспорт с пропиской в любом городе РФ'
+		}, {
+			name: 'Городская клиническая больница № 31',
+			address: 'Ст.м. Крестовский остров, пр. Динамо, д. 3',
+			time: 'понедельник, вторник и четверг с 8.30 до 12.00, вторник и четверг с 15.00 до 18.00. В среду ОПК принимают организованные группы доноров по предварительной записи',
+			phone: '+7 (812) 235-73-81',
+			info: 'При себе иметь паспорт с пропиской в любом городе РФ'
+		}]
+	}];
+	
+	var HowShareView = function (_ShareView) {
+		_inherits(HowShareView, _ShareView);
+	
+		function HowShareView() {
+			_classCallCheck(this, HowShareView);
+	
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(HowShareView).apply(this, arguments));
+		}
+	
+		_createClass(HowShareView, [{
+			key: '_prepareData',
+			value: function _prepareData() {
+				return _underscore2.default.extend(_get(Object.getPrototypeOf(HowShareView.prototype), '_prepareData', this).call(this), { share: _share4.default });
+			}
+		}, {
+			key: '_template',
+			get: function get() {
+				return __webpack_require__(79);
+			}
+		}]);
+	
+		return HowShareView;
+	}(_share2.default);
+	
+	var ShareModel = function (_Backbone$Model) {
+		_inherits(ShareModel, _Backbone$Model);
+	
+		function ShareModel() {
+			_classCallCheck(this, ShareModel);
+	
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(ShareModel).apply(this, arguments));
+		}
+	
+		_createClass(ShareModel, [{
+			key: 'defaults',
+			get: function get() {
+				return {
+					title: 'Как стать донором костного мозга',
+					description: 'И зачем это нужно. Рассказываем о донорстве костного мозга, чтобы увеличить российский регистр и помочь людям находить подходящих доноров. Присоединяйтесь!'
+				};
+			}
+		}]);
+	
+		return ShareModel;
+	}(_backbone2.default.Model);
 	
 	var _class = function (_PageView) {
 		_inherits(_class, _PageView);
@@ -13824,41 +13942,95 @@
 		_createClass(_class, [{
 			key: 'init',
 			value: function init() {
-				this.render();
+				var _this4 = this;
+	
+				try {
+					ymaps.ready(function () {
+						_this4.shareView = _this4.registerChild(new HowShareView({
+							shareModel: new ShareModel()
+						}), 'how-share');
+						_this4.shareView.render();
+						_this4.render();
+					});
+				} catch (e) {
+					this.render({ error: 1 });
+				}
 			}
 		}, {
 			key: '_appended',
 			value: function _appended() {
-				var _this2 = this;
-	
 				_get(Object.getPrototypeOf(_class.prototype), '_appended', this).call(this);
-				try {
-					ymaps.ready(function () {
-						_this2.myMap && _this2.myMap.destroy();
-	
-						_this2.myMap = new ymaps.Map('map', {
-							center: [59.939095, 30.315868],
-							zoom: 10
-						});
-					});
-				} catch (e) {}
 			}
 		}, {
 			key: '_prepareData',
 			value: function _prepareData() {
 				var data = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 	
-				return _underscore2.default.extend(data, {
+				_underscore2.default.extend(data, {
 					page: _page4.default,
 					typography: _typography2.default,
+					inputs: _inputs2.default,
 					how: _how2.default,
-					share: _share2.default
+					share: _share4.default
 				});
+	
+				data.cities = _underscore2.default.clone(cities);
+	
+				if (data.error) {
+					return data;
+				} else if (data.city) {
+					data.oddPoints = _underscore2.default.filter(data.city.points, function (point, index) {
+						return index % 2;
+					});
+					data.evenPoints = _underscore2.default.filter(data.city.points, function (point, index) {
+						return !(index % 2);
+					});
+					data.firstPoint = data.city.points.shift();
+				}
+	
+				return data;
 			}
 		}, {
 			key: '_template',
 			get: function get() {
 				return __webpack_require__(15);
+			}
+		}, {
+			key: 'events',
+			get: function get() {
+				var _this5 = this;
+	
+				return {
+					'change [data-action="city"]': function changeDataActionCity(e) {
+						var cityValue = (0, _jquery2.default)(e.currentTarget).val();
+						if (cityValue) {
+							var city = _underscore2.default.find(cities, function (city) {
+								return city.value == cityValue;
+							});
+							_this5.city = city;
+							_this5.render({ city: city });
+	
+							_this5.$el.find('[data-action="city"]').val(cityValue);
+							_this5.myMap && _this5.myMap.destroy();
+							_this5.myMap = new ymaps.Map('map', {
+								center: [_this5.city.coords[0], _this5.city.coords[1]],
+								zoom: 10
+							});
+						} else {
+							_this5.render({ error: 1 });
+						}
+					},
+	
+					'click [data-action="show-all-points"]': function clickDataActionShowAllPoints(e) {
+						_this5.$el.find('[data-action="show-all-points"]').hide();
+						_this5.$el.find('[data-role="all-points"]').show();
+					},
+	
+					'click [data-action="hide-all-points"]': function clickDataActionHideAllPoints(e) {
+						_this5.$el.find('[data-action="show-all-points"]').show();
+						_this5.$el.find('[data-role="all-points"]').hide();
+					}
+				};
 			}
 		}]);
 
@@ -14312,7 +14484,7 @@
 	
 	
 	// module
-	exports.push([module.id, "._1WejIhpkUMh4VTkZQk4pv3 {\n\tmax-width: 1024px;\n\tmargin-left: auto;\n\tmargin-right: auto;\n\tmargin-top: 40px;\n}\n\n._1WejIhpkUMh4VTkZQk4pv3 img {\n\tmax-width: 100%;\n}\n\n._1WejIhpkUMh4VTkZQk4pv3 {\n\twidth: 796px;\n\tmargin-bottom: -42px;\n}\n\n._35cLu0FiJi8Aya9kANGLJP {\n\tfont-size: 27px;\n\tfont-weight: bold;\n\tcolor: inherit;\n}\n\n._97IAdnFwwX7o6UPALTnL6 {\n\tmargin-top: 8px;\n}\n\n.HuN9t2QlrbX1i05Ufjyww {\n\twidth: 170px;\n}\n\n._1lODHij9o9HfotBQjjNm1N {\n\theight: 160px;\n}\n\n._16uNMo0YxWsGGoEf8l36O2 {\n\tmargin-top: -30px;\n\tmargin-bottom: -15px;\n\twidth: 768px;\n\tmargin-left: calc( ( 657px - 768px ) / 2 );\n}\n\n._1JUaYIX0pZ6y5TiSwfSVJX {\n\tmargin-bottom: 20px;\n}\n\n._31SNx6Pg9lMDJFG77PbM6u {\n\tdisplay: flex;\n}\n\n._1mLSKjOuj5mKLEKXod9IKp {\n\twidth: 306px;\n\theight: 240px;\n\tmargin-right: 15px;\n\tflex-shrink: 0;\n}\n\n.mQRPkQMFqN3wx9eoZSWpY {\n\n}\n\n._1Ua2wPj4wlSWCvPKaa_vny {\n\tfont-weight: 700;\n\tmargin-bottom: 7px;\n}\n\n._2RRDmumvbQsIVyhjaf7TTw {\n\tmargin-bottom: 7px;\n}\n\n._2q-RfHocjKPjEkTkhF3kSW {\n\tmargin-bottom: 7px;\n}\n\n._1FErJrDjG-s_tsb4PPzfIt {\n\n}\n\n._3cODNT2e0X3yLiS8TW2Y7k {\n\tmargin-top: 7px;\n\tdisplay: inline-block;\n\tcursor: pointer;\n}\n\n._3cODNT2e0X3yLiS8TW2Y7k:hover {\n\ttext-decoration: underline;\n}", ""]);
+	exports.push([module.id, "._1WejIhpkUMh4VTkZQk4pv3 {\n\tmax-width: 1024px;\n\tmargin-left: auto;\n\tmargin-right: auto;\n\tmargin-top: 40px;\n}\n\n._1WejIhpkUMh4VTkZQk4pv3 img {\n\tmax-width: 100%;\n}\n\n._1WejIhpkUMh4VTkZQk4pv3 {\n\twidth: 796px;\n\tmargin-bottom: -42px;\n}\n\n._35cLu0FiJi8Aya9kANGLJP {\n\tfont-size: 27px;\n\tfont-weight: bold;\n\tcolor: inherit;\n}\n\n._97IAdnFwwX7o6UPALTnL6 {\n\tmargin-top: 8px;\n}\n\n.HuN9t2QlrbX1i05Ufjyww {\n\twidth: 170px;\n}\n\n._1lODHij9o9HfotBQjjNm1N {\n\theight: 160px;\n}\n\n._16uNMo0YxWsGGoEf8l36O2 {\n\tmargin-top: -30px;\n\tmargin-bottom: -15px;\n\twidth: 768px;\n\tmargin-left: calc( ( 657px - 768px ) / 2 );\n}\n\n._1JUaYIX0pZ6y5TiSwfSVJX {\n\tdisplay: flex;\n\tjustify-content: space-between;\n\tmargin-bottom: 20px;\n}\n\n._24cloWyOMvyXkA4KqmWHqc {\n\t\n}\n\n._31SNx6Pg9lMDJFG77PbM6u {\n\tdisplay: flex;\n}\n\n._1mLSKjOuj5mKLEKXod9IKp {\n\twidth: 306px;\n\theight: 240px;\n\tmargin-right: 15px;\n\tflex-shrink: 0;\n}\n\n.mQRPkQMFqN3wx9eoZSWpY {\n\n}\n\n.ixlLFyr4zj4-lzEqYRtTz:not(:last-child) {\n\tmargin-bottom: 7px;\n}\n\n._1Ua2wPj4wlSWCvPKaa_vny {\n\tfont-weight: 700;\n}\n\n._1Ua2wPj4wlSWCvPKaa_vny:not(:last-child) {\n\tmargin-bottom: 7px;\n}\n\n._2RRDmumvbQsIVyhjaf7TTw:not(:last-child) {\n\tmargin-bottom: 7px;\n}\n\n._2q-RfHocjKPjEkTkhF3kSW:not(:last-child) {\n\tmargin-bottom: 7px;\n}\n\n._1FErJrDjG-s_tsb4PPzfIt {\n\n}\n\n._3rw7ukE8BL0mD-vyBGvhw7 {\n\tdisplay: none;\n\tmargin-top: 21px;\n}\n\n._2PqfvirtOGARWxGav9kYtA {\n\tdisplay: flex;\n\tjustify-content: space-between;\n}\n\n._2PqfvirtOGARWxGav9kYtA .mQRPkQMFqN3wx9eoZSWpY:not(:last-child) {\n\tmargin-bottom: 21px;\n}\n\n.fxI46sZRzcMcM2WMK_MNF {\n\twidth: 306px;\n}\n\n._1pOsQLtS3szV91KKUkmY6o {\n\twidth: 336px;\n}\n\n._3cODNT2e0X3yLiS8TW2Y7k {\n\tmargin-top: 7px;\n\tdisplay: inline-block;\n\tcursor: pointer;\n\ttext-decoration: underline;\n}\n\n._3cODNT2e0X3yLiS8TW2Y7k:hover {\n\ttext-decoration: none;\n}\n\n._14cCJkaiOsMy6T9-SNl_2D {\n\tmargin-left: calc(100% - 336px);\n}", ""]);
 	
 	// exports
 	exports.locals = {
@@ -14323,14 +14495,21 @@
 		"typeImage": "_1lODHij9o9HfotBQjjNm1N",
 		"whatNextImage": "_16uNMo0YxWsGGoEf8l36O2",
 		"findCity": "_1JUaYIX0pZ6y5TiSwfSVJX",
+		"findEmpty": "_24cloWyOMvyXkA4KqmWHqc",
 		"findContainer": "_31SNx6Pg9lMDJFG77PbM6u",
 		"findMap": "_1mLSKjOuj5mKLEKXod9IKp",
 		"findPoint": "mQRPkQMFqN3wx9eoZSWpY",
+		"findPointPhone": "ixlLFyr4zj4-lzEqYRtTz",
 		"findPointName": "_1Ua2wPj4wlSWCvPKaa_vny",
 		"findPointAddress": "_2RRDmumvbQsIVyhjaf7TTw",
 		"findPointTime": "_2q-RfHocjKPjEkTkhF3kSW",
 		"findPointMeta": "_1FErJrDjG-s_tsb4PPzfIt",
-		"findShowMore": "_3cODNT2e0X3yLiS8TW2Y7k"
+		"findPoints": "_3rw7ukE8BL0mD-vyBGvhw7",
+		"findPointsContainer": "_2PqfvirtOGARWxGav9kYtA",
+		"findPointsEven": "fxI46sZRzcMcM2WMK_MNF",
+		"findPointsOdd": "_1pOsQLtS3szV91KKUkmY6o",
+		"findShowMore": "_3cODNT2e0X3yLiS8TW2Y7k",
+		"hideMore": "_14cCJkaiOsMy6T9-SNl_2D _3cODNT2e0X3yLiS8TW2Y7k"
 	};
 
 /***/ },
@@ -14339,8 +14518,110 @@
 
 	var Handlebars = __webpack_require__(16);
 	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
-	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-	    var stack1, helper, alias1=container.lambda, alias2=container.escapeExpression, alias3=depth0 != null ? depth0 : {}, alias4=helpers.helperMissing, alias5="function";
+	module.exports = (Handlebars["default"] || Handlebars).template({"1":function(container,depth0,helpers,partials,data) {
+	    var alias1=container.lambda, alias2=container.escapeExpression;
+	
+	  return "							<option value=\""
+	    + alias2(alias1((depth0 != null ? depth0.value : depth0), depth0))
+	    + "\">"
+	    + alias2(alias1((depth0 != null ? depth0.name : depth0), depth0))
+	    + "</option>\n";
+	},"3":function(container,depth0,helpers,partials,data) {
+	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
+	
+	  return "						<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findEmpty : stack1), depth0))
+	    + " "
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.text : stack1), depth0))
+	    + "\">\n							Мы не смогли определить, где вы\n							<br>\n							находитесь. Пожалуйста, выберите\n							<br>\n							город вручную.\n						</div>\n";
+	},"5":function(container,depth0,helpers,partials,data) {
+	    var stack1, alias1=container.lambda, alias2=container.escapeExpression, alias3=depth0 != null ? depth0 : {};
+	
+	  return "						<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findMap : stack1), depth0))
+	    + "\" id=\"map\">\n						</div>\n						<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findMainPoint : stack1), depth0))
+	    + "\">\n							<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findPoint : stack1), depth0))
+	    + " "
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.text : stack1), depth0))
+	    + "\">\n								<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findPointName : stack1), depth0))
+	    + "\">"
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.firstPoint : depth0)) != null ? stack1.name : stack1), depth0))
+	    + "</div>\n								<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findPointAddress : stack1), depth0))
+	    + "\">\n									"
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.firstPoint : depth0)) != null ? stack1.address : stack1), depth0))
+	    + "\n								</div>\n								<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findPointTime : stack1), depth0))
+	    + "\">\n									Время работы: "
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.firstPoint : depth0)) != null ? stack1.time : stack1), depth0))
+	    + "\n								</div>\n"
+	    + ((stack1 = helpers["if"].call(alias3,((stack1 = (depth0 != null ? depth0.firstPoint : depth0)) != null ? stack1.phone : stack1),{"name":"if","hash":{},"fn":container.program(6, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + ((stack1 = helpers["if"].call(alias3,((stack1 = (depth0 != null ? depth0.firstPoint : depth0)) != null ? stack1.info : stack1),{"name":"if","hash":{},"fn":container.program(8, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + "							</div>\n							<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findShowMore : stack1), depth0))
+	    + " "
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.text : stack1), depth0))
+	    + "\" data-action=\"show-all-points\">\n								Показать все пункты в этом городе...\n							</div>\n						</div>\n";
+	},"6":function(container,depth0,helpers,partials,data) {
+	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
+	
+	  return "									<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findPointPhone : stack1), depth0))
+	    + "\">\n										Телефон: "
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.firstPoint : depth0)) != null ? stack1.phone : stack1), depth0))
+	    + "\n									</div>\n";
+	},"8":function(container,depth0,helpers,partials,data) {
+	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
+	
+	  return "									<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findPointMeta : stack1), depth0))
+	    + "\">\n										"
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.firstPoint : depth0)) != null ? stack1.info : stack1), depth0))
+	    + "\n									</div>\n";
+	},"10":function(container,depth0,helpers,partials,data,blockParams,depths) {
+	    var stack1, alias1=container.lambda, alias2=container.escapeExpression, alias3=depth0 != null ? depth0 : {};
+	
+	  return "								<div class=\""
+	    + alias2(alias1(((stack1 = (depths[1] != null ? depths[1].how : depths[1])) != null ? stack1.findPoint : stack1), depth0))
+	    + " "
+	    + alias2(alias1(((stack1 = (depths[1] != null ? depths[1].typography : depths[1])) != null ? stack1.text : stack1), depth0))
+	    + "\">\n									<div class=\""
+	    + alias2(alias1(((stack1 = (depths[1] != null ? depths[1].how : depths[1])) != null ? stack1.findPointName : stack1), depth0))
+	    + "\">"
+	    + alias2(alias1((depth0 != null ? depth0.name : depth0), depth0))
+	    + "</div>\n									<div class=\""
+	    + alias2(alias1(((stack1 = (depths[1] != null ? depths[1].how : depths[1])) != null ? stack1.findPointAddress : stack1), depth0))
+	    + "\">\n										"
+	    + alias2(alias1((depth0 != null ? depth0.address : depth0), depth0))
+	    + "\n									</div>\n									<div class=\""
+	    + alias2(alias1(((stack1 = (depths[1] != null ? depths[1].how : depths[1])) != null ? stack1.findPointTime : stack1), depth0))
+	    + "\">\n										Время работы: "
+	    + alias2(alias1((depth0 != null ? depth0.time : depth0), depth0))
+	    + "\n									</div>\n"
+	    + ((stack1 = helpers["if"].call(alias3,(depth0 != null ? depth0.phone : depth0),{"name":"if","hash":{},"fn":container.program(11, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + ((stack1 = helpers["if"].call(alias3,(depth0 != null ? depth0.info : depth0),{"name":"if","hash":{},"fn":container.program(13, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + "								</div>\n";
+	},"11":function(container,depth0,helpers,partials,data,blockParams,depths) {
+	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
+	
+	  return "										<div class=\""
+	    + alias2(alias1(((stack1 = (depths[1] != null ? depths[1].how : depths[1])) != null ? stack1.findPointPhone : stack1), depth0))
+	    + "\">\n											Телефон: "
+	    + alias2(alias1((depth0 != null ? depth0.phone : depth0), depth0))
+	    + "\n										</div>\n";
+	},"13":function(container,depth0,helpers,partials,data,blockParams,depths) {
+	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
+	
+	  return "										<div class=\""
+	    + alias2(alias1(((stack1 = (depths[1] != null ? depths[1].how : depths[1])) != null ? stack1.findPointMeta : stack1), depth0))
+	    + "\">\n											"
+	    + alias2(alias1((depth0 != null ? depth0.info : depth0), depth0))
+	    + "\n										</div>\n";
+	},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data,blockParams,depths) {
+	    var stack1, alias1=container.lambda, alias2=container.escapeExpression, alias3=depth0 != null ? depth0 : {};
 	
 	  return "<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.root : stack1), depth0))
@@ -14358,7 +14639,7 @@
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.header : stack1), depth0))
 	    + "\">Как стать<br>донором костного мозга</div>\n			<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n				О&nbsp;донорстве костного мозга знают мало, поэтому многие боятся становиться донорами. Кто-то думает, что костный мозг вырезают из&nbsp;костей, другие слышали, что врач иглой протыкает позвоночник. Мы&nbsp;хотим развеять безосновательные страхи и&nbsp;рассказать, как все происходит на&nbsp;самом деле&nbsp;&mdash; шаг за&nbsp;шагом.\n			</div>\n		</div>\n		<div class=\""
+	    + "\">\n				О&nbsp;донорстве костного мозга знают мало, поэтому многие боятся становиться донорами. Кто-то думает, что&nbsp;костный мозг вырезают из&nbsp;костей, другие слышали, что&nbsp;врач иглой протыкает позвоночник. Мы&nbsp;хотим развеять безосновательные страхи и&nbsp;рассказать, как&nbsp;все происходит на&nbsp;самом деле&nbsp;&mdash; шаг за&nbsp;шагом.\n			</div>\n		</div>\n		<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
 	    + "\" id=\"first-step\">\n			<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
@@ -14378,29 +14659,33 @@
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.find : stack1), depth0))
 	    + "\">\n				<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findCity : stack1), depth0))
-	    + "\">\n					<select>\n						<option>Санкт-Петербург</option>\n						<option>Москва</option>\n					</select>\n				</div>\n				<div class=\""
+	    + "\">\n					<select class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.inputs : depth0)) != null ? stack1.select : stack1), depth0))
+	    + "\" data-action=\"city\">\n"
+	    + ((stack1 = helpers.each.call(alias3,(depth0 != null ? depth0.cities : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + "					</select>\n"
+	    + ((stack1 = helpers.unless.call(alias3,(depth0 != null ? depth0.city : depth0),{"name":"unless","hash":{},"fn":container.program(3, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + "				</div>\n				<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findContainer : stack1), depth0))
-	    + "\">\n					<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findMap : stack1), depth0))
-	    + "\" id=\"map\">\n					</div>\n					<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findMainPoint : stack1), depth0))
+	    + "\">\n"
+	    + ((stack1 = helpers["if"].call(alias3,(depth0 != null ? depth0.city : depth0),{"name":"if","hash":{},"fn":container.program(5, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + "				</div>\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findPoints : stack1), depth0))
+	    + "\" data-role=\"all-points\">\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findPointsContainer : stack1), depth0))
 	    + "\">\n						<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findPoint : stack1), depth0))
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findPointsEven : stack1), depth0))
+	    + "\">\n"
+	    + ((stack1 = helpers.each.call(alias3,(depth0 != null ? depth0.evenPoints : depth0),{"name":"each","hash":{},"fn":container.program(10, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + "						</div>\n						<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findPointsOdd : stack1), depth0))
+	    + "\">\n"
+	    + ((stack1 = helpers.each.call(alias3,(depth0 != null ? depth0.oddPoints : depth0),{"name":"each","hash":{},"fn":container.program(10, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + "						</div>\n					</div>\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.hideMore : stack1), depth0))
 	    + " "
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.text : stack1), depth0))
-	    + "\">\n							<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findPointName : stack1), depth0))
-	    + "\">Институт детской гематологии и трансплантологии им. Р.М. Горбачевой</div>\n							<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findPointAddress : stack1), depth0))
-	    + "\">\n								Ст.м. Петроградская, ул. Рентгена, 12, 10 эт., каб. 1007. \n							</div>\n							<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findPointTime : stack1), depth0))
-	    + "\">\n								Время работы: вторник 16:00 - 19:00, четверг 10:00 - 12:00.\n							</div>\n							<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findPointMeta : stack1), depth0))
-	    + "\">\n								Записываться заранее не нужно, просто приходите.\n							</div>\n						</div>\n						<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findShowMore : stack1), depth0))
-	    + " "
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.text : stack1), depth0))
-	    + "\">\n							Все пункты в Санкт-Петербурге..\n						</div>\n					</div>\n				</div>\n			</div>\n		</div>\n		<div class=\""
+	    + "\" data-action=\"hide-all-points\">\n						Свернуть\n					</div>\n				</div>\n			</div>\n		</div>\n		<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
 	    + "\">\n			<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
@@ -14424,7 +14709,7 @@
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
 	    + "\">\n							Соглашение \n							<br>\n							о вступлении в регистр\n						</a>\n					</div>\n				</div>\n			</div>\n			<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n				Поздравляем, вы&nbsp;в&nbsp;регистре! Вы&nbsp;попадаете в&nbsp;регистр автоматически после того, как вашу кровь протипируют в&nbsp;лаборатории. Сотрудники регистра позвонят, только если ваш костный мозг кому-то подойдет.\n			</div>\n		</div>\n		<div class=\""
+	    + "\">\n				Поздравляем, вы&nbsp;в&nbsp;регистре! Вы&nbsp;попадаете в&nbsp;регистр автоматически после того, как&nbsp;вашу кровь протипируют в&nbsp;лаборатории. Сотрудники регистра позвонят, только если ваш костный мозг кому-то подойдет.\n			</div>\n		</div>\n		<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
 	    + "\">\n			<div class="
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.note : stack1), depth0))
@@ -14460,7 +14745,7 @@
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
 	    + "\">\n				<div>\n					<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n						Потенциальный донор может подойти кому-то на&nbsp;следующий день, через несколько лет или вообще никогда не&nbsp;подойти.\n					</div>\n					<div class=\""
+	    + "\">\n						Потенциальный донор может подойти кому-то на&nbsp;следующий день, через несколько лет или&nbsp;вообще никогда не&nbsp;подойти.\n					</div>\n					<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
 	    + "\">\n						Помните, что мы&nbsp;увеличиваем регистр, чтобы спасать жизни. Поэтому оцените свои силы заранее и&nbsp;вступайте в&nbsp;регистр с&nbsp;твердым намерением стать реальным донором.\n					</div>\n				</div>\n				<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnote : stack1), depth0))
@@ -14482,7 +14767,7 @@
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
 	    + "\">\n						Итак, прошло время, и&nbsp;ваши клетки кому-то подошли. Сотрудник регистра звонит вам и&nbsp;спрашивает, готовы&nbsp;ли вы&nbsp;стать реальным донором.\n					</div>	\n					<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n						Если соглашаетесь, вам назначают более детальное, развернутое типирование&nbsp;&mdash; чтобы убедиться, что подходите. Если точно подходите, проходите обследование. Какое&nbsp;&mdash; зависит от&nbsp;состояния здоровья. Это в&nbsp;любом случае будет обычный биохимический анализ крови. Если вас что-то беспокоит, врач назначит дополнительные анализы.\n					</div>\n				</div>\n				<div class=\""
+	    + "\">\n						Если соглашаетесь, вам назначают более детальное, развернутое типирование&nbsp;&mdash; чтобы убедиться, что&nbsp;подходите. Если точно подходите, проходите обследование. Какое&nbsp;&mdash; зависит от&nbsp;состояния здоровья. Это в&nbsp;любом случае будет обычный биохимический анализ крови. Если вас что-то беспокоит, врач назначит дополнительные анализы.\n					</div>\n				</div>\n				<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.media : stack1), depth0))
 	    + "\">\n					<img class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.doctorImage : stack1), depth0))
@@ -14514,7 +14799,7 @@
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.bold : stack1), depth0))
 	    + "\">Из вены</span>\n						<br>\n						<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.text : stack1), depth0))
-	    + "\">\n							У&nbsp;вас берут кровь из&nbsp;вены одной руки и&nbsp;возвращают в&nbsp;вену на&nbsp;другой руке. По&nbsp;дороге кровь проходит через сепаратор, отлавливающий клетки костного мозга. Процедура занимает пять-шесть часов. Анестезия не&nbsp;нужна, вы&nbsp;находитесь в&nbsp;сознании и&nbsp;успеваете посмотреть три любимых фильма или поспать.\n						</div>	\n					</div>\n				</div>\n			</div>\n		</div>\n		<div class=\""
+	    + "\">\n							У&nbsp;вас берут кровь из&nbsp;вены одной руки и&nbsp;возвращают в&nbsp;вену на&nbsp;другой руке. По&nbsp;дороге кровь проходит через сепаратор, отлавливающий клетки костного мозга. Процедура занимает пять-шесть часов. Анестезия не&nbsp;нужна, вы&nbsp;находитесь в&nbsp;сознании и&nbsp;успеваете посмотреть три&nbsp;любимых фильма или поспать.\n						</div>	\n					</div>\n				</div>\n			</div>\n		</div>\n		<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
 	    + "\">\n			<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
@@ -14530,7 +14815,7 @@
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.col2 : stack1), depth0))
 	    + "\">\n					<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n						&laquo;И&nbsp;вот они встретились. Два черноглазых парня,&nbsp;&mdash; одному&nbsp;14, другому&nbsp;42, чем-то неуловимо похожие друг на&nbsp;друга и&nbsp;почти стопроцентные братья по&nbsp;крови&raquo;\n					</div>\n					<div class=\""
+	    + "\">\n						&laquo;И&nbsp;вот они встретились. Два&nbsp;черноглазых парня,&nbsp;&mdash; одному&nbsp;14, другому&nbsp;42, чем-то неуловимо похожие друг на&nbsp;друга и&nbsp;почти стопроцентные братья по&nbsp;крови&raquo;\n					</div>\n					<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
 	    + "\">\n						<a href=\"http://takiedela.ru/2016/03/perelivanie-zhizni/\" target=\"_blank\" class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
@@ -14538,7 +14823,7 @@
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.col2 : stack1), depth0))
 	    + "\">\n					<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n						&laquo;И&nbsp;вот они встретились. Два черноглазых парня,&nbsp;&mdash; одному&nbsp;14, другому&nbsp;42, чем-то неуловимо похожие друг на&nbsp;друга и&nbsp;почти стопроцентные братья по&nbsp;крови&raquo;\n					</div>\n					<div class=\""
+	    + "\">\n						&laquo;Я&nbsp;видел встречу только однажды, и&nbsp;это&nbsp;одно из&nbsp;самых сильных впечатлений за&nbsp;всю мою жизнь&raquo;\n					</div>\n					<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
 	    + "\">\n						<a href=\"https://snob.ru/selected/entry/50262?v=1464270594\" target=\"_blank\" class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
@@ -14568,17 +14853,7 @@
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
 	    + "\">узнайте больше на сайте Advita</a>.\n				</div>\n				<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n					В любом случае расскажите о донорстве костного мозга друзьям.\n					<br>\n					Так вы можете спасти чью-то жизнь, даже если не вступите в регистр. \n				</div>\n				<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.share : depth0)) != null ? stack1.container : stack1), depth0))
-	    + "\">\n					<a href=\""
-	    + alias2(((helper = (helper = helpers.vkUrl || (depth0 != null ? depth0.vkUrl : depth0)) != null ? helper : alias4),(typeof helper === alias5 ? helper.call(alias3,{"name":"vkUrl","hash":{},"data":data}) : helper)))
-	    + "\" target=\"_blank\" class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.share : depth0)) != null ? stack1.itemVk : stack1), depth0))
-	    + "\"></a>\n					<a href=\""
-	    + alias2(((helper = (helper = helpers.fbUrl || (depth0 != null ? depth0.fbUrl : depth0)) != null ? helper : alias4),(typeof helper === alias5 ? helper.call(alias3,{"name":"fbUrl","hash":{},"data":data}) : helper)))
-	    + "\" target=\"_blank\" class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.share : depth0)) != null ? stack1.itemFb : stack1), depth0))
-	    + "\"></a>	\n				</div>\n			</div>\n		</div>\n	</div>	\n	<div class=\""
+	    + "\">\n					В любом случае расскажите о донорстве костного мозга друзьям.\n					<br>\n					Так вы можете спасти чью-то жизнь, даже если не вступите в регистр. \n				</div>\n				<div data-view=\"how-share\"></div>\n			</div>\n		</div>\n	</div>	\n	<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.container : stack1), depth0))
 	    + "\">\n		<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.credentials : stack1), depth0))
@@ -14589,7 +14864,7 @@
 	    + "\">\n				Сделала Алиса Яннау в Школе редакторов Бюро Горбунова. \n				<br>\n				Иллюстратор — Марина Савицкая, разработчик — Артур Стамбульцян.\n				<br>\n				<a href=\"/static/pdf/agreement.pdf\" target=\"_blank\" class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
 	    + "\">Пользовательское соглашение</a>.\n			</div>	\n		</div>\n	</div>\n</div>";
-	},"useData":true});
+	},"useData":true,"useDepths":true});
 
 /***/ },
 /* 16 */
@@ -16331,7 +16606,7 @@
 	
 	
 	// module
-	exports.push([module.id, "._10fHIjkbAdfadwMqaQz6Pc {\n\tdisplay: none;\n}\n\n._10fHIjkbAdfadwMqaQz6Pc:checked + ._1qRt3sNTNbILEj2ckyiMuH::after {\n\topacity: 1;\n}\n\n._1qRt3sNTNbILEj2ckyiMuH {\n\tfont-family: 'Roboto', sans-serif;\n\tfont-weight: 300;\n\tfont-size: 16px;\n\tposition: relative;\n\tpadding-left: 42px;\n\theight: 26px;\n\tline-height: 26px;\n\tdisplay: inline-block;\n\tcursor: pointer;\n}\n\n._1qRt3sNTNbILEj2ckyiMuH::before {\n\tdisplay: block;\n\tposition: absolute;\n\tleft: 0;\n\tbottom: 0;\n\twidth: 26px;\n\theight: 26px;\n\tborder: 1px solid #000;\n\tborder-radius: 50%;\n\tcontent: '';\n}\n\n._1qRt3sNTNbILEj2ckyiMuH::after {\n\tdisplay: block;\n\tposition: absolute;\n\tleft: 4px;\n\tbottom: 4px;\n\twidth: 18px;\n\theight: 18px;\n\tbackground-color: #FFD637;\n\tborder-radius: 50%;\n\ttransition: all 0.15s ease;\n\topacity: 0;\n\tcontent: '';\n}\n\n.jX-n3oTShl9DdR8pTgsJO {\n\tdisplay: none;\n}\n\n.jX-n3oTShl9DdR8pTgsJO:checked + ._1cpV2qSiHdrEnfAa1NIoLC::after {\n\topacity: 1;\n}\n\n._1cpV2qSiHdrEnfAa1NIoLC {\n\tfont-family: 'Roboto', sans-serif;\n\tfont-weight: 300;\n\tfont-size: 16px;\n\tposition: relative;\n\tpadding-left: 42px;\n\tline-height: 26px;\n\tdisplay: inline-block;\n\tcursor: pointer;\n}\n\n._1cpV2qSiHdrEnfAa1NIoLC::before {\n\tdisplay: block;\n\tposition: absolute;\n\tleft: 0;\n\ttop: 8px;\n\twidth: 26px;\n\theight: 26px;\n\tborder: 1px solid #000;\n\tcontent: '';\n}\n\n._1cpV2qSiHdrEnfAa1NIoLC::after {\n\tdisplay: block;\n\tposition: absolute;\n\tleft: 4px;\n\ttop: 12px;\n\twidth: 18px;\n\theight: 18px;\n\ttransition: all 0.15s ease;\n\tbackground-color: #FFD637;\n\topacity: 0;\n\tcontent: '';\n}\n\n._3lp0pnIvm8INrj2DL5oHcL {\n\tfont-family: 'Roboto', sans-serif;\n\tfont-weight: 300;\n\tdisplay: inline-block;\n\tborder: 1px solid #000;\n\theight: 42px;\n    width: 86px;\n\tpadding: 8px;\n\tfont-size: 24px;\n\ttext-align: center;\n\tborder-radius: 0;\n\tbox-shadow: none;\n}\n\n._3kVhXjYTQ-iYqCY9buu_8L {\n\tfont-family: 'Roboto', sans-serif;\n\tletter-spacing: 4px;\n\tfont-size: 22px;\n\tfont-weight: 300;\n\tcolor: #000;\n\ttext-transform: uppercase;\n\tborder: none;\n\tbackground-image: none;\n\tbackground-color: #f0c730;\n\theight: 62px;\n\tline-height: 62px;\n\tmin-width: 290px;\n\tcursor: pointer;\n\tborder-radius: 5px;\n\tcolor: #fff;\n\ttransform: translate3d(0,0,0);\n\tbox-shadow: 3px 3px 0px 0px #c89d25;\n\ttransition: all 0.15s ease;\n}\n\n._3kVhXjYTQ-iYqCY9buu_8L:hover {\n\tbackground-color: #dfb52b;\n}\n\n._3kVhXjYTQ-iYqCY9buu_8L[disabled] {\n\tbox-shadow: none;\n\topacity: 0.7;\n\tcursor: default;\n\tbackground-color: #f0c730;\n}\n\n._3kVhXjYTQ-iYqCY9buu_8L:active {\n\tposition: relative;\n\ttransform: translate3d(2px,2px,0);\n\tbox-shadow: 1px 1px 0px 0px #c89d25;\n}\n\n.u5lqlNo6_x0Aq3I55gEjP {\n\tanimation: _1lP-KYA1WVO-YcgrRmr9_W 0.82s cubic-bezier(.36,.07,.19,.97) both;\n\ttransform: translate3d(0, 0, 0);\n\tbackface-visibility: hidden;\n\tperspective: 1000px;\n}\n\n@keyframes _1lP-KYA1WVO-YcgrRmr9_W {\n\t10%, 90% {\n\t\ttransform: translate3d(-2px, 0, 0);\n\t}\n\n\t20%, 80% {\n\t\ttransform: translate3d(3px, 0, 0);\n\t}\n\n\t30%, 50%, 70% {\n\t\ttransform: translate3d(-6px, 0, 0);\n\t}\n\n\t40%, 60% {\n\t\ttransform: translate3d(6px, 0, 0);\n\t}\n}", ""]);
+	exports.push([module.id, "._10fHIjkbAdfadwMqaQz6Pc {\n\tdisplay: none;\n}\n\n._10fHIjkbAdfadwMqaQz6Pc:checked + ._1qRt3sNTNbILEj2ckyiMuH::after {\n\topacity: 1;\n}\n\n._1qRt3sNTNbILEj2ckyiMuH {\n\tfont-family: 'Roboto', sans-serif;\n\tfont-weight: 300;\n\tfont-size: 16px;\n\tposition: relative;\n\tpadding-left: 42px;\n\theight: 26px;\n\tline-height: 26px;\n\tdisplay: inline-block;\n\tcursor: pointer;\n}\n\n._1qRt3sNTNbILEj2ckyiMuH::before {\n\tdisplay: block;\n\tposition: absolute;\n\tleft: 0;\n\tbottom: 0;\n\twidth: 26px;\n\theight: 26px;\n\tborder: 1px solid #000;\n\tborder-radius: 50%;\n\tcontent: '';\n}\n\n._1qRt3sNTNbILEj2ckyiMuH::after {\n\tdisplay: block;\n\tposition: absolute;\n\tleft: 4px;\n\tbottom: 4px;\n\twidth: 18px;\n\theight: 18px;\n\tbackground-color: #FFD637;\n\tborder-radius: 50%;\n\ttransition: all 0.15s ease;\n\topacity: 0;\n\tcontent: '';\n}\n\n.jX-n3oTShl9DdR8pTgsJO {\n\tdisplay: none;\n}\n\n.jX-n3oTShl9DdR8pTgsJO:checked + ._1cpV2qSiHdrEnfAa1NIoLC::after {\n\topacity: 1;\n}\n\n._1cpV2qSiHdrEnfAa1NIoLC {\n\tfont-family: 'Roboto', sans-serif;\n\tfont-weight: 300;\n\tfont-size: 16px;\n\tposition: relative;\n\tpadding-left: 42px;\n\tline-height: 26px;\n\tdisplay: inline-block;\n\tcursor: pointer;\n}\n\n._1cpV2qSiHdrEnfAa1NIoLC::before {\n\tdisplay: block;\n\tposition: absolute;\n\tleft: 0;\n\ttop: 8px;\n\twidth: 26px;\n\theight: 26px;\n\tborder: 1px solid #000;\n\tcontent: '';\n}\n\n._1cpV2qSiHdrEnfAa1NIoLC::after {\n\tdisplay: block;\n\tposition: absolute;\n\tleft: 4px;\n\ttop: 12px;\n\twidth: 18px;\n\theight: 18px;\n\ttransition: all 0.15s ease;\n\tbackground-color: #FFD637;\n\topacity: 0;\n\tcontent: '';\n}\n\n._3lp0pnIvm8INrj2DL5oHcL {\n\tfont-family: 'Roboto', sans-serif;\n\tfont-weight: 300;\n\tdisplay: inline-block;\n\tborder: 1px solid #000;\n\theight: 42px;\n    width: 86px;\n\tpadding: 8px;\n\tfont-size: 24px;\n\ttext-align: center;\n\tborder-radius: 0;\n\tbox-shadow: none;\n}\n\n._3kVhXjYTQ-iYqCY9buu_8L {\n\tfont-family: 'Roboto', sans-serif;\n\tletter-spacing: 4px;\n\tfont-size: 22px;\n\tfont-weight: 300;\n\tcolor: #000;\n\ttext-transform: uppercase;\n\tborder: none;\n\tbackground-image: none;\n\tbackground-color: #f0c730;\n\theight: 62px;\n\tline-height: 62px;\n\tmin-width: 290px;\n\tcursor: pointer;\n\tborder-radius: 5px;\n\tcolor: #fff;\n\ttransform: translate3d(0,0,0);\n\tbox-shadow: 3px 3px 0px 0px #c89d25;\n\ttransition: all 0.15s ease;\n}\n\n._3kVhXjYTQ-iYqCY9buu_8L:hover {\n\tbackground-color: #dfb52b;\n}\n\n._3kVhXjYTQ-iYqCY9buu_8L[disabled] {\n\tbox-shadow: none;\n\topacity: 0.7;\n\tcursor: default;\n\tbackground-color: #f0c730;\n}\n\n._3kVhXjYTQ-iYqCY9buu_8L:active {\n\tposition: relative;\n\ttransform: translate3d(2px,2px,0);\n\tbox-shadow: 1px 1px 0px 0px #c89d25;\n}\n\n.u5lqlNo6_x0Aq3I55gEjP {\n\tanimation: _1lP-KYA1WVO-YcgrRmr9_W 0.82s cubic-bezier(.36,.07,.19,.97) both;\n\ttransform: translate3d(0, 0, 0);\n\tbackface-visibility: hidden;\n\tperspective: 1000px;\n}\n\nselect {\n\t-webkit-appearance: none;\n    -moz-appearance: none;\n    appearance: none;\n}\n\n._2GFL1NFl8wZczLoXqOQXSK {\n\tfont-family: 'Roboto', sans-serif;\n\theight: 44px;\n    padding-left: 12px;\n    padding-right: 40px;\n    border-radius: 0;\n    background-color: transparent;\n    position: relative;\n    border: 2px solid #000;\n    background-repeat: no-repeat;\n    background-position: calc(100% - 10px) 13px;\n    font-size: 16px;\n    cursor: pointer;\n\tbackground-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAOCAMAAADzLXfBAAAAKlBMVEUAAAAHhZkHhZkHhZkHhZkHhZkHhZkHhZkHhZkHhZkHhZkHhZkHhZkHhZlcyRY1AAAADXRSTlMAECAwQFBggJ+/z9/vqywp7gAAAE1JREFUeNptz0EOgCAMRNGP1YoI97+u0djQkHnL+ZsW2yV8SFDV7MhQebV1vviUJdyFP/Q8dyNYDgeTzfkk83SKCq2QxRt9AxUMoQ0nPOlaCJGajzbZAAAAAElFTkSuQmCC);\n}\n\n@keyframes _1lP-KYA1WVO-YcgrRmr9_W {\n\t10%, 90% {\n\t\ttransform: translate3d(-2px, 0, 0);\n\t}\n\n\t20%, 80% {\n\t\ttransform: translate3d(3px, 0, 0);\n\t}\n\n\t30%, 50%, 70% {\n\t\ttransform: translate3d(-6px, 0, 0);\n\t}\n\n\t40%, 60% {\n\t\ttransform: translate3d(6px, 0, 0);\n\t}\n}", ""]);
 	
 	// exports
 	exports.locals = {
@@ -16342,7 +16617,8 @@
 		"input": "_3lp0pnIvm8INrj2DL5oHcL",
 		"button": "_3kVhXjYTQ-iYqCY9buu_8L",
 		"inputInvalid": "u5lqlNo6_x0Aq3I55gEjP",
-		"shake": "_1lP-KYA1WVO-YcgrRmr9_W"
+		"shake": "_1lP-KYA1WVO-YcgrRmr9_W",
+		"select": "_2GFL1NFl8wZczLoXqOQXSK"
 	};
 
 /***/ },
@@ -17859,7 +18135,8 @@
 			key: 'potentialDonors',
 			get: function get() {
 				var value = this.get('potentialDonors');
-				return value ? value.toLocaleString('ru-RU') : 0;
+				// return value ? value.toLocaleString('ru-RU') : 0;
+				return value;
 			}
 		}]);
 	
@@ -17964,17 +18241,17 @@
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.header : stack1), depth0))
 	    + "\">Зачем становиться<br>донором костного мозга</div>\n			<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n				Костный мозг&nbsp;&mdash; это орган кроветворной системы, на&nbsp;вид&nbsp;&mdash; жидкая субстанция. Он&nbsp;содержит стволовые клетки и&nbsp;продуцирует все кровяные клетки в&nbsp;организме. Если у&nbsp;человека онкологическое, иммунологическое или ау&nbsp;тоимунное заболевание, врачи назначают пересадку костного мозга. Часто это последний шанс спасти человеку жизнь.\n			</div>\n		</div>	\n		<div class=\""
+	    + "\">\n				Костный мозг&nbsp;&mdash; это орган кроветворной системы, на&nbsp;вид&nbsp;&mdash; жидкая субстанция. Он&nbsp;содержит стволовые клетки и&nbsp;продуцирует все кровяные клетки в&nbsp;организме. Если&nbsp;у&nbsp;человека онкологическое, иммунологическое или&nbsp;аутоимунное заболевание, врачи назначают пересадку костного мозга. Часто это&nbsp;последний шанс спасти человеку жизнь.\n			</div>\n		</div>	\n		<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
 	    + "\">\n			<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
 	    + "\">Как ищут доноров</div>\n			<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n				Когда человеку нужен костный мозг, в&nbsp;первую очередь проверяют его родственников. Шансы невелики&nbsp;&mdash; в&nbsp;случае братьев и&nbsp;сестёр вероятность 1:4, а&nbsp;у&nbsp;родителей и&nbsp;детей ещё меньше. Если среди родных доноров не&nbsp;нашлось, ищут неродственных доноров&nbsp;&mdash; для этого нужен специальный регистр.\n			</div>\n			<div class=\""
+	    + "\">\n				Когда человеку нужен костный мозг, в&nbsp;первую очередь проверяют его родственников. Шансы невелики&nbsp;&mdash; в&nbsp;случае братьев и&nbsp;сестёр вероятность 1:4, а&nbsp;у&nbsp;родителей и&nbsp;детей ещё&nbsp;меньше. Если среди родных доноров не&nbsp;нашлось, ищут неродственных доноров&nbsp;&mdash; для&nbsp;этого нужен специальный регистр.\n			</div>\n			<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
 	    + "\">\n				<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1["float"] : stack1), depth0))
-	    + "\">\n					<div>\n						Регистр&nbsp;&mdash; это база потенциальных доноров костного мозга. Потенциальный донор&nbsp;&mdash; еще не&nbsp;донор: у&nbsp;него не&nbsp;забирают костный мозг, он&nbsp;только числится в&nbsp;регистре. Реальным донором человек становится, когда кому-то подходит его костный мозг. Чем больше в&nbsp;регистре потенциальных доноров, тем выше вероятность найти пациенту реального донора.\n					</div>\n					<a class=\""
+	    + "\">\n					<div>\n						Регистр&nbsp;&mdash; это&nbsp;база потенциальных доноров костного мозга. Потенциальный донор&nbsp;&mdash; еще не&nbsp;донор: у&nbsp;него не&nbsp;забирают костный мозг, он&nbsp;только числится в&nbsp;регистре. Реальным донором человек становится, когда кому-то подходит его костный мозг. Чем&nbsp;больше в&nbsp;регистре потенциальных доноров, тем&nbsp;выше вероятность найти пациенту реального донора.\n					</div>\n					<a class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnote : stack1), depth0))
 	    + "\" href=\"http://www.rusfond.ru/registr/009\" target=\"_blank\">\n						<span class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnoteCounter : stack1), depth0))
@@ -17992,7 +18269,7 @@
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
 	    + "\">Зачем увеличивать национальный регистр</div>\n				<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n					Регистр потенциальных доноров костного мозга есть в&nbsp;каждой развитой стране. Очень большой регистр в&nbsp;Германии&nbsp;&mdash; 6&nbsp;миллионов потенциальных доноров. Можно пользоваться зарубежными регистрами, но&nbsp;важно развивать свой:\n				</div>	\n				<div class=\""
+	    + "\">\n					Регистр потенциальных доноров костного мозга есть в&nbsp;каждой развитой стране. Очень&nbsp;большой регистр в&nbsp;Германии&nbsp;&mdash; 6&nbsp;миллионов потенциальных доноров.\n					<br>\n					Можно пользоваться зарубежными регистрами, но&nbsp;важно развивать свой:\n				</div>	\n				<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
 	    + "\">\n					<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.floatJustifyBetween : stack1), depth0))
@@ -18026,7 +18303,7 @@
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnote : stack1), depth0))
 	    + "\">\n						<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnoteCounter : stack1), depth0))
-	    + "\">\n							2 609\n						</div>\n						<div class=\""
+	    + "\">\n							2609\n						</div>\n						<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnoteText : stack1), depth0))
 	    + "\">\n							человек \n							<br>\n							вступили в регистр\n							<br>\n							за последний месяц\n						</div>\n					</div>\n				</div>\n			</div>\n			<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
@@ -18242,6 +18519,28 @@
 	}(_base2.default);
 
 	exports.default = _class;
+
+/***/ },
+/* 79 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Handlebars = __webpack_require__(16);
+	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
+	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+	    var stack1, helper, alias1=container.lambda, alias2=container.escapeExpression, alias3=depth0 != null ? depth0 : {}, alias4=helpers.helperMissing, alias5="function";
+	
+	  return "<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.share : depth0)) != null ? stack1.container : stack1), depth0))
+	    + "\">\n	<a href=\""
+	    + alias2(((helper = (helper = helpers.vkUrl || (depth0 != null ? depth0.vkUrl : depth0)) != null ? helper : alias4),(typeof helper === alias5 ? helper.call(alias3,{"name":"vkUrl","hash":{},"data":data}) : helper)))
+	    + "\" target=\"_blank\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.share : depth0)) != null ? stack1.itemVk : stack1), depth0))
+	    + "\"></a>\n	<a href=\""
+	    + alias2(((helper = (helper = helpers.fbUrl || (depth0 != null ? depth0.fbUrl : depth0)) != null ? helper : alias4),(typeof helper === alias5 ? helper.call(alias3,{"name":"fbUrl","hash":{},"data":data}) : helper)))
+	    + "\" target=\"_blank\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.share : depth0)) != null ? stack1.itemFb : stack1), depth0))
+	    + "\"></a>	\n</div>\n";
+	},"useData":true});
 
 /***/ }
 /******/ ]);

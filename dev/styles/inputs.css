@@ -154,6 +154,28 @@
 	perspective: 1000px;
 }
 
+select {
+	-webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.select {
+	font-family: $roboto;
+	height: 44px;
+    padding-left: 12px;
+    padding-right: 40px;
+    border-radius: 0;
+    background-color: transparent;
+    position: relative;
+    border: 2px solid #000;
+    background-repeat: no-repeat;
+    background-position: calc(100% - 10px) 13px;
+    font-size: 16px;
+    cursor: pointer;
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAOCAMAAADzLXfBAAAAKlBMVEUAAAAHhZkHhZkHhZkHhZkHhZkHhZkHhZkHhZkHhZkHhZkHhZkHhZkHhZlcyRY1AAAADXRSTlMAECAwQFBggJ+/z9/vqywp7gAAAE1JREFUeNptz0EOgCAMRNGP1YoI97+u0djQkHnL+ZsW2yV8SFDV7MhQebV1vviUJdyFP/Q8dyNYDgeTzfkk83SKCq2QxRt9AxUMoQ0nPOlaCJGajzbZAAAAAElFTkSuQmCC);
+}
+
 @keyframes shake {
 	10%, 90% {
 		transform: translate3d(-2px, 0, 0);

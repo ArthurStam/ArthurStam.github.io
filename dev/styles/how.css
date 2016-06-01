@@ -33,7 +33,13 @@
 }
 
 .findCity {
+	display: flex;
+	justify-content: space-between;
 	margin-bottom: 20px;
+}
+
+.findEmpty {
+	
 }
 
 .findContainer {
@@ -51,29 +57,73 @@
 
 }
 
+.findPointPhone {
+
+	&:not(:last-child) {
+		margin-bottom: 7px;
+	}
+}
+
 .findPointName {
 	font-weight: 700;
-	margin-bottom: 7px;
+
+	&:not(:last-child) {
+		margin-bottom: 7px;
+	}
 }
 
 .findPointAddress {
-	margin-bottom: 7px;
+
+	&:not(:last-child) {
+		margin-bottom: 7px;
+	}
 }
 
 .findPointTime {
-	margin-bottom: 7px;
+
+	&:not(:last-child) {
+		margin-bottom: 7px;
+	}
 }
 
 .findPointMeta {
 
 }
 
+.findPoints {
+	display: none;
+	margin-top: $paragraphMargin;
+}
+
+.findPointsContainer {
+	display: flex;
+	justify-content: space-between;
+
+	.findPoint:not(:last-child) {
+		margin-bottom: $paragraphMargin;
+	}
+}
+
+.findPointsEven {
+	width: 306px;
+}
+
+.findPointsOdd {
+	width: 336px;
+}
+
 .findShowMore {
 	margin-top: 7px;
 	display: inline-block;
 	cursor: pointer;
+	text-decoration: underline;
 
 	&:hover {
-		text-decoration: underline;
+		text-decoration: none;		
 	}
+}
+
+.hideMore {
+	composes: findShowMore;
+	margin-left: calc(100% - 336px);
 }

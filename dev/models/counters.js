@@ -28,6 +28,7 @@ export default class extends Backbone.Model {
 
 	get potentialDonors() {
 		let value = this.get('potentialDonors');
-		return value ? value.toLocaleString('ru-RU') : 0;
+		// return value ? value.toLocaleString('ru-RU') : 0;
+		return value;
 	}
 }

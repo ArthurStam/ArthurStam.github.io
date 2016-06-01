@@ -9,7 +9,7 @@
 		<div class="{{page.section}}">
 			<div class="{{typography.header}}">Как стать<br>донором костного мозга</div>
 			<div class="{{typography.paragraph}}">
-				О&nbsp;донорстве костного мозга знают мало, поэтому многие боятся становиться донорами. Кто-то думает, что костный мозг вырезают из&nbsp;костей, другие слышали, что врач иглой протыкает позвоночник. Мы&nbsp;хотим развеять безосновательные страхи и&nbsp;рассказать, как все происходит на&nbsp;самом деле&nbsp;&mdash; шаг за&nbsp;шагом.
+				О&nbsp;донорстве костного мозга знают мало, поэтому многие боятся становиться донорами. Кто-то думает, что&nbsp;костный мозг вырезают из&nbsp;костей, другие слышали, что&nbsp;врач иглой протыкает позвоночник. Мы&nbsp;хотим развеять безосновательные страхи и&nbsp;рассказать, как&nbsp;все происходит на&nbsp;самом деле&nbsp;&mdash; шаг за&nbsp;шагом.
 			</div>
 		</div>
 		<div class="{{page.section}}" id="first-step">
@@ -39,30 +39,102 @@
 			</div>
 			<div class="{{how.find}}">
 				<div class="{{how.findCity}}">
-					<select>
-						<option>Санкт-Петербург</option>
-						<option>Москва</option>
+					<select class="{{inputs.select}}" data-action="city">
+						{{#each cities}}
+							<option value="{{this.value}}">{{this.name}}</option>
+						{{/each}}
 					</select>
+					{{#unless city}}
+						<div class="{{how.findEmpty}} {{typography.text}}">
+							Мы не смогли определить, где вы
+							<br>
+							находитесь. Пожалуйста, выберите
+							<br>
+							город вручную.
+						</div>
+					{{/unless}}
 				</div>
 				<div class="{{how.findContainer}}">
-					<div class="{{how.findMap}}" id="map">
+					{{#if city}}
+						<div class="{{how.findMap}}" id="map">
+						</div>
+						<div class="{{how.findMainPoint}}">
+							<div class="{{how.findPoint}} {{typography.text}}">
+								<div class="{{how.findPointName}}">{{firstPoint.name}}</div>
+								<div class="{{how.findPointAddress}}">
+									{{firstPoint.address}}
+								</div>
+								<div class="{{how.findPointTime}}">
+									Время работы: {{firstPoint.time}}
+								</div>
+								{{#if firstPoint.phone}}
+									<div class="{{how.findPointPhone}}">
+										Телефон: {{firstPoint.phone}}
+									</div>
+								{{/if}}
+								{{#if firstPoint.info}}
+									<div class="{{how.findPointMeta}}">
+										{{firstPoint.info}}
+									</div>
+								{{/if}}
+							</div>
+							<div class="{{how.findShowMore}} {{typography.text}}" data-action="show-all-points">
+								Показать все пункты в этом городе...
+							</div>
+						</div>
+					{{/if}}
+				</div>
+				<div class="{{how.findPoints}}" data-role="all-points">
+					<div class="{{how.findPointsContainer}}">
+						<div class="{{how.findPointsEven}}">
+							{{#each evenPoints}}
+								<div class="{{../how.findPoint}} {{../typography.text}}">
+									<div class="{{../how.findPointName}}">{{this.name}}</div>
+									<div class="{{../how.findPointAddress}}">
+										{{this.address}}
+									</div>
+									<div class="{{../how.findPointTime}}">
+										Время работы: {{this.time}}
+									</div>
+									{{#if this.phone}}
+										<div class="{{../how.findPointPhone}}">
+											Телефон: {{this.phone}}
+										</div>
+									{{/if}}
+									{{#if this.info}}
+										<div class="{{../how.findPointMeta}}">
+											{{this.info}}
+										</div>
+									{{/if}}
+								</div>
+							{{/each}}
+						</div>
+						<div class="{{how.findPointsOdd}}">
+							{{#each oddPoints}}
+								<div class="{{../how.findPoint}} {{../typography.text}}">
+									<div class="{{../how.findPointName}}">{{this.name}}</div>
+									<div class="{{../how.findPointAddress}}">
+										{{this.address}}
+									</div>
+									<div class="{{../how.findPointTime}}">
+										Время работы: {{this.time}}
+									</div>
+									{{#if this.phone}}
+										<div class="{{../how.findPointPhone}}">
+											Телефон: {{this.phone}}
+										</div>
+									{{/if}}
+									{{#if this.info}}
+										<div class="{{../how.findPointMeta}}">
+											{{this.info}}
+										</div>
+									{{/if}}
+								</div>
+							{{/each}}
+						</div>
 					</div>
-					<div class="{{how.findMainPoint}}">
-						<div class="{{how.findPoint}} {{typography.text}}">
-							<div class="{{how.findPointName}}">Институт детской гематологии и трансплантологии им. Р.М. Горбачевой</div>
-							<div class="{{how.findPointAddress}}">
-								Ст.м. Петроградская, ул. Рентгена, 12, 10 эт., каб. 1007. 
-							</div>
-							<div class="{{how.findPointTime}}">
-								Время работы: вторник 16:00 - 19:00, четверг 10:00 - 12:00.
-							</div>
-							<div class="{{how.findPointMeta}}">
-								Записываться заранее не нужно, просто приходите.
-							</div>
-						</div>
-						<div class="{{how.findShowMore}} {{typography.text}}">
-							Все пункты в Санкт-Петербурге..
-						</div>
+					<div class="{{how.hideMore}} {{typography.text}}" data-action="hide-all-points">
+						Свернуть
 					</div>
 				</div>
 			</div>
@@ -96,7 +168,7 @@
 				</div>
 			</div>
 			<div class="{{typography.paragraph}}">
-				Поздравляем, вы&nbsp;в&nbsp;регистре! Вы&nbsp;попадаете в&nbsp;регистр автоматически после того, как вашу кровь протипируют в&nbsp;лаборатории. Сотрудники регистра позвонят, только если ваш костный мозг кому-то подойдет.
+				Поздравляем, вы&nbsp;в&nbsp;регистре! Вы&nbsp;попадаете в&nbsp;регистр автоматически после того, как&nbsp;вашу кровь протипируют в&nbsp;лаборатории. Сотрудники регистра позвонят, только если ваш костный мозг кому-то подойдет.
 			</div>
 		</div>
 		<div class="{{page.section}}">
@@ -133,7 +205,7 @@
 			<div class="{{typography.float}} {{typography.paragraph}}">
 				<div>
 					<div class="{{typography.paragraph}}">
-						Потенциальный донор может подойти кому-то на&nbsp;следующий день, через несколько лет или вообще никогда не&nbsp;подойти.
+						Потенциальный донор может подойти кому-то на&nbsp;следующий день, через несколько лет или&nbsp;вообще никогда не&nbsp;подойти.
 					</div>
 					<div class="{{typography.paragraph}}">
 						Помните, что мы&nbsp;увеличиваем регистр, чтобы спасать жизни. Поэтому оцените свои силы заранее и&nbsp;вступайте в&nbsp;регистр с&nbsp;твердым намерением стать реальным донором.
@@ -168,7 +240,7 @@
 						Итак, прошло время, и&nbsp;ваши клетки кому-то подошли. Сотрудник регистра звонит вам и&nbsp;спрашивает, готовы&nbsp;ли вы&nbsp;стать реальным донором.
 					</div>	
 					<div class="{{typography.paragraph}}">
-						Если соглашаетесь, вам назначают более детальное, развернутое типирование&nbsp;&mdash; чтобы убедиться, что подходите. Если точно подходите, проходите обследование. Какое&nbsp;&mdash; зависит от&nbsp;состояния здоровья. Это в&nbsp;любом случае будет обычный биохимический анализ крови. Если вас что-то беспокоит, врач назначит дополнительные анализы.
+						Если соглашаетесь, вам назначают более детальное, развернутое типирование&nbsp;&mdash; чтобы убедиться, что&nbsp;подходите. Если точно подходите, проходите обследование. Какое&nbsp;&mdash; зависит от&nbsp;состояния здоровья. Это в&nbsp;любом случае будет обычный биохимический анализ крови. Если вас что-то беспокоит, врач назначит дополнительные анализы.
 					</div>
 				</div>
 				<div class="{{typography.media}}">
@@ -198,7 +270,7 @@
 						<span class="{{typography.bold}}">Из вены</span>
 						<br>
 						<div class="{{typography.text}}">
-							У&nbsp;вас берут кровь из&nbsp;вены одной руки и&nbsp;возвращают в&nbsp;вену на&nbsp;другой руке. По&nbsp;дороге кровь проходит через сепаратор, отлавливающий клетки костного мозга. Процедура занимает пять-шесть часов. Анестезия не&nbsp;нужна, вы&nbsp;находитесь в&nbsp;сознании и&nbsp;успеваете посмотреть три любимых фильма или поспать.
+							У&nbsp;вас берут кровь из&nbsp;вены одной руки и&nbsp;возвращают в&nbsp;вену на&nbsp;другой руке. По&nbsp;дороге кровь проходит через сепаратор, отлавливающий клетки костного мозга. Процедура занимает пять-шесть часов. Анестезия не&nbsp;нужна, вы&nbsp;находитесь в&nbsp;сознании и&nbsp;успеваете посмотреть три&nbsp;любимых фильма или поспать.
 						</div>	
 					</div>
 				</div>
@@ -215,7 +287,7 @@
 			<div class="{{typography.floatJustifyBetween}}">
 				<div class="{{typography.col2}}">
 					<div class="{{typography.paragraph}}">
-						&laquo;И&nbsp;вот они встретились. Два черноглазых парня,&nbsp;&mdash; одному&nbsp;14, другому&nbsp;42, чем-то неуловимо похожие друг на&nbsp;друга и&nbsp;почти стопроцентные братья по&nbsp;крови&raquo;
+						&laquo;И&nbsp;вот они встретились. Два&nbsp;черноглазых парня,&nbsp;&mdash; одному&nbsp;14, другому&nbsp;42, чем-то неуловимо похожие друг на&nbsp;друга и&nbsp;почти стопроцентные братья по&nbsp;крови&raquo;
 					</div>
 					<div class="{{typography.paragraph}}">
 						<a href="http://takiedela.ru/2016/03/perelivanie-zhizni/" target="_blank" class="{{typography.link}}">История от Юлии Варенцовой</a>
@@ -223,7 +295,7 @@
 				</div>
 				<div class="{{typography.col2}}">
 					<div class="{{typography.paragraph}}">
-						&laquo;И&nbsp;вот они встретились. Два черноглазых парня,&nbsp;&mdash; одному&nbsp;14, другому&nbsp;42, чем-то неуловимо похожие друг на&nbsp;друга и&nbsp;почти стопроцентные братья по&nbsp;крови&raquo;
+						&laquo;Я&nbsp;видел встречу только однажды, и&nbsp;это&nbsp;одно из&nbsp;самых сильных впечатлений за&nbsp;всю мою жизнь&raquo;
 					</div>
 					<div class="{{typography.paragraph}}">
 						<a href="https://snob.ru/selected/entry/50262?v=1464270594" target="_blank" class="{{typography.link}}">Репортаж Валерия Панюшкина</a>
@@ -259,10 +331,7 @@
 					<br>
 					Так вы можете спасти чью-то жизнь, даже если не вступите в регистр. 
 				</div>
-				<div class="{{share.container}}">
-					<a href="{{vkUrl}}" target="_blank" class="{{share.itemVk}}"></a>
-					<a href="{{fbUrl}}" target="_blank" class="{{share.itemFb}}"></a>	
-				</div>
+				<div data-view="how-share"></div>
 			</div>
 		</div>
 	</div>	
