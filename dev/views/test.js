@@ -35,8 +35,8 @@ class TestModel extends Backbone.Model {
 
 	get defaults() {
 		return {
-			state: states.GAME,
-			step: 2,
+			state: states.START,
+			step: 0,
 			result: true,
 			reason: null,
 			data: {}

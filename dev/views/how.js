@@ -157,9 +157,9 @@ export default class extends PageView {
 		if (data.error) {
 			return data
 		} else if (data.city) {
+			data.firstPoint = data.city.points.shift();
 			data.oddPoints = _.filter(data.city.points, (point, index) => index % 2);
 			data.evenPoints = _.filter(data.city.points, (point, index) => ! (index % 2) );
-			data.firstPoint = data.city.points.shift();
 		}
 
 		return data;

@@ -13980,13 +13980,13 @@
 				if (data.error) {
 					return data;
 				} else if (data.city) {
+					data.firstPoint = data.city.points.shift();
 					data.oddPoints = _underscore2.default.filter(data.city.points, function (point, index) {
 						return index % 2;
 					});
 					data.evenPoints = _underscore2.default.filter(data.city.points, function (point, index) {
 						return !(index % 2);
 					});
-					data.firstPoint = data.city.points.shift();
 				}
 	
 				return data;
@@ -16247,8 +16247,8 @@
 			key: 'defaults',
 			get: function get() {
 				return {
-					state: states.GAME,
-					step: 2,
+					state: states.START,
+					step: 0,
 					result: true,
 					reason: null,
 					data: {}
