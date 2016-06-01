@@ -13922,7 +13922,8 @@
 			get: function get() {
 				return {
 					title: 'Как стать донором костного мозга',
-					description: 'И зачем это нужно. Рассказываем о донорстве костного мозга, чтобы увеличить российский регистр и помочь людям находить подходящих доноров. Присоединяйтесь!'
+					description: 'И зачем это нужно. Рассказываем о донорстве костного мозга, чтобы увеличить российский регистр и помочь людям находить подходящих доноров. Присоединяйтесь!',
+					image: 'http://arthurstam.github.io/static/share_main.png'
 				};
 			}
 		}]);
@@ -14023,11 +14024,13 @@
 	
 					'click [data-action="show-all-points"]': function clickDataActionShowAllPoints(e) {
 						_this5.$el.find('[data-action="show-all-points"]').hide();
+						_this5.$el.find('[data-action="hide-all-points"]').show();
 						_this5.$el.find('[data-role="all-points"]').show();
 					},
 	
 					'click [data-action="hide-all-points"]': function clickDataActionHideAllPoints(e) {
 						_this5.$el.find('[data-action="show-all-points"]').show();
+						_this5.$el.find('[data-action="hide-all-points"]').hide();
 						_this5.$el.find('[data-role="all-points"]').hide();
 					}
 				};
@@ -14428,7 +14431,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".mCMeBlawmTHgj-kOia8gK {\n\tfont-family: 'Roboto', sans-serif;\n\tfont-size: 16px;\n\tline-height: 24px;\n\tfont-weight: 300;\n}\n\n.Yld6iXMiFH4Vt7IopVoky {\n\tfont-family: 'Roboto', sans-serif;\n\tfont-size: 48px;\n\tline-height: 55px;\n\tfont-weight: 700;\n\ttext-align: center;\n}\n\n._3uvNU1E_zK3vlKn7iIK57u {\n\tfont-family: 'Roboto', sans-serif;\n\tfont-size: 30px;\n\tline-height: 32px;\n\tfont-weight: 700;\n\tmargin-bottom: 23px;\n}\n\n._3lv3I_riifEMhkoO2Dukx_ {\n}\n\n._3lv3I_riifEMhkoO2Dukx_:not(:first-child) {\n\tmargin-top: 23px;\n}\n\n._3lv3I_riifEMhkoO2Dukx_:not(:last-child) {\n\tmargin-bottom: 23px;\n}\n\n._2hyzGKrHnqHZ4dKDiYJjSk {\n\tcolor: #078599;\n\ttext-decoration: underline;\n}\n\n._2H3KkHxmbHI3WvlhyzZCnq {\n\tfont-weight: 700;\n}\n\n.x5OPdyuVfERXP6Zae2_p3 {\n\tfont-family: 'Roboto', sans-serif;\n\tcolor: #078599;\n\tfont-weight: 400;\n}\n\n._3NPcCWvioPO4gSH3wqBu96 {\n\tdisplay: block;\n\tfont-size: 54px;\n\tline-height: 56px;\n\tfont-weight: 700;\n\tmargin-bottom: -4px;\n}\n\n._3dPZLkyD7-DdI3_7WT-B1F {\n\tdisplay: block;\n\tline-height: 23px;\n}\n\n._256MTZBCB1RaS5QMBrDnjm {\n\tdisplay: block;\n\tfont-size: 12px;\n}\n\n._3rskhd6gSf-w_n0a8nK10n {\n\tdisplay: flex;\n}\n\n._3rskhd6gSf-w_n0a8nK10n .x5OPdyuVfERXP6Zae2_p3, ._3rskhd6gSf-w_n0a8nK10n ._3c59ynQ1xcQwe4miRYkPbZ {\n\tflex-shrink: 0;\n\tmargin-left: 24px;\n}\n\n._3rskhd6gSf-w_n0a8nK10n ._3c59ynQ1xcQwe4miRYkPbZ {\n\twidth: 196px;\n}\n\n._1GUWZ5UGIjNQxoLL6Q2miN {\n\tjustify-content: space-between;\n}\n\n._2q4iT4rckcnIidE1puWG0d {\n\tfont-family: 'Roboto', sans-serif;\n\twidth: 768px;\n\tmargin-left: calc( ( 657px - 768px ) / 2 );\n\tpadding: 50px calc( ( 768px - 657px ) / 2 ) 64px;\n\tbackground-color: rgba(9, 159, 175, 0.27);\n}\n\n._3abqwcGNOd_J3E1Oi-yi6N {\n\tflex-shrink: 0;\n}\n\n._3abqwcGNOd_J3E1Oi-yi6N:first-child {\n\twidth: 44%;\n}\n\n._3abqwcGNOd_J3E1Oi-yi6N:last-child {\n\twidth: 50%;\n}", ""]);
+	exports.push([module.id, ".mCMeBlawmTHgj-kOia8gK {\n\tfont-family: 'Roboto', sans-serif;\n\tfont-size: 16px;\n\tline-height: 24px;\n\tfont-weight: 300;\n}\n\n.Yld6iXMiFH4Vt7IopVoky {\n\tfont-family: 'Roboto', sans-serif;\n\tfont-size: 48px;\n\tline-height: 55px;\n\tfont-weight: 700;\n\ttext-align: center;\n}\n\n._3uvNU1E_zK3vlKn7iIK57u {\n\tfont-family: 'Roboto', sans-serif;\n\tfont-size: 30px;\n\tline-height: 32px;\n\tfont-weight: 700;\n\tmargin-bottom: 21px;\n}\n\n._3lv3I_riifEMhkoO2Dukx_ {\n}\n\n._3lv3I_riifEMhkoO2Dukx_:not(:first-child) {\n\tmargin-top: 21px;\n}\n\n._3lv3I_riifEMhkoO2Dukx_:not(:last-child) {\n\tmargin-bottom: 21px;\n}\n\n._2hyzGKrHnqHZ4dKDiYJjSk {\n\tcursor: pointer;\n\tcolor: #078599;\n\ttext-decoration: underline;\n}\n\n._1V1iXsJ-eSoGgmng5LyZmq {\n\tcursor: pointer;\n\tcolor: #078599;\n\tborder-bottom: 1px dotted #078599;\n}\n\n._2H3KkHxmbHI3WvlhyzZCnq {\n\tfont-weight: 700;\n}\n\n.x5OPdyuVfERXP6Zae2_p3 {\n\tfont-family: 'Roboto', sans-serif;\n\tcolor: #078599;\n\tfont-weight: 400;\n}\n\n._3NPcCWvioPO4gSH3wqBu96 {\n\tdisplay: block;\n\tfont-size: 54px;\n\tline-height: 56px;\n\tfont-weight: 700;\n\tmargin-bottom: -4px;\n}\n\n._3dPZLkyD7-DdI3_7WT-B1F {\n\tdisplay: block;\n\tline-height: 23px;\n}\n\n._256MTZBCB1RaS5QMBrDnjm {\n\tdisplay: block;\n\tfont-size: 12px;\n}\n\n._3rskhd6gSf-w_n0a8nK10n {\n\tdisplay: flex;\n}\n\n._3rskhd6gSf-w_n0a8nK10n .x5OPdyuVfERXP6Zae2_p3, ._3rskhd6gSf-w_n0a8nK10n ._3c59ynQ1xcQwe4miRYkPbZ {\n\tflex-shrink: 0;\n\tmargin-left: 24px;\n}\n\n._3rskhd6gSf-w_n0a8nK10n ._3c59ynQ1xcQwe4miRYkPbZ {\n\twidth: 196px;\n}\n\n._1GUWZ5UGIjNQxoLL6Q2miN {\n\tjustify-content: space-between;\n}\n\n._2q4iT4rckcnIidE1puWG0d {\n\tfont-family: 'Roboto', sans-serif;\n\twidth: 768px;\n\tmargin-left: calc( ( 657px - 768px ) / 2 );\n\tpadding: 50px calc( ( 768px - 657px ) / 2 ) 64px;\n\tbackground-color: rgba(9, 159, 175, 0.27);\n}\n\n._3abqwcGNOd_J3E1Oi-yi6N {\n\tflex-shrink: 0;\n}\n\n._3abqwcGNOd_J3E1Oi-yi6N:first-child {\n\twidth: 44%;\n}\n\n._3abqwcGNOd_J3E1Oi-yi6N:last-child {\n\twidth: 50%;\n}", ""]);
 	
 	// exports
 	exports.locals = {
@@ -14437,6 +14440,7 @@
 		"subheader": "_3uvNU1E_zK3vlKn7iIK57u",
 		"paragraph": "_3lv3I_riifEMhkoO2Dukx_ mCMeBlawmTHgj-kOia8gK",
 		"link": "_2hyzGKrHnqHZ4dKDiYJjSk",
+		"linkPseudo": "_1V1iXsJ-eSoGgmng5LyZmq",
 		"bold": "_2H3KkHxmbHI3WvlhyzZCnq mCMeBlawmTHgj-kOia8gK",
 		"footnote": "x5OPdyuVfERXP6Zae2_p3",
 		"footnoteCounter": "_3NPcCWvioPO4gSH3wqBu96",
@@ -14484,7 +14488,7 @@
 	
 	
 	// module
-	exports.push([module.id, "._1WejIhpkUMh4VTkZQk4pv3 {\n\tmax-width: 1024px;\n\tmargin-left: auto;\n\tmargin-right: auto;\n\tmargin-top: 40px;\n}\n\n._1WejIhpkUMh4VTkZQk4pv3 img {\n\tmax-width: 100%;\n}\n\n._1WejIhpkUMh4VTkZQk4pv3 {\n\twidth: 796px;\n\tmargin-bottom: -42px;\n}\n\n._35cLu0FiJi8Aya9kANGLJP {\n\tfont-size: 27px;\n\tfont-weight: bold;\n\tcolor: inherit;\n}\n\n._97IAdnFwwX7o6UPALTnL6 {\n\tmargin-top: 8px;\n}\n\n.HuN9t2QlrbX1i05Ufjyww {\n\twidth: 170px;\n}\n\n._1lODHij9o9HfotBQjjNm1N {\n\theight: 160px;\n}\n\n._16uNMo0YxWsGGoEf8l36O2 {\n\tmargin-top: -30px;\n\tmargin-bottom: -15px;\n\twidth: 768px;\n\tmargin-left: calc( ( 657px - 768px ) / 2 );\n}\n\n._1JUaYIX0pZ6y5TiSwfSVJX {\n\tdisplay: flex;\n\tjustify-content: space-between;\n\tmargin-bottom: 20px;\n}\n\n._24cloWyOMvyXkA4KqmWHqc {\n\t\n}\n\n._31SNx6Pg9lMDJFG77PbM6u {\n\tdisplay: flex;\n}\n\n._1mLSKjOuj5mKLEKXod9IKp {\n\twidth: 306px;\n\theight: 240px;\n\tmargin-right: 15px;\n\tflex-shrink: 0;\n}\n\n.mQRPkQMFqN3wx9eoZSWpY {\n\n}\n\n.ixlLFyr4zj4-lzEqYRtTz:not(:last-child) {\n\tmargin-bottom: 7px;\n}\n\n._1Ua2wPj4wlSWCvPKaa_vny {\n\tfont-weight: 700;\n}\n\n._1Ua2wPj4wlSWCvPKaa_vny:not(:last-child) {\n\tmargin-bottom: 7px;\n}\n\n._2RRDmumvbQsIVyhjaf7TTw:not(:last-child) {\n\tmargin-bottom: 7px;\n}\n\n._2q-RfHocjKPjEkTkhF3kSW:not(:last-child) {\n\tmargin-bottom: 7px;\n}\n\n._1FErJrDjG-s_tsb4PPzfIt {\n\n}\n\n._3rw7ukE8BL0mD-vyBGvhw7 {\n\tdisplay: none;\n\tmargin-top: 21px;\n}\n\n._2PqfvirtOGARWxGav9kYtA {\n\tdisplay: flex;\n\tjustify-content: space-between;\n}\n\n._2PqfvirtOGARWxGav9kYtA .mQRPkQMFqN3wx9eoZSWpY:not(:last-child) {\n\tmargin-bottom: 21px;\n}\n\n.fxI46sZRzcMcM2WMK_MNF {\n\twidth: 306px;\n}\n\n._1pOsQLtS3szV91KKUkmY6o {\n\twidth: 336px;\n}\n\n._3cODNT2e0X3yLiS8TW2Y7k {\n\tmargin-top: 7px;\n\tdisplay: inline-block;\n\tcursor: pointer;\n\ttext-decoration: underline;\n}\n\n._3cODNT2e0X3yLiS8TW2Y7k:hover {\n\ttext-decoration: none;\n}\n\n._14cCJkaiOsMy6T9-SNl_2D {\n\tmargin-left: calc(100% - 336px);\n}", ""]);
+	exports.push([module.id, "._1WejIhpkUMh4VTkZQk4pv3 {\n\tmax-width: 1024px;\n\tmargin-left: auto;\n\tmargin-right: auto;\n\tmargin-top: 40px;\n}\n\n._1WejIhpkUMh4VTkZQk4pv3 img {\n\tmax-width: 100%;\n}\n\n._1WejIhpkUMh4VTkZQk4pv3 {\n\twidth: 796px;\n\tmargin-bottom: -42px;\n}\n\n._35cLu0FiJi8Aya9kANGLJP {\n\tfont-size: 27px;\n\tfont-weight: bold;\n\tcolor: inherit;\n}\n\n._97IAdnFwwX7o6UPALTnL6 {\n\tmargin-top: 8px;\n}\n\n.HuN9t2QlrbX1i05Ufjyww {\n\twidth: 170px;\n}\n\n._1lODHij9o9HfotBQjjNm1N {\n\theight: 160px;\n}\n\n._16uNMo0YxWsGGoEf8l36O2 {\n\tmargin-top: -30px;\n\tmargin-bottom: -15px;\n\twidth: 768px;\n\tmargin-left: calc( ( 657px - 768px ) / 2 );\n}\n\n._1JUaYIX0pZ6y5TiSwfSVJX {\n\tdisplay: flex;\n\tjustify-content: space-between;\n\tmargin-bottom: 20px;\n}\n\n._24cloWyOMvyXkA4KqmWHqc {\n\t\n}\n\n._31SNx6Pg9lMDJFG77PbM6u {\n\tdisplay: flex;\n\tjustify-content: space-between;\n}\n\n._1mLSKjOuj5mKLEKXod9IKp {\n\twidth: 44%;\n\theight: 240px;\n\tflex-shrink: 0;\n}\n\n._1ahdP_R8lojar64x5rFb-z {\n\twidth: 50%;\n}\n\n.mQRPkQMFqN3wx9eoZSWpY {\n\n}\n\n.ixlLFyr4zj4-lzEqYRtTz:not(:last-child) {\n\tmargin-bottom: 7px;\n}\n\n._1Ua2wPj4wlSWCvPKaa_vny {\n\tfont-weight: 700;\n}\n\n._1Ua2wPj4wlSWCvPKaa_vny:not(:last-child) {\n\tmargin-bottom: 7px;\n}\n\n._2RRDmumvbQsIVyhjaf7TTw:not(:last-child) {\n\tmargin-bottom: 7px;\n}\n\n._2q-RfHocjKPjEkTkhF3kSW:not(:last-child) {\n\tmargin-bottom: 7px;\n}\n\n._1FErJrDjG-s_tsb4PPzfIt {\n\n}\n\n._3rw7ukE8BL0mD-vyBGvhw7 {\n\tdisplay: none;\n\tmargin-top: 21px;\n}\n\n._2PqfvirtOGARWxGav9kYtA {\n\tdisplay: flex;\n\tjustify-content: space-between;\n}\n\n._2PqfvirtOGARWxGav9kYtA .mQRPkQMFqN3wx9eoZSWpY:not(:last-child) {\n\tmargin-bottom: 21px;\n}\n\n.fxI46sZRzcMcM2WMK_MNF {\n\twidth: 44%;\n}\n\n._1pOsQLtS3szV91KKUkmY6o {\n\twidth: 50%;\n}\n\n._3cODNT2e0X3yLiS8TW2Y7k {\n\tmargin-top: 7px;\n\tdisplay: inline-block;\n\tcursor: pointer;\n\ttext-decoration: underline;\n}\n\n._3cODNT2e0X3yLiS8TW2Y7k:hover {\n\ttext-decoration: none;\n}\n\n._14cCJkaiOsMy6T9-SNl_2D {\n\tmargin-left: calc(100% - 336px);\n}\n\n._3tRc2PsYuENNsB7R1gQuIM {\n\tdisplay: flex;\n\talign-items: flex-start;\n}\n\n._2keonji84VvzrKT2N9jPfz {\n\tflex-shrink: 0;\n\tmargin-right: 25px;\n\twidth: 52px;\n}", ""]);
 	
 	// exports
 	exports.locals = {
@@ -14498,6 +14502,7 @@
 		"findEmpty": "_24cloWyOMvyXkA4KqmWHqc",
 		"findContainer": "_31SNx6Pg9lMDJFG77PbM6u",
 		"findMap": "_1mLSKjOuj5mKLEKXod9IKp",
+		"findMainPoint": "_1ahdP_R8lojar64x5rFb-z",
 		"findPoint": "mQRPkQMFqN3wx9eoZSWpY",
 		"findPointPhone": "ixlLFyr4zj4-lzEqYRtTz",
 		"findPointName": "_1Ua2wPj4wlSWCvPKaa_vny",
@@ -14509,7 +14514,9 @@
 		"findPointsEven": "fxI46sZRzcMcM2WMK_MNF",
 		"findPointsOdd": "_1pOsQLtS3szV91KKUkmY6o",
 		"findShowMore": "_3cODNT2e0X3yLiS8TW2Y7k",
-		"hideMore": "_14cCJkaiOsMy6T9-SNl_2D _3cODNT2e0X3yLiS8TW2Y7k"
+		"hideMore": "_14cCJkaiOsMy6T9-SNl_2D _3cODNT2e0X3yLiS8TW2Y7k",
+		"goToFirst": "_3tRc2PsYuENNsB7R1gQuIM",
+		"goToFirstImage": "_2keonji84VvzrKT2N9jPfz"
 	};
 
 /***/ },
@@ -14564,7 +14571,11 @@
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findShowMore : stack1), depth0))
 	    + " "
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.text : stack1), depth0))
-	    + "\" data-action=\"show-all-points\">\n								Показать все пункты в этом городе...\n							</div>\n						</div>\n";
+	    + "\" data-action=\"show-all-points\">\n								Показать все пункты в этом городе...\n							</div>\n							<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findShowMore : stack1), depth0))
+	    + " "
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.text : stack1), depth0))
+	    + "\" style=\"display: none\" data-action=\"hide-all-points\">\n								Свернуть\n							</div>\n						</div>\n";
 	},"6":function(container,depth0,helpers,partials,data) {
 	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
 	
@@ -14681,11 +14692,7 @@
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findPointsOdd : stack1), depth0))
 	    + "\">\n"
 	    + ((stack1 = helpers.each.call(alias3,(depth0 != null ? depth0.oddPoints : depth0),{"name":"each","hash":{},"fn":container.program(10, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-	    + "						</div>\n					</div>\n					<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.hideMore : stack1), depth0))
-	    + " "
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.text : stack1), depth0))
-	    + "\" data-action=\"hide-all-points\">\n						Свернуть\n					</div>\n				</div>\n			</div>\n		</div>\n		<div class=\""
+	    + "						</div>\n					</div>\n				</div>\n			</div>\n		</div>\n		<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
 	    + "\">\n			<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
@@ -14837,9 +14844,9 @@
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
 	    + "\">\n					<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.goToFirst : stack1), depth0))
-	    + "\">\n						<div class=\""
+	    + "\">\n						<img src=\"/static/location.png\" class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.goToFirstImage : stack1), depth0))
-	    + "\">\n						</div>\n						<div class=\""
+	    + "\">\n						<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.goToFirstText : stack1), depth0))
 	    + "\">\n							<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
@@ -16240,8 +16247,8 @@
 			key: 'defaults',
 			get: function get() {
 				return {
-					state: states.START,
-					step: 0,
+					state: states.GAME,
+					step: 2,
 					result: true,
 					reason: null,
 					data: {}
@@ -16606,7 +16613,7 @@
 	
 	
 	// module
-	exports.push([module.id, "._10fHIjkbAdfadwMqaQz6Pc {\n\tdisplay: none;\n}\n\n._10fHIjkbAdfadwMqaQz6Pc:checked + ._1qRt3sNTNbILEj2ckyiMuH::after {\n\topacity: 1;\n}\n\n._1qRt3sNTNbILEj2ckyiMuH {\n\tfont-family: 'Roboto', sans-serif;\n\tfont-weight: 300;\n\tfont-size: 16px;\n\tposition: relative;\n\tpadding-left: 42px;\n\theight: 26px;\n\tline-height: 26px;\n\tdisplay: inline-block;\n\tcursor: pointer;\n}\n\n._1qRt3sNTNbILEj2ckyiMuH::before {\n\tdisplay: block;\n\tposition: absolute;\n\tleft: 0;\n\tbottom: 0;\n\twidth: 26px;\n\theight: 26px;\n\tborder: 1px solid #000;\n\tborder-radius: 50%;\n\tcontent: '';\n}\n\n._1qRt3sNTNbILEj2ckyiMuH::after {\n\tdisplay: block;\n\tposition: absolute;\n\tleft: 4px;\n\tbottom: 4px;\n\twidth: 18px;\n\theight: 18px;\n\tbackground-color: #FFD637;\n\tborder-radius: 50%;\n\ttransition: all 0.15s ease;\n\topacity: 0;\n\tcontent: '';\n}\n\n.jX-n3oTShl9DdR8pTgsJO {\n\tdisplay: none;\n}\n\n.jX-n3oTShl9DdR8pTgsJO:checked + ._1cpV2qSiHdrEnfAa1NIoLC::after {\n\topacity: 1;\n}\n\n._1cpV2qSiHdrEnfAa1NIoLC {\n\tfont-family: 'Roboto', sans-serif;\n\tfont-weight: 300;\n\tfont-size: 16px;\n\tposition: relative;\n\tpadding-left: 42px;\n\tline-height: 26px;\n\tdisplay: inline-block;\n\tcursor: pointer;\n}\n\n._1cpV2qSiHdrEnfAa1NIoLC::before {\n\tdisplay: block;\n\tposition: absolute;\n\tleft: 0;\n\ttop: 8px;\n\twidth: 26px;\n\theight: 26px;\n\tborder: 1px solid #000;\n\tcontent: '';\n}\n\n._1cpV2qSiHdrEnfAa1NIoLC::after {\n\tdisplay: block;\n\tposition: absolute;\n\tleft: 4px;\n\ttop: 12px;\n\twidth: 18px;\n\theight: 18px;\n\ttransition: all 0.15s ease;\n\tbackground-color: #FFD637;\n\topacity: 0;\n\tcontent: '';\n}\n\n._3lp0pnIvm8INrj2DL5oHcL {\n\tfont-family: 'Roboto', sans-serif;\n\tfont-weight: 300;\n\tdisplay: inline-block;\n\tborder: 1px solid #000;\n\theight: 42px;\n    width: 86px;\n\tpadding: 8px;\n\tfont-size: 24px;\n\ttext-align: center;\n\tborder-radius: 0;\n\tbox-shadow: none;\n}\n\n._3kVhXjYTQ-iYqCY9buu_8L {\n\tfont-family: 'Roboto', sans-serif;\n\tletter-spacing: 4px;\n\tfont-size: 22px;\n\tfont-weight: 300;\n\tcolor: #000;\n\ttext-transform: uppercase;\n\tborder: none;\n\tbackground-image: none;\n\tbackground-color: #f0c730;\n\theight: 62px;\n\tline-height: 62px;\n\tmin-width: 290px;\n\tcursor: pointer;\n\tborder-radius: 5px;\n\tcolor: #fff;\n\ttransform: translate3d(0,0,0);\n\tbox-shadow: 3px 3px 0px 0px #c89d25;\n\ttransition: all 0.15s ease;\n}\n\n._3kVhXjYTQ-iYqCY9buu_8L:hover {\n\tbackground-color: #dfb52b;\n}\n\n._3kVhXjYTQ-iYqCY9buu_8L[disabled] {\n\tbox-shadow: none;\n\topacity: 0.7;\n\tcursor: default;\n\tbackground-color: #f0c730;\n}\n\n._3kVhXjYTQ-iYqCY9buu_8L:active {\n\tposition: relative;\n\ttransform: translate3d(2px,2px,0);\n\tbox-shadow: 1px 1px 0px 0px #c89d25;\n}\n\n.u5lqlNo6_x0Aq3I55gEjP {\n\tanimation: _1lP-KYA1WVO-YcgrRmr9_W 0.82s cubic-bezier(.36,.07,.19,.97) both;\n\ttransform: translate3d(0, 0, 0);\n\tbackface-visibility: hidden;\n\tperspective: 1000px;\n}\n\nselect {\n\t-webkit-appearance: none;\n    -moz-appearance: none;\n    appearance: none;\n}\n\n._2GFL1NFl8wZczLoXqOQXSK {\n\tfont-family: 'Roboto', sans-serif;\n\theight: 44px;\n    padding-left: 12px;\n    padding-right: 40px;\n    border-radius: 0;\n    background-color: transparent;\n    position: relative;\n    border: 2px solid #000;\n    background-repeat: no-repeat;\n    background-position: calc(100% - 10px) 13px;\n    font-size: 16px;\n    cursor: pointer;\n\tbackground-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAOCAMAAADzLXfBAAAAKlBMVEUAAAAHhZkHhZkHhZkHhZkHhZkHhZkHhZkHhZkHhZkHhZkHhZkHhZkHhZlcyRY1AAAADXRSTlMAECAwQFBggJ+/z9/vqywp7gAAAE1JREFUeNptz0EOgCAMRNGP1YoI97+u0djQkHnL+ZsW2yV8SFDV7MhQebV1vviUJdyFP/Q8dyNYDgeTzfkk83SKCq2QxRt9AxUMoQ0nPOlaCJGajzbZAAAAAElFTkSuQmCC);\n}\n\n@keyframes _1lP-KYA1WVO-YcgrRmr9_W {\n\t10%, 90% {\n\t\ttransform: translate3d(-2px, 0, 0);\n\t}\n\n\t20%, 80% {\n\t\ttransform: translate3d(3px, 0, 0);\n\t}\n\n\t30%, 50%, 70% {\n\t\ttransform: translate3d(-6px, 0, 0);\n\t}\n\n\t40%, 60% {\n\t\ttransform: translate3d(6px, 0, 0);\n\t}\n}", ""]);
+	exports.push([module.id, "._10fHIjkbAdfadwMqaQz6Pc {\n\tdisplay: none;\n}\n\n._10fHIjkbAdfadwMqaQz6Pc:checked + ._1qRt3sNTNbILEj2ckyiMuH::after {\n\topacity: 1;\n}\n\n._1qRt3sNTNbILEj2ckyiMuH {\n\tfont-family: 'Roboto', sans-serif;\n\tfont-weight: 300;\n\tfont-size: 16px;\n\tposition: relative;\n\tpadding-left: 42px;\n\theight: 26px;\n\tline-height: 26px;\n\tdisplay: inline-block;\n\tcursor: pointer;\n}\n\n._1qRt3sNTNbILEj2ckyiMuH::before {\n\tdisplay: block;\n\tposition: absolute;\n\tleft: 0;\n\tbottom: 0;\n\twidth: 26px;\n\theight: 26px;\n\tborder: 1px solid #000;\n\tborder-radius: 50%;\n\tcontent: '';\n}\n\n._1qRt3sNTNbILEj2ckyiMuH::after {\n\tdisplay: block;\n\tposition: absolute;\n\tleft: 4px;\n\tbottom: 4px;\n\twidth: 18px;\n\theight: 18px;\n\tbackground-color: #FFD637;\n\tborder-radius: 50%;\n\ttransition: all 0.15s ease;\n\topacity: 0;\n\tcontent: '';\n}\n\n.jX-n3oTShl9DdR8pTgsJO {\n\tdisplay: none;\n}\n\n.jX-n3oTShl9DdR8pTgsJO:checked + ._1cpV2qSiHdrEnfAa1NIoLC::after {\n\topacity: 1;\n}\n\n._1cpV2qSiHdrEnfAa1NIoLC {\n\tfont-family: 'Roboto', sans-serif;\n\tfont-weight: 300;\n\tfont-size: 16px;\n\tposition: relative;\n\tpadding-left: 42px;\n\tline-height: 26px;\n\tdisplay: inline-block;\n\tcursor: pointer;\n}\n\n._1cpV2qSiHdrEnfAa1NIoLC::before {\n\tdisplay: block;\n\tposition: absolute;\n\tleft: 0;\n\ttop: 0;\n\twidth: 26px;\n\theight: 26px;\n\tborder: 1px solid #000;\n\tcontent: '';\n}\n\n._1cpV2qSiHdrEnfAa1NIoLC::after {\n\tdisplay: block;\n\tposition: absolute;\n\tleft: 4px;\n\ttop: 4px;\n\twidth: 18px;\n\theight: 18px;\n\ttransition: all 0.15s ease;\n\tbackground-color: #FFD637;\n\topacity: 0;\n\tcontent: '';\n}\n\n._3lp0pnIvm8INrj2DL5oHcL {\n\tfont-family: 'Roboto', sans-serif;\n\tfont-weight: 300;\n\tdisplay: inline-block;\n\tborder: 1px solid #000;\n\theight: 42px;\n    width: 86px;\n\tpadding: 8px;\n\tfont-size: 24px;\n\ttext-align: center;\n\tborder-radius: 0;\n\tbox-shadow: none;\n}\n\n._3kVhXjYTQ-iYqCY9buu_8L {\n\tfont-family: 'Roboto', sans-serif;\n\tletter-spacing: 4px;\n\tfont-size: 22px;\n\tfont-weight: 300;\n\tcolor: #000;\n\ttext-transform: uppercase;\n\tborder: none;\n\tbackground-image: none;\n\tbackground-color: #f0c730;\n\theight: 62px;\n\tline-height: 62px;\n\tmin-width: 290px;\n\tcursor: pointer;\n\tborder-radius: 5px;\n\tcolor: #fff;\n\ttransform: translate3d(0,0,0);\n\tbox-shadow: 3px 3px 0px 0px #c89d25;\n\ttransition: all 0.15s ease;\n}\n\n._3kVhXjYTQ-iYqCY9buu_8L:hover {\n\tbackground-color: #dfb52b;\n}\n\n._3kVhXjYTQ-iYqCY9buu_8L[disabled] {\n\tbox-shadow: none;\n\topacity: 0.7;\n\tcursor: default;\n\tbackground-color: #f0c730;\n}\n\n._3kVhXjYTQ-iYqCY9buu_8L:active {\n\tposition: relative;\n\ttransform: translate3d(2px,2px,0);\n\tbox-shadow: 1px 1px 0px 0px #c89d25;\n}\n\n.u5lqlNo6_x0Aq3I55gEjP {\n\tanimation: _1lP-KYA1WVO-YcgrRmr9_W 0.82s cubic-bezier(.36,.07,.19,.97) both;\n\ttransform: translate3d(0, 0, 0);\n\tbackface-visibility: hidden;\n\tperspective: 1000px;\n}\n\nselect {\n\t-webkit-appearance: none;\n    -moz-appearance: none;\n    appearance: none;\n}\n\n._2GFL1NFl8wZczLoXqOQXSK {\n\tfont-family: 'Roboto', sans-serif;\n    height: 44px;\n    padding-left: 12px;\n    padding-right: 50px;\n    border-radius: 0;\n    background-color: transparent;\n    position: relative;\n    border: 1px solid #000;\n    background-repeat: no-repeat;\n    background-position: calc(100% - 10px) 16px;\n    background-size: 14px;\n    font-size: 16px;\n    cursor: pointer;\n\tbackground-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAOCAMAAADzLXfBAAAAKlBMVEUAAAAHhZkHhZkHhZkHhZkHhZkHhZkHhZkHhZkHhZkHhZkHhZkHhZkHhZlcyRY1AAAADXRSTlMAECAwQFBggJ+/z9/vqywp7gAAAE1JREFUeNptz0EOgCAMRNGP1YoI97+u0djQkHnL+ZsW2yV8SFDV7MhQebV1vviUJdyFP/Q8dyNYDgeTzfkk83SKCq2QxRt9AxUMoQ0nPOlaCJGajzbZAAAAAElFTkSuQmCC);\n}\n\n@keyframes _1lP-KYA1WVO-YcgrRmr9_W {\n\t10%, 90% {\n\t\ttransform: translate3d(-2px, 0, 0);\n\t}\n\n\t20%, 80% {\n\t\ttransform: translate3d(3px, 0, 0);\n\t}\n\n\t30%, 50%, 70% {\n\t\ttransform: translate3d(-6px, 0, 0);\n\t}\n\n\t40%, 60% {\n\t\ttransform: translate3d(6px, 0, 0);\n\t}\n}", ""]);
 	
 	// exports
 	exports.locals = {
@@ -16766,7 +16773,7 @@
 	
 	
 	// module
-	exports.push([module.id, "._3HKYlb7Vl6Iztk4-tC_BvZ {\n\ttext-align: left;\n\tmargin: auto;\n}\n\n._3m4BXQ40TaSw_695CDQc5o {\n\tmargin: 0;\n}\n\n.EjQqlofCJUMJf9KAV_dIh {\n\ttext-align: left;\n}\n\n.EjQqlofCJUMJf9KAV_dIh ._1AqLMaC9TJ6xn7EKtufMhi:not(:last-child) {\n\tmargin-bottom: 23px;\n}\n\n.WQ9BEtiggpUohVS_zgPoD {\n\ttext-align: left;\n}\n\n._2lOXnJo1wdTO1NE9f7TYGq {\n\tdisplay: flex;\n\tflex-wrap: wrap;\n\tflex-direction: column;\n\theight: 200px;\n}\n\n._2lOXnJo1wdTO1NE9f7TYGq ._5nZ_ma_l1V-rlYzO9KdDB {\n\twidth: calc(50% - 10px);\n}\n\n._2lOXnJo1wdTO1NE9f7TYGq ._5nZ_ma_l1V-rlYzO9KdDB:not(:last-child) {\n\tmargin-bottom: 23px;\n}\n\n.CY-R0zNjVnWMwfVMTfk1u {\n\t\n}", ""]);
+	exports.push([module.id, "._3HKYlb7Vl6Iztk4-tC_BvZ {\n\ttext-align: left;\n\tmargin: auto;\n\tposition: relative;\n}\n\n._3m4BXQ40TaSw_695CDQc5o {\n\tmargin: 0;\n}\n\n.EjQqlofCJUMJf9KAV_dIh {\n\ttext-align: left;\n}\n\n.EjQqlofCJUMJf9KAV_dIh ._1AqLMaC9TJ6xn7EKtufMhi:not(:last-child) {\n\tmargin-bottom: 21px;\n}\n\n.WQ9BEtiggpUohVS_zgPoD {\n\ttext-align: left;\n}\n\n._2lOXnJo1wdTO1NE9f7TYGq {\n\tdisplay: flex;\n\tflex-wrap: wrap;\n\tflex-direction: column;\n\theight: 200px;\n\tmargin-bottom: -21px;\n}\n\n._2lOXnJo1wdTO1NE9f7TYGq ._5nZ_ma_l1V-rlYzO9KdDB {\n\twidth: calc(50% - 10px);\n}\n\n._2lOXnJo1wdTO1NE9f7TYGq ._5nZ_ma_l1V-rlYzO9KdDB:not(:last-child) {\n\tmargin-bottom: 21px;\n}\n\n.CY-R0zNjVnWMwfVMTfk1u {\n\tmargin-top: 44px;\n}\n\n._3lYQsW3cc0xDgaiRcAwKBs {\n\tdisplay: none;\n\tposition: absolute;\n    z-index: 3;\n    left: 365px;\n    top: 173px;\n\twidth: 420px;\n\tfont-size: 10px;\n\tline-height: 15px;\n\tbackground-color: rgba(9, 159, 175, 0.27);\n\tpadding: 24px;\n}\n\n._1nF2Jvd23mv6WCj4f2p9-J {\n\tdisplay: flex;\n\tjustify-content: flex-start;\n\talign-items: flex-start;\n}\n\n._320FMHY6Zq7JbhbLouCfCj {\n\tfont-weight: bold;\n\tmargin-bottom: 3px;\n}\n\n._1_0uQ0i-1Q2gBAY2m8sRhh {\n\tmargin: 0;\n\tpadding-left: 13px;\n}\n\n._2tuliSpd6Yb2uLyt1BLJAs:first-child {\n\twidth: 270px;\n\tflex-shrink: 0;\n}", ""]);
 	
 	// exports
 	exports.locals = {
@@ -16777,7 +16784,12 @@
 		"formDisease": "WQ9BEtiggpUohVS_zgPoD _3m4BXQ40TaSw_695CDQc5o",
 		"formDiseaseContainer": "_2lOXnJo1wdTO1NE9f7TYGq",
 		"checkbox": "_5nZ_ma_l1V-rlYzO9KdDB",
-		"actions": "CY-R0zNjVnWMwfVMTfk1u"
+		"actions": "CY-R0zNjVnWMwfVMTfk1u",
+		"autoList": "_3lYQsW3cc0xDgaiRcAwKBs",
+		"autoListContainer": "_1nF2Jvd23mv6WCj4f2p9-J",
+		"autoListTitle": "_320FMHY6Zq7JbhbLouCfCj",
+		"autoListUl": "_1_0uQ0i-1Q2gBAY2m8sRhh",
+		"autoListCol": "_2tuliSpd6Yb2uLyt1BLJAs"
 	};
 
 /***/ },
@@ -17266,9 +17278,17 @@
 		}, {
 			key: 'events',
 			get: function get() {
+				var _this2 = this;
+	
 				return {
 					'submit [data-action="test-form"]': '_answer',
-					'change [data-action="test-input"]': '_changeAuto'
+					'change [data-action="test-input"]': '_changeAuto',
+					'mouseenter [data-action="show-full-list"]': function mouseenterDataActionShowFullList(e) {
+						_this2.$el.find('[data-role="full-list"]').show();
+					},
+					'mouseleave [data-action="show-full-list"]': function mouseleaveDataActionShowFullList(e) {
+						_this2.$el.find('[data-role="full-list"]').hide();
+					}
 				};
 			}
 		}]);
@@ -17291,9 +17311,53 @@
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
 	    + "\">\n	Были ли у вас\n	<br>\n	гемотрансмиссионные заболевания?\n</div>\n<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n	Это заболевания, которые передаются через кровь.\n	<br>\n	Например, вирусные гепатиты, СПИД, токсоплазмоз.\n	<br>\n	Если сомневаетесь, <a href=\"#\" target=\"_blank\" class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
-	    + "\">посмотрите список гемотрансмиссионных заболеваний</a>.\n</div>\n<form class=\""
+	    + "\">\n	Это заболевания, которые передаются через кровь.\n	<br>\n	Например, вирусные гепатиты, СПИД, токсоплазмоз.\n	<br>\n	Если сомневаетесь, посмотрите <span target=\"_blank\" data-action=\"show-full-list\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.linkPseudo : stack1), depth0))
+	    + "\">полный список</span>.\n	<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoList : stack1), depth0))
+	    + "\" data-role=\"full-list\">\n		<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListContainer : stack1), depth0))
+	    + "\">\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListCol : stack1), depth0))
+	    + "\">\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListTitle : stack1), depth0))
+	    + "\">Инфекционные:</div>\n				<ul class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListUl : stack1), depth0))
+	    + "\">\n					<li class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListLi : stack1), depth0))
+	    + "\">СПИД, носительство ВИЧ-инфекции;</li>\n					<li class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListLi : stack1), depth0))
+	    + "\">Сифилис, врожденный или приобретенный;</li>\n					<li class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListLi : stack1), depth0))
+	    + "\">Вирусные гепатиты, положительный результат\n						<br>\n						исследования на маркеры вирусных гепатитов\n						<br>\n						(HBsAg, анти-HCV антител);</li>\n					<li class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListLi : stack1), depth0))
+	    + "\">Туберкулез, все формы;</li>\n					<li class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListLi : stack1), depth0))
+	    + "\">Бруцеллез;</li>\n					<li class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListLi : stack1), depth0))
+	    + "\">Сыпной тиф;</li>\n					<li class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListLi : stack1), depth0))
+	    + "\">Туляремия;</li>\n					<li class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListLi : stack1), depth0))
+	    + "\">Лепра.</li>\n				</ul>\n			</div>\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListCol : stack1), depth0))
+	    + "\">\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListTitle : stack1), depth0))
+	    + "\">Паразитарные:</div>\n				<ul class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListUl : stack1), depth0))
+	    + "\">\n					<li class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListLi : stack1), depth0))
+	    + "\">Эхинококкоз;</li>\n					<li class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListLi : stack1), depth0))
+	    + "\">Токсоплазмоз;</li>\n					<li class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListLi : stack1), depth0))
+	    + "\">Трипаносомоз;</li>\n					<li class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListLi : stack1), depth0))
+	    + "\">Филяриатоз;</li>\n					<li class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListLi : stack1), depth0))
+	    + "\">Ришта;</li>\n					<li class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListLi : stack1), depth0))
+	    + "\">Лейшманиоз</li>\n				</ul>\n			</div>\n		</div>\n	</div>\n</div>\n<form class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.formAuto : stack1), depth0))
 	    + "\" data-action=\"test-form\">\n	<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))

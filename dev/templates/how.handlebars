@@ -81,6 +81,9 @@
 							<div class="{{how.findShowMore}} {{typography.text}}" data-action="show-all-points">
 								Показать все пункты в этом городе...
 							</div>
+							<div class="{{how.findShowMore}} {{typography.text}}" style="display: none" data-action="hide-all-points">
+								Свернуть
+							</div>
 						</div>
 					{{/if}}
 				</div>
@@ -132,9 +135,6 @@
 								</div>
 							{{/each}}
 						</div>
-					</div>
-					<div class="{{how.hideMore}} {{typography.text}}" data-action="hide-all-points">
-						Свернуть
 					</div>
 				</div>
 			</div>
@@ -309,8 +309,7 @@
 			<div class="{{page.container}}">
 				<div class="{{typography.paragraph}}">
 					<div class="{{how.goToFirst}}">
-						<div class="{{how.goToFirstImage}}">
-						</div>
+						<img src="/static/location.png" class="{{how.goToFirstImage}}">
 						<div class="{{how.goToFirstText}}">
 							<div class="{{typography.paragraph}}">
 								Если вы&nbsp;решили стать донором костного мозга, сделайте первый шаг&nbsp;&mdash; найдите пункт, в&nbsp;котором сможете сдать кровь и&nbsp;вступить в&nbsp;регистр.

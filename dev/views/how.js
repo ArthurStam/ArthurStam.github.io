@@ -81,7 +81,8 @@ class ShareModel extends Backbone.Model {
 	get defaults() {
 		return {
 			title: 'Как стать донором костного мозга',
-			description: 'И зачем это нужно. Рассказываем о донорстве костного мозга, чтобы увеличить российский регистр и помочь людям находить подходящих доноров. Присоединяйтесь!'
+			description: 'И зачем это нужно. Рассказываем о донорстве костного мозга, чтобы увеличить российский регистр и помочь людям находить подходящих доноров. Присоединяйтесь!',
+			image: 'http://arthurstam.github.io/static/share_main.png'
 		}
 	}
 }
@@ -112,11 +113,13 @@ export default class extends PageView {
 
 			'click [data-action="show-all-points"]': (e) => {
 				this.$el.find('[data-action="show-all-points"]').hide();
+				this.$el.find('[data-action="hide-all-points"]').show();
 				this.$el.find('[data-role="all-points"]').show();
 			},
 
 			'click [data-action="hide-all-points"]': (e) => {
 				this.$el.find('[data-action="show-all-points"]').show();
+				this.$el.find('[data-action="hide-all-points"]').hide();
 				this.$el.find('[data-role="all-points"]').hide();
 			}
 		}

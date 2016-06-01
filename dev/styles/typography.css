@@ -36,8 +36,15 @@
 }
 
 .link {
+	cursor: pointer;
 	color: $greenBlue;
 	text-decoration: underline;
+}
+
+.linkPseudo {
+	cursor: pointer;
+	color: $greenBlue;
+	border-bottom: 1px dotted $greenBlue;
 }
 
 .bold {

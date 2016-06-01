@@ -3,6 +3,7 @@
 .root {
 	text-align: left;
 	margin: auto;
+	position: relative;
 }
 
 .form {
@@ -31,6 +32,7 @@
 	flex-wrap: wrap;
 	flex-direction: column;
 	height: 200px;
+	margin-bottom: -$paragraphMargin;
 
 	.checkbox {
 		width: calc(50% - 10px);
@@ -42,5 +44,42 @@
 }
 
 .actions {
-	
+	margin-top: $sectionMargin;
+}
+
+.autoList {
+	display: none;
+	position: absolute;
+    z-index: 3;
+    left: 365px;
+    top: 173px;
+	width: 420px;
+	font-size: 10px;
+	line-height: 15px;
+	background-color: $blue;
+	padding: 24px;
+}
+
+.autoListContainer {
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+}
+
+.autoListTitle {
+	font-weight: bold;
+	margin-bottom: 3px;
+}
+
+.autoListUl {
+	margin: 0;
+	padding-left: 13px;
+}
+
+.autoListCol {
+
+	&:first-child {
+		width: 270px;
+		flex-shrink: 0;
+	}
 }

@@ -14,7 +14,13 @@ export default class extends StepView {
 	get events() {
 		return {
 			'submit [data-action="test-form"]': '_answer',
-			'change [data-action="test-input"]': '_changeAuto'
+			'change [data-action="test-input"]': '_changeAuto',
+			'mouseenter [data-action="show-full-list"]': (e) => {
+				this.$el.find('[data-role="full-list"]').show();
+			},
+			'mouseleave [data-action="show-full-list"]': (e) => {
+				this.$el.find('[data-role="full-list"]').hide();
+			}
 		};
 	}
 
