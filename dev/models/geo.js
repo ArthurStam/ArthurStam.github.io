@@ -8,7 +8,7 @@ export default class extends Backbone.Model {
 	fetch(lat, lon) {
 		return new Promise((resolve, reject) => {
 			ajax({
-				url: `http://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lon}&sensor=true`,
+				url: `${location.protocol}//maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lon}&sensor=true`,
 				type: 'get'
 			}).then((response) => {
 				let locality = _.find(response.results, (item) => {

@@ -19028,7 +19028,7 @@
 	
 				return new Promise(function (resolve, reject) {
 					(0, _ajax2.default)({
-						url: 'http://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + lon + '&sensor=true',
+						url: location.protocol + '//maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + lon + '&sensor=true',
 						type: 'get'
 					}).then(function (response) {
 						var locality = _underscore2.default.find(response.results, function (item) {
