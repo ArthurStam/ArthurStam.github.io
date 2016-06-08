@@ -13501,10 +13501,6 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	// import ShareView from 'dev/views/share';
-	
-	// import GeoModel from 'dev/models/geo';
-	
 	
 	var _class = function (_BaseView) {
 		_inherits(_class, _BaseView);
@@ -13518,7 +13514,6 @@
 		_createClass(_class, [{
 			key: 'init',
 			value: function init() {
-				var _this2 = this;
 	
 				this._router = new _backbone2.default.Router({
 					routes: {
@@ -13529,27 +13524,6 @@
 					}
 				});
 				!_backbone2.default.History.started && _backbone2.default.history.start();
-	
-				this.listenTo(this.geoModel, 'change', function () {
-					_this2.render();
-				});
-	
-				// if (navigator.geolocation) {
-				// 	navigator.geolocation.getCurrentPosition((position) => {
-				// 		this.geoModel.fetch(position.coords.latitude, position.coords.longitude);
-				// 	}, (error) => {
-				// 		switch(error.code) {
-				// 			case 1:
-				// 				this.render({ geo: { error: 'You have denied geolocation' } });
-				// 				break;
-				// 			default:
-				// 				this.render({ geo: { error: 'Something goes wrong with geolocation' } });
-				// 				break;
-				// 		}
-				// 	});
-				// } else {
-				// 	this.render({ geo: { error: 'Your browser doen\'t support geolocation' } });
-				// }
 			}
 		}, {
 			key: '_redirect',
@@ -13610,20 +13584,20 @@
 		}, {
 			key: 'events',
 			get: function get() {
-				var _this3 = this;
+				var _this2 = this;
 	
 				return {
 					'click [data-action="scroll-to"]': function clickDataActionScrollTo(e) {
 						var $element = (0, _jquery2.default)('' + (0, _jquery2.default)(e.currentTarget).data('element'));
-						$element.length && _this3._scrollTo($element.offset().top);
+						$element.length && _this2._scrollTo($element.offset().top);
 						return false;
 					},
 	
 					'click [data-action="redirect-and-scroll-to"]': function clickDataActionRedirectAndScrollTo(e) {
 						var pageName = (0, _jquery2.default)(e.currentTarget).data('page');
-						_this3._redirect(pageName);
+						_this2._redirect(pageName);
 						var $element = (0, _jquery2.default)('' + (0, _jquery2.default)(e.currentTarget).data('element'));
-						$element.length && _this3._scrollTo($element.offset().top);
+						$element.length && _this2._scrollTo($element.offset().top);
 						return false;
 					}
 				};
@@ -13800,6 +13774,22 @@
 	
 	var _share2 = _interopRequireDefault(_share);
 	
+	var _map = __webpack_require__(83);
+	
+	var _map2 = _interopRequireDefault(_map);
+	
+	var _geo = __webpack_require__(87);
+	
+	var _geo2 = _interopRequireDefault(_geo);
+	
+	var _cities = __webpack_require__(80);
+	
+	var _cities2 = _interopRequireDefault(_cities);
+	
+	var _cities3 = __webpack_require__(82);
+	
+	var _cities4 = _interopRequireDefault(_cities3);
+	
 	var _page3 = __webpack_require__(10);
 	
 	var _page4 = _interopRequireDefault(_page3);
@@ -13828,114 +13818,11 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var cities = [{
-		value: null,
-		name: 'Выберите город'
-	}, {
-		value: 'murmansk',
-		coords: [68.969563, 33.07454],
-		name: 'Мурманск',
-		points: [{
-			coords: [68.95147, 33.103143],
-			name: 'Мурманская Областная Станция Переливания Крови',
-			address: 'ул. Павлова, 6',
-			time: 'предварительная запись с 15 до 18.00',
-			phone: '8 (8152) 25-02-61 (62 доктора)',
-			info: 'Принимают только доноров, на типирование можно сдать со второго раза, процедуру объясняют при записи'
-		}, {
-			coords: [68.925654, 33.107868],
-			name: 'CMD – Центр молекулярной диагностики',
-			address: 'Пр. Кольский, д. 61',
-			time: 'до сентября 2016 прием приостановлен, только группы от 20 человек',
-			phone: '8 (8152) 20-77-68',
-			info: 'до сентября 2016 прием приостановлен, только группы от 20 человек'
-		}, {
-			coords: [69.015151, 33.103313],
-			name: 'CMD – Центр молекулярной диагностики',
-			address: 'Ул. Лобова, д. 4',
-			time: 'до сентября 2016 прием приостановлен, только группы от 20 человек',
-			phone: '8 (8152) 20-77-68',
-			info: 'до сентября 2016 прием приостановлен, только группы от 20 человек'
-		}]
-	}, {
-		value: 'spb',
-		coords: [59.939095, 30.315868],
-		name: 'Санкт-Петербург',
-		points: [{
-			coords: [59.96566, 30.324968],
-			name: 'Институт детской гематологии и трансплантологии им. Р.М. Горбачевой',
-			address: 'Ст.м. Петроградская, ул. Рентгена, 12, 10 эт., каб. 1007',
-			time: 'вторник 16:00 - 19:00, четверг 10:00 - 12:00',
-			info: 'Записываться заранее не нужно, просто приходите'
-		}, {
-			coords: [59.964273, 30.321348],
-			name: 'ПСПбГМУ им. Павлова',
-			address: 'Ст.м. Петроградская, ул. Льва Толстого д. 19, корп. 53',
-			time: 'понедельник - четверг, с 8.30 до 11.30',
-			phone: '+7 (812) 429-24-13',
-			info: 'При себе иметь паспорт с пропиской в любом городе РФ'
-		}, {
-			coords: [59.83839, 30.418231],
-			name: 'Санкт-Петербургская детская инфекционная больница № 5 им. Н.Ф.Филатова',
-			address: 'Ст. м. Купчино, ул. Бухарестская, д. 134',
-			time: 'понедельник - пятница, с 9.00 до 12.00',
-			phone: '+7 (812) 366-71-66',
-			info: 'При себе иметь паспорт с пропиской в любом городе РФ'
-		}, {
-			coords: [59.972298, 30.279091],
-			name: 'Городская клиническая больница № 31',
-			address: 'Ст.м. Крестовский остров, пр. Динамо, д. 3',
-			time: 'понедельник, вторник и четверг с 8.30 до 12.00, вторник и четверг с 15.00 до 18.00. В среду ОПК принимают организованные группы доноров по предварительной записи',
-			phone: '+7 (812) 235-73-81',
-			info: 'При себе иметь паспорт с пропиской в любом городе РФ'
-		}]
-	}, {
-		value: 'msk',
-		coords: [55.75396, 37.620393],
-		name: 'Москва',
-		points: [{
-			coords: [55.543766, 37.539922],
-			name: 'Медицинская клиника LeVita',
-			address: 'Ул. Южнобутовская, д. 10 (ст. метро «Бульвар Адмирала Ушакова»)',
-			time: 'пн-чт 12:00 - 16:00, Пт 14:00 - 17:00',
-			phone: '+7 (495) 505-5078, +7 (499) 793-2381, +7 (499) 793-2336, +7 (499) 793-2427',
-			info: 'Записаться можно на сайте клиники www.levita-med.ru, www.levita-kids.ru'
-		}, {
-			coords: [55.801334, 37.552058],
-			name: 'Гематологический научный центр Минздрава России',
-			address: 'Новый Зыковский проезд, д.4А (ст. метро «Динамо»)',
-			time: 'пн-пт 8:00 - 14:00',
-			phone: '+7 (905) 568-5760, +7 (903) 128-84-18'
-		}]
-	}, {
-		value: 'kzn',
-		coords: [55.798551, 49.106324],
-		name: 'Казань',
-		points: [{
-			coords: [55.783251, 49.126734],
-			name: 'Казанский филиал Кировского регистра',
-			address: 'ул. Островского, 69/3',
-			time: 'будние дни с 8 до 12',
-			phone: '+7 (843) 292-12-02'
-		}, {
-			coords: [55.72857, 49.1788],
-			name: 'Детская республиканская клиническая больница',
-			address: 'Оренбургский тракт, 140, 1 корпус, Отделение переливания крови, 3-й этаж поликлиники',
-			time: 'будние дни 8:30 – 12:00',
-			phone: '+7 (843) 267-89-20'
-		}, {
-			coords: [55.73002, 49.188655],
-			name: 'РКБ',
-			address: 'Оренбургский тракт, 138',
-			phone: '+7 (843) 237-35-36'
-		}, {
-			coords: [55.753169, 49.171075],
-			name: 'Межрегиональный клинико-диагностический центр (МКДЦ)',
-			address: 'Ул. Карбышева, 12 А, Отделение переливания крови, Блок Б, 1 этаж',
-			time: '8:00 – 12:00',
-			phone: '+7 (843) 291-10-97, +7 (843) 291-10-75'
-		}]
-	}];
+	var citiesCollection = new _cities2.default();
+	
+	_cities4.default.forEach(function (city) {
+		citiesCollection.add(city);
+	});
 	
 	var HowShareView = function (_ShareView) {
 		_inherits(HowShareView, _ShareView);
@@ -13998,40 +13885,68 @@
 			value: function init() {
 				var _this4 = this;
 	
-				try {
-					ymaps.ready(function () {
-						_this4.shareView = _this4.registerChild(new HowShareView({
-							shareModel: new ShareModel()
-						}), 'how-share');
-						_this4.shareView.render();
-						_this4.render();
-					});
-				} catch (e) {
-					this.render({ error: 1 });
-				}
-			}
-		}, {
-			key: '_appended',
-			value: function _appended() {
-				_get(Object.getPrototypeOf(_class.prototype), '_appended', this).call(this);
-			}
-		}, {
-			key: '_addPlacemarks',
-			value: function _addPlacemarks(points) {
-				var coords = _underscore2.default.pluck(points, 'coords');
+				this.geoModel = new _geo2.default();
 	
-				var collection = new ymaps.GeoObjectCollection({}, {
-					preset: 'islands#redIcon'
+				ymaps.ready(function () {
+					if (navigator.geolocation) {
+						navigator.geolocation.getCurrentPosition(function (position) {
+							_this4.geoModel.fetch(position.coords.latitude, position.coords.longitude).then(function () {
+								var city = _this4._findCity(_this4.geoModel.get('formatted_address'));
+								if (city) {
+									_this4._setCity(city);
+								} else {
+									_this4.render({
+										error: {
+											emptyCity: true,
+											data: {
+												formattedAddress: _this4.geoModel.get('formatted_address')
+											}
+										}
+									});
+									return;
+								}
+								_this4.render();
+							}, function (error) {});
+						}, function (error) {});
+					}
 				});
 	
-				for (var i = 0; i < coords.length; i++) {
-					var placemark = new ymaps.Placemark(coords[i]);
-					placemark.properties.set('balloonContent', points[i].address + '<br>' + points[i].name);
-					collection.add(placemark);
-				}
+				// this.listenTo(this.geoModel, 'change', () => {
 	
-				this._map.geoObjects.add(collection);
-				this._map.setBounds(this._map.geoObjects.getBounds());
+				// });
+			}
+		}, {
+			key: '_findCity',
+			value: function _findCity(formattedAddress) {
+				return citiesCollection.find(function (city) {
+					return city.get('formatted_address') == formattedAddress;
+				});
+			}
+		}, {
+			key: '_setCity',
+			value: function _setCity(city) {
+				var cityValue = city ? city.get('value') : null;
+				citiesCollection.each(function (city) {
+					city.selected = city.get('value') == cityValue;
+				});
+				this.currentCity = city;
+				return city;
+			}
+		}, {
+			key: 'render',
+			value: function render() {
+				var data = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	
+				_get(Object.getPrototypeOf(_class.prototype), 'render', this).call(this, data);
+				if (this.currentCity) {
+					this.removeChildren('how-map');
+					var mapView = this.registerChild(new _map2.default({
+						city: this.currentCity
+					}), 'how-map');
+					this.appendChildren('how-map');
+					mapView.render();
+				}
+				return this;
 			}
 		}, {
 			key: '_prepareData',
@@ -14046,12 +13961,14 @@
 					share: _share4.default
 				});
 	
-				data.cities = _underscore2.default.clone(cities);
-	
+				data.citiesCollection = citiesCollection;
+				data.currentCity = this.currentCity;
 				if (data.error) {
 					return data;
-				} else if (data.city) {
-					var points = _underscore2.default.clone(data.city.points);
+				}
+	
+				if (this.currentCity) {
+					var points = _underscore2.default.clone(this.currentCity.get('points'));
 					data.firstPoint = points.shift();
 					data.oddPoints = _underscore2.default.filter(points, function (point, index) {
 						return index % 2;
@@ -14074,25 +13991,11 @@
 				var _this5 = this;
 	
 				return {
-					'change [data-action="city"]': function changeDataActionCity(e) {
-						var cityValue = (0, _jquery2.default)(e.currentTarget).val();
-						if (cityValue) {
-							var city = _underscore2.default.find(cities, function (city) {
-								return city.value == cityValue;
-							});
-							_this5.city = city;
-							_this5.render({ city: city });
-	
-							_this5.$el.find('[data-action="city"]').val(cityValue);
-							_this5._map && _this5._map.destroy();
-							_this5._map = new ymaps.Map('map', {
-								center: [_this5.city.coords[0], _this5.city.coords[1]],
-								zoom: 4
-							});
-							_this5._addPlacemarks(city.points);
-						} else {
-							_this5.render({ error: 1 });
-						}
+					'change [data-action="select-city"]': function changeDataActionSelectCity(e) {
+						var formattedAddress = (0, _jquery2.default)(e.currentTarget).val();
+						var city = _this5._findCity(formattedAddress);
+						_this5._setCity(city);
+						_this5.render();
 					},
 	
 					'click [data-action="show-all-points"]': function clickDataActionShowAllPoints(e) {
@@ -16014,27 +15917,45 @@
 	var Handlebars = __webpack_require__(23);
 	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
 	module.exports = (Handlebars["default"] || Handlebars).template({"1":function(container,depth0,helpers,partials,data) {
-	    var alias1=container.lambda, alias2=container.escapeExpression;
-	
-	  return "							<option value=\""
-	    + alias2(alias1((depth0 != null ? depth0.value : depth0), depth0))
-	    + "\">"
-	    + alias2(alias1((depth0 != null ? depth0.name : depth0), depth0))
-	    + "</option>\n";
-	},"3":function(container,depth0,helpers,partials,data) {
 	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
 	
-	  return "						<div class=\""
+	  return "							<option value=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.attributes : depth0)) != null ? stack1.formatted_address : stack1), depth0))
+	    + "\" "
+	    + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.selected : depth0),{"name":"if","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + ">"
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.attributes : depth0)) != null ? stack1.name : stack1), depth0))
+	    + "</option>\n";
+	},"2":function(container,depth0,helpers,partials,data) {
+	    return "selected=\"selected\"";
+	},"4":function(container,depth0,helpers,partials,data) {
+	    var stack1;
+	
+	  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},((stack1 = (depth0 != null ? depth0.error : depth0)) != null ? stack1.emptyCity : stack1),{"name":"if","hash":{},"fn":container.program(5, data, 0),"inverse":container.program(7, data, 0),"data":data})) != null ? stack1 : "");
+	},"5":function(container,depth0,helpers,partials,data) {
+	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
+	
+	  return "							<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findEmpty : stack1), depth0))
 	    + " "
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.text : stack1), depth0))
-	    + "\">\n							Мы не смогли определить, где вы\n							<br>\n							находитесь. Пожалуйста, выберите\n							<br>\n							город вручную.\n						</div>\n";
-	},"5":function(container,depth0,helpers,partials,data) {
+	    + "\">\n								Мы определили ваш город, \n								<br>\n								это "
+	    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.error : depth0)) != null ? stack1.data : stack1)) != null ? stack1.formattedAddress : stack1), depth0))
+	    + ".\n								<br>\n								Но, к сожалению, в нем\n								<br>\n								нет пунктов для сдачи \n								<br>\n								костного мозга.\n							</div>\n";
+	},"7":function(container,depth0,helpers,partials,data) {
+	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
+	
+	  return "							<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findEmpty : stack1), depth0))
+	    + " "
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.text : stack1), depth0))
+	    + "\">\n								Мы не смогли определить, где вы\n								<br>\n								находитесь. Пожалуйста, выберите\n								<br>\n								город вручную.\n							</div>\n";
+	},"9":function(container,depth0,helpers,partials,data) {
 	    var stack1, alias1=container.lambda, alias2=container.escapeExpression, alias3=depth0 != null ? depth0 : {};
 	
-	  return "						<div class=\""
+	  return "						<div data-view=\"how-map\" class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findMap : stack1), depth0))
-	    + "\" id=\"map\">\n						</div>\n						<div class=\""
+	    + "\"></div>\n						<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findMainPoint : stack1), depth0))
 	    + "\">\n							<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findPoint : stack1), depth0))
@@ -16053,8 +15974,8 @@
 	    + "\">\n									Время работы: "
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.firstPoint : depth0)) != null ? stack1.time : stack1), depth0))
 	    + "\n								</div>\n"
-	    + ((stack1 = helpers["if"].call(alias3,((stack1 = (depth0 != null ? depth0.firstPoint : depth0)) != null ? stack1.phone : stack1),{"name":"if","hash":{},"fn":container.program(6, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-	    + ((stack1 = helpers["if"].call(alias3,((stack1 = (depth0 != null ? depth0.firstPoint : depth0)) != null ? stack1.info : stack1),{"name":"if","hash":{},"fn":container.program(8, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + ((stack1 = helpers["if"].call(alias3,((stack1 = (depth0 != null ? depth0.firstPoint : depth0)) != null ? stack1.phone : stack1),{"name":"if","hash":{},"fn":container.program(10, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + ((stack1 = helpers["if"].call(alias3,((stack1 = (depth0 != null ? depth0.firstPoint : depth0)) != null ? stack1.info : stack1),{"name":"if","hash":{},"fn":container.program(12, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
 	    + "							</div>\n							<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findShowMore : stack1), depth0))
 	    + " "
@@ -16064,7 +15985,7 @@
 	    + " "
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.text : stack1), depth0))
 	    + "\" style=\"display: none\" data-action=\"hide-all-points\">\n								Свернуть\n							</div>\n						</div>\n";
-	},"6":function(container,depth0,helpers,partials,data) {
+	},"10":function(container,depth0,helpers,partials,data) {
 	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
 	
 	  return "									<div class=\""
@@ -16072,7 +15993,7 @@
 	    + "\">\n										Телефон: "
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.firstPoint : depth0)) != null ? stack1.phone : stack1), depth0))
 	    + "\n									</div>\n";
-	},"8":function(container,depth0,helpers,partials,data) {
+	},"12":function(container,depth0,helpers,partials,data) {
 	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
 	
 	  return "									<div class=\""
@@ -16080,7 +16001,7 @@
 	    + "\">\n										"
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.firstPoint : depth0)) != null ? stack1.info : stack1), depth0))
 	    + "\n									</div>\n";
-	},"10":function(container,depth0,helpers,partials,data,blockParams,depths) {
+	},"14":function(container,depth0,helpers,partials,data,blockParams,depths) {
 	    var stack1, alias1=container.lambda, alias2=container.escapeExpression, alias3=depth0 != null ? depth0 : {};
 	
 	  return "								<div class=\""
@@ -16100,10 +16021,10 @@
 	    + "\">\n										Время работы: "
 	    + alias2(alias1((depth0 != null ? depth0.time : depth0), depth0))
 	    + "\n									</div>\n"
-	    + ((stack1 = helpers["if"].call(alias3,(depth0 != null ? depth0.phone : depth0),{"name":"if","hash":{},"fn":container.program(11, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-	    + ((stack1 = helpers["if"].call(alias3,(depth0 != null ? depth0.info : depth0),{"name":"if","hash":{},"fn":container.program(13, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + ((stack1 = helpers["if"].call(alias3,(depth0 != null ? depth0.phone : depth0),{"name":"if","hash":{},"fn":container.program(15, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + ((stack1 = helpers["if"].call(alias3,(depth0 != null ? depth0.info : depth0),{"name":"if","hash":{},"fn":container.program(17, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
 	    + "								</div>\n";
-	},"11":function(container,depth0,helpers,partials,data,blockParams,depths) {
+	},"15":function(container,depth0,helpers,partials,data,blockParams,depths) {
 	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
 	
 	  return "										<div class=\""
@@ -16111,7 +16032,7 @@
 	    + "\">\n											Телефон: "
 	    + alias2(alias1((depth0 != null ? depth0.phone : depth0), depth0))
 	    + "\n										</div>\n";
-	},"13":function(container,depth0,helpers,partials,data,blockParams,depths) {
+	},"17":function(container,depth0,helpers,partials,data,blockParams,depths) {
 	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
 	
 	  return "										<div class=\""
@@ -16160,14 +16081,14 @@
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findCity : stack1), depth0))
 	    + "\">\n					<select class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.inputs : depth0)) != null ? stack1.select : stack1), depth0))
-	    + "\" data-action=\"city\">\n"
-	    + ((stack1 = helpers.each.call(alias3,(depth0 != null ? depth0.cities : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + "\" data-action=\"select-city\">\n						<option>Выберите город</option>\n"
+	    + ((stack1 = helpers.each.call(alias3,((stack1 = (depth0 != null ? depth0.citiesCollection : depth0)) != null ? stack1.models : stack1),{"name":"each","hash":{},"fn":container.program(1, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
 	    + "					</select>\n"
-	    + ((stack1 = helpers.unless.call(alias3,(depth0 != null ? depth0.city : depth0),{"name":"unless","hash":{},"fn":container.program(3, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + ((stack1 = helpers.unless.call(alias3,(depth0 != null ? depth0.currentCity : depth0),{"name":"unless","hash":{},"fn":container.program(4, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
 	    + "				</div>\n				<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findContainer : stack1), depth0))
 	    + "\">\n"
-	    + ((stack1 = helpers["if"].call(alias3,(depth0 != null ? depth0.city : depth0),{"name":"if","hash":{},"fn":container.program(5, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + ((stack1 = helpers["if"].call(alias3,(depth0 != null ? depth0.currentCity : depth0),{"name":"if","hash":{},"fn":container.program(9, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
 	    + "				</div>\n				<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findPoints : stack1), depth0))
 	    + "\" data-role=\"all-points\">\n					<div class=\""
@@ -16175,11 +16096,11 @@
 	    + "\">\n						<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findPointsEven : stack1), depth0))
 	    + "\">\n"
-	    + ((stack1 = helpers.each.call(alias3,(depth0 != null ? depth0.evenPoints : depth0),{"name":"each","hash":{},"fn":container.program(10, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + ((stack1 = helpers.each.call(alias3,(depth0 != null ? depth0.evenPoints : depth0),{"name":"each","hash":{},"fn":container.program(14, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
 	    + "						</div>\n						<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findPointsOdd : stack1), depth0))
 	    + "\">\n"
-	    + ((stack1 = helpers.each.call(alias3,(depth0 != null ? depth0.oddPoints : depth0),{"name":"each","hash":{},"fn":container.program(10, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + ((stack1 = helpers.each.call(alias3,(depth0 != null ? depth0.oddPoints : depth0),{"name":"each","hash":{},"fn":container.program(14, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
 	    + "						</div>\n					</div>\n				</div>\n			</div>\n		</div>\n		<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
 	    + "\">\n			<div class=\""
@@ -18680,6 +18601,459 @@
 	
 	// exports
 
+
+/***/ },
+/* 80 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _backbone = __webpack_require__(1);
+	
+	var _backbone2 = _interopRequireDefault(_backbone);
+	
+	var _city = __webpack_require__(81);
+	
+	var _city2 = _interopRequireDefault(_city);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _class = function (_Backbone$Collection) {
+		_inherits(_class, _Backbone$Collection);
+	
+		function _class() {
+			_classCallCheck(this, _class);
+	
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(_class).apply(this, arguments));
+		}
+	
+		_createClass(_class, [{
+			key: 'model',
+			get: function get() {
+				return _city2.default;
+			}
+		}]);
+	
+		return _class;
+	}(_backbone2.default.Collection);
+	
+	exports.default = _class;
+
+/***/ },
+/* 81 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _backbone = __webpack_require__(1);
+	
+	var _backbone2 = _interopRequireDefault(_backbone);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _class = function (_Backbone$Model) {
+		_inherits(_class, _Backbone$Model);
+	
+		function _class() {
+			_classCallCheck(this, _class);
+	
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(_class).apply(this, arguments));
+		}
+	
+		_createClass(_class, [{
+			key: 'defaults',
+			get: function get() {
+				return {
+					value: '',
+					coords: [],
+					name: '',
+					formatted_address: '',
+					points: []
+				};
+			}
+		}]);
+	
+		return _class;
+	}(_backbone2.default.Model);
+	
+	exports.default = _class;
+
+/***/ },
+/* 82 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	exports.default = [{
+		value: 'murmansk',
+		coords: [68.969563, 33.07454],
+		name: 'Мурманск',
+		formatted_address: 'Murmansk, Murmansk Oblast, Russia',
+		points: [{
+			coords: [68.95147, 33.103143],
+			name: 'Мурманская Областная Станция Переливания Крови',
+			address: 'ул. Павлова, 6',
+			time: 'предварительная запись с 15 до 18.00',
+			phone: '8 (8152) 25-02-61 (62 доктора)',
+			info: 'Принимают только доноров, на типирование можно сдать со второго раза, процедуру объясняют при записи'
+		}, {
+			coords: [68.925654, 33.107868],
+			name: 'CMD – Центр молекулярной диагностики',
+			address: 'Пр. Кольский, д. 61',
+			time: 'до сентября 2016 прием приостановлен, только группы от 20 человек',
+			phone: '8 (8152) 20-77-68',
+			info: 'до сентября 2016 прием приостановлен, только группы от 20 человек'
+		}, {
+			coords: [69.015151, 33.103313],
+			name: 'CMD – Центр молекулярной диагностики',
+			address: 'Ул. Лобова, д. 4',
+			time: 'до сентября 2016 прием приостановлен, только группы от 20 человек',
+			phone: '8 (8152) 20-77-68',
+			info: 'до сентября 2016 прием приостановлен, только группы от 20 человек'
+		}]
+	}, {
+		value: 'spb',
+		coords: [59.939095, 30.315868],
+		formatted_address: 'St Petersburg, Russia',
+		name: 'Санкт-Петербург',
+		points: [{
+			coords: [59.96566, 30.324968],
+			name: 'Институт детской гематологии и трансплантологии им. Р.М. Горбачевой',
+			address: 'Ст.м. Петроградская, ул. Рентгена, 12, 10 эт., каб. 1007',
+			time: 'вторник 16:00 - 19:00, четверг 10:00 - 12:00',
+			info: 'Записываться заранее не нужно, просто приходите'
+		}, {
+			coords: [59.964273, 30.321348],
+			name: 'ПСПбГМУ им. Павлова',
+			address: 'Ст.м. Петроградская, ул. Льва Толстого д. 19, корп. 53',
+			time: 'понедельник - четверг, с 8.30 до 11.30',
+			phone: '+7 (812) 429-24-13',
+			info: 'При себе иметь паспорт с пропиской в любом городе РФ'
+		}, {
+			coords: [59.83839, 30.418231],
+			name: 'Санкт-Петербургская детская инфекционная больница № 5 им. Н.Ф.Филатова',
+			address: 'Ст. м. Купчино, ул. Бухарестская, д. 134',
+			time: 'понедельник - пятница, с 9.00 до 12.00',
+			phone: '+7 (812) 366-71-66',
+			info: 'При себе иметь паспорт с пропиской в любом городе РФ'
+		}, {
+			coords: [59.972298, 30.279091],
+			name: 'Городская клиническая больница № 31',
+			address: 'Ст.м. Крестовский остров, пр. Динамо, д. 3',
+			time: 'понедельник, вторник и четверг с 8.30 до 12.00, вторник и четверг с 15.00 до 18.00. В среду ОПК принимают организованные группы доноров по предварительной записи',
+			phone: '+7 (812) 235-73-81',
+			info: 'При себе иметь паспорт с пропиской в любом городе РФ'
+		}]
+	}, {
+		value: 'msk',
+		coords: [55.75396, 37.620393],
+		name: 'Москва',
+		formatted_address: 'Moscow, Russia',
+		points: [{
+			coords: [55.543766, 37.539922],
+			name: 'Медицинская клиника LeVita',
+			address: 'Ул. Южнобутовская, д. 10 (ст. метро «Бульвар Адмирала Ушакова»)',
+			time: 'пн-чт 12:00 - 16:00, Пт 14:00 - 17:00',
+			phone: '+7 (495) 505-5078, +7 (499) 793-2381, +7 (499) 793-2336, +7 (499) 793-2427',
+			info: 'Записаться можно на сайте клиники www.levita-med.ru, www.levita-kids.ru'
+		}, {
+			coords: [55.801334, 37.552058],
+			name: 'Гематологический научный центр Минздрава России',
+			address: 'Новый Зыковский проезд, д.4А (ст. метро «Динамо»)',
+			time: 'пн-пт 8:00 - 14:00',
+			phone: '+7 (905) 568-5760, +7 (903) 128-84-18'
+		}]
+	}, {
+		value: 'kzn',
+		coords: [55.798551, 49.106324],
+		formatted_address: 'Kazan, Tatarstan, Russia',
+		name: 'Казань',
+		points: [{
+			coords: [55.783251, 49.126734],
+			name: 'Казанский филиал Кировского регистра',
+			address: 'ул. Островского, 69/3',
+			time: 'будние дни с 8 до 12',
+			phone: '+7 (843) 292-12-02'
+		}, {
+			coords: [55.72857, 49.1788],
+			name: 'Детская республиканская клиническая больница',
+			address: 'Оренбургский тракт, 140, 1 корпус, Отделение переливания крови, 3-й этаж поликлиники',
+			time: 'будние дни 8:30 – 12:00',
+			phone: '+7 (843) 267-89-20'
+		}, {
+			coords: [55.73002, 49.188655],
+			name: 'РКБ',
+			address: 'Оренбургский тракт, 138',
+			phone: '+7 (843) 237-35-36'
+		}, {
+			coords: [55.753169, 49.171075],
+			name: 'Межрегиональный клинико-диагностический центр (МКДЦ)',
+			address: 'Ул. Карбышева, 12 А, Отделение переливания крови, Блок Б, 1 этаж',
+			time: '8:00 – 12:00',
+			phone: '+7 (843) 291-10-97, +7 (843) 291-10-75'
+		}]
+	}];
+
+/***/ },
+/* 83 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+	
+	var _underscore = __webpack_require__(2);
+	
+	var _underscore2 = _interopRequireDefault(_underscore);
+	
+	var _base = __webpack_require__(5);
+	
+	var _base2 = _interopRequireDefault(_base);
+	
+	var _map = __webpack_require__(85);
+	
+	var _map2 = _interopRequireDefault(_map);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _class = function (_BaseView) {
+		_inherits(_class, _BaseView);
+	
+		function _class() {
+			_classCallCheck(this, _class);
+	
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(_class).apply(this, arguments));
+		}
+	
+		_createClass(_class, [{
+			key: 'init',
+			value: function init() {}
+		}, {
+			key: 'render',
+			value: function render() {
+				_get(Object.getPrototypeOf(_class.prototype), 'render', this).call(this);
+				this._renderMap();
+				return this;
+			}
+		}, {
+			key: '_renderMap',
+			value: function _renderMap() {
+				this.$el.attr('id', 'map');
+				this._map = new ymaps.Map('map', {
+					center: [this.city.get('coords')[0], this.city.get('coords')[1]],
+					zoom: 4
+				});
+				this._addPlacemarks(this.city.get('points'));
+			}
+		}, {
+			key: 'remove',
+			value: function remove() {
+				this._map.destroy();
+				return _get(Object.getPrototypeOf(_class.prototype), 'remove', this).call(this);
+			}
+		}, {
+			key: '_addPlacemarks',
+			value: function _addPlacemarks(points) {
+				var coords = _underscore2.default.pluck(points, 'coords');
+	
+				var collection = new ymaps.GeoObjectCollection({}, {
+					preset: 'islands#redIcon'
+				});
+	
+				for (var i = 0; i < coords.length; i++) {
+					var placemark = new ymaps.Placemark(coords[i]);
+					placemark.properties.set('balloonContent', points[i].address + '<br>' + points[i].name);
+					collection.add(placemark);
+				}
+	
+				this._map.geoObjects.add(collection);
+				this._map.setBounds(this._map.geoObjects.getBounds());
+			}
+		}, {
+			key: '_prepareData',
+			value: function _prepareData() {
+				return {
+					styles: _map2.default
+				};
+			}
+		}, {
+			key: '_template',
+			get: function get() {
+				return __webpack_require__(84);
+			}
+		}, {
+			key: 'className',
+			get: function get() {
+				return _map2.default.root;
+			}
+		}]);
+
+		return _class;
+	}(_base2.default);
+
+	exports.default = _class;
+
+/***/ },
+/* 84 */
+/***/ function(module, exports) {
+
+	module.exports = function(){return "";};
+
+/***/ },
+/* 85 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(86);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(13)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js?modules!./../../node_modules/postcss-loader/index.js!./map.css", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js?modules!./../../node_modules/postcss-loader/index.js!./map.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 86 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(12)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, ".k7lRAK3VJqzyYxR8yJVXx {\n\twidth: 100%;\n\theight: 100%;\n}", ""]);
+	
+	// exports
+	exports.locals = {
+		"root": "k7lRAK3VJqzyYxR8yJVXx"
+	};
+
+/***/ },
+/* 87 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _backbone = __webpack_require__(1);
+	
+	var _backbone2 = _interopRequireDefault(_backbone);
+	
+	var _underscore = __webpack_require__(2);
+	
+	var _underscore2 = _interopRequireDefault(_underscore);
+	
+	var _ajax = __webpack_require__(71);
+	
+	var _ajax2 = _interopRequireDefault(_ajax);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _class = function (_Backbone$Model) {
+		_inherits(_class, _Backbone$Model);
+	
+		function _class() {
+			_classCallCheck(this, _class);
+	
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(_class).apply(this, arguments));
+		}
+	
+		_createClass(_class, [{
+			key: 'fetch',
+			value: function fetch(lat, lon) {
+				var _this2 = this;
+	
+				return new Promise(function (resolve, reject) {
+					(0, _ajax2.default)({
+						url: 'http://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + lon + '&sensor=true',
+						type: 'get'
+					}).then(function (response) {
+						var locality = _underscore2.default.find(response.results, function (item) {
+							return _underscore2.default.contains(item.types, 'locality');
+						});
+						_this2.set('formatted_address', locality.formatted_address);
+						resolve();
+					}, function () {
+						reject();
+					});
+				});
+			}
+		}, {
+			key: 'defaults',
+			get: function get() {
+				return {
+					formatted_address: ''
+				};
+			}
+		}]);
+	
+		return _class;
+	}(_backbone2.default.Model);
+	
+	exports.default = _class;
 
 /***/ }
 /******/ ]);

@@ -6,9 +6,7 @@ import BaseView from 'crimson-backbone/src/views/base';
 
 import How from 'dev/views/how';
 import Why from 'dev/views/why';
-// import ShareView from 'dev/views/share';
 
-// import GeoModel from 'dev/models/geo';
 import CountersModel from 'dev/models/counters';
 
 import styles from 'dev/styles/app.css';
@@ -55,27 +53,6 @@ export default class extends BaseView {
 			}
 		});
 		!Backbone.History.started && Backbone.history.start();
-
-		this.listenTo(this.geoModel, 'change', () => {
-			this.render();
-		});
-
-		// if (navigator.geolocation) {
-		// 	navigator.geolocation.getCurrentPosition((position) => {
-		// 		this.geoModel.fetch(position.coords.latitude, position.coords.longitude);
-		// 	}, (error) => {
-		// 		switch(error.code) {
-		// 			case 1:
-		// 				this.render({ geo: { error: 'You have denied geolocation' } });
-		// 				break;
-		// 			default:
-		// 				this.render({ geo: { error: 'Something goes wrong with geolocation' } });
-		// 				break;
-		// 		}
-		// 	});
-		// } else {
-		// 	this.render({ geo: { error: 'Your browser doen\'t support geolocation' } });
-		// }
 	}
 
 	_redirect(pageName = 'why') {

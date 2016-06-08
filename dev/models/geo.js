@@ -14,7 +14,7 @@ export default class extends Backbone.Model {
 				let locality = _.find(response.results, (item) => {
 					return _.contains(item.types, 'locality')
 				});
-				this.set('city', locality.formatted_address);
+				this.set('formatted_address', locality.formatted_address);
 				resolve();
 			}, () => {
 				reject();
@@ -24,7 +24,7 @@ export default class extends Backbone.Model {
 
 	get defaults() {
 		return {
-			city: ''
+			formatted_address: ''
 		}
 	}
 }

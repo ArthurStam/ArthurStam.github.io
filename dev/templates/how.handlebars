@@ -39,25 +39,39 @@
 			</div>
 			<div class="{{how.find}}">
 				<div class="{{how.findCity}}">
-					<select class="{{inputs.select}}" data-action="city">
-						{{#each cities}}
-							<option value="{{this.value}}">{{this.name}}</option>
+					<select class="{{inputs.select}}" data-action="select-city">
+						<option>Выберите город</option>
+						{{#each citiesCollection.models}}
+							<option value="{{this.attributes.formatted_address}}" {{#if this.selected}}selected="selected"{{/if}}>{{this.attributes.name}}</option>
 						{{/each}}
 					</select>
-					{{#unless city}}
-						<div class="{{how.findEmpty}} {{typography.text}}">
-							Мы не смогли определить, где вы
-							<br>
-							находитесь. Пожалуйста, выберите
-							<br>
-							город вручную.
-						</div>
+					{{#unless currentCity}}
+						{{#if error.emptyCity}}
+							<div class="{{how.findEmpty}} {{typography.text}}">
+								Мы определили ваш город, 
+								<br>
+								это {{error.data.formattedAddress}}.
+								<br>
+								Но, к сожалению, в нем
+								<br>
+								нет пунктов для сдачи 
+								<br>
+								костного мозга.
+							</div>
+						{{else}}
+							<div class="{{how.findEmpty}} {{typography.text}}">
+								Мы не смогли определить, где вы
+								<br>
+								находитесь. Пожалуйста, выберите
+								<br>
+								город вручную.
+							</div>
+						{{/if}}
 					{{/unless}}
 				</div>
 				<div class="{{how.findContainer}}">
-					{{#if city}}
-						<div class="{{how.findMap}}" id="map">
-						</div>
+					{{#if currentCity}}
+						<div data-view="how-map" class="{{how.findMap}}"></div>
 						<div class="{{how.findMainPoint}}">
 							<div class="{{how.findPoint}} {{typography.text}}">
 								<div class="{{how.findPointName}}">{{firstPoint.name}}</div>
