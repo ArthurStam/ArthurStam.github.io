@@ -147,6 +147,7 @@ export default class extends PageView {
 		if (this.currentCity) {
 			let points = _.clone(this.currentCity.get('points'));
 			points.forEach((point) => {
+				if (point.name) { point.name = tp.execute(point.name); }
 				if (point.info) { point.info = tp.execute(point.info); }
 				if (point.time) { point.time = tp.execute(point.time); }
 			});

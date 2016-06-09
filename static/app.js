@@ -13976,6 +13976,9 @@
 				if (this.currentCity) {
 					var points = _underscore2.default.clone(this.currentCity.get('points'));
 					points.forEach(function (point) {
+						if (point.name) {
+							point.name = tp.execute(point.name);
+						}
 						if (point.info) {
 							point.info = tp.execute(point.info);
 						}
