@@ -16,6 +16,10 @@ import inputs from 'dev/styles/inputs.css';
 import how from 'dev/styles/how.css';
 import share from 'dev/styles/share.css';
 
+import Typograf from 'typograf';
+
+let tp = new Typograf({ lang: 'ru' });
+
 let citiesCollection = new CitiesCollection();
 
 cities.forEach((city) => {
@@ -49,8 +53,8 @@ export default class extends PageView {
 	get events() {
 		return {
 			'change [data-action="select-city"]': (e) => {
-				let formattedAddress = $(e.currentTarget).val();
-				let city = this._findCity(formattedAddress);
+				let placeId = $(e.currentTarget).val();
+				let city = this._findCity(placeId);
 				this._setCity(city);
 				this.render();
 			},
@@ -76,7 +80,7 @@ export default class extends PageView {
 			if (navigator.geolocation) {
 				navigator.geolocation.getCurrentPosition((position) => {
 					this.geoModel.fetch(position.coords.latitude, position.coords.longitude).then(() => {
-						let city = this._findCity(this.geoModel.get('formatted_address'));
+						let city = this._findCity(this.geoModel.get('placeId'));
 						if (city) {
 							this._setCity(city);
 						} else {
@@ -84,7 +88,7 @@ export default class extends PageView {
 								error: { 
 									emptyCity: true,
 									data: {
-										formattedAddress: this.geoModel.get('formatted_address')
+										formattedAddress: this.geoModel.get('formattedAddress')
 									}
 								}
 							});
@@ -92,21 +96,17 @@ export default class extends PageView {
 						}
 						this.render();
 					}, (error) => {
-
+						this.render();
 					})
 				}, (error) => {
-					
+					this.render();
 				})
 			}
 		});
-
-		// this.listenTo(this.geoModel, 'change', () => {
-		
-		// });
 	}
 
-	_findCity(formattedAddress) {
-		return citiesCollection.find((city) => { return city.get('formatted_address') == formattedAddress; });
+	_findCity(placeId) {
+		return citiesCollection.find((city) => { return city.get('placeId') == placeId; });
 	}
 
 	_setCity(city) {
@@ -146,6 +146,10 @@ export default class extends PageView {
 
 		if (this.currentCity) {
 			let points = _.clone(this.currentCity.get('points'));
+			points.forEach((point) => {
+				if (point.info) { point.info = tp.execute(point.info); }
+				if (point.time) { point.time = tp.execute(point.time); }
+			});
 			data.firstPoint = points.shift();
 			data.oddPoints = _.filter(points, (point, index) => index % 2);
 			data.evenPoints = _.filter(points, (point, index) => ! (index % 2) );

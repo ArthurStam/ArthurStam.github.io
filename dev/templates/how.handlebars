@@ -42,7 +42,7 @@
 					<select class="{{inputs.select}}" data-action="select-city">
 						<option>Выберите город</option>
 						{{#each citiesCollection.models}}
-							<option value="{{this.attributes.formatted_address}}" {{#if this.selected}}selected="selected"{{/if}}>{{this.attributes.name}}</option>
+							<option value="{{this.attributes.placeId}}" {{#if this.selected}}selected="selected"{{/if}}>{{this.attributes.name}}</option>
 						{{/each}}
 					</select>
 					{{#unless currentCity}}
@@ -271,8 +271,7 @@
 				<div class="{{typography.col2}}">
 					<div class="{{how.type}}">
 						<img src="/static/spit.png" class="{{how.typeImage}}">
-						<span class="{{typography.bold}}">Из тазовой кости</span>
-						<br>
+						<div class="{{typography.text}}"><span class="{{typography.bold}}">Из тазовой кости</span></div>
 						<div class="{{typography.text}}">
 							Врач проколет тазовую кость и&nbsp;возьмет небольшую часть костного мозга. Вы&nbsp;будете под общим наркозом. Операция займёт около 30&nbsp;минут. Во&nbsp;время операции вы&nbsp;ничего не&nbsp;почувствуете, но&nbsp;несколько дней после операции будут &laquo;ныть кости&raquo;. Вы&nbsp;легко снимете дискомфорт обезболивающими таблетками.
 						</div>
@@ -281,8 +280,7 @@
 				<div class="{{typography.col2}}">
 					<div class="{{how.type}}">
 						<img src="/static/kapelnitsa.png" class="{{how.typeImage}}">
-						<span class="{{typography.bold}}">Из вены</span>
-						<br>
+						<div class="{{typography.text}}"><span class="{{typography.bold}}">Из вены</span></div>
 						<div class="{{typography.text}}">
 							У&nbsp;вас берут кровь из&nbsp;вены одной руки и&nbsp;возвращают в&nbsp;вену на&nbsp;другой руке. По&nbsp;дороге кровь проходит через сепаратор, отлавливающий клетки костного мозга. Процедура занимает пять-шесть часов. Анестезия не&nbsp;нужна, вы&nbsp;находитесь в&nbsp;сознании и&nbsp;успеваете посмотреть три&nbsp;любимых фильма или поспать.
 						</div>	

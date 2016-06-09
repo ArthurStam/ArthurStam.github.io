@@ -60,7 +60,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	__webpack_require__(78);
+	__webpack_require__(86);
 	
 	var $appContainer = (0, _jquery2.default)('[data-role="app"]'),
 	    appView = new _app2.default();
@@ -13482,15 +13482,15 @@
 	
 	var _how2 = _interopRequireDefault(_how);
 	
-	var _why = __webpack_require__(43);
+	var _why = __webpack_require__(52);
 	
 	var _why2 = _interopRequireDefault(_why);
 	
-	var _counters = __webpack_require__(70);
+	var _counters = __webpack_require__(79);
 	
 	var _counters2 = _interopRequireDefault(_counters);
 	
-	var _app = __webpack_require__(75);
+	var _app = __webpack_require__(83);
 	
 	var _app2 = _interopRequireDefault(_app);
 	
@@ -13566,7 +13566,7 @@
 		}, {
 			key: '_template',
 			get: function get() {
-				return __webpack_require__(77);
+				return __webpack_require__(85);
 			}
 		}, {
 			key: '_pages',
@@ -13774,41 +13774,45 @@
 	
 	var _share2 = _interopRequireDefault(_share);
 	
-	var _map = __webpack_require__(83);
+	var _map = __webpack_require__(10);
 	
 	var _map2 = _interopRequireDefault(_map);
 	
-	var _geo = __webpack_require__(87);
+	var _geo = __webpack_require__(16);
 	
 	var _geo2 = _interopRequireDefault(_geo);
 	
-	var _cities = __webpack_require__(80);
+	var _cities = __webpack_require__(18);
 	
 	var _cities2 = _interopRequireDefault(_cities);
 	
-	var _cities3 = __webpack_require__(82);
+	var _cities3 = __webpack_require__(20);
 	
 	var _cities4 = _interopRequireDefault(_cities3);
 	
-	var _page3 = __webpack_require__(10);
+	var _page3 = __webpack_require__(21);
 	
 	var _page4 = _interopRequireDefault(_page3);
 	
-	var _typography = __webpack_require__(14);
+	var _typography = __webpack_require__(23);
 	
 	var _typography2 = _interopRequireDefault(_typography);
 	
-	var _inputs = __webpack_require__(16);
+	var _inputs = __webpack_require__(25);
 	
 	var _inputs2 = _interopRequireDefault(_inputs);
 	
-	var _how = __webpack_require__(18);
+	var _how = __webpack_require__(27);
 	
 	var _how2 = _interopRequireDefault(_how);
 	
-	var _share3 = __webpack_require__(20);
+	var _share3 = __webpack_require__(29);
 	
 	var _share4 = _interopRequireDefault(_share3);
+	
+	var _typograf = __webpack_require__(88);
+	
+	var _typograf2 = _interopRequireDefault(_typograf);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -13817,6 +13821,8 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var tp = new _typograf2.default({ lang: 'ru' });
 	
 	var citiesCollection = new _cities2.default();
 	
@@ -13841,7 +13847,7 @@
 		}, {
 			key: '_template',
 			get: function get() {
-				return __webpack_require__(22);
+				return __webpack_require__(31);
 			}
 		}]);
 	
@@ -13891,7 +13897,7 @@
 					if (navigator.geolocation) {
 						navigator.geolocation.getCurrentPosition(function (position) {
 							_this4.geoModel.fetch(position.coords.latitude, position.coords.longitude).then(function () {
-								var city = _this4._findCity(_this4.geoModel.get('formatted_address'));
+								var city = _this4._findCity(_this4.geoModel.get('placeId'));
 								if (city) {
 									_this4._setCity(city);
 								} else {
@@ -13899,27 +13905,27 @@
 										error: {
 											emptyCity: true,
 											data: {
-												formattedAddress: _this4.geoModel.get('formatted_address')
+												formattedAddress: _this4.geoModel.get('formattedAddress')
 											}
 										}
 									});
 									return;
 								}
 								_this4.render();
-							}, function (error) {});
-						}, function (error) {});
+							}, function (error) {
+								_this4.render();
+							});
+						}, function (error) {
+							_this4.render();
+						});
 					}
 				});
-	
-				// this.listenTo(this.geoModel, 'change', () => {
-	
-				// });
 			}
 		}, {
 			key: '_findCity',
-			value: function _findCity(formattedAddress) {
+			value: function _findCity(placeId) {
 				return citiesCollection.find(function (city) {
-					return city.get('formatted_address') == formattedAddress;
+					return city.get('placeId') == placeId;
 				});
 			}
 		}, {
@@ -13969,6 +13975,14 @@
 	
 				if (this.currentCity) {
 					var points = _underscore2.default.clone(this.currentCity.get('points'));
+					points.forEach(function (point) {
+						if (point.info) {
+							point.info = tp.execute(point.info);
+						}
+						if (point.time) {
+							point.time = tp.execute(point.time);
+						}
+					});
 					data.firstPoint = points.shift();
 					data.oddPoints = _underscore2.default.filter(points, function (point, index) {
 						return index % 2;
@@ -13983,7 +13997,7 @@
 		}, {
 			key: '_template',
 			get: function get() {
-				return __webpack_require__(42);
+				return __webpack_require__(51);
 			}
 		}, {
 			key: 'events',
@@ -13992,8 +14006,8 @@
 	
 				return {
 					'change [data-action="select-city"]': function changeDataActionSelectCity(e) {
-						var formattedAddress = (0, _jquery2.default)(e.currentTarget).val();
-						var city = _this5._findCity(formattedAddress);
+						var placeId = (0, _jquery2.default)(e.currentTarget).val();
+						var city = _this5._findCity(placeId);
 						_this5._setCity(city);
 						_this5.render();
 					},
@@ -14141,20 +14155,131 @@
 /* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+	
+	var _underscore = __webpack_require__(2);
+	
+	var _underscore2 = _interopRequireDefault(_underscore);
+	
+	var _base = __webpack_require__(5);
+	
+	var _base2 = _interopRequireDefault(_base);
+	
+	var _map = __webpack_require__(11);
+	
+	var _map2 = _interopRequireDefault(_map);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _class = function (_BaseView) {
+		_inherits(_class, _BaseView);
+	
+		function _class() {
+			_classCallCheck(this, _class);
+	
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(_class).apply(this, arguments));
+		}
+	
+		_createClass(_class, [{
+			key: 'init',
+			value: function init() {}
+		}, {
+			key: 'render',
+			value: function render() {
+				_get(Object.getPrototypeOf(_class.prototype), 'render', this).call(this);
+				this._renderMap();
+				return this;
+			}
+		}, {
+			key: '_renderMap',
+			value: function _renderMap() {
+				this.$el.attr('id', 'map');
+				this._map = new ymaps.Map('map', {
+					center: [this.city.get('coords')[0], this.city.get('coords')[1]],
+					zoom: 4
+				});
+				this._addPlacemarks(this.city.get('points'));
+			}
+		}, {
+			key: 'remove',
+			value: function remove() {
+				this._map.destroy();
+				return _get(Object.getPrototypeOf(_class.prototype), 'remove', this).call(this);
+			}
+		}, {
+			key: '_addPlacemarks',
+			value: function _addPlacemarks(points) {
+				var coords = _underscore2.default.pluck(points, 'coords');
+	
+				var collection = new ymaps.GeoObjectCollection({}, {
+					preset: 'islands#redIcon'
+				});
+	
+				for (var i = 0; i < coords.length; i++) {
+					var placemark = new ymaps.Placemark(coords[i]);
+					placemark.properties.set('balloonContent', points[i].address + '<br>' + points[i].name);
+					collection.add(placemark);
+				}
+	
+				this._map.geoObjects.add(collection);
+				this._map.setBounds(this._map.geoObjects.getBounds());
+			}
+		}, {
+			key: '_prepareData',
+			value: function _prepareData() {
+				return {
+					styles: _map2.default
+				};
+			}
+		}, {
+			key: '_template',
+			get: function get() {
+				return __webpack_require__(15);
+			}
+		}, {
+			key: 'className',
+			get: function get() {
+				return _map2.default.root;
+			}
+		}]);
+
+		return _class;
+	}(_base2.default);
+
+	exports.default = _class;
+
+/***/ },
+/* 11 */
+/***/ function(module, exports, __webpack_require__) {
+
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(11);
+	var content = __webpack_require__(12);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(13)(content, {});
+	var update = __webpack_require__(14)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js?modules!./../../node_modules/postcss-loader/index.js!./page.css", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js?modules!./../../node_modules/postcss-loader/index.js!./page.css");
+			module.hot.accept("!!./../../node_modules/css-loader/index.js?modules!./../../node_modules/postcss-loader/index.js!./map.css", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js?modules!./../../node_modules/postcss-loader/index.js!./map.css");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -14164,28 +14289,23 @@
 	}
 
 /***/ },
-/* 11 */
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(12)();
+	exports = module.exports = __webpack_require__(13)();
 	// imports
 	
 	
 	// module
-	exports.push([module.id, "._1qYSRV45fgKNO9VAvI4i5T:not(:first-child) {\n\tmargin-top: 44px;\n}\n\n._1qYSRV45fgKNO9VAvI4i5T:not(:last-child) {\n\tmargin-bottom: 44px;\n}\n\n._1QFXZkT9hFspnGBHrgzOla {\n\tposition: relative;\n\tpadding: 0 0 40px;\n}\n\n.iHIj2vUWlJL27N8tZtKfa {\n\twidth: 657px;\n\tmargin: auto;\n}\n\n._2AX1khG2HUetQLrpLQ2Ioz {\n\tpadding: 44px 0;\n\tbackground-color: rgba(9, 159, 175, 0.27);\n\tmargin-bottom: 44px;\n}\n\n.gugwRJ4TwKTo5q8bqDByV {\n\tfont-size: 14px;\n\tline-height: 24px;\n\tfont-weight: 300;\n\tdisplay: flex;\n}\n\n._22yIhYV_EDPENQPJXpEc0b {\n\tmargin-right: 10px;\n}", ""]);
+	exports.push([module.id, ".k7lRAK3VJqzyYxR8yJVXx {\n\twidth: 100%;\n\theight: 100%;\n}", ""]);
 	
 	// exports
 	exports.locals = {
-		"section": "_1qYSRV45fgKNO9VAvI4i5T",
-		"root": "_1QFXZkT9hFspnGBHrgzOla",
-		"container": "iHIj2vUWlJL27N8tZtKfa",
-		"footer": "_2AX1khG2HUetQLrpLQ2Ioz",
-		"credentials": "gugwRJ4TwKTo5q8bqDByV",
-		"credentialsImage": "_22yIhYV_EDPENQPJXpEc0b"
+		"root": "k7lRAK3VJqzyYxR8yJVXx"
 	};
 
 /***/ },
-/* 12 */
+/* 13 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -14240,7 +14360,7 @@
 	};
 
 /***/ },
-/* 13 */
+/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -14492,16 +14612,392 @@
 
 
 /***/ },
-/* 14 */
+/* 15 */
+/***/ function(module, exports) {
+
+	module.exports = function(){return "";};
+
+/***/ },
+/* 16 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _backbone = __webpack_require__(1);
+	
+	var _backbone2 = _interopRequireDefault(_backbone);
+	
+	var _underscore = __webpack_require__(2);
+	
+	var _underscore2 = _interopRequireDefault(_underscore);
+	
+	var _ajax = __webpack_require__(17);
+	
+	var _ajax2 = _interopRequireDefault(_ajax);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _class = function (_Backbone$Model) {
+		_inherits(_class, _Backbone$Model);
+	
+		function _class() {
+			_classCallCheck(this, _class);
+	
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(_class).apply(this, arguments));
+		}
+	
+		_createClass(_class, [{
+			key: 'fetch',
+			value: function fetch(lat, lon) {
+				var _this2 = this;
+	
+				return new Promise(function (resolve, reject) {
+					(0, _ajax2.default)({
+						url: location.protocol + '//maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + lon + '&sensor=true',
+						type: 'get'
+					}).then(function (response) {
+						var locality = _underscore2.default.find(response.results, function (item) {
+							return _underscore2.default.contains(item.types, 'locality');
+						});
+						_this2.set('formattedAddress', locality.formatted_address).set('placeId', locality.place_id);
+						resolve();
+					}, function () {
+						reject();
+					});
+				});
+			}
+		}, {
+			key: 'defaults',
+			get: function get() {
+				return {
+					formattedAddress: '',
+					placeId: ''
+				};
+			}
+		}]);
+	
+		return _class;
+	}(_backbone2.default.Model);
+	
+	exports.default = _class;
+
+/***/ },
+/* 17 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _jquery = __webpack_require__(3);
+	
+	var _jquery2 = _interopRequireDefault(_jquery);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = function () {
+		var params = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	
+		return new Promise(function (resolve, reject) {
+			_jquery2.default.ajax(params).done(function (response) {
+				resolve(response);
+			}).error(function (response) {
+				reject(response);
+			});
+		});
+	};
+
+/***/ },
+/* 18 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _backbone = __webpack_require__(1);
+	
+	var _backbone2 = _interopRequireDefault(_backbone);
+	
+	var _city = __webpack_require__(19);
+	
+	var _city2 = _interopRequireDefault(_city);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _class = function (_Backbone$Collection) {
+		_inherits(_class, _Backbone$Collection);
+	
+		function _class() {
+			_classCallCheck(this, _class);
+	
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(_class).apply(this, arguments));
+		}
+	
+		_createClass(_class, [{
+			key: 'model',
+			get: function get() {
+				return _city2.default;
+			}
+		}]);
+	
+		return _class;
+	}(_backbone2.default.Collection);
+	
+	exports.default = _class;
+
+/***/ },
+/* 19 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _backbone = __webpack_require__(1);
+	
+	var _backbone2 = _interopRequireDefault(_backbone);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _class = function (_Backbone$Model) {
+		_inherits(_class, _Backbone$Model);
+	
+		function _class() {
+			_classCallCheck(this, _class);
+	
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(_class).apply(this, arguments));
+		}
+	
+		_createClass(_class, [{
+			key: 'defaults',
+			get: function get() {
+				return {
+					value: '',
+					coords: [],
+					name: '',
+					formatted_address: '',
+					points: []
+				};
+			}
+		}]);
+	
+		return _class;
+	}(_backbone2.default.Model);
+	
+	exports.default = _class;
+
+/***/ },
+/* 20 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	exports.default = [{
+		value: 'murmansk',
+		coords: [68.969563, 33.07454],
+		name: 'Мурманск',
+		placeId: 'ChIJ1SIM7TAQNEQRpSHDyzC6xpg',
+		points: [{
+			coords: [68.95147, 33.103143],
+			name: 'Мурманская Областная Станция Переливания Крови',
+			address: 'ул. Павлова, 6',
+			time: 'предварительная запись с 15 до 18.00',
+			phone: '8 (8152) 25-02-61 (62 доктора)',
+			info: 'Принимают только доноров, на типирование можно сдать со второго раза, процедуру объясняют при записи'
+		}, {
+			coords: [68.925654, 33.107868],
+			name: 'CMD – Центр молекулярной диагностики',
+			address: 'Пр. Кольский, д. 61',
+			time: 'до сентября 2016 прием приостановлен, только группы от 20 человек',
+			phone: '8 (8152) 20-77-68',
+			info: 'до сентября 2016 прием приостановлен, только группы от 20 человек'
+		}, {
+			coords: [69.015151, 33.103313],
+			name: 'CMD – Центр молекулярной диагностики',
+			address: 'Ул. Лобова, д. 4',
+			time: 'до сентября 2016 прием приостановлен, только группы от 20 человек',
+			phone: '8 (8152) 20-77-68',
+			info: 'до сентября 2016 прием приостановлен, только группы от 20 человек'
+		}]
+	}, {
+		value: 'spb',
+		coords: [59.939095, 30.315868],
+		placeId: 'ChIJ7WVKx4w3lkYR_46Eqz9nx20',
+		name: 'Санкт-Петербург',
+		points: [{
+			coords: [59.96566, 30.324968],
+			name: 'Институт детской гематологии и трансплантологии им. Р.М. Горбачевой',
+			address: 'Ст.м. Петроградская, ул. Рентгена, 12, 10 эт., каб. 1007',
+			time: 'вторник 16:00 - 19:00, четверг 10:00 - 12:00',
+			info: 'Записываться заранее не нужно, просто приходите'
+		}, {
+			coords: [59.964273, 30.321348],
+			name: 'ПСПбГМУ им. Павлова',
+			address: 'Ст.м. Петроградская, ул. Льва Толстого д. 19, корп. 53',
+			time: 'понедельник - четверг, с 8.30 до 11.30',
+			phone: '+7 (812) 429-24-13',
+			info: 'При себе иметь паспорт с пропиской в любом городе РФ'
+		}, {
+			coords: [59.83839, 30.418231],
+			name: 'Санкт-Петербургская детская инфекционная больница № 5 им. Н.Ф.Филатова',
+			address: 'Ст. м. Купчино, ул. Бухарестская, д. 134',
+			time: 'понедельник - пятница, с 9.00 до 12.00',
+			phone: '+7 (812) 366-71-66',
+			info: 'При себе иметь паспорт с пропиской в любом городе РФ'
+		}, {
+			coords: [59.972298, 30.279091],
+			name: 'Городская клиническая больница № 31',
+			address: 'Ст.м. Крестовский остров, пр. Динамо, д. 3',
+			time: 'понедельник, вторник и четверг с 8.30 до 12.00, вторник и четверг с 15.00 до 18.00. В среду ОПК принимают организованные группы доноров по предварительной записи',
+			phone: '+7 (812) 235-73-81',
+			info: 'При себе иметь паспорт с пропиской в любом городе РФ'
+		}]
+	}, {
+		value: 'msk',
+		coords: [55.75396, 37.620393],
+		name: 'Москва',
+		placeId: 'ChIJybDUc_xKtUYRTM9XV8zWRD0',
+		points: [{
+			coords: [55.543766, 37.539922],
+			name: 'Медицинская клиника LeVita',
+			address: 'Ул. Южнобутовская, д. 10 (ст. метро «Бульвар Адмирала Ушакова»)',
+			time: 'пн-чт 12:00 - 16:00, Пт 14:00 - 17:00',
+			phone: '+7 (495) 505-5078, +7 (499) 793-2381, +7 (499) 793-2336, +7 (499) 793-2427',
+			info: 'Записаться можно на сайте клиники www.levita-med.ru, www.levita-kids.ru'
+		}, {
+			coords: [55.801334, 37.552058],
+			name: 'Гематологический научный центр Минздрава России',
+			address: 'Новый Зыковский проезд, д.4А (ст. метро «Динамо»)',
+			time: 'пн-пт 8:00 - 14:00',
+			phone: '+7 (905) 568-5760, +7 (903) 128-84-18'
+		}]
+	}, {
+		value: 'kzn',
+		coords: [55.798551, 49.106324],
+		placeId: 'ChIJmc2sfCutXkERZYyttbl3y38',
+		name: 'Казань',
+		points: [{
+			coords: [55.783251, 49.126734],
+			name: 'Казанский филиал Кировского регистра',
+			address: 'ул. Островского, 69/3',
+			time: 'будние дни с 8 до 12',
+			phone: '+7 (843) 292-12-02'
+		}, {
+			coords: [55.72857, 49.1788],
+			name: 'Детская республиканская клиническая больница',
+			address: 'Оренбургский тракт, 140, 1 корпус, Отделение переливания крови, 3-й этаж поликлиники',
+			time: 'будние дни 8:30 – 12:00',
+			phone: '+7 (843) 267-89-20'
+		}, {
+			coords: [55.73002, 49.188655],
+			name: 'РКБ',
+			address: 'Оренбургский тракт, 138',
+			phone: '+7 (843) 237-35-36'
+		}, {
+			coords: [55.753169, 49.171075],
+			name: 'Межрегиональный клинико-диагностический центр (МКДЦ)',
+			address: 'Ул. Карбышева, 12 А, Отделение переливания крови, Блок Б, 1 этаж',
+			time: '8:00 – 12:00',
+			phone: '+7 (843) 291-10-97, +7 (843) 291-10-75'
+		}]
+	}];
+
+/***/ },
+/* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(15);
+	var content = __webpack_require__(22);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(13)(content, {});
+	var update = __webpack_require__(14)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js?modules!./../../node_modules/postcss-loader/index.js!./page.css", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js?modules!./../../node_modules/postcss-loader/index.js!./page.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 22 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(13)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "._1qYSRV45fgKNO9VAvI4i5T:not(:first-child) {\n\tmargin-top: 44px;\n}\n\n._1qYSRV45fgKNO9VAvI4i5T:not(:last-child) {\n\tmargin-bottom: 44px;\n}\n\n._1QFXZkT9hFspnGBHrgzOla {\n\tposition: relative;\n\tpadding: 0 0 50px;\n}\n\n.iHIj2vUWlJL27N8tZtKfa {\n\twidth: 657px;\n\tmargin: auto;\n}\n\n._2AX1khG2HUetQLrpLQ2Ioz {\n\tpadding: 44px 0;\n\tbackground-color: rgba(9, 159, 175, 0.27);\n\tmargin-bottom: 44px;\n}\n\n.gugwRJ4TwKTo5q8bqDByV {\n\tfont-size: 14px;\n\tline-height: 24px;\n\tfont-weight: 300;\n\tdisplay: flex;\n}\n\n._22yIhYV_EDPENQPJXpEc0b {\n\tmargin-right: 10px;\n}", ""]);
+	
+	// exports
+	exports.locals = {
+		"section": "_1qYSRV45fgKNO9VAvI4i5T",
+		"root": "_1QFXZkT9hFspnGBHrgzOla",
+		"container": "iHIj2vUWlJL27N8tZtKfa",
+		"footer": "_2AX1khG2HUetQLrpLQ2Ioz",
+		"credentials": "gugwRJ4TwKTo5q8bqDByV",
+		"credentialsImage": "_22yIhYV_EDPENQPJXpEc0b"
+	};
+
+/***/ },
+/* 23 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(24);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(14)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -14518,10 +15014,10 @@
 	}
 
 /***/ },
-/* 15 */
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(12)();
+	exports = module.exports = __webpack_require__(13)();
 	// imports
 	
 	
@@ -14549,16 +15045,16 @@
 	};
 
 /***/ },
-/* 16 */
+/* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(17);
+	var content = __webpack_require__(26);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(13)(content, {});
+	var update = __webpack_require__(14)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -14575,10 +15071,10 @@
 	}
 
 /***/ },
-/* 17 */
+/* 26 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(12)();
+	exports = module.exports = __webpack_require__(13)();
 	// imports
 	
 	
@@ -14599,16 +15095,16 @@
 	};
 
 /***/ },
-/* 18 */
+/* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(19);
+	var content = __webpack_require__(28);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(13)(content, {});
+	var update = __webpack_require__(14)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -14625,10 +15121,10 @@
 	}
 
 /***/ },
-/* 19 */
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(12)();
+	exports = module.exports = __webpack_require__(13)();
 	// imports
 	
 	
@@ -14665,16 +15161,16 @@
 	};
 
 /***/ },
-/* 20 */
+/* 29 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(21);
+	var content = __webpack_require__(30);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(13)(content, {});
+	var update = __webpack_require__(14)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -14691,10 +15187,10 @@
 	}
 
 /***/ },
-/* 21 */
+/* 30 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(12)();
+	exports = module.exports = __webpack_require__(13)();
 	// imports
 	
 	
@@ -14709,10 +15205,10 @@
 	};
 
 /***/ },
-/* 22 */
+/* 31 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Handlebars = __webpack_require__(23);
+	var Handlebars = __webpack_require__(32);
 	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
 	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
 	    var stack1, helper, alias1=container.lambda, alias2=container.escapeExpression, alias3=depth0 != null ? depth0 : {}, alias4=helpers.helperMissing, alias5="function";
@@ -14731,17 +15227,17 @@
 	},"useData":true});
 
 /***/ },
-/* 23 */
+/* 32 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	// Create a simple path alias to allow browserify to resolve
 	// the runtime on a supported path.
-	module.exports = __webpack_require__(24)['default'];
+	module.exports = __webpack_require__(33)['default'];
 
 /***/ },
-/* 24 */
+/* 33 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -14767,30 +15263,30 @@
 	  }
 	}
 	
-	var _handlebarsBase = __webpack_require__(25);
+	var _handlebarsBase = __webpack_require__(34);
 	
 	var base = _interopRequireWildcard(_handlebarsBase);
 	
 	// Each of these augment the Handlebars object. No need to setup here.
 	// (This is done to easily share code between commonjs and browse envs)
 	
-	var _handlebarsSafeString = __webpack_require__(39);
+	var _handlebarsSafeString = __webpack_require__(48);
 	
 	var _handlebarsSafeString2 = _interopRequireDefault(_handlebarsSafeString);
 	
-	var _handlebarsException = __webpack_require__(27);
+	var _handlebarsException = __webpack_require__(36);
 	
 	var _handlebarsException2 = _interopRequireDefault(_handlebarsException);
 	
-	var _handlebarsUtils = __webpack_require__(26);
+	var _handlebarsUtils = __webpack_require__(35);
 	
 	var Utils = _interopRequireWildcard(_handlebarsUtils);
 	
-	var _handlebarsRuntime = __webpack_require__(40);
+	var _handlebarsRuntime = __webpack_require__(49);
 	
 	var runtime = _interopRequireWildcard(_handlebarsRuntime);
 	
-	var _handlebarsNoConflict = __webpack_require__(41);
+	var _handlebarsNoConflict = __webpack_require__(50);
 	
 	var _handlebarsNoConflict2 = _interopRequireDefault(_handlebarsNoConflict);
 	
@@ -14823,7 +15319,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 25 */
+/* 34 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -14836,17 +15332,17 @@
 	  return obj && obj.__esModule ? obj : { 'default': obj };
 	}
 	
-	var _utils = __webpack_require__(26);
+	var _utils = __webpack_require__(35);
 	
-	var _exception = __webpack_require__(27);
+	var _exception = __webpack_require__(36);
 	
 	var _exception2 = _interopRequireDefault(_exception);
 	
-	var _helpers = __webpack_require__(28);
+	var _helpers = __webpack_require__(37);
 	
-	var _decorators = __webpack_require__(36);
+	var _decorators = __webpack_require__(45);
 	
-	var _logger = __webpack_require__(38);
+	var _logger = __webpack_require__(47);
 	
 	var _logger2 = _interopRequireDefault(_logger);
 	
@@ -14933,7 +15429,7 @@
 	exports.logger = _logger2['default'];
 
 /***/ },
-/* 26 */
+/* 35 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -15063,7 +15559,7 @@
 	}
 
 /***/ },
-/* 27 */
+/* 36 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -15107,7 +15603,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 28 */
+/* 37 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15120,31 +15616,31 @@
 	  return obj && obj.__esModule ? obj : { 'default': obj };
 	}
 	
-	var _helpersBlockHelperMissing = __webpack_require__(29);
+	var _helpersBlockHelperMissing = __webpack_require__(38);
 	
 	var _helpersBlockHelperMissing2 = _interopRequireDefault(_helpersBlockHelperMissing);
 	
-	var _helpersEach = __webpack_require__(30);
+	var _helpersEach = __webpack_require__(39);
 	
 	var _helpersEach2 = _interopRequireDefault(_helpersEach);
 	
-	var _helpersHelperMissing = __webpack_require__(31);
+	var _helpersHelperMissing = __webpack_require__(40);
 	
 	var _helpersHelperMissing2 = _interopRequireDefault(_helpersHelperMissing);
 	
-	var _helpersIf = __webpack_require__(32);
+	var _helpersIf = __webpack_require__(41);
 	
 	var _helpersIf2 = _interopRequireDefault(_helpersIf);
 	
-	var _helpersLog = __webpack_require__(33);
+	var _helpersLog = __webpack_require__(42);
 	
 	var _helpersLog2 = _interopRequireDefault(_helpersLog);
 	
-	var _helpersLookup = __webpack_require__(34);
+	var _helpersLookup = __webpack_require__(43);
 	
 	var _helpersLookup2 = _interopRequireDefault(_helpersLookup);
 	
-	var _helpersWith = __webpack_require__(35);
+	var _helpersWith = __webpack_require__(44);
 	
 	var _helpersWith2 = _interopRequireDefault(_helpersWith);
 	
@@ -15159,14 +15655,14 @@
 	}
 
 /***/ },
-/* 29 */
+/* 38 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	exports.__esModule = true;
 	
-	var _utils = __webpack_require__(26);
+	var _utils = __webpack_require__(35);
 	
 	exports['default'] = function (instance) {
 	  instance.registerHelper('blockHelperMissing', function (context, options) {
@@ -15202,7 +15698,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 30 */
+/* 39 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15216,9 +15712,9 @@
 	  return obj && obj.__esModule ? obj : { 'default': obj };
 	}
 	
-	var _utils = __webpack_require__(26);
+	var _utils = __webpack_require__(35);
 	
-	var _exception = __webpack_require__(27);
+	var _exception = __webpack_require__(36);
 	
 	var _exception2 = _interopRequireDefault(_exception);
 	
@@ -15304,7 +15800,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 31 */
+/* 40 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15316,7 +15812,7 @@
 	  return obj && obj.__esModule ? obj : { 'default': obj };
 	}
 	
-	var _exception = __webpack_require__(27);
+	var _exception = __webpack_require__(36);
 	
 	var _exception2 = _interopRequireDefault(_exception);
 	
@@ -15335,14 +15831,14 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 32 */
+/* 41 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	exports.__esModule = true;
 	
-	var _utils = __webpack_require__(26);
+	var _utils = __webpack_require__(35);
 	
 	exports['default'] = function (instance) {
 	  instance.registerHelper('if', function (conditional, options) {
@@ -15368,7 +15864,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 33 */
+/* 42 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -15398,7 +15894,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 34 */
+/* 43 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -15414,14 +15910,14 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 35 */
+/* 44 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	exports.__esModule = true;
 	
-	var _utils = __webpack_require__(26);
+	var _utils = __webpack_require__(35);
 	
 	exports['default'] = function (instance) {
 	  instance.registerHelper('with', function (context, options) {
@@ -15451,7 +15947,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 36 */
+/* 45 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15464,7 +15960,7 @@
 	  return obj && obj.__esModule ? obj : { 'default': obj };
 	}
 	
-	var _decoratorsInline = __webpack_require__(37);
+	var _decoratorsInline = __webpack_require__(46);
 	
 	var _decoratorsInline2 = _interopRequireDefault(_decoratorsInline);
 	
@@ -15473,14 +15969,14 @@
 	}
 
 /***/ },
-/* 37 */
+/* 46 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	exports.__esModule = true;
 	
-	var _utils = __webpack_require__(26);
+	var _utils = __webpack_require__(35);
 	
 	exports['default'] = function (instance) {
 	  instance.registerDecorator('inline', function (fn, props, container, options) {
@@ -15506,14 +16002,14 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 38 */
+/* 47 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	exports.__esModule = true;
 	
-	var _utils = __webpack_require__(26);
+	var _utils = __webpack_require__(35);
 	
 	var logger = {
 	  methodMap: ['debug', 'info', 'warn', 'error'],
@@ -15557,7 +16053,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 39 */
+/* 48 */
 /***/ function(module, exports) {
 
 	// Build out our basic SafeString type
@@ -15576,7 +16072,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 40 */
+/* 49 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15610,15 +16106,15 @@
 	  }
 	}
 	
-	var _utils = __webpack_require__(26);
+	var _utils = __webpack_require__(35);
 	
 	var Utils = _interopRequireWildcard(_utils);
 	
-	var _exception = __webpack_require__(27);
+	var _exception = __webpack_require__(36);
 	
 	var _exception2 = _interopRequireDefault(_exception);
 	
-	var _base = __webpack_require__(25);
+	var _base = __webpack_require__(34);
 	
 	function checkRevision(compilerInfo) {
 	  var compilerRevision = compilerInfo && compilerInfo[0] || 1,
@@ -15886,7 +16382,7 @@
 	}
 
 /***/ },
-/* 41 */
+/* 50 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/* global window */
@@ -15911,16 +16407,16 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 42 */
+/* 51 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Handlebars = __webpack_require__(23);
+	var Handlebars = __webpack_require__(32);
 	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
 	module.exports = (Handlebars["default"] || Handlebars).template({"1":function(container,depth0,helpers,partials,data) {
 	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
 	
 	  return "							<option value=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.attributes : depth0)) != null ? stack1.formatted_address : stack1), depth0))
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.attributes : depth0)) != null ? stack1.placeId : stack1), depth0))
 	    + "\" "
 	    + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.selected : depth0),{"name":"if","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
 	    + ">"
@@ -16201,9 +16697,11 @@
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.type : stack1), depth0))
 	    + "\">\n						<img src=\"/static/spit.png\" class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.typeImage : stack1), depth0))
-	    + "\">\n						<span class=\""
+	    + "\">\n						<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.text : stack1), depth0))
+	    + "\"><span class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.bold : stack1), depth0))
-	    + "\">Из тазовой кости</span>\n						<br>\n						<div class=\""
+	    + "\">Из тазовой кости</span></div>\n						<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.text : stack1), depth0))
 	    + "\">\n							Врач проколет тазовую кость и&nbsp;возьмет небольшую часть костного мозга. Вы&nbsp;будете под общим наркозом. Операция займёт около 30&nbsp;минут. Во&nbsp;время операции вы&nbsp;ничего не&nbsp;почувствуете, но&nbsp;несколько дней после операции будут &laquo;ныть кости&raquo;. Вы&nbsp;легко снимете дискомфорт обезболивающими таблетками.\n						</div>\n					</div>\n				</div>\n				<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.col2 : stack1), depth0))
@@ -16211,9 +16709,11 @@
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.type : stack1), depth0))
 	    + "\">\n						<img src=\"/static/kapelnitsa.png\" class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.typeImage : stack1), depth0))
-	    + "\">\n						<span class=\""
+	    + "\">\n						<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.text : stack1), depth0))
+	    + "\"><span class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.bold : stack1), depth0))
-	    + "\">Из вены</span>\n						<br>\n						<div class=\""
+	    + "\">Из вены</span></div>\n						<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.text : stack1), depth0))
 	    + "\">\n							У&nbsp;вас берут кровь из&nbsp;вены одной руки и&nbsp;возвращают в&nbsp;вену на&nbsp;другой руке. По&nbsp;дороге кровь проходит через сепаратор, отлавливающий клетки костного мозга. Процедура занимает пять-шесть часов. Анестезия не&nbsp;нужна, вы&nbsp;находитесь в&nbsp;сознании и&nbsp;успеваете посмотреть три&nbsp;любимых фильма или поспать.\n						</div>	\n					</div>\n				</div>\n			</div>\n		</div>\n		<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
@@ -16283,7 +16783,7 @@
 	},"useData":true,"useDepths":true});
 
 /***/ },
-/* 43 */
+/* 52 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16302,23 +16802,23 @@
 	
 	var _page2 = _interopRequireDefault(_page);
 	
-	var _test = __webpack_require__(44);
+	var _test = __webpack_require__(53);
 	
 	var _test2 = _interopRequireDefault(_test);
 	
-	var _counters = __webpack_require__(70);
+	var _counters = __webpack_require__(79);
 	
 	var _counters2 = _interopRequireDefault(_counters);
 	
-	var _page3 = __webpack_require__(10);
+	var _page3 = __webpack_require__(21);
 	
 	var _page4 = _interopRequireDefault(_page3);
 	
-	var _typography = __webpack_require__(14);
+	var _typography = __webpack_require__(23);
 	
 	var _typography2 = _interopRequireDefault(_typography);
 	
-	var _why = __webpack_require__(72);
+	var _why = __webpack_require__(80);
 	
 	var _why2 = _interopRequireDefault(_why);
 	
@@ -16371,7 +16871,7 @@
 		}, {
 			key: '_template',
 			get: function get() {
-				return __webpack_require__(74);
+				return __webpack_require__(82);
 			}
 		}]);
 
@@ -16381,7 +16881,7 @@
 	exports.default = _class;
 
 /***/ },
-/* 44 */
+/* 53 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16405,35 +16905,35 @@
 	
 	var _base2 = _interopRequireDefault(_base);
 	
-	var _start2 = __webpack_require__(45);
+	var _start2 = __webpack_require__(54);
 	
 	var _start3 = _interopRequireDefault(_start2);
 	
-	var _game = __webpack_require__(51);
+	var _game = __webpack_require__(60);
 	
 	var _game2 = _interopRequireDefault(_game);
 	
-	var _age = __webpack_require__(55);
+	var _age = __webpack_require__(64);
 	
 	var _age2 = _interopRequireDefault(_age);
 	
-	var _weight = __webpack_require__(58);
+	var _weight = __webpack_require__(67);
 	
 	var _weight2 = _interopRequireDefault(_weight);
 	
-	var _auto = __webpack_require__(60);
+	var _auto = __webpack_require__(69);
 	
 	var _auto2 = _interopRequireDefault(_auto);
 	
-	var _disease = __webpack_require__(62);
+	var _disease = __webpack_require__(71);
 	
 	var _disease2 = _interopRequireDefault(_disease);
 	
-	var _finish = __webpack_require__(64);
+	var _finish = __webpack_require__(73);
 	
 	var _finish2 = _interopRequireDefault(_finish);
 	
-	var _test = __webpack_require__(46);
+	var _test = __webpack_require__(55);
 	
 	var _test2 = _interopRequireDefault(_test);
 	
@@ -16612,7 +17112,7 @@
 		}, {
 			key: '_template',
 			get: function get() {
-				return __webpack_require__(69);
+				return __webpack_require__(78);
 			}
 		}, {
 			key: 'events',
@@ -16632,7 +17132,7 @@
 	exports.isLastStep = isLastStep;
 
 /***/ },
-/* 45 */
+/* 54 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16651,19 +17151,19 @@
 	
 	var _base2 = _interopRequireDefault(_base);
 	
-	var _test = __webpack_require__(46);
+	var _test = __webpack_require__(55);
 	
 	var _test2 = _interopRequireDefault(_test);
 	
-	var _start = __webpack_require__(48);
+	var _start = __webpack_require__(57);
 	
 	var _start2 = _interopRequireDefault(_start);
 	
-	var _inputs = __webpack_require__(16);
+	var _inputs = __webpack_require__(25);
 	
 	var _inputs2 = _interopRequireDefault(_inputs);
 	
-	var _typography = __webpack_require__(14);
+	var _typography = __webpack_require__(23);
 	
 	var _typography2 = _interopRequireDefault(_typography);
 	
@@ -16704,7 +17204,7 @@
 		}, {
 			key: '_template',
 			get: function get() {
-				return __webpack_require__(50);
+				return __webpack_require__(59);
 			}
 		}, {
 			key: 'className',
@@ -16719,16 +17219,16 @@
 	exports.default = _class;
 
 /***/ },
-/* 46 */
+/* 55 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(47);
+	var content = __webpack_require__(56);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(13)(content, {});
+	var update = __webpack_require__(14)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -16745,10 +17245,10 @@
 	}
 
 /***/ },
-/* 47 */
+/* 56 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(12)();
+	exports = module.exports = __webpack_require__(13)();
 	// imports
 	
 	
@@ -16764,16 +17264,16 @@
 	};
 
 /***/ },
-/* 48 */
+/* 57 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(49);
+	var content = __webpack_require__(58);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(13)(content, {});
+	var update = __webpack_require__(14)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -16790,10 +17290,10 @@
 	}
 
 /***/ },
-/* 49 */
+/* 58 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(12)();
+	exports = module.exports = __webpack_require__(13)();
 	// imports
 	
 	
@@ -16808,10 +17308,10 @@
 	};
 
 /***/ },
-/* 50 */
+/* 59 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Handlebars = __webpack_require__(23);
+	var Handlebars = __webpack_require__(32);
 	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
 	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
 	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
@@ -16834,7 +17334,7 @@
 	},"useData":true});
 
 /***/ },
-/* 51 */
+/* 60 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16853,11 +17353,11 @@
 	
 	var _base2 = _interopRequireDefault(_base);
 	
-	var _test = __webpack_require__(46);
+	var _test = __webpack_require__(55);
 	
 	var _test2 = _interopRequireDefault(_test);
 	
-	var _game = __webpack_require__(52);
+	var _game = __webpack_require__(61);
 	
 	var _game2 = _interopRequireDefault(_game);
 	
@@ -16908,7 +17408,7 @@
 		}, {
 			key: '_template',
 			get: function get() {
-				return __webpack_require__(54);
+				return __webpack_require__(63);
 			}
 		}]);
 
@@ -16918,16 +17418,16 @@
 	exports.default = _class;
 
 /***/ },
-/* 52 */
+/* 61 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(53);
+	var content = __webpack_require__(62);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(13)(content, {});
+	var update = __webpack_require__(14)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -16944,10 +17444,10 @@
 	}
 
 /***/ },
-/* 53 */
+/* 62 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(12)();
+	exports = module.exports = __webpack_require__(13)();
 	// imports
 	
 	
@@ -16972,10 +17472,10 @@
 	};
 
 /***/ },
-/* 54 */
+/* 63 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Handlebars = __webpack_require__(23);
+	var Handlebars = __webpack_require__(32);
 	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
 	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
 	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
@@ -16988,7 +17488,7 @@
 	},"useData":true});
 
 /***/ },
-/* 55 */
+/* 64 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -17009,17 +17509,17 @@
 	
 	var _jquery2 = _interopRequireDefault(_jquery);
 	
-	var _step = __webpack_require__(56);
+	var _step = __webpack_require__(65);
 	
 	var _step2 = _interopRequireDefault(_step);
 	
-	var _test = __webpack_require__(44);
+	var _test = __webpack_require__(53);
 	
-	var _test2 = __webpack_require__(46);
+	var _test2 = __webpack_require__(55);
 	
 	var _test3 = _interopRequireDefault(_test2);
 	
-	var _game = __webpack_require__(52);
+	var _game = __webpack_require__(61);
 	
 	var _game2 = _interopRequireDefault(_game);
 	
@@ -17082,7 +17582,7 @@
 		}, {
 			key: '_template',
 			get: function get() {
-				return __webpack_require__(57);
+				return __webpack_require__(66);
 			}
 		}, {
 			key: 'events',
@@ -17100,7 +17600,7 @@
 	exports.default = _class;
 
 /***/ },
-/* 56 */
+/* 65 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -17123,21 +17623,21 @@
 	
 	var _base2 = _interopRequireDefault(_base);
 	
-	var _test = __webpack_require__(44);
+	var _test = __webpack_require__(53);
 	
-	var _test2 = __webpack_require__(46);
+	var _test2 = __webpack_require__(55);
 	
 	var _test3 = _interopRequireDefault(_test2);
 	
-	var _game = __webpack_require__(52);
+	var _game = __webpack_require__(61);
 	
 	var _game2 = _interopRequireDefault(_game);
 	
-	var _inputs = __webpack_require__(16);
+	var _inputs = __webpack_require__(25);
 	
 	var _inputs2 = _interopRequireDefault(_inputs);
 	
-	var _typography = __webpack_require__(14);
+	var _typography = __webpack_require__(23);
 	
 	var _typography2 = _interopRequireDefault(_typography);
 	
@@ -17217,10 +17717,10 @@
 	exports.default = _class;
 
 /***/ },
-/* 57 */
+/* 66 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Handlebars = __webpack_require__(23);
+	var Handlebars = __webpack_require__(32);
 	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
 	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
 	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
@@ -17243,7 +17743,7 @@
 	},"useData":true});
 
 /***/ },
-/* 58 */
+/* 67 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -17264,17 +17764,17 @@
 	
 	var _jquery2 = _interopRequireDefault(_jquery);
 	
-	var _step = __webpack_require__(56);
+	var _step = __webpack_require__(65);
 	
 	var _step2 = _interopRequireDefault(_step);
 	
-	var _test = __webpack_require__(44);
+	var _test = __webpack_require__(53);
 	
-	var _test2 = __webpack_require__(46);
+	var _test2 = __webpack_require__(55);
 	
 	var _test3 = _interopRequireDefault(_test2);
 	
-	var _game = __webpack_require__(52);
+	var _game = __webpack_require__(61);
 	
 	var _game2 = _interopRequireDefault(_game);
 	
@@ -17337,7 +17837,7 @@
 		}, {
 			key: '_template',
 			get: function get() {
-				return __webpack_require__(59);
+				return __webpack_require__(68);
 			}
 		}, {
 			key: 'events',
@@ -17355,10 +17855,10 @@
 	exports.default = _class;
 
 /***/ },
-/* 59 */
+/* 68 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Handlebars = __webpack_require__(23);
+	var Handlebars = __webpack_require__(32);
 	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
 	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
 	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
@@ -17381,7 +17881,7 @@
 	},"useData":true});
 
 /***/ },
-/* 60 */
+/* 69 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -17396,17 +17896,17 @@
 	
 	var _underscore2 = _interopRequireDefault(_underscore);
 	
-	var _step = __webpack_require__(56);
+	var _step = __webpack_require__(65);
 	
 	var _step2 = _interopRequireDefault(_step);
 	
-	var _test = __webpack_require__(44);
+	var _test = __webpack_require__(53);
 	
-	var _test2 = __webpack_require__(46);
+	var _test2 = __webpack_require__(55);
 	
 	var _test3 = _interopRequireDefault(_test2);
 	
-	var _game = __webpack_require__(52);
+	var _game = __webpack_require__(61);
 	
 	var _game2 = _interopRequireDefault(_game);
 	
@@ -17452,7 +17952,7 @@
 		}, {
 			key: '_template',
 			get: function get() {
-				return __webpack_require__(61);
+				return __webpack_require__(70);
 			}
 		}, {
 			key: 'events',
@@ -17478,10 +17978,10 @@
 	exports.default = _class;
 
 /***/ },
-/* 61 */
+/* 70 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Handlebars = __webpack_require__(23);
+	var Handlebars = __webpack_require__(32);
 	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
 	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
 	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
@@ -17536,7 +18036,7 @@
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListLi : stack1), depth0))
 	    + "\">Ришта;</li>\n					<li class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListLi : stack1), depth0))
-	    + "\">Лейшманиоз</li>\n				</ul>\n			</div>\n		</div>\n	</div>\n</div>\n<form class=\""
+	    + "\">Лейшманиоз.</li>\n				</ul>\n			</div>\n		</div>\n	</div>\n</div>\n<form class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.formAuto : stack1), depth0))
 	    + "\" data-action=\"test-form\">\n	<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
@@ -17560,7 +18060,7 @@
 	},"useData":true});
 
 /***/ },
-/* 62 */
+/* 71 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -17581,17 +18081,17 @@
 	
 	var _jquery2 = _interopRequireDefault(_jquery);
 	
-	var _step = __webpack_require__(56);
+	var _step = __webpack_require__(65);
 	
 	var _step2 = _interopRequireDefault(_step);
 	
-	var _test = __webpack_require__(44);
+	var _test = __webpack_require__(53);
 	
-	var _test2 = __webpack_require__(46);
+	var _test2 = __webpack_require__(55);
 	
 	var _test3 = _interopRequireDefault(_test2);
 	
-	var _game = __webpack_require__(52);
+	var _game = __webpack_require__(61);
 	
 	var _game2 = _interopRequireDefault(_game);
 	
@@ -17684,7 +18184,7 @@
 		}, {
 			key: '_template',
 			get: function get() {
-				return __webpack_require__(63);
+				return __webpack_require__(72);
 			}
 		}, {
 			key: 'events',
@@ -17702,10 +18202,10 @@
 	exports.default = _class;
 
 /***/ },
-/* 63 */
+/* 72 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Handlebars = __webpack_require__(23);
+	var Handlebars = __webpack_require__(32);
 	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
 	module.exports = (Handlebars["default"] || Handlebars).template({"1":function(container,depth0,helpers,partials,data,blockParams,depths) {
 	    var stack1, helper, alias1=container.lambda, alias2=container.escapeExpression, alias3=depth0 != null ? depth0 : {}, alias4=helpers.helperMissing, alias5="function";
@@ -17750,7 +18250,7 @@
 	},"useData":true,"useDepths":true});
 
 /***/ },
-/* 64 */
+/* 73 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -17779,25 +18279,25 @@
 	
 	var _share2 = _interopRequireDefault(_share);
 	
-	var _test = __webpack_require__(44);
+	var _test = __webpack_require__(53);
 	
-	var _test2 = __webpack_require__(46);
+	var _test2 = __webpack_require__(55);
 	
 	var _test3 = _interopRequireDefault(_test2);
 	
-	var _finish = __webpack_require__(65);
+	var _finish = __webpack_require__(74);
 	
 	var _finish2 = _interopRequireDefault(_finish);
 	
-	var _share3 = __webpack_require__(20);
+	var _share3 = __webpack_require__(29);
 	
 	var _share4 = _interopRequireDefault(_share3);
 	
-	var _inputs = __webpack_require__(16);
+	var _inputs = __webpack_require__(25);
 	
 	var _inputs2 = _interopRequireDefault(_inputs);
 	
-	var _typography = __webpack_require__(14);
+	var _typography = __webpack_require__(23);
 	
 	var _typography2 = _interopRequireDefault(_typography);
 	
@@ -17826,7 +18326,7 @@
 		}, {
 			key: '_template',
 			get: function get() {
-				return __webpack_require__(67);
+				return __webpack_require__(76);
 			}
 		}]);
 	
@@ -17940,7 +18440,7 @@
 		}, {
 			key: '_template',
 			get: function get() {
-				return __webpack_require__(68);
+				return __webpack_require__(77);
 			}
 		}, {
 			key: 'className',
@@ -17962,16 +18462,16 @@
 	exports.default = _class;
 
 /***/ },
-/* 65 */
+/* 74 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(66);
+	var content = __webpack_require__(75);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(13)(content, {});
+	var update = __webpack_require__(14)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -17988,10 +18488,10 @@
 	}
 
 /***/ },
-/* 66 */
+/* 75 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(12)();
+	exports = module.exports = __webpack_require__(13)();
 	// imports
 	
 	
@@ -18017,10 +18517,10 @@
 	};
 
 /***/ },
-/* 67 */
+/* 76 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Handlebars = __webpack_require__(23);
+	var Handlebars = __webpack_require__(32);
 	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
 	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
 	    var stack1, helper, alias1=container.lambda, alias2=container.escapeExpression, alias3=depth0 != null ? depth0 : {}, alias4=helpers.helperMissing, alias5="function";
@@ -18039,10 +18539,10 @@
 	},"useData":true});
 
 /***/ },
-/* 68 */
+/* 77 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Handlebars = __webpack_require__(23);
+	var Handlebars = __webpack_require__(32);
 	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
 	module.exports = (Handlebars["default"] || Handlebars).template({"1":function(container,depth0,helpers,partials,data) {
 	    var stack1;
@@ -18211,10 +18711,10 @@
 	},"useData":true});
 
 /***/ },
-/* 69 */
+/* 78 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Handlebars = __webpack_require__(23);
+	var Handlebars = __webpack_require__(32);
 	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
 	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
 	    var stack1;
@@ -18225,7 +18725,7 @@
 	},"useData":true});
 
 /***/ },
-/* 70 */
+/* 79 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -18244,7 +18744,7 @@
 	
 	var _underscore2 = _interopRequireDefault(_underscore);
 	
-	var _ajax = __webpack_require__(71);
+	var _ajax = __webpack_require__(17);
 	
 	var _ajax2 = _interopRequireDefault(_ajax);
 	
@@ -18308,44 +18808,16 @@
 	exports.default = _class;
 
 /***/ },
-/* 71 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	var _jquery = __webpack_require__(3);
-	
-	var _jquery2 = _interopRequireDefault(_jquery);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = function () {
-		var params = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
-	
-		return new Promise(function (resolve, reject) {
-			_jquery2.default.ajax(params).done(function (response) {
-				resolve(response);
-			}).error(function (response) {
-				reject(response);
-			});
-		});
-	};
-
-/***/ },
-/* 72 */
+/* 80 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(73);
+	var content = __webpack_require__(81);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(13)(content, {});
+	var update = __webpack_require__(14)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -18362,10 +18834,10 @@
 	}
 
 /***/ },
-/* 73 */
+/* 81 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(12)();
+	exports = module.exports = __webpack_require__(13)();
 	// imports
 	
 	
@@ -18383,10 +18855,10 @@
 	};
 
 /***/ },
-/* 74 */
+/* 82 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Handlebars = __webpack_require__(23);
+	var Handlebars = __webpack_require__(32);
 	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
 	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
 	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
@@ -18507,16 +18979,16 @@
 	},"useData":true});
 
 /***/ },
-/* 75 */
+/* 83 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(76);
+	var content = __webpack_require__(84);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(13)(content, {});
+	var update = __webpack_require__(14)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -18533,10 +19005,10 @@
 	}
 
 /***/ },
-/* 76 */
+/* 84 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(12)();
+	exports = module.exports = __webpack_require__(13)();
 	// imports
 	
 	
@@ -18549,10 +19021,10 @@
 	};
 
 /***/ },
-/* 77 */
+/* 85 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Handlebars = __webpack_require__(23);
+	var Handlebars = __webpack_require__(32);
 	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
 	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
 	    var stack1;
@@ -18563,16 +19035,16 @@
 	},"useData":true});
 
 /***/ },
-/* 78 */
+/* 86 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(79);
+	var content = __webpack_require__(87);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(13)(content, {});
+	var update = __webpack_require__(14)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -18589,10 +19061,10 @@
 	}
 
 /***/ },
-/* 79 */
+/* 87 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(12)();
+	exports = module.exports = __webpack_require__(13)();
 	// imports
 	
 	
@@ -18603,457 +19075,1659 @@
 
 
 /***/ },
-/* 80 */
+/* 88 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;'use strict';
 	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+	
+	/*! Typograf | © 2015 Denis Seleznev | https://github.com/typograf/typograf/ */
+	
+	(function (root, factory) {
+	    if (true) {
+	        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	    } else if ((typeof exports === 'undefined' ? 'undefined' : _typeof(exports)) === 'object') {
+	        module.exports = factory();
+	    } else {
+	        root.Typograf = factory();
+	    }
+	})(undefined, function () {
+	    'use strict';
+	
+	    /**
+	     * @constructor
+	     * @param {Object} [prefs]
+	     * @param {string} [prefs.lang] Language rules
+	     * @param {string} [prefs.mode] HTML entities as: 'default' - UTF-8, 'digit' - &#160;, 'name' - &nbsp;
+	     * @param {boolean} [prefs.live] Live mode
+	     * @param {string|string[]} [prefs.enable] Enable rules
+	     * @param {string|string[]} [prefs.disable] Disable rules
+	     */
+	
+	    function Typograf(prefs) {
+	        this._prefs = (typeof prefs === 'undefined' ? 'undefined' : _typeof(prefs)) === 'object' ? prefs : {};
+	        this._prefs.live = this._prefs.live || false;
+	
+	        this._settings = {};
+	        this._enabledRules = {};
+	
+	        this._replaceLabel = this._replaceLabel.bind(this);
+	        this._pasteLabel = this._pasteLabel.bind(this);
+	        this._initSafeTags();
+	
+	        this._rules.forEach(this._prepareRule, this);
+	
+	        this._prefs.disable && this.disable(this._prefs.disable);
+	        this._prefs.enable && this.enable(this._prefs.enable);
+	    }
+	
+	    /**
+	     * Add a rule.
+	     *
+	     * @static
+	     * @param {Object} rule
+	     * @param {string} rule.name Name of rule
+	     * @param {Function} rule.handler Processing function
+	     * @param {number} [rule.index] Sorting index for rule
+	     * @param {boolean} [rule.disabled] Rule is disabled by default
+	     * @param {boolean} [rule.live] Live mode
+	     * @param {Object} [rule.settings] Settings for rule
+	     * @return {Typograf} this
+	     */
+	    Typograf.rule = function (rule) {
+	        var parts = rule.name.split('/');
+	
+	        rule._enabled = rule.disabled === true ? false : true;
+	        rule._lang = parts[0];
+	        rule._group = parts[1];
+	        rule._name = parts[2];
+	
+	        Typograf._setIndex(rule);
+	
+	        Typograf.prototype._rules.push(rule);
+	
+	        if (Typograf._needSortRules) {
+	            this._sortRules();
+	        }
+	
+	        return this;
+	    };
+	
+	    Typograf._langs = ['en', 'ru'];
+	
+	    Typograf._setIndex = function (rule) {
+	        var index = rule.index,
+	            t = typeof index === 'undefined' ? 'undefined' : _typeof(index),
+	            groupIndex = Typograf.groupIndexes[rule._group];
+	
+	        if (t === 'undefined') {
+	            index = groupIndex;
+	        } else if (t === 'string') {
+	            index = groupIndex + parseInt(rule.index, 10);
+	        }
+	
+	        rule._index = index;
+	    };
+	
+	    /**
+	     * Add internal rule.
+	     * Internal rules are executed before main.
+	     *
+	     * @static
+	     * @param {Object} rule
+	     * @param {string} rule.name Name of rule
+	     * @param {Function} rule.handler Processing function
+	     * @return {Typograf} this
+	     */
+	    Typograf.innerRule = function (rule) {
+	        Typograf.prototype._innerRules.push(rule);
+	
+	        rule._lang = rule.name.split('/')[0];
+	
+	        return this;
+	    };
+	
+	    /**
+	     * Get/set data for use in rules.
+	     *
+	     * @static
+	     * @param {string|Object} key
+	     * @param {*} [value]
+	     * @return {*}
+	     */
+	    Typograf.data = function (key, value) {
+	        if (typeof key === 'string') {
+	            if (arguments.length === 1) {
+	                return Typograf._data[key];
+	            } else {
+	                Typograf._data[key] = value;
+	            }
+	        } else if ((typeof key === 'undefined' ? 'undefined' : _typeof(key)) === 'object') {
+	            Object.keys(key).forEach(function (k) {
+	                Typograf._data[k] = key[k];
+	            });
+	        }
+	    };
+	
+	    Typograf._data = {};
+	
+	    Typograf._sortRules = function () {
+	        Typograf.prototype._rules.sort(function (a, b) {
+	            return a._index > b._index ? 1 : -1;
+	        });
+	    };
+	
+	    Typograf._replace = function (text, re) {
+	        for (var i = 0; i < re.length; i++) {
+	            text = text.replace(re[i][0], re[i][1]);
+	        }
+	
+	        return text;
+	    };
+	
+	    Typograf._privateLabel = '�';
+	
+	    Typograf.prototype = {
+	        constructor: Typograf,
+	        /**
+	         * Execute typographical rules for text.
+	         *
+	         * @param {string} text
+	         * @param {Object} [prefs]
+	         * @param {string} [prefs.lang] Language rules
+	         * @param {string} [prefs.mode] Type HTML entities
+	         * @return {string}
+	         */
+	        execute: function execute(text, prefs) {
+	            prefs = prefs || {};
+	
+	            var that = this,
+	                lang = prefs.lang || this._prefs.lang || 'common',
+	                rulesForQueue = {},
+	                innerRulesForQueue = {},
+	                mode = typeof prefs.mode === 'undefined' ? this._prefs.mode : prefs.mode,
+	                iterator = function iterator(rule) {
+	                var rlang = rule._lang,
+	                    live = this._prefs.live;
+	
+	                if (live === true && rule.live === false || live === false && rule.live === true) {
+	                    return;
+	                }
+	
+	                if ((rlang === 'common' || rlang === lang) && this.enabled(rule.name)) {
+	                    this._onBeforeRule && this._onBeforeRule(rule.name, text);
+	                    text = rule.handler.call(this, text, this._settings[rule.name]);
+	                    this._onAfterRule && this._onAfterRule(rule.name, text);
+	                }
+	            },
+	                executeRulesForQueue = function executeRulesForQueue(queue) {
+	                innerRulesForQueue[queue] && innerRulesForQueue[queue].forEach(iterator, that);
+	                rulesForQueue[queue] && rulesForQueue[queue].forEach(iterator, that);
+	            };
+	
+	            this._lang = lang;
+	
+	            text = '' + text;
+	
+	            if (!text) {
+	                return '';
+	            }
+	
+	            text = this._fixLineEnd(text);
+	
+	            this._innerRules.forEach(function (rule) {
+	                var q = rule.queue;
+	                innerRulesForQueue[q] = innerRulesForQueue[q] || [];
+	                innerRulesForQueue[q].push(rule);
+	            }, this);
+	
+	            this._rules.forEach(function (rule) {
+	                var q = rule.queue;
+	                rulesForQueue[q] = rulesForQueue[q] || [];
+	                rulesForQueue[q].push(rule);
+	            }, this);
+	
+	            this._isHTML = text.search(/(<\/?[a-z]|<!|&[lg]t;)/i) !== -1;
+	
+	            executeRulesForQueue('start');
+	
+	            text = this._hideSafeTags(text);
+	
+	            text = this._utfication(text);
+	            executeRulesForQueue('utf');
+	
+	            executeRulesForQueue();
+	
+	            text = this._modification(text, mode);
+	            executeRulesForQueue('entity');
+	
+	            text = this._showSafeTags(text);
+	
+	            executeRulesForQueue('end');
+	
+	            this._lang = null;
+	            this._isHTML = null;
+	
+	            return text;
+	        },
+	        /**
+	         * Get/set a setting.
+	         *
+	         * @param {string} ruleName
+	         * @param {string} setting
+	         * @param {*} [value]
+	         * @return {*}
+	         */
+	        setting: function setting(ruleName, _setting, value) {
+	            if (arguments.length <= 2) {
+	                return this._settings[ruleName] && this._settings[ruleName][_setting];
+	            } else {
+	                this._settings[ruleName] = this._settings[ruleName] || {};
+	                this._settings[ruleName][_setting] = value;
+	
+	                return this;
+	            }
+	        },
+	        /**
+	         * Is enabled a rule.
+	         *
+	         * @param {string} ruleName
+	         * @return {boolean}
+	         */
+	        enabled: function enabled(ruleName) {
+	            return this._enabledRules[ruleName];
+	        },
+	        /**
+	         * Is disabled a rule.
+	         *
+	         * @param {string} ruleName
+	         * @return {boolean}
+	         */
+	        disabled: function disabled(ruleName) {
+	            return !this._enabledRules[ruleName];
+	        },
+	        /**
+	         * Enable a rule.
+	         *
+	         * @param {string|string[]} ruleName
+	         * @return {Typograf} this
+	         */
+	        enable: function enable(ruleName) {
+	            return this._enable(ruleName, true);
+	        },
+	        /**
+	         * Disable a rule.
+	         *
+	         * @param {string|string[]} ruleName
+	         * @return {Typograf} this
+	         */
+	        disable: function disable(ruleName) {
+	            return this._enable(ruleName, false);
+	        },
+	        /**
+	         * Add safe tag.
+	         *
+	         * @example
+	         * // var t = new Typograf({lang: 'ru'});
+	         * // t.addSafeTag('<mytag>', '</mytag>');
+	         * // t.addSafeTag('<mytag>', '</mytag>', '.*?');
+	         * // t.addSafeTag(/<mytag>.*?</mytag>/gi);
+	         *
+	         * @param {string|RegExp} startTag
+	         * @param {string} [endTag]
+	         * @param {string} [middle]
+	         * @return {Typograf} this
+	        */
+	        addSafeTag: function addSafeTag(startTag, endTag, middle) {
+	            var tag = startTag instanceof RegExp ? startTag : [startTag, endTag, middle];
+	
+	            this._safeTags.own.push(this._prepareSafeTag(tag));
+	
+	            return this;
+	        },
+	        /**
+	         * Get data for use in rules.
+	         *
+	         * @param {string} key
+	         * @return {*}
+	         */
+	        data: function data(key) {
+	            var lang = '';
+	            if (key.search('/') === -1) {
+	                lang = (this._lang || this._prefs.lang) + '/';
+	            }
+	
+	            return Typograf.data(lang + key);
+	        },
+	        _quote: function _quote(text, settings) {
+	            var letters = this.data('l') + '́\\d',
+	                privateLabel = Typograf._privateLabel,
+	                lquote = settings.lquote,
+	                rquote = settings.rquote,
+	                lquote2 = settings.lquote2,
+	                rquote2 = settings.rquote2,
+	                quotes = '[' + Typograf.data('common/quote') + ']',
+	                phrase = '[' + letters + ')!?.:;#*,…]*?',
+	                reL = new RegExp('"([' + letters + '])', 'gi'),
+	                reR = new RegExp('(' + phrase + ')"(' + phrase + ')', 'gi'),
+	                reQuotes = new RegExp(quotes, 'g'),
+	                reFirstQuote = new RegExp('^(\\s)?(' + quotes + ')', 'g'),
+	                reOpeningTag = new RegExp('(^|\\s)' + quotes + privateLabel, 'g'),
+	                reClosingTag = new RegExp(privateLabel + quotes + '([\\s!?.:;#*,]|$)', 'g'),
+	                count = 0;
+	
+	            text = text.replace(reQuotes, function () {
+	                count++;
+	                return '"';
+	            }).replace(reL, lquote + '$1') // Opening quote
+	            .replace(reR, '$1' + rquote + '$2') // Closing quote
+	            .replace(reOpeningTag, '$1' + lquote + privateLabel) // Opening quote and tag
+	            .replace(reClosingTag, privateLabel + rquote + '$1') // Tag and closing quote
+	            .replace(reFirstQuote, '$1' + lquote);
+	
+	            if (lquote2 && rquote2 && count % 2 === 0) {
+	                return this._innerQuote(text, settings);
+	            }
+	
+	            return text;
+	        },
+	        _innerQuote: function _innerQuote(text, settings) {
+	            var openingQuotes = [settings.lquote],
+	                closingQuotes = [settings.rquote],
+	                lquote = settings.lquote,
+	                rquote = settings.rquote,
+	                bufText = new Array(text.length);
+	
+	            if (settings.lquote2 && settings.rquote2) {
+	                openingQuotes.push(settings.lquote2);
+	                closingQuotes.push(settings.rquote2);
+	
+	                if (settings.lquote3 && settings.rquote3) {
+	                    openingQuotes.push(settings.lquote3);
+	                    closingQuotes.push(settings.rquote3);
+	                }
+	            }
+	
+	            var level = -1,
+	                maxLevel = openingQuotes.length - 1;
+	
+	            for (var i = 0, len = text.length; i < len; i++) {
+	                var letter = text[i];
+	                if (letter === lquote) {
+	                    level++;
+	                    if (level > maxLevel) {
+	                        level = maxLevel;
+	                    }
+	                    bufText.push(openingQuotes[level]);
+	                } else if (letter === rquote) {
+	                    if (level <= -1) {
+	                        level = 0;
+	                        bufText.push(openingQuotes[level]);
+	                    } else {
+	                        bufText.push(closingQuotes[level]);
+	                        level--;
+	                        if (level < -1) {
+	                            level = -1;
+	                        }
+	                    }
+	                } else {
+	                    bufText.push(letter);
+	                }
+	            }
+	
+	            return bufText.join('');
+	        },
+	        _fixLineEnd: function _fixLineEnd(text) {
+	            return text.replace(/\r\n/g, '\n'); // Windows
+	        },
+	        _prepareRule: function _prepareRule(rule) {
+	            var name = rule.name,
+	                settings = {};
+	
+	            if (_typeof(rule.settings) === 'object') {
+	                Object.keys(rule.settings).forEach(function (key) {
+	                    settings[key] = rule.settings[key];
+	                });
+	            }
+	
+	            this._settings[name] = settings;
+	            this._enabledRules[name] = rule._enabled;
+	        },
+	        _enable: function _enable(rule, enabled) {
+	            if (Array.isArray(rule)) {
+	                rule.forEach(function (el) {
+	                    this._enableByMask(el, enabled);
+	                }, this);
+	            } else {
+	                this._enableByMask(rule, enabled);
+	            }
+	
+	            return this;
+	        },
+	        _enableByMask: function _enableByMask(rule, enabled) {
+	            var re;
+	            if (rule.search(/\*/) !== -1) {
+	                re = new RegExp(rule.replace(/\//g, '\\\/').replace(/\*/g, '.*'));
+	
+	                this._rules.forEach(function (el) {
+	                    var name = el.name;
+	                    if (re.test(name)) {
+	                        this._enabledRules[name] = enabled;
+	                    }
+	                }, this);
+	            } else {
+	                this._enabledRules[rule] = enabled;
+	            }
+	        },
+	        _rules: [],
+	        _innerRules: [],
+	        _getRule: function _getRule(name) {
+	            var rule = null;
+	            this._rules.some(function (item) {
+	                if (item.name === name) {
+	                    rule = item;
+	                    return true;
+	                }
+	
+	                return false;
+	            });
+	
+	            return rule;
+	        },
+	        _initSafeTags: function _initSafeTags() {
+	            var html = [['<!--', '-->'], ['<!ENTITY', '>'], ['<!DOCTYPE', '>'], ['<\\?xml', '\\?>'], ['<!\\[CDATA\\[', '\\]\\]>']];
+	
+	            ['code', 'kbd', 'object', 'pre', 'samp', 'script', 'style', 'var'].forEach(function (tag) {
+	                html.push(['<' + tag + '(\\s[^>]*?)?>', '</' + tag + '>']);
+	            }, this);
+	
+	            this._safeTags = {
+	                html: html.map(this._prepareSafeTag),
+	                own: [],
+	                url: [this._reUrl]
+	            };
+	        },
+	        _reUrl: new RegExp('(https?|file|ftp)://([a-zA-Z0-9\/+-=%&:_.~?]+[a-zA-Z0-9#+]*)', 'g'),
+	        _hideSafeTags: function _hideSafeTags(text) {
+	            var that = this,
+	                iterator = function iterator(tag) {
+	                text = text.replace(that._prepareSafeTag(tag), that._pasteLabel);
+	            },
+	                hide = function hide(name) {
+	                that._safeTags[name].forEach(iterator);
+	            };
+	
+	            this._hiddenSafeTags = {};
+	            this._iLabel = 0;
+	
+	            hide('own');
+	
+	            if (this._isHTML) {
+	                hide('html');
+	                text = this._hideHTMLTags(text);
+	            }
+	
+	            hide('url');
+	
+	            return text;
+	        },
+	        _prepareSafeTag: function _prepareSafeTag(tag) {
+	            var re;
+	
+	            if (tag instanceof RegExp) {
+	                re = tag;
+	            } else {
+	                var startTag = tag[0],
+	                    endTag = tag[1],
+	                    middle = typeof tag[2] === 'undefined' ? '[^]*?' : tag[2];
+	
+	                re = new RegExp(startTag + middle + endTag, 'gi');
+	            }
+	
+	            return re;
+	        },
+	        _getPrivateLabel: function _getPrivateLabel(i) {
+	            var label = Typograf._privateLabel;
+	            return label + 'tf' + i + label;
+	        },
+	        _pasteLabel: function _pasteLabel(match) {
+	            var key = this._getPrivateLabel(this._iLabel);
+	            this._hiddenSafeTags[key] = match;
+	            this._iLabel++;
+	
+	            return key;
+	        },
+	        _replaceLabel: function _replaceLabel(match) {
+	            return this._hiddenSafeTags[match];
+	        },
+	        _hideHTMLTags: function _hideHTMLTags(text) {
+	            return text.replace(/<\/?[a-z][^]*?>/gi, this._pasteLabel) // Tags
+	            .replace(/&lt;\/?[a-z][^]*?&gt;/gi, this._pasteLabel) // Escaping tags
+	            .replace(/&[gl]t;/gi, this._pasteLabel);
+	        },
+	        _showSafeTags: function _showSafeTags(text) {
+	            var label = Typograf._privateLabel,
+	                reReplace = new RegExp(label + 'tf\\d+' + label, 'g'),
+	                reSearch = new RegExp(label + 'tf\\d'),
+	                len = 0;
+	
+	            Object.keys(this._safeTags).forEach(function (tags) {
+	                len += tags.length;
+	            });
+	
+	            for (var i = 0; i < len; i++) {
+	                text = text.replace(reReplace, this._replaceLabel);
+	                if (text.search(reSearch) === -1) {
+	                    break;
+	                }
+	            }
+	
+	            this._hiddenSafeTags = {};
+	
+	            return text;
+	        },
+	        _utfication: function _utfication(text) {
+	            if (text.search(/&#/) !== -1) {
+	                text = this._decHexToUtf(text);
+	            }
+	
+	            if (text.search(/&[a-z]/i) !== -1) {
+	                this.entities.forEach(function (entity) {
+	                    text = text.replace(entity[3], entity[2]);
+	                });
+	            }
+	
+	            return text.replace(/&quot;/g, '"');
+	        },
+	        _decHexToUtf: function _decHexToUtf(text) {
+	            return text.replace(/&#(\d{1,6});/gi, function ($0, $1) {
+	                return String.fromCharCode(parseInt($1, 10));
+	            }).replace(/&#x([\da-f]{1,6});/gi, function ($0, $1) {
+	                return String.fromCharCode(parseInt($1, 16));
+	            });
+	        },
+	        _modification: function _modification(text, mode) {
+	            if (mode === 'name' || mode === 'digit') {
+	                var index = mode === 'name' ? 0 : 1;
+	                this.entities.forEach(function (entity) {
+	                    if (entity[index]) {
+	                        text = text.replace(entity[4], entity[index]);
+	                    }
+	                });
+	            }
+	
+	            return text;
+	        }
+	    };
+	
+	    Typograf.version = '5.3.2';
+	
+	    Typograf.groupIndexes = {
+	        symbols: 110,
+	        space: 210,
+	        dash: 310,
+	        punctuation: 410,
+	        nbsp: 510,
+	        'number': 610,
+	        money: 710,
+	        date: 810,
+	        other: 910,
+	        optalign: 1010,
+	        html: 1110
+	    };
+	
+	    Typograf.prototype.entities = [];
+	
+	    // http://www.w3.org/TR/html4/sgml/entities
+	    [['nbsp', 160], ['iexcl', 161], ['cent', 162], ['pound', 163], ['curren', 164], ['yen', 165], ['brvbar', 166], ['sect', 167], ['uml', 168], ['copy', 169], ['ordf', 170], ['laquo', 171], ['not', 172], ['shy', 173], ['reg', 174], ['macr', 175], ['deg', 176], ['plusmn', 177], ['sup2', 178], ['sup3', 179], ['acute', 180], ['micro', 181], ['para', 182], ['middot', 183], ['cedil', 184], ['sup1', 185], ['ordm', 186], ['raquo', 187], ['frac14', 188], ['frac12', 189], ['frac34', 190], ['iquest', 191], ['Agrave', 192], ['Aacute', 193], ['Acirc', 194], ['Atilde', 195], ['Auml', 196], ['Aring', 197], ['AElig', 198], ['Ccedil', 199], ['Egrave', 200], ['Eacute', 201], ['Ecirc', 202], ['Euml', 203], ['Igrave', 204], ['Iacute', 205], ['Icirc', 206], ['Iuml', 207], ['ETH', 208], ['Ntilde', 209], ['Ograve', 210], ['Oacute', 211], ['Ocirc', 212], ['Otilde', 213], ['Ouml', 214], ['times', 215], ['Oslash', 216], ['Ugrave', 217], ['Uacute', 218], ['Ucirc', 219], ['Uuml', 220], ['Yacute', 221], ['THORN', 222], ['szlig', 223], ['agrave', 224], ['aacute', 225], ['acirc', 226], ['atilde', 227], ['auml', 228], ['aring', 229], ['aelig', 230], ['ccedil', 231], ['egrave', 232], ['eacute', 233], ['ecirc', 234], ['euml', 235], ['igrave', 236], ['iacute', 237], ['icirc', 238], ['iuml', 239], ['eth', 240], ['ntilde', 241], ['ograve', 242], ['oacute', 243], ['ocirc', 244], ['otilde', 245], ['ouml', 246], ['divide', 247], ['oslash', 248], ['ugrave', 249], ['uacute', 250], ['ucirc', 251], ['uuml', 252], ['yacute', 253], ['thorn', 254], ['yuml', 255], ['fnof', 402], ['Alpha', 913], ['Beta', 914], ['Gamma', 915], ['Delta', 916], ['Epsilon', 917], ['Zeta', 918], ['Eta', 919], ['Theta', 920], ['Iota', 921], ['Kappa', 922], ['Lambda', 923], ['Mu', 924], ['Nu', 925], ['Xi', 926], ['Omicron', 927], ['Pi', 928], ['Rho', 929], ['Sigma', 931], ['Tau', 932], ['Upsilon', 933], ['Phi', 934], ['Chi', 935], ['Psi', 936], ['Omega', 937], ['alpha', 945], ['beta', 946], ['gamma', 947], ['delta', 948], ['epsilon', 949], ['zeta', 950], ['eta', 951], ['theta', 952], ['iota', 953], ['kappa', 954], ['lambda', 955], ['mu', 956], ['nu', 957], ['xi', 958], ['omicron', 959], ['pi', 960], ['rho', 961], ['sigmaf', 962], ['sigma', 963], ['tau', 964], ['upsilon', 965], ['phi', 966], ['chi', 967], ['psi', 968], ['omega', 969], ['thetasym', 977], ['upsih', 978], ['piv', 982], ['bull', 8226], ['hellip', 8230], ['prime', 8242], ['Prime', 8243], ['oline', 8254], ['frasl', 8260], ['weierp', 8472], ['image', 8465], ['real', 8476], ['trade', 8482], ['alefsym', 8501], ['larr', 8592], ['uarr', 8593], ['rarr', 8594], ['darr', 8595], ['harr', 8596], ['crarr', 8629], ['lArr', 8656], ['uArr', 8657], ['rArr', 8658], ['dArr', 8659], ['hArr', 8660], ['forall', 8704], ['part', 8706], ['exist', 8707], ['empty', 8709], ['nabla', 8711], ['isin', 8712], ['notin', 8713], ['ni', 8715], ['prod', 8719], ['sum', 8721], ['minus', 8722], ['lowast', 8727], ['radic', 8730], ['prop', 8733], ['infin', 8734], ['ang', 8736], ['and', 8743], ['or', 8744], ['cap', 8745], ['cup', 8746], ['int', 8747], ['there4', 8756], ['sim', 8764], ['cong', 8773], ['asymp', 8776], ['ne', 8800], ['equiv', 8801], ['le', 8804], ['ge', 8805], ['sub', 8834], ['sup', 8835], ['nsub', 8836], ['sube', 8838], ['supe', 8839], ['oplus', 8853], ['otimes', 8855], ['perp', 8869], ['sdot', 8901], ['lceil', 8968], ['rceil', 8969], ['lfloor', 8970], ['rfloor', 8971], ['lang', 9001], ['rang', 9002], ['spades', 9824], ['clubs', 9827], ['hearts', 9829], ['diams', 9830], ['loz', 9674], ['OElig', 338], ['oelig', 339], ['Scaron', 352], ['scaron', 353], ['Yuml', 376], ['circ', 710], ['tilde', 732], ['ensp', 8194], ['emsp', 8195], ['thinsp', 8201], ['zwnj', 8204], ['zwj', 8205], ['lrm', 8206], ['rlm', 8207], ['ndash', 8211], ['mdash', 8212], ['lsquo', 8216], ['rsquo', 8217], ['sbquo', 8218], ['ldquo', 8220], ['rdquo', 8221], ['bdquo', 8222], ['dagger', 8224], ['Dagger', 8225], ['permil', 8240], ['lsaquo', 8249], ['rsaquo', 8250], ['euro', 8364], ['NestedGreaterGreater', 8811], ['NestedLessLess', 8810]].forEach(function (en) {
+	        var name = en[0],
+	            num = en[1],
+	            sym = String.fromCharCode(num),
+	            buf = ['&' + name + ';', // 0 - &nbsp;
+	        '&#' + num + ';', // 1 - &#160;
+	        sym, // 2 - \u00A0
+	        new RegExp('&' + name + ';', 'g'), new RegExp(sym, 'g') // 4
+	        ];
+	
+	        Typograf.prototype.entities.push(buf);
+	    }, this);
+	
+	    Typograf.data('common/dash', '--?|‒|–|—'); // --, &#8210, &ndash, &mdash
+	
+	    Typograf.data('common/quote', '«‹»›„‚“‟‘‛”’"');
+	
+	    Typograf.data({
+	        'en/l': 'a-z',
+	        'en/ld': 'a-z\\d',
+	        'en/L': 'A-Z',
+	        'en/Ld': 'A-Z\\d',
+	        'en/lL': 'a-zA-Z',
+	        'en/lLd': 'a-zA-Z\\d'
+	    });
+	
+	    Typograf.data('en/lquote', '“‘');
+	
+	    Typograf.data('en/rquote', '”’');
+	
+	    Typograf.data({
+	        'ru/dashBefore': '(^| |\\n)',
+	        'ru/dashAfter': '(?=[  ,.?:!]|$)',
+	        'ru/dashAfterDe': '(?=[,.?:!]|[  ][^А-ЯЁ]|$)'
+	    });
+	
+	    Typograf.data({
+	        'ru/l': 'а-яёa-z',
+	        'ru/ld': 'а-яёa-z\\d',
+	        'ru/L': 'А-ЯЁA-Z',
+	        'ru/Ld': 'А-ЯЁA-Z\\d',
+	        'ru/lL': 'а-яёА-ЯЁa-zA-Z',
+	        'ru/lLd': 'а-яёА-ЯЁa-zA-Z\\d'
+	    });
+	
+	    Typograf.data('ru/lquote', '«„‚');
+	
+	    Typograf.data({
+	        'ru/month': 'январь|февраль|март|апрель|май|июнь|июль|август|сентябрь|октябрь|ноябрь|декабрь',
+	        'ru/monthGenCase': 'января|февраля|марта|апреля|мая|июня|июля|августа|сентября|октября|ноября|декабря',
+	        'ru/monthPreCase': 'январе|феврале|марте|апреле|мае|июне|июле|августе|сентябре|октябре|ноябре|декабре',
+	        'ru/shortMonth': 'янв|фев|мар|апр|ма[ейя]|июн|июл|авг|сен|окт|ноя|дек'
+	    });
+	
+	    Typograf.data('ru/rquote', '»“‘');
+	
+	    Typograf.data('ru/weekday', 'понедельник|вторник|среда|четверг|пятница|суббота|воскресенье');
+	
+	    Typograf.rule({
+	        name: 'common/html/e-mail',
+	        queue: 'end',
+	        handler: function handler(text) {
+	            return this._isHTML ? text : text.replace(/(^|[\s;(])([\w\-.]{2,})@([\w\-.]{2,})\.([a-z]{2,6})([)\s.,!?]|$)/gi, '$1<a href="mailto:$2@$3.$4">$2@$3.$4</a>$5');
+	        },
+	        disabled: true
+	    });
+	
+	    Typograf.rule({
+	        name: 'common/html/escape',
+	        index: '+100',
+	        queue: 'end',
+	        handler: function handler(text) {
+	            var entityMap = {
+	                '&': '&amp;',
+	                '<': '&lt;',
+	                '>': '&gt;',
+	                '"': '&quot;',
+	                '\'': '&#39;',
+	                '/': '&#x2F;'
+	            };
+	
+	            return text.replace(/[&<>"'\/]/g, function (s) {
+	                return entityMap[s];
+	            });
+	        },
+	        disabled: true
+	    });
+	
+	    Typograf.rule({
+	        name: 'common/html/nbr',
+	        index: '+5',
+	        queue: 'end',
+	        handler: function handler(text) {
+	            return text.search(/<br/) === -1 ? text.replace(/\n/g, '<br/>\n') : text;
+	        },
+	        disabled: true
+	    });
+	
+	    Typograf.rule({
+	        name: 'common/html/pbr',
+	        queue: 'end',
+	        handler: function handler(text) {
+	            if (text.search(/<(p|br)[\s\/>]/) === -1) {
+	                if (text.search(/\n/) === -1) {
+	                    text = '<p>' + text + '</p>';
+	                } else {
+	                    text = '<p>' + text.replace(/\n\n/g, '</p>\n<p>') + '<\/p>';
+	                    text = text.replace(/([^>])\n/g, '$1<br/>\n');
+	                }
+	            }
+	
+	            return text;
+	        },
+	        disabled: true
+	    });
+	
+	    Typograf.rule({
+	        name: 'common/html/stripTags',
+	        index: '+99',
+	        queue: 'end',
+	        handler: function handler(text) {
+	            return text.replace(/<[^>]+>/g, '');
+	        },
+	        disabled: true
+	    });
+	
+	    Typograf.rule({
+	        name: 'common/html/url',
+	        queue: 'end',
+	        handler: function handler(text) {
+	            return this._isHTML ? text : text.replace(this._reUrl, function ($0, protocol, path) {
+	                path = path.replace(/([^\/]+\/?)(\?|#)$/, '$1') // Remove ending ? and #
+	                .replace(/^([^\/]+)\/$/, '$1'); // Remove ending /
+	
+	                if (protocol === 'http') {
+	                    path = path.replace(/^([^\/]+)(:80)([^\d]|\/|$)/, '$1$3'); // Remove 80 port
+	                } else if (protocol === 'https') {
+	                        path = path.replace(/^([^\/]+)(:443)([^\d]|\/|$)/, '$1$3'); // Remove 443 port
+	                    }
+	
+	                var url = path,
+	                    fullUrl = protocol + '://' + path,
+	                    firstPart = '<a href="' + fullUrl + '">';
+	
+	                if (protocol === 'http' || protocol === 'https') {
+	                    url = url.replace(/^www\./, '');
+	
+	                    return firstPart + (protocol === 'http' ? url : protocol + '://' + url) + '</a>';
+	                }
+	
+	                return firstPart + fullUrl + '</a>';
+	            });
+	        },
+	        disabled: true
+	    });
+	
+	    Typograf.rule({
+	        name: 'common/nbsp/afterNumber',
+	        handler: function handler(text) {
+	            var re = '(^|\\D)(\\d{1,5}) ([' + this.data('l') + ']{2,})';
+	
+	            return text.replace(new RegExp(re, 'gi'), '$1$2 $3');
+	        },
+	        disabled: true
+	    });
+	
+	    Typograf.rule({
+	        name: 'common/nbsp/afterParagraph',
+	        handler: function handler(text) {
+	            // \u2009 - THIN SPACE
+	            // \u202F - NARROW NO-BREAK SPACE
+	            return text.replace(/\u00A7[ \u00A0\u2009]?(\d|I|V|X)/g, '§ $1');
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'common/nbsp/afterShortWord',
+	        handler: function handler(text, settings) {
+	            var len = settings.lengthShortWord,
+	                before = '  (' + Typograf._privateLabel + this.data('common/quote'),
+	                subStr = '(^|[' + before + '])([' + this.data('l') + ']{1,' + len + '}) ',
+	                newSubStr = '$1$2 ',
+	                re = new RegExp(subStr, 'gim');
+	
+	            return text.replace(re, newSubStr).replace(re, newSubStr);
+	        },
+	        settings: {
+	            lengthShortWord: 2
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'common/nbsp/beforeShortLastNumber',
+	        handler: function handler(text, settings) {
+	            var re = new RegExp('([' + this.data('lL') + ']) (?=\\d{1,' + settings.lengthLastNumber + '}[-+−%\'"' + this.data('rquote') + ']?([.!?…]( [' + this.data('L') + ']|$)|$))', 'gm');
+	
+	            return text.replace(re, '$1 ');
+	        },
+	        live: false,
+	        settings: {
+	            lengthLastNumber: 2
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'common/nbsp/beforeShortLastWord',
+	        handler: function handler(text, settings) {
+	            var re = new RegExp('([' + this.data('ld') + ']) ([' + this.data('lL') + ']{1,' + settings.lengthLastWord + '}[.!?…])( [' + this.data('L') + ']|$)', 'g');
+	            return text.replace(re, '$1 $2$3');
+	        },
+	        settings: {
+	            lengthLastWord: 3
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'common/nbsp/dpi',
+	        handler: function handler(text) {
+	            return text.replace(/(\d) ?(lpi|dpi)(?!\w)/, '$1 $2');
+	        }
+	    });
+	
+	    (function () {
+	
+	        function replaceNbsp($0, $1, $2, $3) {
+	            return $1 + $2.replace(/([^\u00A0])\u00A0([^\u00A0])/g, '$1 $2') + $3;
+	        }
+	
+	        Typograf.rule({
+	            name: 'common/nbsp/nowrap',
+	            queue: 'end',
+	            handler: function handler(text) {
+	                return text.replace(/(<nowrap>)(.*?)(<\/nowrap>)/g, replaceNbsp).replace(/(<nobr>)(.*?)(<\/nobr>)/g, replaceNbsp);
+	            }
+	        });
+	    })();
+	
+	    Typograf.rule({
+	        name: 'common/nbsp/replaceNbsp',
+	        queue: 'utf',
+	        live: true,
+	        handler: function handler(text) {
+	            return text.replace(/\u00A0/g, ' ');
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'common/number/fraction',
+	        handler: function handler(text) {
+	            return text.replace(/(^|\D)1\/2(\D|$)/g, '$1½$2').replace(/(^|\D)1\/4(\D|$)/g, '$1¼$2').replace(/(^|\D)3\/4(\D|$)/g, '$1¾$2');
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'common/number/mathSigns',
+	        handler: function handler(text) {
+	            return Typograf._replace(text, [[/!=/g, '≠'], [/<=/g, '≤'], [/(^|[^=])>=/g, '$1≥'], [/<=>/g, '⇔'], [/<</g, '≪'], [/>>/g, '≫'], [/~=/g, '≅'], [/(^|[^+])\+-/g, '$1±']]);
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'common/number/times',
+	        handler: function handler(text) {
+	            return text.replace(/(\d)[ \u00A0]?[xх][ \u00A0]?(\d)/g, '$1×$2');
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'common/other/delBOM',
+	        queue: 'start',
+	        index: -1,
+	        handler: function handler(text) {
+	            if (text.charCodeAt(0) === 0xFEFF) {
+	                return text.slice(1);
+	            }
+	
+	            return text;
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'common/other/repeatWord',
+	        handler: function handler(text) {
+	            var re = new RegExp('([' + this.data('l') + '́]+) \\1([;:,.?! \n])', 'gi');
+	
+	            return text.replace(re, '$1$2');
+	        },
+	        disabled: true
+	    });
+	
+	    Typograf.rule({
+	        name: 'common/punctuation/delDoublePunctuation',
+	        handler: function handler(text) {
+	            return text.replace(/(^|[^,]),,(?!,)/g, '$1,').replace(/(^|[^:])::(?!:)/g, '$1:').replace(/(^|[^!?\.])\.\.(?!\.)/g, '$1.').replace(/(^|[^;]);;(?!;)/g, '$1;').replace(/(^|[^?])\?\?(?!\?)/g, '$1?');
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'common/space/afterPunctuation',
+	        handler: function handler(text) {
+	            var privateLabel = Typograf._privateLabel,
+	                reExcl = new RegExp('(!|;|\\?)([^).!;?\\s[\\])' + privateLabel + this.data('common/quote') + '])', 'g'),
+	                reComma = new RegExp('(\\D)(,|:)([^)",:.?\\s\\/\\\\' + privateLabel + '])', 'g');
+	
+	            return text.replace(reExcl, '$1 $2').replace(reComma, '$1$2 $3');
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'common/space/beforeBracket',
+	        handler: function handler(text) {
+	            var re = new RegExp('([' + this.data('l') + '.!?,;…)])\\(', 'gi');
+	            return text.replace(re, '$1 (');
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'common/space/bracket',
+	        handler: function handler(text) {
+	            return text.replace(/(\() +/g, '(').replace(/ +\)/g, ')');
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'common/space/delBeforePercent',
+	        handler: function handler(text) {
+	            return text.replace(/(\d)( |\u00A0)(%|‰|‱)/g, '$1$3');
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'common/space/delBeforePunctuation',
+	        handler: function handler(text) {
+	            return text.replace(/ ([!;,?.:])(?!\))/g, '$1');
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'common/space/delLeadingBlanks',
+	        handler: function handler(text) {
+	            return text.replace(/\n[ \t]+/g, '\n');
+	        },
+	        disabled: true
+	    });
+	
+	    Typograf.rule({
+	        name: 'common/space/delRepeatN',
+	        index: '-1',
+	        handler: function handler(text) {
+	            return text.replace(/\n{3,}/g, '\n\n');
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'common/space/delRepeatSpace',
+	        index: '-1',
+	        handler: function handler(text) {
+	            return text.replace(/([^\n \t])[ \t]{2,}(?![\n \t])/g, '$1 ');
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'common/space/delTrailingBlanks',
+	        index: '-3',
+	        handler: function handler(text) {
+	            return text.replace(/[ \t]+\n/g, '\n');
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'common/space/replaceTab',
+	        index: '-5',
+	        handler: function handler(text) {
+	            return text.replace(/\t/g, '    ');
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'common/space/squareBracket',
+	        handler: function handler(text) {
+	            return text.replace(/(\[) +/g, '[').replace(/ +\]/g, ']');
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'common/space/trimLeft',
+	        index: '-4',
+	        handler: String.prototype.trimLeft ? function (text) {
+	            return text.trimLeft();
+	        } : /* istanbul ignore next */function (text) {
+	            return text.replace(/^[\s\uFEFF\xA0]+/g, '');
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'common/space/trimRight',
+	        index: '-3',
+	        live: false,
+	        handler: String.prototype.trimRight ? function (text) {
+	            return text.trimRight();
+	        } : /* istanbul ignore next */function (text) {
+	            return text.replace(/[\s\uFEFF\xA0]+$/g, '');
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'common/symbols/arrow',
+	        handler: function handler(text) {
+	            return Typograf._replace(text, [[/(^|[^-])->(?!>)/g, '$1→'], [/(^|[^<])<-(?!-)/g, '$1←']]);
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'common/symbols/cf',
+	        handler: function handler(text) {
+	            var re = new RegExp('(^|[^%])(\\d+)( | )?(C|F)([\\W \\.,:!\\?"\\]\\)]|$)', 'g');
+	
+	            return text.replace(re, '$1$2' + ' ' + '°$4$5');
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'common/symbols/copy',
+	        handler: function handler(text) {
+	            return Typograf._replace(text, [[/\(r\)/gi, '®'], [/(copyright )?\((c|с)\)/gi, '©'], [/\(tm\)/gi, '™']]);
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'en/punctuation/quote',
+	        handler: function handler(text, settings) {
+	            return this._quote(text, settings);
+	        },
+	        settings: {
+	            lquote: '“',
+	            rquote: '”',
+	            lquote2: '‘',
+	            rquote2: '’'
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'ru/dash/centuries',
+	        handler: function handler(text, settings) {
+	            var dashes = '(' + this.data('common/dash') + ')',
+	                re = new RegExp('(X|I|V)[ | ]?' + dashes + '[ | ]?(X|I|V)', 'g');
+	
+	            return text.replace(re, '$1' + settings.dash + '$3');
+	        },
+	        settings: {
+	            dash: '–' // &ndash;
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'ru/dash/daysMonth',
+	        handler: function handler(text, settings) {
+	            var re = new RegExp('(^|\\s)([123]?\\d)' + '(' + this.data('common/dash') + ')' + '([123]?\\d)[  ]' + '(' + this.data('ru/monthGenCase') + ')', 'g');
+	
+	            return text.replace(re, '$1$2' + settings.dash + '$4 $5');
+	        },
+	        settings: {
+	            dash: '–' // &ndash;
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'ru/dash/de',
+	        handler: function handler(text) {
+	            var re = new RegExp('([a-яё]+) де' + this.data('ru/dashAfterDe'), 'g');
+	
+	            return text.replace(re, '$1-де');
+	        },
+	        disabled: true
+	    });
+	
+	    Typograf.rule({
+	        name: 'ru/dash/decade',
+	        handler: function handler(text, settings) {
+	            var re = new RegExp('(^|\\s)(\\d{3}|\\d)0' + '(' + this.data('common/dash') + ')' + '(\\d{3}|\\d)0(-е[  ])' + '(?=г\\.?[  ]?г|год)', 'g');
+	
+	            return text.replace(re, '$1$20' + settings.dash + '$40$5');
+	        },
+	        settings: {
+	            dash: '–' // &ndash;
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'ru/dash/directSpeech',
+	        handler: function handler(text) {
+	            var dashes = this.data('common/dash'),
+	                re1 = new RegExp('(["»‘“,])[ | ]?(' + dashes + ')[ | ]', 'g'),
+	                re2 = new RegExp('(^|' + Typograf._privateLabel + ')(' + dashes + ')( | )', 'gm'),
+	                re3 = new RegExp('([.…?!])[  ](' + dashes + ')[  ]', 'g');
+	
+	            return text.replace(re1, '$1 — ').replace(re2, '$1— ').replace(re3, '$1 — ');
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'ru/dash/izpod',
+	        handler: function handler(text) {
+	            var re = new RegExp(this.data('ru/dashBefore') + '(И|и)з под' + this.data('ru/dashAfter'), 'g');
+	
+	            return text.replace(re, '$1$2з-под');
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'ru/dash/izza',
+	        handler: function handler(text) {
+	            var re = new RegExp(this.data('ru/dashBefore') + '(И|и)з за' + this.data('ru/dashAfter'), 'g');
+	
+	            return text.replace(re, '$1$2з-за');
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'ru/dash/ka',
+	        handler: function handler(text) {
+	            var re = new RegExp('([a-яё]+) ка(сь)?' + this.data('ru/dashAfter'), 'g');
+	
+	            return text.replace(re, '$1-ка$2');
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'ru/dash/koe',
+	        handler: function handler(text) {
+	            var re = new RegExp(this.data('ru/dashBefore') + '([Кк]о[ей])\\s([а-яё]{3,})' + this.data('ru/dashAfter'), 'g');
+	
+	            return text.replace(re, '$1$2-$3');
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'ru/dash/main',
+	        index: '-5',
+	        handler: function handler(text) {
+	            var dashes = this.data('common/dash'),
+	                re = new RegExp('( | )(' + dashes + ')( |\\n)', 'g');
+	
+	            return text.replace(re, ' —$3');
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'ru/dash/month',
+	        handler: function handler(text, settings) {
+	            var months = '(' + this.data('ru/month') + ')',
+	                monthsPre = '(' + this.data('ru/monthPreCase') + ')',
+	                dashes = this.data('common/dash'),
+	                re = new RegExp(months + ' ?(' + dashes + ') ?' + months, 'gi'),
+	                rePre = new RegExp(monthsPre + ' ?(' + dashes + ') ?' + monthsPre, 'gi'),
+	                newSubStr = '$1' + settings.dash + '$3';
+	
+	            return text.replace(re, newSubStr).replace(rePre, newSubStr);
+	        },
+	        settings: {
+	            dash: '–' // &ndash;
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'ru/dash/surname',
+	        handler: function handler(text) {
+	            var re = new RegExp('([А-ЯЁ][а-яё]+)\\s-([а-яё]{1,3})(?![^а-яё]|$)', 'g');
+	
+	            return text.replace(re, '$1 —$2');
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'ru/dash/taki',
+	        handler: function handler(text) {
+	            var re = new RegExp('(верно|довольно|опять|прямо|так|вс[её]|действительно|неужели)\\s(таки)' + this.data('ru/dashAfter'), 'g');
+	
+	            return text.replace(re, '$1-$2');
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'ru/dash/time',
+	        handler: function handler(text, settings) {
+	            var re = new RegExp(this.data('ru/dashBefore') + '(\\d?\\d:[0-5]\\d)' + this.data('common/dash') + '(\\d?\\d:[0-5]\\d)' + this.data('ru/dashAfter'), 'g');
+	
+	            return text.replace(re, '$1$2' + settings.dash + '$3');
+	        },
+	        settings: {
+	            dash: '–' // &ndash;
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'ru/dash/to',
+	        handler: function handler(text) {
+	            var words = ['откуда', 'куда', 'где', 'когда', 'зачем', 'почему', 'как', 'како[ейм]', 'какая', 'каки[емх]', 'какими', 'какую', 'что', 'чего', 'че[йм]', 'чьим?', 'кто', 'кого', 'кому', 'кем'],
+	                re = new RegExp('(' + words.join('|') + ')( | -|- )(то|либо|нибудь)' + this.data('ru/dashAfter'), 'gi');
+	
+	            return text.replace(re, '$1-$3');
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'ru/dash/weekday',
+	        handler: function handler(text, settings) {
+	            var part = '(' + this.data('ru/weekday') + ')',
+	                re = new RegExp(part + ' ?(' + this.data('common/dash') + ') ?' + part, 'gi');
+	
+	            return text.replace(re, '$1' + settings.dash + '$3');
+	        },
+	        settings: {
+	            dash: '–' // &ndash;
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'ru/dash/years',
+	        handler: function handler(text, settings) {
+	            var dashes = this.data('common/dash'),
+	                re = new RegExp('(\\D|^)(\\d{4})[  ]?(' + dashes + ')[  ]?(\\d{4})(?=[  ]?г)', 'g');
+	
+	            return text.replace(re, function ($0, $1, $2, $3, $4) {
+	                if (parseInt($2, 10) < parseInt($4, 10)) {
+	                    return $1 + $2 + settings.dash + $4;
+	                }
+	
+	                return $0;
+	            });
+	        },
+	        settings: {
+	            dash: '–' // &ndash;
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'ru/date/fromISO',
+	        handler: function handler(text) {
+	            var sp1 = '(-|\\.|\\/)',
+	                sp2 = '(-|\\/)',
+	                re1 = new RegExp('(^|\\D)(\\d{4})' + sp1 + '(\\d{2})' + sp1 + '(\\d{2})(\\D|$)', 'gi'),
+	                re2 = new RegExp('(^|\\D)(\\d{2})' + sp2 + '(\\d{2})' + sp2 + '(\\d{4})(\\D|$)', 'gi');
+	
+	            return text.replace(re1, '$1$6.$4.$2$7').replace(re2, '$1$4.$2.$6$7');
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'ru/date/weekday',
+	        handler: function handler(text) {
+	            var space = '( | )',
+	                monthCase = this.data('ru/monthGenCase'),
+	                weekday = this.data('ru/weekday'),
+	                re = new RegExp('(\\d)' + space + '(' + monthCase + '),' + space + '(' + weekday + ')', 'gi');
+	
+	            return text.replace(re, function () {
+	                var a = arguments;
+	                return a[1] + a[2] + a[3].toLowerCase() + ',' + a[4] + a[5].toLowerCase();
+	            });
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'ru/money/currency',
+	        handler: function handler(text) {
+	            var currency = '([$€¥Ұ£₤₽])',
+	                re1 = new RegExp('(^|[\\D]{2})' + currency + ' ?([\\d.,]+([    ]\\d{3})*)', 'g'),
+	                re2 = new RegExp('(^|[\\D])([\\d.,]+) ?' + currency, 'g'),
+	                newSubstr1 = '$1$3 $2',
+	                newSubstr2 = '$1$2 $3';
+	
+	            return text.replace(re1, newSubstr1).replace(re2, newSubstr2);
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'ru/money/ruble',
+	        handler: function handler(text) {
+	            var newSubstr = '$1 ₽',
+	                commonPart = '(\\d+)( | )?(р|руб)\\.',
+	                re1 = new RegExp('^' + commonPart + '$', 'g'),
+	                re2 = new RegExp(commonPart + '(?=[!?,:;])', 'g'),
+	                re3 = new RegExp(commonPart + '(?=\\s+[A-ЯЁ])', 'g');
+	
+	            return text.replace(re1, newSubstr).replace(re2, newSubstr).replace(re3, newSubstr + '.');
+	        },
+	        disabled: true
+	    });
+	
+	    Typograf.rule({
+	        name: 'ru/nbsp/abbr',
+	        handler: function handler(text) {
+	            var re = new RegExp('(^|\\s|' + Typograf._privateLabel + ')(([а-яё]{1,3}\\.){2,})(?![а-яё])', 'g');
+	            return text.replace(re, function ($0, $1, $2) {
+	                var abbr = $2.split(/\./);
+	                // Являются ли сокращения ссылкой
+	                if (['рф', 'ру', 'рус', 'орг', 'укр', 'бг', 'срб'].indexOf(abbr[abbr.length - 2]) > -1) {
+	                    return $0;
+	                }
+	
+	                return $1 + $2.split(/\./).join('. ').trim();
+	            });
+	        }
+	    });
+	
+	    /*jshint maxlen:1000 */
+	    Typograf.rule({
+	        name: 'ru/nbsp/addr',
+	        handler: function handler(text) {
+	            return text.replace(/(\s|^)(дом|д\.|кв\.|под\.|п\-д) *(\d+)/gi, '$1$2 $3').replace(/(\s|^)(мкр-н|мк-н|мкр\.|мкрн)\s/gi, '$1$2 ') // микрорайон
+	            .replace(/(\s|^)(эт\.) *(-?\d+)/gi, '$1$2 $3').replace(/(\s|^)(\d+) +этаж([^а-яё]|$)/gi, '$1$2 этаж$3').replace(/(\s|^)литер\s([А-Я]|$)/gi, '$1литер $2')
+	            /*
+	                область, край, станция, поселок, село,
+	                деревня, улица, переулок, проезд, проспект,
+	                бульвар, площадь, набережная, шоссе,
+	                тупик, офис, комната, участок, владение, строение, корпус
+	            */
+	            .replace(/(\s|^)(обл|кр|ст|пос|с|д|ул|пер|пр|пр\-т|просп|пл|бул|б\-р|наб|ш|туп|оф|комн?|уч|вл|влад|стр|кор)\. *([а-яёa-z\d]+)/gi, '$1$2. $3')
+	            // город
+	            .replace(/(\D[ \u00A0]|^)г\. ?([А-ЯЁ])/gm, '$1г. $2');
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'ru/nbsp/afterNumberSign',
+	        handler: function handler(text) {
+	            // \u2009 - THIN SPACE
+	            // \u202F - NARROW NO-BREAK SPACE
+	            return text.replace(/№[ \u00A0\u2009]?(\d|п\/п)/g, '№ $1');
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'ru/nbsp/beforeParticle',
+	        index: '+5',
+	        handler: function handler(text) {
+	            var particles = '(ли|ль|же|ж|бы|б)',
+	                re1 = new RegExp('([А-ЯЁа-яё]) ' + particles + '(?=[,;:?!"‘“»])', 'g'),
+	                re2 = new RegExp('([А-ЯЁа-яё])[  ]' + particles + '[  ]', 'g');
+	
+	            return text.replace(re1, '$1 $2').replace(re2, '$1 $2 ');
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'ru/nbsp/centuries',
+	        handler: function handler(text) {
+	            var dashes = this.data('common/dash'),
+	                before = '(^|\\s)([VIX]+)',
+	                after = '(?=[,;:?!"‘“»]|$)',
+	                re1 = new RegExp(before + '[  ]?в\\.?' + after, 'gm'),
+	                re2 = new RegExp(before + '(' + dashes + ')' + '([VIX]+)[  ]?в\\.?([  ]?в\\.?)?' + after, 'gm');
+	
+	            return text.replace(re1, '$1$2 в.').replace(re2, '$1$2$3$4 вв.');
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'ru/nbsp/dayMonth',
+	        handler: function handler(text) {
+	            var re = new RegExp('(\\d{1,2}) (' + this.data('ru/shortMonth') + ')', 'gi');
+	            return text.replace(re, '$1 $2');
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'ru/nbsp/groupNumbers',
+	        handler: function handler(text) {
+	            return text.replace(/(^ ?|\D )(\d{1,3}([ \u00A0\u202F\u2009]\d{3})+)(?! ?[\d-])/gm, function ($0, $1, $2) {
+	                return $1 + $2.replace(/\s/g, ' ');
+	            });
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'ru/nbsp/initials',
+	        handler: function handler(text) {
+	            var spaces = '   ',
+	                // nbsp, thinsp
+	            lquote = this.data('ru/lquote'),
+	                rquote = this.data('ru/rquote'),
+	                re = new RegExp('(^|[' + spaces + lquote + Typograf._privateLabel + '"])([А-ЯЁ])\\.[' + spaces + ']?([А-ЯЁ])\\.[' + spaces + ']?([А-ЯЁ][а-яё]+)(?=[\\s.,;:?!"' + rquote + ']|$)', 'gm');
+	
+	            return text.replace(re, '$1$2. $3. $4');
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'ru/nbsp/m',
+	        index: '+5',
+	        handler: function handler(text) {
+	            var label = Typograf._privateLabel,
+	                re = new RegExp('(^|[\\s,.' + label + '])' + '(\\d+)[  ]?(мм?|см|км|дм|гм|mm?|km|cm|dm)([23²³])?([\\s.!?,;' + label + ']|$)', 'gm');
+	
+	            return text.replace(re, function ($0, $1, $2, $3, $4, $5) {
+	                var pow = {
+	                    '2': '²',
+	                    '²': '²',
+	                    '3': '³',
+	                    '³': '³',
+	                    '': ''
+	                }[$4 || ''];
+	
+	                return $1 + $2 + ' ' + $3 + pow + ($5 === ' ' ? ' ' : $5);
+	            });
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'ru/nbsp/ooo',
+	        handler: function handler(text) {
+	            return text.replace(/(^|[^a-яёA-ЯЁ])(ООО|ОАО|ЗАО|НИИ|ПБОЮЛ) /g, '$1$2 ');
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'ru/nbsp/page',
+	        handler: function handler(text) {
+	            var re = new RegExp('(^|[)\\s' + Typograf._privateLabel + '])' + '(стр|гл|рис|илл?|ст|п|c)\\. *(\\d+)([\\s.,?!;:]|$)', 'gim');
+	
+	            return text.replace(re, '$1$2. $3$4');
+	        }
+	    });
+	
+	    /*jshint maxlen:1000 */
+	    Typograf.rule({
+	        name: 'ru/nbsp/ps',
+	        handler: function handler(text) {
+	            var re = new RegExp('(^|\\s|' + Typograf._privateLabel + ')[pз]\\.[  ]?([pз]\\.[  ]?)?[sы]\\.:? ', 'gim');
+	            return text.replace(re, function ($0, $1, $2) {
+	                return $1 + ($2 ? 'P. P. S. ' : 'P. S. ');
+	            });
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'ru/nbsp/rubleKopek',
+	        handler: function handler(text) {
+	            return text.replace(/(\d) ?(?=(руб|коп)\.)/g, '$1 ');
+	        }
+	    });
+	
+	    /*jshint maxlen:1000 */
+	    Typograf.rule({
+	        name: 'ru/nbsp/see',
+	        handler: function handler(text) {
+	            var re = new RegExp('(^|\\s|' + Typograf._privateLabel + '|\\()(см|им)\\.[  ]?([а-яё0-9a-z]+)([\\s.,?!]|$)', 'gi');
+	            return text.replace(re, function ($0, $1, $2, $3, $4) {
+	                return ($1 === ' ' ? ' ' : $1) + $2 + '. ' + $3 + $4;
+	            });
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'ru/nbsp/year',
+	        handler: function handler(text) {
+	            return text.replace(/(^|\D)(\d{4}) ?г([ ,;.\n]|$)/g, '$1$2 г$3');
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'ru/nbsp/years',
+	        index: '+5',
+	        handler: function handler(text) {
+	            var dashes = this.data('common/dash'),
+	                re = new RegExp('(^|\\D)(\\d{4})(' + dashes + ')(\\d{4})[  ]?г\\.?([  ]?г\\.)?(?=[,;:?!"‘“»\\s]|$)', 'gm');
+	
+	            return text.replace(re, '$1$2$3$4 гг.');
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'ru/number/ordinals',
+	        handler: function handler(text) {
+	            var re = new RegExp('(\\d)-(ый|ой|ая|ое|ые|ым|ом|ых|ого|ому|ыми)(?![' + this.data('l') + '])', 'g');
+	
+	            return text.replace(re, function ($0, $1, $2) {
+	                var parts = {
+	                    'ой': 'й',
+	                    'ый': 'й',
+	                    'ая': 'я',
+	                    'ое': 'е',
+	                    'ые': 'е',
+	                    'ым': 'м',
+	                    'ом': 'м',
+	                    'ых': 'х',
+	                    'ого': 'го',
+	                    'ому': 'му',
+	                    'ыми': 'ми'
+	                };
+	
+	                return $1 + '-' + parts[$2];
+	            });
+	        }
+	    });
+	
+	    /*jshint maxlen:1000 */
+	    Typograf.rule({
+	        name: 'ru/optalign/bracket',
+	        handler: function handler(text, settings) {
+	            return text.replace(/( |\u00A0)\(/g, '<span class="typograf-oa-sp-lbracket">$1</span><span class="typograf-oa-lbracket">(</span>').replace(/^\(/gm, '<span class="typograf-oa-n-lbracket">(</span>');
+	        },
+	        disabled: true
+	    }).innerRule({
+	        name: 'ru/optalign/bracket',
+	        handler: function handler(text) {
+	            // Зачистка HTML-тегов от висячей пунктуации для скобки
+	            return text.replace(/<span class="typograf-oa-(n-|sp-)?lbracket">(.*?)<\/span>/g, '$2');
+	        }
+	    });
+	
+	    /*jshint maxlen:1000 */
+	    Typograf.rule({
+	        name: 'ru/optalign/comma',
+	        handler: function handler(text, settings) {
+	            var re = new RegExp('([' + this.data('l') + '\\d́]+), ', 'gi');
+	            return text.replace(re, '$1<span class="typograf-oa-comma">,</span><span class="typograf-oa-comma-sp"> </span>');
+	        },
+	        disabled: true
+	    }).innerRule({
+	        name: 'ru/optalign/comma',
+	        handler: function handler(text) {
+	            // Зачистка HTML-тегов от висячей пунктуации для запятой
+	            return text.replace(/<span class="typograf-oa-comma(-sp)?">(.*?)<\/span>/g, '$2');
+	        }
+	    });
+	
+	    /*jshint maxlen:1000 */
+	    Typograf.rule({
+	        name: 'ru/optalign/quote',
+	        handler: function handler(text) {
+	            var name = 'ru/punctuation/quote',
+	                lquotes = '(["' + this.setting(name, 'lquote') + this.setting(name, 'lquote2') + this.setting(name, 'lquote3') + '])',
+	                re = new RegExp('([\\d' + this.data('l') + '\\-́!?.:;,]+)( | )(' + lquotes + ')', 'gi'),
+	                re2 = new RegExp('(^|' + Typograf._privateLabel + ')' + lquotes, 'gm');
+	
+	            return text.replace(re, '$1<span class="typograf-oa-sp-lquote">$2</span><span class="typograf-oa-lquote">$3</span>').replace(re2, '$1<span class="typograf-oa-n-lquote">$2</span>');
+	        },
+	        disabled: true
+	    }).innerRule({
+	        name: 'ru/optalign/quote',
+	        handler: function handler(text) {
+	            // Зачистка HTML-тегов от висячей пунктуации для кавычки
+	            return text.replace(/<span class="typograf-oa-(n-|sp-)?lquote">(.*?)<\/span>/g, '$2');
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'ru/other/accent',
+	        handler: function handler(text) {
+	            return text.replace(/([а-яё])([АЕЁИОУЫЭЮЯ])([^А-ЯЁ\w]|$)/g, function ($0, $1, $2, $3) {
+	                return $1 + $2.toLowerCase() + '́' + $3;
+	            });
+	        },
+	        disabled: true
+	    });
+	
+	    Typograf.rule({
+	        name: 'ru/punctuation/ano',
+	        handler: function handler(text) {
+	            var re = new RegExp('([^!?,:;\\-‒–—])([  \n])(а|но)(?= | |\n)', 'g');
+	            return text.replace(re, '$1,$2$3');
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'ru/punctuation/apostrophe',
+	        index: '-5',
+	        handler: function handler(text) {
+	            var letters = '([' + this.data('l') + '])',
+	                re = new RegExp(letters + '[\'’]' + letters, 'gi');
+	
+	            return text.replace(re, '$1ʼ$2');
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'ru/punctuation/exclamation',
+	        live: false,
+	        handler: function handler(text) {
+	            return text.replace(/(^|[^!])!{2}($|[^!])/, '$1!$2').replace(/(^|[^!])!{4}($|[^!])/, '$1!!!$2');
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'ru/punctuation/exclamationQuestion',
+	        index: '+5',
+	        handler: function handler(text) {
+	            var re = new RegExp('(^|[^!])!\\?([^?]|$)', 'g');
+	            return text.replace(re, '$1?!$2');
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'ru/punctuation/hellip',
+	        handler: function handler(text) {
+	            return text.replace(/(^|[^.])\.{3,4}([^.]|$)/g, '$1…$2').replace(/(^|[^.])(\.\.\.|…),/g, '$1…').replace(/(\!|\?)(\.\.\.|…)([^.]|$)/g, '$1..$3');
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'ru/punctuation/quote',
+	        handler: function handler(text, settings) {
+	            var lquote = settings.lquote,
+	                rquote = settings.rquote;
+	
+	            text = this._quote(text, settings);
+	            if (lquote === settings.lquote2 && rquote === settings.rquote2) {
+	                return text
+	                // ««Энергия» Синергия» -> «Энергия» Синергия»
+	                .replace(new RegExp(lquote + lquote, 'g'), lquote)
+	                // «Энергия «Синергия»» -> «Энергия «Синергия»
+	                .replace(new RegExp(rquote + rquote, 'g'), rquote);
+	            }
+	
+	            return text;
+	        },
+	        settings: {
+	            lquote: '«',
+	            rquote: '»',
+	            lquote2: '„',
+	            rquote2: '“',
+	            lquote3: '‚',
+	            rquote3: '‘'
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'ru/space/afterHellip',
+	        handler: function handler(text) {
+	            return text.replace(/([а-яё])(\.\.\.|…)([А-ЯЁ])/g, '$1$2 $3').replace(/([?!]\.\.)([а-яёa-z])/gi, '$1 $2');
+	        }
+	    });
+	
+	    Typograf.rule({
+	        name: 'ru/space/year',
+	        handler: function handler(text) {
+	            var re = new RegExp('(^| | )(\\d{3,4})(год([ауе]|ом)?)([^' + this.data('l') + ']|$)', 'g');
+	            return text.replace(re, '$1$2 $3$5');
+	        }
+	    });
+	
+	    Typograf._sortRules();
+	    Typograf._needSortRules = true;
+	
+	    return Typograf;
 	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _backbone = __webpack_require__(1);
-	
-	var _backbone2 = _interopRequireDefault(_backbone);
-	
-	var _city = __webpack_require__(81);
-	
-	var _city2 = _interopRequireDefault(_city);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var _class = function (_Backbone$Collection) {
-		_inherits(_class, _Backbone$Collection);
-	
-		function _class() {
-			_classCallCheck(this, _class);
-	
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(_class).apply(this, arguments));
-		}
-	
-		_createClass(_class, [{
-			key: 'model',
-			get: function get() {
-				return _city2.default;
-			}
-		}]);
-	
-		return _class;
-	}(_backbone2.default.Collection);
-	
-	exports.default = _class;
-
-/***/ },
-/* 81 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _backbone = __webpack_require__(1);
-	
-	var _backbone2 = _interopRequireDefault(_backbone);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var _class = function (_Backbone$Model) {
-		_inherits(_class, _Backbone$Model);
-	
-		function _class() {
-			_classCallCheck(this, _class);
-	
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(_class).apply(this, arguments));
-		}
-	
-		_createClass(_class, [{
-			key: 'defaults',
-			get: function get() {
-				return {
-					value: '',
-					coords: [],
-					name: '',
-					formatted_address: '',
-					points: []
-				};
-			}
-		}]);
-	
-		return _class;
-	}(_backbone2.default.Model);
-	
-	exports.default = _class;
-
-/***/ },
-/* 82 */
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	exports.default = [{
-		value: 'murmansk',
-		coords: [68.969563, 33.07454],
-		name: 'Мурманск',
-		formatted_address: 'Murmansk, Murmansk Oblast, Russia',
-		points: [{
-			coords: [68.95147, 33.103143],
-			name: 'Мурманская Областная Станция Переливания Крови',
-			address: 'ул. Павлова, 6',
-			time: 'предварительная запись с 15 до 18.00',
-			phone: '8 (8152) 25-02-61 (62 доктора)',
-			info: 'Принимают только доноров, на типирование можно сдать со второго раза, процедуру объясняют при записи'
-		}, {
-			coords: [68.925654, 33.107868],
-			name: 'CMD – Центр молекулярной диагностики',
-			address: 'Пр. Кольский, д. 61',
-			time: 'до сентября 2016 прием приостановлен, только группы от 20 человек',
-			phone: '8 (8152) 20-77-68',
-			info: 'до сентября 2016 прием приостановлен, только группы от 20 человек'
-		}, {
-			coords: [69.015151, 33.103313],
-			name: 'CMD – Центр молекулярной диагностики',
-			address: 'Ул. Лобова, д. 4',
-			time: 'до сентября 2016 прием приостановлен, только группы от 20 человек',
-			phone: '8 (8152) 20-77-68',
-			info: 'до сентября 2016 прием приостановлен, только группы от 20 человек'
-		}]
-	}, {
-		value: 'spb',
-		coords: [59.939095, 30.315868],
-		formatted_address: 'St Petersburg, Russia',
-		name: 'Санкт-Петербург',
-		points: [{
-			coords: [59.96566, 30.324968],
-			name: 'Институт детской гематологии и трансплантологии им. Р.М. Горбачевой',
-			address: 'Ст.м. Петроградская, ул. Рентгена, 12, 10 эт., каб. 1007',
-			time: 'вторник 16:00 - 19:00, четверг 10:00 - 12:00',
-			info: 'Записываться заранее не нужно, просто приходите'
-		}, {
-			coords: [59.964273, 30.321348],
-			name: 'ПСПбГМУ им. Павлова',
-			address: 'Ст.м. Петроградская, ул. Льва Толстого д. 19, корп. 53',
-			time: 'понедельник - четверг, с 8.30 до 11.30',
-			phone: '+7 (812) 429-24-13',
-			info: 'При себе иметь паспорт с пропиской в любом городе РФ'
-		}, {
-			coords: [59.83839, 30.418231],
-			name: 'Санкт-Петербургская детская инфекционная больница № 5 им. Н.Ф.Филатова',
-			address: 'Ст. м. Купчино, ул. Бухарестская, д. 134',
-			time: 'понедельник - пятница, с 9.00 до 12.00',
-			phone: '+7 (812) 366-71-66',
-			info: 'При себе иметь паспорт с пропиской в любом городе РФ'
-		}, {
-			coords: [59.972298, 30.279091],
-			name: 'Городская клиническая больница № 31',
-			address: 'Ст.м. Крестовский остров, пр. Динамо, д. 3',
-			time: 'понедельник, вторник и четверг с 8.30 до 12.00, вторник и четверг с 15.00 до 18.00. В среду ОПК принимают организованные группы доноров по предварительной записи',
-			phone: '+7 (812) 235-73-81',
-			info: 'При себе иметь паспорт с пропиской в любом городе РФ'
-		}]
-	}, {
-		value: 'msk',
-		coords: [55.75396, 37.620393],
-		name: 'Москва',
-		formatted_address: 'Moscow, Russia',
-		points: [{
-			coords: [55.543766, 37.539922],
-			name: 'Медицинская клиника LeVita',
-			address: 'Ул. Южнобутовская, д. 10 (ст. метро «Бульвар Адмирала Ушакова»)',
-			time: 'пн-чт 12:00 - 16:00, Пт 14:00 - 17:00',
-			phone: '+7 (495) 505-5078, +7 (499) 793-2381, +7 (499) 793-2336, +7 (499) 793-2427',
-			info: 'Записаться можно на сайте клиники www.levita-med.ru, www.levita-kids.ru'
-		}, {
-			coords: [55.801334, 37.552058],
-			name: 'Гематологический научный центр Минздрава России',
-			address: 'Новый Зыковский проезд, д.4А (ст. метро «Динамо»)',
-			time: 'пн-пт 8:00 - 14:00',
-			phone: '+7 (905) 568-5760, +7 (903) 128-84-18'
-		}]
-	}, {
-		value: 'kzn',
-		coords: [55.798551, 49.106324],
-		formatted_address: 'Kazan, Tatarstan, Russia',
-		name: 'Казань',
-		points: [{
-			coords: [55.783251, 49.126734],
-			name: 'Казанский филиал Кировского регистра',
-			address: 'ул. Островского, 69/3',
-			time: 'будние дни с 8 до 12',
-			phone: '+7 (843) 292-12-02'
-		}, {
-			coords: [55.72857, 49.1788],
-			name: 'Детская республиканская клиническая больница',
-			address: 'Оренбургский тракт, 140, 1 корпус, Отделение переливания крови, 3-й этаж поликлиники',
-			time: 'будние дни 8:30 – 12:00',
-			phone: '+7 (843) 267-89-20'
-		}, {
-			coords: [55.73002, 49.188655],
-			name: 'РКБ',
-			address: 'Оренбургский тракт, 138',
-			phone: '+7 (843) 237-35-36'
-		}, {
-			coords: [55.753169, 49.171075],
-			name: 'Межрегиональный клинико-диагностический центр (МКДЦ)',
-			address: 'Ул. Карбышева, 12 А, Отделение переливания крови, Блок Б, 1 этаж',
-			time: '8:00 – 12:00',
-			phone: '+7 (843) 291-10-97, +7 (843) 291-10-75'
-		}]
-	}];
-
-/***/ },
-/* 83 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
-	
-	var _underscore = __webpack_require__(2);
-	
-	var _underscore2 = _interopRequireDefault(_underscore);
-	
-	var _base = __webpack_require__(5);
-	
-	var _base2 = _interopRequireDefault(_base);
-	
-	var _map = __webpack_require__(85);
-	
-	var _map2 = _interopRequireDefault(_map);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var _class = function (_BaseView) {
-		_inherits(_class, _BaseView);
-	
-		function _class() {
-			_classCallCheck(this, _class);
-	
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(_class).apply(this, arguments));
-		}
-	
-		_createClass(_class, [{
-			key: 'init',
-			value: function init() {}
-		}, {
-			key: 'render',
-			value: function render() {
-				_get(Object.getPrototypeOf(_class.prototype), 'render', this).call(this);
-				this._renderMap();
-				return this;
-			}
-		}, {
-			key: '_renderMap',
-			value: function _renderMap() {
-				this.$el.attr('id', 'map');
-				this._map = new ymaps.Map('map', {
-					center: [this.city.get('coords')[0], this.city.get('coords')[1]],
-					zoom: 4
-				});
-				this._addPlacemarks(this.city.get('points'));
-			}
-		}, {
-			key: 'remove',
-			value: function remove() {
-				this._map.destroy();
-				return _get(Object.getPrototypeOf(_class.prototype), 'remove', this).call(this);
-			}
-		}, {
-			key: '_addPlacemarks',
-			value: function _addPlacemarks(points) {
-				var coords = _underscore2.default.pluck(points, 'coords');
-	
-				var collection = new ymaps.GeoObjectCollection({}, {
-					preset: 'islands#redIcon'
-				});
-	
-				for (var i = 0; i < coords.length; i++) {
-					var placemark = new ymaps.Placemark(coords[i]);
-					placemark.properties.set('balloonContent', points[i].address + '<br>' + points[i].name);
-					collection.add(placemark);
-				}
-	
-				this._map.geoObjects.add(collection);
-				this._map.setBounds(this._map.geoObjects.getBounds());
-			}
-		}, {
-			key: '_prepareData',
-			value: function _prepareData() {
-				return {
-					styles: _map2.default
-				};
-			}
-		}, {
-			key: '_template',
-			get: function get() {
-				return __webpack_require__(84);
-			}
-		}, {
-			key: 'className',
-			get: function get() {
-				return _map2.default.root;
-			}
-		}]);
-
-		return _class;
-	}(_base2.default);
-
-	exports.default = _class;
-
-/***/ },
-/* 84 */
-/***/ function(module, exports) {
-
-	module.exports = function(){return "";};
-
-/***/ },
-/* 85 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-	
-	// load the styles
-	var content = __webpack_require__(86);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(13)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js?modules!./../../node_modules/postcss-loader/index.js!./map.css", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js?modules!./../../node_modules/postcss-loader/index.js!./map.css");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 86 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(12)();
-	// imports
-	
-	
-	// module
-	exports.push([module.id, ".k7lRAK3VJqzyYxR8yJVXx {\n\twidth: 100%;\n\theight: 100%;\n}", ""]);
-	
-	// exports
-	exports.locals = {
-		"root": "k7lRAK3VJqzyYxR8yJVXx"
-	};
-
-/***/ },
-/* 87 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _backbone = __webpack_require__(1);
-	
-	var _backbone2 = _interopRequireDefault(_backbone);
-	
-	var _underscore = __webpack_require__(2);
-	
-	var _underscore2 = _interopRequireDefault(_underscore);
-	
-	var _ajax = __webpack_require__(71);
-	
-	var _ajax2 = _interopRequireDefault(_ajax);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var _class = function (_Backbone$Model) {
-		_inherits(_class, _Backbone$Model);
-	
-		function _class() {
-			_classCallCheck(this, _class);
-	
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(_class).apply(this, arguments));
-		}
-	
-		_createClass(_class, [{
-			key: 'fetch',
-			value: function fetch(lat, lon) {
-				var _this2 = this;
-	
-				return new Promise(function (resolve, reject) {
-					(0, _ajax2.default)({
-						url: location.protocol + '//maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + lon + '&sensor=true',
-						type: 'get'
-					}).then(function (response) {
-						var locality = _underscore2.default.find(response.results, function (item) {
-							return _underscore2.default.contains(item.types, 'locality');
-						});
-						_this2.set('formatted_address', locality.formatted_address);
-						resolve();
-					}, function () {
-						reject();
-					});
-				});
-			}
-		}, {
-			key: 'defaults',
-			get: function get() {
-				return {
-					formatted_address: ''
-				};
-			}
-		}]);
-	
-		return _class;
-	}(_backbone2.default.Model);
-	
-	exports.default = _class;
 
 /***/ }
 /******/ ]);

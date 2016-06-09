@@ -2,7 +2,7 @@ export default [{
 	value: 'murmansk',
 	coords: [68.969563, 33.07454],
 	name: 'Мурманск',
-	formatted_address: 'Murmansk, Murmansk Oblast, Russia',
+	placeId: 'ChIJ1SIM7TAQNEQRpSHDyzC6xpg',
 	points: [{
 		coords: [68.95147, 33.103143],
 		name: 'Мурманская Областная Станция Переливания Крови',
@@ -28,7 +28,7 @@ export default [{
 }, {
 	value: 'spb',
 	coords: [59.939095, 30.315868],
-	formatted_address: 'St Petersburg, Russia',
+	placeId: 'ChIJ7WVKx4w3lkYR_46Eqz9nx20',
 	name: 'Санкт-Петербург',
 	points: [{
 		coords: [59.96566, 30.324968],
@@ -62,7 +62,7 @@ export default [{
 	value: 'msk',
 	coords: [55.75396, 37.620393],
 	name: 'Москва',
-	formatted_address: 'Moscow, Russia',
+	placeId: 'ChIJybDUc_xKtUYRTM9XV8zWRD0',
 	points: [{
 		coords: [55.543766, 37.539922],
 		name: 'Медицинская клиника LeVita',
@@ -80,7 +80,7 @@ export default [{
 }, {
 	value: 'kzn',
 	coords: [55.798551, 49.106324],
-	formatted_address: 'Kazan, Tatarstan, Russia',
+	placeId: 'ChIJmc2sfCutXkERZYyttbl3y38',
 	name: 'Казань',
 	points: [{
 		coords: [55.783251, 49.126734],
