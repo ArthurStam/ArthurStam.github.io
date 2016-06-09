@@ -110,8 +110,8 @@ export default class extends PageView {
 	}
 
 	_setCity(city) {
-		let cityValue = city ? city.get('value') : null;
-		citiesCollection.each((city) => { city.selected = city.get('value') == cityValue; });
+		let placeId = city ? city.get('placeId') : null;
+		citiesCollection.each((city) => { city.selected = city.get('placeId') == placeId; });
 		this.currentCity = city;
 		return city;
 	}

@@ -13931,9 +13931,9 @@
 		}, {
 			key: '_setCity',
 			value: function _setCity(city) {
-				var cityValue = city ? city.get('value') : null;
+				var placeId = city ? city.get('placeId') : null;
 				citiesCollection.each(function (city) {
-					city.selected = city.get('value') == cityValue;
+					city.selected = city.get('placeId') == placeId;
 				});
 				this.currentCity = city;
 				return city;
@@ -14665,7 +14665,7 @@
 	
 				return new Promise(function (resolve, reject) {
 					(0, _ajax2.default)({
-						url: location.protocol + '//maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + lon + '&sensor=true',
+						url: location.protocol + '//maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + lon + '&sensor=true&language=ru',
 						type: 'get'
 					}).then(function (response) {
 						var locality = _underscore2.default.find(response.results, function (item) {
@@ -16476,7 +16476,7 @@
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findShowMore : stack1), depth0))
 	    + " "
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.text : stack1), depth0))
-	    + "\" data-action=\"show-all-points\">\n								Показать все пункты в этом городе...\n							</div>\n							<div class=\""
+	    + "\" data-action=\"show-all-points\">\n								Все пункты...\n							</div>\n							<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findShowMore : stack1), depth0))
 	    + " "
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.text : stack1), depth0))
@@ -18937,7 +18937,7 @@
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnote : stack1), depth0))
 	    + "\">\n						<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnoteCounter : stack1), depth0))
-	    + "\">\n							2609\n						</div>\n						<div class=\""
+	    + "\">\n							2&thinsp;609\n							<br>\n							2&nbsp;609\n						</div>\n						<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnoteText : stack1), depth0))
 	    + "\">\n							человек \n							<br>\n							вступили в регистр\n							<br>\n							за последний месяц\n						</div>\n					</div>\n				</div>\n			</div>\n			<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
