@@ -60,7 +60,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	__webpack_require__(86);
+	__webpack_require__(87);
 	
 	var $appContainer = (0, _jquery2.default)('[data-role="app"]'),
 	    appView = new _app2.default();
@@ -13482,15 +13482,15 @@
 	
 	var _how2 = _interopRequireDefault(_how);
 	
-	var _why = __webpack_require__(52);
+	var _why = __webpack_require__(53);
 	
 	var _why2 = _interopRequireDefault(_why);
 	
-	var _counters = __webpack_require__(79);
+	var _counters = __webpack_require__(80);
 	
 	var _counters2 = _interopRequireDefault(_counters);
 	
-	var _app = __webpack_require__(83);
+	var _app = __webpack_require__(84);
 	
 	var _app2 = _interopRequireDefault(_app);
 	
@@ -13566,7 +13566,7 @@
 		}, {
 			key: '_template',
 			get: function get() {
-				return __webpack_require__(85);
+				return __webpack_require__(86);
 			}
 		}, {
 			key: '_pages',
@@ -13810,7 +13810,7 @@
 	
 	var _share4 = _interopRequireDefault(_share3);
 	
-	var _typograf = __webpack_require__(88);
+	var _typograf = __webpack_require__(31);
 	
 	var _typograf2 = _interopRequireDefault(_typograf);
 	
@@ -13847,7 +13847,7 @@
 		}, {
 			key: '_template',
 			get: function get() {
-				return __webpack_require__(31);
+				return __webpack_require__(32);
 			}
 		}]);
 	
@@ -14000,7 +14000,7 @@
 		}, {
 			key: '_template',
 			get: function get() {
-				return __webpack_require__(51);
+				return __webpack_require__(52);
 			}
 		}, {
 			key: 'events',
@@ -15209,3876 +15209,6 @@
 
 /***/ },
 /* 31 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Handlebars = __webpack_require__(32);
-	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
-	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-	    var stack1, helper, alias1=container.lambda, alias2=container.escapeExpression, alias3=depth0 != null ? depth0 : {}, alias4=helpers.helperMissing, alias5="function";
-	
-	  return "<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.share : depth0)) != null ? stack1.container : stack1), depth0))
-	    + "\">\n	<a href=\""
-	    + alias2(((helper = (helper = helpers.vkUrl || (depth0 != null ? depth0.vkUrl : depth0)) != null ? helper : alias4),(typeof helper === alias5 ? helper.call(alias3,{"name":"vkUrl","hash":{},"data":data}) : helper)))
-	    + "\" target=\"_blank\" class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.share : depth0)) != null ? stack1.itemVk : stack1), depth0))
-	    + "\"></a>\n	<a href=\""
-	    + alias2(((helper = (helper = helpers.fbUrl || (depth0 != null ? depth0.fbUrl : depth0)) != null ? helper : alias4),(typeof helper === alias5 ? helper.call(alias3,{"name":"fbUrl","hash":{},"data":data}) : helper)))
-	    + "\" target=\"_blank\" class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.share : depth0)) != null ? stack1.itemFb : stack1), depth0))
-	    + "\"></a>	\n</div>\n";
-	},"useData":true});
-
-/***/ },
-/* 32 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	// Create a simple path alias to allow browserify to resolve
-	// the runtime on a supported path.
-	module.exports = __webpack_require__(33)['default'];
-
-/***/ },
-/* 33 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	exports.__esModule = true;
-	// istanbul ignore next
-	
-	function _interopRequireDefault(obj) {
-	  return obj && obj.__esModule ? obj : { 'default': obj };
-	}
-	
-	// istanbul ignore next
-	
-	function _interopRequireWildcard(obj) {
-	  if (obj && obj.__esModule) {
-	    return obj;
-	  } else {
-	    var newObj = {};if (obj != null) {
-	      for (var key in obj) {
-	        if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key];
-	      }
-	    }newObj['default'] = obj;return newObj;
-	  }
-	}
-	
-	var _handlebarsBase = __webpack_require__(34);
-	
-	var base = _interopRequireWildcard(_handlebarsBase);
-	
-	// Each of these augment the Handlebars object. No need to setup here.
-	// (This is done to easily share code between commonjs and browse envs)
-	
-	var _handlebarsSafeString = __webpack_require__(48);
-	
-	var _handlebarsSafeString2 = _interopRequireDefault(_handlebarsSafeString);
-	
-	var _handlebarsException = __webpack_require__(36);
-	
-	var _handlebarsException2 = _interopRequireDefault(_handlebarsException);
-	
-	var _handlebarsUtils = __webpack_require__(35);
-	
-	var Utils = _interopRequireWildcard(_handlebarsUtils);
-	
-	var _handlebarsRuntime = __webpack_require__(49);
-	
-	var runtime = _interopRequireWildcard(_handlebarsRuntime);
-	
-	var _handlebarsNoConflict = __webpack_require__(50);
-	
-	var _handlebarsNoConflict2 = _interopRequireDefault(_handlebarsNoConflict);
-	
-	// For compatibility and usage outside of module systems, make the Handlebars object a namespace
-	function create() {
-	  var hb = new base.HandlebarsEnvironment();
-	
-	  Utils.extend(hb, base);
-	  hb.SafeString = _handlebarsSafeString2['default'];
-	  hb.Exception = _handlebarsException2['default'];
-	  hb.Utils = Utils;
-	  hb.escapeExpression = Utils.escapeExpression;
-	
-	  hb.VM = runtime;
-	  hb.template = function (spec) {
-	    return runtime.template(spec, hb);
-	  };
-	
-	  return hb;
-	}
-	
-	var inst = create();
-	inst.create = create;
-	
-	_handlebarsNoConflict2['default'](inst);
-	
-	inst['default'] = inst;
-	
-	exports['default'] = inst;
-	module.exports = exports['default'];
-
-/***/ },
-/* 34 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	exports.__esModule = true;
-	exports.HandlebarsEnvironment = HandlebarsEnvironment;
-	// istanbul ignore next
-	
-	function _interopRequireDefault(obj) {
-	  return obj && obj.__esModule ? obj : { 'default': obj };
-	}
-	
-	var _utils = __webpack_require__(35);
-	
-	var _exception = __webpack_require__(36);
-	
-	var _exception2 = _interopRequireDefault(_exception);
-	
-	var _helpers = __webpack_require__(37);
-	
-	var _decorators = __webpack_require__(45);
-	
-	var _logger = __webpack_require__(47);
-	
-	var _logger2 = _interopRequireDefault(_logger);
-	
-	var VERSION = '4.0.5';
-	exports.VERSION = VERSION;
-	var COMPILER_REVISION = 7;
-	
-	exports.COMPILER_REVISION = COMPILER_REVISION;
-	var REVISION_CHANGES = {
-	  1: '<= 1.0.rc.2', // 1.0.rc.2 is actually rev2 but doesn't report it
-	  2: '== 1.0.0-rc.3',
-	  3: '== 1.0.0-rc.4',
-	  4: '== 1.x.x',
-	  5: '== 2.0.0-alpha.x',
-	  6: '>= 2.0.0-beta.1',
-	  7: '>= 4.0.0'
-	};
-	
-	exports.REVISION_CHANGES = REVISION_CHANGES;
-	var objectType = '[object Object]';
-	
-	function HandlebarsEnvironment(helpers, partials, decorators) {
-	  this.helpers = helpers || {};
-	  this.partials = partials || {};
-	  this.decorators = decorators || {};
-	
-	  _helpers.registerDefaultHelpers(this);
-	  _decorators.registerDefaultDecorators(this);
-	}
-	
-	HandlebarsEnvironment.prototype = {
-	  constructor: HandlebarsEnvironment,
-	
-	  logger: _logger2['default'],
-	  log: _logger2['default'].log,
-	
-	  registerHelper: function registerHelper(name, fn) {
-	    if (_utils.toString.call(name) === objectType) {
-	      if (fn) {
-	        throw new _exception2['default']('Arg not supported with multiple helpers');
-	      }
-	      _utils.extend(this.helpers, name);
-	    } else {
-	      this.helpers[name] = fn;
-	    }
-	  },
-	  unregisterHelper: function unregisterHelper(name) {
-	    delete this.helpers[name];
-	  },
-	
-	  registerPartial: function registerPartial(name, partial) {
-	    if (_utils.toString.call(name) === objectType) {
-	      _utils.extend(this.partials, name);
-	    } else {
-	      if (typeof partial === 'undefined') {
-	        throw new _exception2['default']('Attempting to register a partial called "' + name + '" as undefined');
-	      }
-	      this.partials[name] = partial;
-	    }
-	  },
-	  unregisterPartial: function unregisterPartial(name) {
-	    delete this.partials[name];
-	  },
-	
-	  registerDecorator: function registerDecorator(name, fn) {
-	    if (_utils.toString.call(name) === objectType) {
-	      if (fn) {
-	        throw new _exception2['default']('Arg not supported with multiple decorators');
-	      }
-	      _utils.extend(this.decorators, name);
-	    } else {
-	      this.decorators[name] = fn;
-	    }
-	  },
-	  unregisterDecorator: function unregisterDecorator(name) {
-	    delete this.decorators[name];
-	  }
-	};
-	
-	var log = _logger2['default'].log;
-	
-	exports.log = log;
-	exports.createFrame = _utils.createFrame;
-	exports.logger = _logger2['default'];
-
-/***/ },
-/* 35 */
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
-	
-	exports.__esModule = true;
-	exports.extend = extend;
-	exports.indexOf = indexOf;
-	exports.escapeExpression = escapeExpression;
-	exports.isEmpty = isEmpty;
-	exports.createFrame = createFrame;
-	exports.blockParams = blockParams;
-	exports.appendContextPath = appendContextPath;
-	var escape = {
-	  '&': '&amp;',
-	  '<': '&lt;',
-	  '>': '&gt;',
-	  '"': '&quot;',
-	  "'": '&#x27;',
-	  '`': '&#x60;',
-	  '=': '&#x3D;'
-	};
-	
-	var badChars = /[&<>"'`=]/g,
-	    possible = /[&<>"'`=]/;
-	
-	function escapeChar(chr) {
-	  return escape[chr];
-	}
-	
-	function extend(obj /* , ...source */) {
-	  for (var i = 1; i < arguments.length; i++) {
-	    for (var key in arguments[i]) {
-	      if (Object.prototype.hasOwnProperty.call(arguments[i], key)) {
-	        obj[key] = arguments[i][key];
-	      }
-	    }
-	  }
-	
-	  return obj;
-	}
-	
-	var toString = Object.prototype.toString;
-	
-	exports.toString = toString;
-	// Sourced from lodash
-	// https://github.com/bestiejs/lodash/blob/master/LICENSE.txt
-	/* eslint-disable func-style */
-	var isFunction = function isFunction(value) {
-	  return typeof value === 'function';
-	};
-	// fallback for older versions of Chrome and Safari
-	/* istanbul ignore next */
-	if (isFunction(/x/)) {
-	  exports.isFunction = isFunction = function isFunction(value) {
-	    return typeof value === 'function' && toString.call(value) === '[object Function]';
-	  };
-	}
-	exports.isFunction = isFunction;
-	
-	/* eslint-enable func-style */
-	
-	/* istanbul ignore next */
-	var isArray = Array.isArray || function (value) {
-	  return value && (typeof value === 'undefined' ? 'undefined' : _typeof(value)) === 'object' ? toString.call(value) === '[object Array]' : false;
-	};
-	
-	exports.isArray = isArray;
-	// Older IE versions do not directly support indexOf so we must implement our own, sadly.
-	
-	function indexOf(array, value) {
-	  for (var i = 0, len = array.length; i < len; i++) {
-	    if (array[i] === value) {
-	      return i;
-	    }
-	  }
-	  return -1;
-	}
-	
-	function escapeExpression(string) {
-	  if (typeof string !== 'string') {
-	    // don't escape SafeStrings, since they're already safe
-	    if (string && string.toHTML) {
-	      return string.toHTML();
-	    } else if (string == null) {
-	      return '';
-	    } else if (!string) {
-	      return string + '';
-	    }
-	
-	    // Force a string conversion as this will be done by the append regardless and
-	    // the regex test will do this transparently behind the scenes, causing issues if
-	    // an object's to string has escaped characters in it.
-	    string = '' + string;
-	  }
-	
-	  if (!possible.test(string)) {
-	    return string;
-	  }
-	  return string.replace(badChars, escapeChar);
-	}
-	
-	function isEmpty(value) {
-	  if (!value && value !== 0) {
-	    return true;
-	  } else if (isArray(value) && value.length === 0) {
-	    return true;
-	  } else {
-	    return false;
-	  }
-	}
-	
-	function createFrame(object) {
-	  var frame = extend({}, object);
-	  frame._parent = object;
-	  return frame;
-	}
-	
-	function blockParams(params, ids) {
-	  params.path = ids;
-	  return params;
-	}
-	
-	function appendContextPath(contextPath, id) {
-	  return (contextPath ? contextPath + '.' : '') + id;
-	}
-
-/***/ },
-/* 36 */
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	exports.__esModule = true;
-	
-	var errorProps = ['description', 'fileName', 'lineNumber', 'message', 'name', 'number', 'stack'];
-	
-	function Exception(message, node) {
-	  var loc = node && node.loc,
-	      line = undefined,
-	      column = undefined;
-	  if (loc) {
-	    line = loc.start.line;
-	    column = loc.start.column;
-	
-	    message += ' - ' + line + ':' + column;
-	  }
-	
-	  var tmp = Error.prototype.constructor.call(this, message);
-	
-	  // Unfortunately errors are not enumerable in Chrome (at least), so `for prop in tmp` doesn't work.
-	  for (var idx = 0; idx < errorProps.length; idx++) {
-	    this[errorProps[idx]] = tmp[errorProps[idx]];
-	  }
-	
-	  /* istanbul ignore else */
-	  if (Error.captureStackTrace) {
-	    Error.captureStackTrace(this, Exception);
-	  }
-	
-	  if (loc) {
-	    this.lineNumber = line;
-	    this.column = column;
-	  }
-	}
-	
-	Exception.prototype = new Error();
-	
-	exports['default'] = Exception;
-	module.exports = exports['default'];
-
-/***/ },
-/* 37 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	exports.__esModule = true;
-	exports.registerDefaultHelpers = registerDefaultHelpers;
-	// istanbul ignore next
-	
-	function _interopRequireDefault(obj) {
-	  return obj && obj.__esModule ? obj : { 'default': obj };
-	}
-	
-	var _helpersBlockHelperMissing = __webpack_require__(38);
-	
-	var _helpersBlockHelperMissing2 = _interopRequireDefault(_helpersBlockHelperMissing);
-	
-	var _helpersEach = __webpack_require__(39);
-	
-	var _helpersEach2 = _interopRequireDefault(_helpersEach);
-	
-	var _helpersHelperMissing = __webpack_require__(40);
-	
-	var _helpersHelperMissing2 = _interopRequireDefault(_helpersHelperMissing);
-	
-	var _helpersIf = __webpack_require__(41);
-	
-	var _helpersIf2 = _interopRequireDefault(_helpersIf);
-	
-	var _helpersLog = __webpack_require__(42);
-	
-	var _helpersLog2 = _interopRequireDefault(_helpersLog);
-	
-	var _helpersLookup = __webpack_require__(43);
-	
-	var _helpersLookup2 = _interopRequireDefault(_helpersLookup);
-	
-	var _helpersWith = __webpack_require__(44);
-	
-	var _helpersWith2 = _interopRequireDefault(_helpersWith);
-	
-	function registerDefaultHelpers(instance) {
-	  _helpersBlockHelperMissing2['default'](instance);
-	  _helpersEach2['default'](instance);
-	  _helpersHelperMissing2['default'](instance);
-	  _helpersIf2['default'](instance);
-	  _helpersLog2['default'](instance);
-	  _helpersLookup2['default'](instance);
-	  _helpersWith2['default'](instance);
-	}
-
-/***/ },
-/* 38 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	exports.__esModule = true;
-	
-	var _utils = __webpack_require__(35);
-	
-	exports['default'] = function (instance) {
-	  instance.registerHelper('blockHelperMissing', function (context, options) {
-	    var inverse = options.inverse,
-	        fn = options.fn;
-	
-	    if (context === true) {
-	      return fn(this);
-	    } else if (context === false || context == null) {
-	      return inverse(this);
-	    } else if (_utils.isArray(context)) {
-	      if (context.length > 0) {
-	        if (options.ids) {
-	          options.ids = [options.name];
-	        }
-	
-	        return instance.helpers.each(context, options);
-	      } else {
-	        return inverse(this);
-	      }
-	    } else {
-	      if (options.data && options.ids) {
-	        var data = _utils.createFrame(options.data);
-	        data.contextPath = _utils.appendContextPath(options.data.contextPath, options.name);
-	        options = { data: data };
-	      }
-	
-	      return fn(context, options);
-	    }
-	  });
-	};
-	
-	module.exports = exports['default'];
-
-/***/ },
-/* 39 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
-	
-	exports.__esModule = true;
-	// istanbul ignore next
-	
-	function _interopRequireDefault(obj) {
-	  return obj && obj.__esModule ? obj : { 'default': obj };
-	}
-	
-	var _utils = __webpack_require__(35);
-	
-	var _exception = __webpack_require__(36);
-	
-	var _exception2 = _interopRequireDefault(_exception);
-	
-	exports['default'] = function (instance) {
-	  instance.registerHelper('each', function (context, options) {
-	    if (!options) {
-	      throw new _exception2['default']('Must pass iterator to #each');
-	    }
-	
-	    var fn = options.fn,
-	        inverse = options.inverse,
-	        i = 0,
-	        ret = '',
-	        data = undefined,
-	        contextPath = undefined;
-	
-	    if (options.data && options.ids) {
-	      contextPath = _utils.appendContextPath(options.data.contextPath, options.ids[0]) + '.';
-	    }
-	
-	    if (_utils.isFunction(context)) {
-	      context = context.call(this);
-	    }
-	
-	    if (options.data) {
-	      data = _utils.createFrame(options.data);
-	    }
-	
-	    function execIteration(field, index, last) {
-	      if (data) {
-	        data.key = field;
-	        data.index = index;
-	        data.first = index === 0;
-	        data.last = !!last;
-	
-	        if (contextPath) {
-	          data.contextPath = contextPath + field;
-	        }
-	      }
-	
-	      ret = ret + fn(context[field], {
-	        data: data,
-	        blockParams: _utils.blockParams([context[field], field], [contextPath + field, null])
-	      });
-	    }
-	
-	    if (context && (typeof context === 'undefined' ? 'undefined' : _typeof(context)) === 'object') {
-	      if (_utils.isArray(context)) {
-	        for (var j = context.length; i < j; i++) {
-	          if (i in context) {
-	            execIteration(i, i, i === context.length - 1);
-	          }
-	        }
-	      } else {
-	        var priorKey = undefined;
-	
-	        for (var key in context) {
-	          if (context.hasOwnProperty(key)) {
-	            // We're running the iterations one step out of sync so we can detect
-	            // the last iteration without have to scan the object twice and create
-	            // an itermediate keys array.
-	            if (priorKey !== undefined) {
-	              execIteration(priorKey, i - 1);
-	            }
-	            priorKey = key;
-	            i++;
-	          }
-	        }
-	        if (priorKey !== undefined) {
-	          execIteration(priorKey, i - 1, true);
-	        }
-	      }
-	    }
-	
-	    if (i === 0) {
-	      ret = inverse(this);
-	    }
-	
-	    return ret;
-	  });
-	};
-	
-	module.exports = exports['default'];
-
-/***/ },
-/* 40 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	exports.__esModule = true;
-	// istanbul ignore next
-	
-	function _interopRequireDefault(obj) {
-	  return obj && obj.__esModule ? obj : { 'default': obj };
-	}
-	
-	var _exception = __webpack_require__(36);
-	
-	var _exception2 = _interopRequireDefault(_exception);
-	
-	exports['default'] = function (instance) {
-	  instance.registerHelper('helperMissing', function () /* [args, ]options */{
-	    if (arguments.length === 1) {
-	      // A missing field in a {{foo}} construct.
-	      return undefined;
-	    } else {
-	      // Someone is actually trying to call something, blow up.
-	      throw new _exception2['default']('Missing helper: "' + arguments[arguments.length - 1].name + '"');
-	    }
-	  });
-	};
-	
-	module.exports = exports['default'];
-
-/***/ },
-/* 41 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	exports.__esModule = true;
-	
-	var _utils = __webpack_require__(35);
-	
-	exports['default'] = function (instance) {
-	  instance.registerHelper('if', function (conditional, options) {
-	    if (_utils.isFunction(conditional)) {
-	      conditional = conditional.call(this);
-	    }
-	
-	    // Default behavior is to render the positive path if the value is truthy and not empty.
-	    // The `includeZero` option may be set to treat the condtional as purely not empty based on the
-	    // behavior of isEmpty. Effectively this determines if 0 is handled by the positive path or negative.
-	    if (!options.hash.includeZero && !conditional || _utils.isEmpty(conditional)) {
-	      return options.inverse(this);
-	    } else {
-	      return options.fn(this);
-	    }
-	  });
-	
-	  instance.registerHelper('unless', function (conditional, options) {
-	    return instance.helpers['if'].call(this, conditional, { fn: options.inverse, inverse: options.fn, hash: options.hash });
-	  });
-	};
-	
-	module.exports = exports['default'];
-
-/***/ },
-/* 42 */
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	exports.__esModule = true;
-	
-	exports['default'] = function (instance) {
-	  instance.registerHelper('log', function () /* message, options */{
-	    var args = [undefined],
-	        options = arguments[arguments.length - 1];
-	    for (var i = 0; i < arguments.length - 1; i++) {
-	      args.push(arguments[i]);
-	    }
-	
-	    var level = 1;
-	    if (options.hash.level != null) {
-	      level = options.hash.level;
-	    } else if (options.data && options.data.level != null) {
-	      level = options.data.level;
-	    }
-	    args[0] = level;
-	
-	    instance.log.apply(instance, args);
-	  });
-	};
-	
-	module.exports = exports['default'];
-
-/***/ },
-/* 43 */
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	exports.__esModule = true;
-	
-	exports['default'] = function (instance) {
-	  instance.registerHelper('lookup', function (obj, field) {
-	    return obj && obj[field];
-	  });
-	};
-	
-	module.exports = exports['default'];
-
-/***/ },
-/* 44 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	exports.__esModule = true;
-	
-	var _utils = __webpack_require__(35);
-	
-	exports['default'] = function (instance) {
-	  instance.registerHelper('with', function (context, options) {
-	    if (_utils.isFunction(context)) {
-	      context = context.call(this);
-	    }
-	
-	    var fn = options.fn;
-	
-	    if (!_utils.isEmpty(context)) {
-	      var data = options.data;
-	      if (options.data && options.ids) {
-	        data = _utils.createFrame(options.data);
-	        data.contextPath = _utils.appendContextPath(options.data.contextPath, options.ids[0]);
-	      }
-	
-	      return fn(context, {
-	        data: data,
-	        blockParams: _utils.blockParams([context], [data && data.contextPath])
-	      });
-	    } else {
-	      return options.inverse(this);
-	    }
-	  });
-	};
-	
-	module.exports = exports['default'];
-
-/***/ },
-/* 45 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	exports.__esModule = true;
-	exports.registerDefaultDecorators = registerDefaultDecorators;
-	// istanbul ignore next
-	
-	function _interopRequireDefault(obj) {
-	  return obj && obj.__esModule ? obj : { 'default': obj };
-	}
-	
-	var _decoratorsInline = __webpack_require__(46);
-	
-	var _decoratorsInline2 = _interopRequireDefault(_decoratorsInline);
-	
-	function registerDefaultDecorators(instance) {
-	  _decoratorsInline2['default'](instance);
-	}
-
-/***/ },
-/* 46 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	exports.__esModule = true;
-	
-	var _utils = __webpack_require__(35);
-	
-	exports['default'] = function (instance) {
-	  instance.registerDecorator('inline', function (fn, props, container, options) {
-	    var ret = fn;
-	    if (!props.partials) {
-	      props.partials = {};
-	      ret = function ret(context, options) {
-	        // Create a new partials stack frame prior to exec.
-	        var original = container.partials;
-	        container.partials = _utils.extend({}, original, props.partials);
-	        var ret = fn(context, options);
-	        container.partials = original;
-	        return ret;
-	      };
-	    }
-	
-	    props.partials[options.args[0]] = options.fn;
-	
-	    return ret;
-	  });
-	};
-	
-	module.exports = exports['default'];
-
-/***/ },
-/* 47 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	exports.__esModule = true;
-	
-	var _utils = __webpack_require__(35);
-	
-	var logger = {
-	  methodMap: ['debug', 'info', 'warn', 'error'],
-	  level: 'info',
-	
-	  // Maps a given level value to the `methodMap` indexes above.
-	  lookupLevel: function lookupLevel(level) {
-	    if (typeof level === 'string') {
-	      var levelMap = _utils.indexOf(logger.methodMap, level.toLowerCase());
-	      if (levelMap >= 0) {
-	        level = levelMap;
-	      } else {
-	        level = parseInt(level, 10);
-	      }
-	    }
-	
-	    return level;
-	  },
-	
-	  // Can be overridden in the host environment
-	  log: function log(level) {
-	    level = logger.lookupLevel(level);
-	
-	    if (typeof console !== 'undefined' && logger.lookupLevel(logger.level) <= level) {
-	      var method = logger.methodMap[level];
-	      if (!console[method]) {
-	        // eslint-disable-line no-console
-	        method = 'log';
-	      }
-	
-	      for (var _len = arguments.length, message = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-	        message[_key - 1] = arguments[_key];
-	      }
-	
-	      console[method].apply(console, message); // eslint-disable-line no-console
-	    }
-	  }
-	};
-	
-	exports['default'] = logger;
-	module.exports = exports['default'];
-
-/***/ },
-/* 48 */
-/***/ function(module, exports) {
-
-	// Build out our basic SafeString type
-	'use strict';
-	
-	exports.__esModule = true;
-	function SafeString(string) {
-	  this.string = string;
-	}
-	
-	SafeString.prototype.toString = SafeString.prototype.toHTML = function () {
-	  return '' + this.string;
-	};
-	
-	exports['default'] = SafeString;
-	module.exports = exports['default'];
-
-/***/ },
-/* 49 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
-	
-	exports.__esModule = true;
-	exports.checkRevision = checkRevision;
-	exports.template = template;
-	exports.wrapProgram = wrapProgram;
-	exports.resolvePartial = resolvePartial;
-	exports.invokePartial = invokePartial;
-	exports.noop = noop;
-	// istanbul ignore next
-	
-	function _interopRequireDefault(obj) {
-	  return obj && obj.__esModule ? obj : { 'default': obj };
-	}
-	
-	// istanbul ignore next
-	
-	function _interopRequireWildcard(obj) {
-	  if (obj && obj.__esModule) {
-	    return obj;
-	  } else {
-	    var newObj = {};if (obj != null) {
-	      for (var key in obj) {
-	        if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key];
-	      }
-	    }newObj['default'] = obj;return newObj;
-	  }
-	}
-	
-	var _utils = __webpack_require__(35);
-	
-	var Utils = _interopRequireWildcard(_utils);
-	
-	var _exception = __webpack_require__(36);
-	
-	var _exception2 = _interopRequireDefault(_exception);
-	
-	var _base = __webpack_require__(34);
-	
-	function checkRevision(compilerInfo) {
-	  var compilerRevision = compilerInfo && compilerInfo[0] || 1,
-	      currentRevision = _base.COMPILER_REVISION;
-	
-	  if (compilerRevision !== currentRevision) {
-	    if (compilerRevision < currentRevision) {
-	      var runtimeVersions = _base.REVISION_CHANGES[currentRevision],
-	          compilerVersions = _base.REVISION_CHANGES[compilerRevision];
-	      throw new _exception2['default']('Template was precompiled with an older version of Handlebars than the current runtime. ' + 'Please update your precompiler to a newer version (' + runtimeVersions + ') or downgrade your runtime to an older version (' + compilerVersions + ').');
-	    } else {
-	      // Use the embedded version info since the runtime doesn't know about this revision yet
-	      throw new _exception2['default']('Template was precompiled with a newer version of Handlebars than the current runtime. ' + 'Please update your runtime to a newer version (' + compilerInfo[1] + ').');
-	    }
-	  }
-	}
-	
-	function template(templateSpec, env) {
-	  /* istanbul ignore next */
-	  if (!env) {
-	    throw new _exception2['default']('No environment passed to template');
-	  }
-	  if (!templateSpec || !templateSpec.main) {
-	    throw new _exception2['default']('Unknown template object: ' + (typeof templateSpec === 'undefined' ? 'undefined' : _typeof(templateSpec)));
-	  }
-	
-	  templateSpec.main.decorator = templateSpec.main_d;
-	
-	  // Note: Using env.VM references rather than local var references throughout this section to allow
-	  // for external users to override these as psuedo-supported APIs.
-	  env.VM.checkRevision(templateSpec.compiler);
-	
-	  function invokePartialWrapper(partial, context, options) {
-	    if (options.hash) {
-	      context = Utils.extend({}, context, options.hash);
-	      if (options.ids) {
-	        options.ids[0] = true;
-	      }
-	    }
-	
-	    partial = env.VM.resolvePartial.call(this, partial, context, options);
-	    var result = env.VM.invokePartial.call(this, partial, context, options);
-	
-	    if (result == null && env.compile) {
-	      options.partials[options.name] = env.compile(partial, templateSpec.compilerOptions, env);
-	      result = options.partials[options.name](context, options);
-	    }
-	    if (result != null) {
-	      if (options.indent) {
-	        var lines = result.split('\n');
-	        for (var i = 0, l = lines.length; i < l; i++) {
-	          if (!lines[i] && i + 1 === l) {
-	            break;
-	          }
-	
-	          lines[i] = options.indent + lines[i];
-	        }
-	        result = lines.join('\n');
-	      }
-	      return result;
-	    } else {
-	      throw new _exception2['default']('The partial ' + options.name + ' could not be compiled when running in runtime-only mode');
-	    }
-	  }
-	
-	  // Just add water
-	  var container = {
-	    strict: function strict(obj, name) {
-	      if (!(name in obj)) {
-	        throw new _exception2['default']('"' + name + '" not defined in ' + obj);
-	      }
-	      return obj[name];
-	    },
-	    lookup: function lookup(depths, name) {
-	      var len = depths.length;
-	      for (var i = 0; i < len; i++) {
-	        if (depths[i] && depths[i][name] != null) {
-	          return depths[i][name];
-	        }
-	      }
-	    },
-	    lambda: function lambda(current, context) {
-	      return typeof current === 'function' ? current.call(context) : current;
-	    },
-	
-	    escapeExpression: Utils.escapeExpression,
-	    invokePartial: invokePartialWrapper,
-	
-	    fn: function fn(i) {
-	      var ret = templateSpec[i];
-	      ret.decorator = templateSpec[i + '_d'];
-	      return ret;
-	    },
-	
-	    programs: [],
-	    program: function program(i, data, declaredBlockParams, blockParams, depths) {
-	      var programWrapper = this.programs[i],
-	          fn = this.fn(i);
-	      if (data || depths || blockParams || declaredBlockParams) {
-	        programWrapper = wrapProgram(this, i, fn, data, declaredBlockParams, blockParams, depths);
-	      } else if (!programWrapper) {
-	        programWrapper = this.programs[i] = wrapProgram(this, i, fn);
-	      }
-	      return programWrapper;
-	    },
-	
-	    data: function data(value, depth) {
-	      while (value && depth--) {
-	        value = value._parent;
-	      }
-	      return value;
-	    },
-	    merge: function merge(param, common) {
-	      var obj = param || common;
-	
-	      if (param && common && param !== common) {
-	        obj = Utils.extend({}, common, param);
-	      }
-	
-	      return obj;
-	    },
-	
-	    noop: env.VM.noop,
-	    compilerInfo: templateSpec.compiler
-	  };
-	
-	  function ret(context) {
-	    var options = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
-	
-	    var data = options.data;
-	
-	    ret._setup(options);
-	    if (!options.partial && templateSpec.useData) {
-	      data = initData(context, data);
-	    }
-	    var depths = undefined,
-	        blockParams = templateSpec.useBlockParams ? [] : undefined;
-	    if (templateSpec.useDepths) {
-	      if (options.depths) {
-	        depths = context !== options.depths[0] ? [context].concat(options.depths) : options.depths;
-	      } else {
-	        depths = [context];
-	      }
-	    }
-	
-	    function main(context /*, options*/) {
-	      return '' + templateSpec.main(container, context, container.helpers, container.partials, data, blockParams, depths);
-	    }
-	    main = executeDecorators(templateSpec.main, main, container, options.depths || [], data, blockParams);
-	    return main(context, options);
-	  }
-	  ret.isTop = true;
-	
-	  ret._setup = function (options) {
-	    if (!options.partial) {
-	      container.helpers = container.merge(options.helpers, env.helpers);
-	
-	      if (templateSpec.usePartial) {
-	        container.partials = container.merge(options.partials, env.partials);
-	      }
-	      if (templateSpec.usePartial || templateSpec.useDecorators) {
-	        container.decorators = container.merge(options.decorators, env.decorators);
-	      }
-	    } else {
-	      container.helpers = options.helpers;
-	      container.partials = options.partials;
-	      container.decorators = options.decorators;
-	    }
-	  };
-	
-	  ret._child = function (i, data, blockParams, depths) {
-	    if (templateSpec.useBlockParams && !blockParams) {
-	      throw new _exception2['default']('must pass block params');
-	    }
-	    if (templateSpec.useDepths && !depths) {
-	      throw new _exception2['default']('must pass parent depths');
-	    }
-	
-	    return wrapProgram(container, i, templateSpec[i], data, 0, blockParams, depths);
-	  };
-	  return ret;
-	}
-	
-	function wrapProgram(container, i, fn, data, declaredBlockParams, blockParams, depths) {
-	  function prog(context) {
-	    var options = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
-	
-	    var currentDepths = depths;
-	    if (depths && context !== depths[0]) {
-	      currentDepths = [context].concat(depths);
-	    }
-	
-	    return fn(container, context, container.helpers, container.partials, options.data || data, blockParams && [options.blockParams].concat(blockParams), currentDepths);
-	  }
-	
-	  prog = executeDecorators(fn, prog, container, depths, data, blockParams);
-	
-	  prog.program = i;
-	  prog.depth = depths ? depths.length : 0;
-	  prog.blockParams = declaredBlockParams || 0;
-	  return prog;
-	}
-	
-	function resolvePartial(partial, context, options) {
-	  if (!partial) {
-	    if (options.name === '@partial-block') {
-	      partial = options.data['partial-block'];
-	    } else {
-	      partial = options.partials[options.name];
-	    }
-	  } else if (!partial.call && !options.name) {
-	    // This is a dynamic partial that returned a string
-	    options.name = partial;
-	    partial = options.partials[partial];
-	  }
-	  return partial;
-	}
-	
-	function invokePartial(partial, context, options) {
-	  options.partial = true;
-	  if (options.ids) {
-	    options.data.contextPath = options.ids[0] || options.data.contextPath;
-	  }
-	
-	  var partialBlock = undefined;
-	  if (options.fn && options.fn !== noop) {
-	    options.data = _base.createFrame(options.data);
-	    partialBlock = options.data['partial-block'] = options.fn;
-	
-	    if (partialBlock.partials) {
-	      options.partials = Utils.extend({}, options.partials, partialBlock.partials);
-	    }
-	  }
-	
-	  if (partial === undefined && partialBlock) {
-	    partial = partialBlock;
-	  }
-	
-	  if (partial === undefined) {
-	    throw new _exception2['default']('The partial ' + options.name + ' could not be found');
-	  } else if (partial instanceof Function) {
-	    return partial(context, options);
-	  }
-	}
-	
-	function noop() {
-	  return '';
-	}
-	
-	function initData(context, data) {
-	  if (!data || !('root' in data)) {
-	    data = data ? _base.createFrame(data) : {};
-	    data.root = context;
-	  }
-	  return data;
-	}
-	
-	function executeDecorators(fn, prog, container, depths, data, blockParams) {
-	  if (fn.decorator) {
-	    var props = {};
-	    prog = fn.decorator(prog, props, container, depths && depths[0], data, blockParams, depths);
-	    Utils.extend(prog, props);
-	  }
-	  return prog;
-	}
-
-/***/ },
-/* 50 */
-/***/ function(module, exports) {
-
-	/* WEBPACK VAR INJECTION */(function(global) {/* global window */
-	'use strict';
-	
-	exports.__esModule = true;
-	
-	exports['default'] = function (Handlebars) {
-	  /* istanbul ignore next */
-	  var root = typeof global !== 'undefined' ? global : window,
-	      $Handlebars = root.Handlebars;
-	  /* istanbul ignore next */
-	  Handlebars.noConflict = function () {
-	    if (root.Handlebars === Handlebars) {
-	      root.Handlebars = $Handlebars;
-	    }
-	    return Handlebars;
-	  };
-	};
-	
-	module.exports = exports['default'];
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
-
-/***/ },
-/* 51 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Handlebars = __webpack_require__(32);
-	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
-	module.exports = (Handlebars["default"] || Handlebars).template({"1":function(container,depth0,helpers,partials,data) {
-	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
-	
-	  return "							<option value=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.attributes : depth0)) != null ? stack1.placeId : stack1), depth0))
-	    + "\" "
-	    + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.selected : depth0),{"name":"if","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-	    + ">"
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.attributes : depth0)) != null ? stack1.name : stack1), depth0))
-	    + "</option>\n";
-	},"2":function(container,depth0,helpers,partials,data) {
-	    return "selected=\"selected\"";
-	},"4":function(container,depth0,helpers,partials,data) {
-	    var stack1;
-	
-	  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},((stack1 = (depth0 != null ? depth0.error : depth0)) != null ? stack1.emptyCity : stack1),{"name":"if","hash":{},"fn":container.program(5, data, 0),"inverse":container.program(7, data, 0),"data":data})) != null ? stack1 : "");
-	},"5":function(container,depth0,helpers,partials,data) {
-	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
-	
-	  return "							<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findEmpty : stack1), depth0))
-	    + " "
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.text : stack1), depth0))
-	    + "\">\n								Мы определили ваш город, \n								<br>\n								это "
-	    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.error : depth0)) != null ? stack1.data : stack1)) != null ? stack1.formattedAddress : stack1), depth0))
-	    + ".\n								<br>\n								Но, к сожалению, в нем\n								<br>\n								нет пунктов для сдачи \n								<br>\n								костного мозга.\n							</div>\n";
-	},"7":function(container,depth0,helpers,partials,data) {
-	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
-	
-	  return "							<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findEmpty : stack1), depth0))
-	    + " "
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.text : stack1), depth0))
-	    + "\">\n								Мы не смогли определить, где вы\n								<br>\n								находитесь. Пожалуйста, выберите\n								<br>\n								город вручную.\n							</div>\n";
-	},"9":function(container,depth0,helpers,partials,data) {
-	    var stack1, alias1=container.lambda, alias2=container.escapeExpression, alias3=depth0 != null ? depth0 : {};
-	
-	  return "						<div data-view=\"how-map\" class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findMap : stack1), depth0))
-	    + "\"></div>\n						<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findMainPoint : stack1), depth0))
-	    + "\">\n							<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findPoint : stack1), depth0))
-	    + " "
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.text : stack1), depth0))
-	    + "\">\n								<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findPointName : stack1), depth0))
-	    + "\">"
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.firstPoint : depth0)) != null ? stack1.name : stack1), depth0))
-	    + "</div>\n								<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findPointAddress : stack1), depth0))
-	    + "\">\n									"
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.firstPoint : depth0)) != null ? stack1.address : stack1), depth0))
-	    + "\n								</div>\n								<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findPointTime : stack1), depth0))
-	    + "\">\n									Время работы: "
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.firstPoint : depth0)) != null ? stack1.time : stack1), depth0))
-	    + "\n								</div>\n"
-	    + ((stack1 = helpers["if"].call(alias3,((stack1 = (depth0 != null ? depth0.firstPoint : depth0)) != null ? stack1.phone : stack1),{"name":"if","hash":{},"fn":container.program(10, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-	    + ((stack1 = helpers["if"].call(alias3,((stack1 = (depth0 != null ? depth0.firstPoint : depth0)) != null ? stack1.info : stack1),{"name":"if","hash":{},"fn":container.program(12, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-	    + "							</div>\n							<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findShowMore : stack1), depth0))
-	    + " "
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.text : stack1), depth0))
-	    + "\" data-action=\"show-all-points\">\n								Все пункты...\n							</div>\n							<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findShowMore : stack1), depth0))
-	    + " "
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.text : stack1), depth0))
-	    + "\" style=\"display: none\" data-action=\"hide-all-points\">\n								Свернуть\n							</div>\n						</div>\n";
-	},"10":function(container,depth0,helpers,partials,data) {
-	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
-	
-	  return "									<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findPointPhone : stack1), depth0))
-	    + "\">\n										Телефон: "
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.firstPoint : depth0)) != null ? stack1.phone : stack1), depth0))
-	    + "\n									</div>\n";
-	},"12":function(container,depth0,helpers,partials,data) {
-	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
-	
-	  return "									<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findPointMeta : stack1), depth0))
-	    + "\">\n										"
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.firstPoint : depth0)) != null ? stack1.info : stack1), depth0))
-	    + "\n									</div>\n";
-	},"14":function(container,depth0,helpers,partials,data,blockParams,depths) {
-	    var stack1, alias1=container.lambda, alias2=container.escapeExpression, alias3=depth0 != null ? depth0 : {};
-	
-	  return "								<div class=\""
-	    + alias2(alias1(((stack1 = (depths[1] != null ? depths[1].how : depths[1])) != null ? stack1.findPoint : stack1), depth0))
-	    + " "
-	    + alias2(alias1(((stack1 = (depths[1] != null ? depths[1].typography : depths[1])) != null ? stack1.text : stack1), depth0))
-	    + "\">\n									<div class=\""
-	    + alias2(alias1(((stack1 = (depths[1] != null ? depths[1].how : depths[1])) != null ? stack1.findPointName : stack1), depth0))
-	    + "\">"
-	    + alias2(alias1((depth0 != null ? depth0.name : depth0), depth0))
-	    + "</div>\n									<div class=\""
-	    + alias2(alias1(((stack1 = (depths[1] != null ? depths[1].how : depths[1])) != null ? stack1.findPointAddress : stack1), depth0))
-	    + "\">\n										"
-	    + alias2(alias1((depth0 != null ? depth0.address : depth0), depth0))
-	    + "\n									</div>\n									<div class=\""
-	    + alias2(alias1(((stack1 = (depths[1] != null ? depths[1].how : depths[1])) != null ? stack1.findPointTime : stack1), depth0))
-	    + "\">\n										Время работы: "
-	    + alias2(alias1((depth0 != null ? depth0.time : depth0), depth0))
-	    + "\n									</div>\n"
-	    + ((stack1 = helpers["if"].call(alias3,(depth0 != null ? depth0.phone : depth0),{"name":"if","hash":{},"fn":container.program(15, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-	    + ((stack1 = helpers["if"].call(alias3,(depth0 != null ? depth0.info : depth0),{"name":"if","hash":{},"fn":container.program(17, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-	    + "								</div>\n";
-	},"15":function(container,depth0,helpers,partials,data,blockParams,depths) {
-	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
-	
-	  return "										<div class=\""
-	    + alias2(alias1(((stack1 = (depths[1] != null ? depths[1].how : depths[1])) != null ? stack1.findPointPhone : stack1), depth0))
-	    + "\">\n											Телефон: "
-	    + alias2(alias1((depth0 != null ? depth0.phone : depth0), depth0))
-	    + "\n										</div>\n";
-	},"17":function(container,depth0,helpers,partials,data,blockParams,depths) {
-	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
-	
-	  return "										<div class=\""
-	    + alias2(alias1(((stack1 = (depths[1] != null ? depths[1].how : depths[1])) != null ? stack1.findPointMeta : stack1), depth0))
-	    + "\">\n											"
-	    + alias2(alias1((depth0 != null ? depth0.info : depth0), depth0))
-	    + "\n										</div>\n";
-	},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data,blockParams,depths) {
-	    var stack1, alias1=container.lambda, alias2=container.escapeExpression, alias3=depth0 != null ? depth0 : {};
-	
-	  return "<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.root : stack1), depth0))
-	    + "\">\n	<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.artwork : stack1), depth0))
-	    + "\">\n		<img src=\"/static/how_artwork.png\">\n	</div>\n	<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.styles : depth0)) != null ? stack1.pageContainer : stack1), depth0))
-	    + "\">\n		<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.styles : depth0)) != null ? stack1.test : stack1), depth0))
-	    + "\" data-view=\"how-test\"></div>\n	</div>\n	<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.container : stack1), depth0))
-	    + "\">\n		<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
-	    + "\">\n			<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.header : stack1), depth0))
-	    + "\">Как стать<br>донором костного мозга</div>\n			<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n				О&nbsp;донорстве костного мозга знают мало, поэтому многие боятся становиться донорами. Кто-то думает, что&nbsp;костный мозг вырезают из&nbsp;костей, другие слышали, что&nbsp;врач иглой протыкает позвоночник. Мы&nbsp;хотим развеять безосновательные страхи и&nbsp;рассказать, как&nbsp;все происходит на&nbsp;самом деле&nbsp;&mdash; шаг за&nbsp;шагом.\n			</div>\n		</div>\n		<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
-	    + "\" id=\"first-step\">\n			<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
-	    + "\">Первый шаг. Найти, где сдать кровь</div>\n			<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1["float"] : stack1), depth0))
-	    + " "
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n				<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.text : stack1), depth0))
-	    + "\">\n					Чтобы вступить в&nbsp;регистр потенциальных доноров костного мозга, нужно сдать кровь на&nbsp;типирование. Типирование&nbsp;&mdash; это тест на&nbsp;тканевую совместимость между донором и&nbsp;реципиентом. От&nbsp;этой совместимости зависит, приживется&nbsp;ли костный мозг в&nbsp;новом организме.\n				</div>\n				<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnote : stack1), depth0))
-	    + "\">\n					<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnoteText : stack1), depth0))
-	    + "\">\n						Для 100% генетической совместимости\n						<br>\n						донора и пациента должны совпасть\n						<br>\n						10 четырехзначных параметров ДНК.\n						<br>\n						Вероятность совпадения 1:10000.\n						<br>\n						Для транплантации достаточно\n						<br>\n						90% совместимости\n					</div>\n				</div>\n			</div>\n			<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n				Специальных пунктов сдачи крови на&nbsp;типирование нет. Вступить в&nbsp;регистр можно в&nbsp;некоторых пунктах переливания крови и&nbsp;в&nbsp;лабораториях регистра. Выберите свой город и&nbsp;найдите удобный пункт.\n			</div>\n			<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.find : stack1), depth0))
-	    + "\">\n				<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findCity : stack1), depth0))
-	    + "\">\n					<select class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.inputs : depth0)) != null ? stack1.select : stack1), depth0))
-	    + "\" data-action=\"select-city\">\n						<option>Выберите город</option>\n"
-	    + ((stack1 = helpers.each.call(alias3,((stack1 = (depth0 != null ? depth0.citiesCollection : depth0)) != null ? stack1.models : stack1),{"name":"each","hash":{},"fn":container.program(1, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-	    + "					</select>\n"
-	    + ((stack1 = helpers.unless.call(alias3,(depth0 != null ? depth0.currentCity : depth0),{"name":"unless","hash":{},"fn":container.program(4, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-	    + "				</div>\n				<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findContainer : stack1), depth0))
-	    + "\">\n"
-	    + ((stack1 = helpers["if"].call(alias3,(depth0 != null ? depth0.currentCity : depth0),{"name":"if","hash":{},"fn":container.program(9, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-	    + "				</div>\n				<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findPoints : stack1), depth0))
-	    + "\" data-role=\"all-points\">\n					<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findPointsContainer : stack1), depth0))
-	    + "\">\n						<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findPointsEven : stack1), depth0))
-	    + "\">\n"
-	    + ((stack1 = helpers.each.call(alias3,(depth0 != null ? depth0.evenPoints : depth0),{"name":"each","hash":{},"fn":container.program(14, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-	    + "						</div>\n						<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findPointsOdd : stack1), depth0))
-	    + "\">\n"
-	    + ((stack1 = helpers.each.call(alias3,(depth0 != null ? depth0.oddPoints : depth0),{"name":"each","hash":{},"fn":container.program(14, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-	    + "						</div>\n					</div>\n				</div>\n			</div>\n		</div>\n		<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
-	    + "\">\n			<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
-	    + "\">Второй шаг. Сдать кровь</div>\n			<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1["float"] : stack1), depth0))
-	    + " "
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n				<div>\n					<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n						В&nbsp;пункте приёма крови вы&nbsp;заполняете анкету и&nbsp;подписываете соглашение. Соглашение подтверждает, что вы&nbsp;вступаете в&nbsp;регистр добровольно и&nbsp;знаете о&nbsp;всех этапах донорства.\n					</div>\n					<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n						Тут же вы сдаете 10 мл крови.  \n					</div>\n				</div>\n				<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnote : stack1), depth0))
-	    + "\">\n					<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n						<a target=\"_blank\" href=\"/static/pdf/anketa.pdf\" class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
-	    + "\">\n							Анкета\n							<br>\n							о состоянии здоровья\n						</a>\n					</div>\n					<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n						<a target=\"_blank\" href=\"/static/pdf/register_agreement.pdf\" class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
-	    + "\">\n							Соглашение \n							<br>\n							о вступлении в регистр\n						</a>\n					</div>\n				</div>\n			</div>\n			<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n				Поздравляем, вы&nbsp;в&nbsp;регистре! Вы&nbsp;попадаете в&nbsp;регистр автоматически после того, как&nbsp;вашу кровь протипируют в&nbsp;лаборатории. Сотрудники регистра позвонят, только если ваш костный мозг кому-то подойдет.\n			</div>\n		</div>\n		<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
-	    + "\">\n			<div class="
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.note : stack1), depth0))
-	    + ">\n				<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
-	    + "\">Персональные данные под защитой</div>\n				<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n					<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.floatJustifyBetween : stack1), depth0))
-	    + "\">\n						<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.col2 : stack1), depth0))
-	    + "\">\n							<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n								<span class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.bold : stack1), depth0))
-	    + "\">Регистр не раскрывает ваши данные</span>\n								<br>\n								Пробирку с&nbsp;анализом подписывают девятизначным кодом. Этот&nbsp;же код пишут на&nbsp;анкете с&nbsp;вашими персональными данными. Результаты типирования и&nbsp;код хранятся в&nbsp;одной базе, а&nbsp;персональные данные&nbsp;&mdash; в&nbsp;другой.\n							</div>\n							<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n								База с&nbsp;персональными данными находится на&nbsp;отдельном сервере без выхода в&nbsp;интернет. Сотрудник сопоставит код и&nbsp;имя, только если кому-то подойдут ваши клетки.\n							</div>\n						</div>\n						<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.col2 : stack1), depth0))
-	    + "\">\n							<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n								<span class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.bold : stack1), depth0))
-	    + "\">Регистр не раскрывает данные пациента</span>\n								<br>\n								О&nbsp;реципиенте вам скажут немного: пол, возраст, вес и&nbsp;как в&nbsp;общих чертах прошла трасплантация.\n							</div>\n							<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n								Срок анонимности&nbsp;&mdash; два года. Потом сотрудник регистра предложит донору и&nbsp;реципиенту написать друг другу письма&nbsp;и, если оба согласятся, встретиться.\n							</div>	\n						</div>\n					</div>\n				</div>\n			</div>\n		</div>\n		<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
-	    + "\">\n			<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
-	    + "\">Третий шаг. Ждать</div>\n			<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1["float"] : stack1), depth0))
-	    + " "
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n				<div>\n					<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n						Потенциальный донор может подойти кому-то на&nbsp;следующий день, через несколько лет или&nbsp;вообще никогда не&nbsp;подойти.\n					</div>\n					<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n						Помните, что мы&nbsp;увеличиваем регистр, чтобы спасать жизни. Поэтому оцените свои силы заранее и&nbsp;вступайте в&nbsp;регистр с&nbsp;твердым намерением стать реальным донором.\n					</div>\n				</div>\n				<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnote : stack1), depth0))
-	    + "\">\n					<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.contact : stack1), depth0))
-	    + "\">\n						<a href=\"mailto:donor@advita.ru\" class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.contactEmail : stack1), depth0))
-	    + "\">donor@advita.ru</a>\n						<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.contactText : stack1), depth0))
-	    + "\">\n							Обо всех изменениях пишите\n							<br>\n							в фонд Advita — мы передадим\n							<br>\n							информацию в регистр.\n							<br>\n							И неважно, откуда вы и где\n							<br>\n							сдавали кровь\n						</div>\n					</div>\n				</div>\n			</div>\n			<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n				Люди, которые числятся в&nbsp;регистре, но&nbsp;в&nbsp;последний момент отказываются от&nbsp;реального донорства, зря тратят деньги благотворительных организаций и&nbsp;время пациента&nbsp;&mdash; время, которое может быть решающим.\n			</div>\n		</div>\n		<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
-	    + "\">\n			<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
-	    + "\">Четвертый шаг. Пройти обследование</div>\n			<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1["float"] : stack1), depth0))
-	    + "\">\n				<div>\n					<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n						Итак, прошло время, и&nbsp;ваши клетки кому-то подошли. Сотрудник регистра звонит вам и&nbsp;спрашивает, готовы&nbsp;ли вы&nbsp;стать реальным донором.\n					</div>	\n					<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n						Если соглашаетесь, вам назначают более детальное, развернутое типирование&nbsp;&mdash; чтобы убедиться, что&nbsp;подходите. Если точно подходите, проходите обследование. Какое&nbsp;&mdash; зависит от&nbsp;состояния здоровья. Это в&nbsp;любом случае будет обычный биохимический анализ крови. Если вас что-то беспокоит, врач назначит дополнительные анализы.\n					</div>\n				</div>\n				<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.media : stack1), depth0))
-	    + "\">\n					<img class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.doctorImage : stack1), depth0))
-	    + "\" src=\"/static/doctor.png\">\n				</div>\n			</div>	\n		</div>\n		<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
-	    + "\">\n			<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
-	    + "\">Пятый шаг. Стать донором</div>\n			<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n				Забрать костный мозг от&nbsp;донора можно двумя способами. Каким будут брать у&nbsp;вас, вы&nbsp;выбираете сами.\n			</div>\n			<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.floatJustifyBetween : stack1), depth0))
-	    + "\">\n				<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.col2 : stack1), depth0))
-	    + "\">\n					<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.type : stack1), depth0))
-	    + "\">\n						<img src=\"/static/spit.png\" class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.typeImage : stack1), depth0))
-	    + "\">\n						<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.text : stack1), depth0))
-	    + "\"><span class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.bold : stack1), depth0))
-	    + "\">Из тазовой кости</span></div>\n						<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.text : stack1), depth0))
-	    + "\">\n							Врач проколет тазовую кость и&nbsp;возьмет небольшую часть костного мозга. Вы&nbsp;будете под общим наркозом. Операция займёт около 30&nbsp;минут. Во&nbsp;время операции вы&nbsp;ничего не&nbsp;почувствуете, но&nbsp;несколько дней после операции будут &laquo;ныть кости&raquo;. Вы&nbsp;легко снимете дискомфорт обезболивающими таблетками.\n						</div>\n					</div>\n				</div>\n				<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.col2 : stack1), depth0))
-	    + "\">\n					<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.type : stack1), depth0))
-	    + "\">\n						<img src=\"/static/kapelnitsa.png\" class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.typeImage : stack1), depth0))
-	    + "\">\n						<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.text : stack1), depth0))
-	    + "\"><span class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.bold : stack1), depth0))
-	    + "\">Из вены</span></div>\n						<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.text : stack1), depth0))
-	    + "\">\n							У&nbsp;вас берут кровь из&nbsp;вены одной руки и&nbsp;возвращают в&nbsp;вену на&nbsp;другой руке. По&nbsp;дороге кровь проходит через сепаратор, отлавливающий клетки костного мозга. Процедура занимает пять-шесть часов. Анестезия не&nbsp;нужна, вы&nbsp;находитесь в&nbsp;сознании и&nbsp;успеваете посмотреть три&nbsp;любимых фильма или поспать.\n						</div>	\n					</div>\n				</div>\n			</div>\n		</div>\n		<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
-	    + "\">\n			<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
-	    + "\">Что потом</div>\n			<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n				Через два года после успешной трансплантации у&nbsp;донора и&nbsp;реципиента спросят, хотят&nbsp;ли они познакомиться. Если оба согласятся, состоится встреча.\n			</div>\n		</div>\n		<img src=\"/static/obyatye.png\" class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.whatNextImage : stack1), depth0))
-	    + "\">\n		<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
-	    + "\">\n			<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.floatJustifyBetween : stack1), depth0))
-	    + "\">\n				<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.col2 : stack1), depth0))
-	    + "\">\n					<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n						&laquo;И&nbsp;вот они встретились. Два&nbsp;черноглазых парня,&nbsp;&mdash; одному&nbsp;14, другому&nbsp;42, чем-то неуловимо похожие друг на&nbsp;друга и&nbsp;почти стопроцентные братья по&nbsp;крови&raquo;\n					</div>\n					<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n						<a href=\"http://takiedela.ru/2016/03/perelivanie-zhizni/\" target=\"_blank\" class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
-	    + "\">История от Юлии Варенцовой</a>\n					</div>\n				</div>\n				<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.col2 : stack1), depth0))
-	    + "\">\n					<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n						&laquo;Я&nbsp;видел встречу только однажды, и&nbsp;это&nbsp;одно из&nbsp;самых сильных впечатлений за&nbsp;всю мою жизнь&raquo;\n					</div>\n					<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n						<a href=\"https://snob.ru/selected/entry/50262?v=1464270594\" target=\"_blank\" class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
-	    + "\">Репортаж Валерия Панюшкина</a>\n					</div>\n				</div>\n			</div>\n		</div>\n	</div>\n	<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
-	    + "\">\n		<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.footer : stack1), depth0))
-	    + "\">\n			<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.container : stack1), depth0))
-	    + "\">\n				<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n					<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.goToFirst : stack1), depth0))
-	    + "\">\n						<img src=\"/static/location.png\" class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.goToFirstImage : stack1), depth0))
-	    + "\">\n						<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.goToFirstText : stack1), depth0))
-	    + "\">\n							<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n								Если вы&nbsp;решили стать донором костного мозга, сделайте первый шаг&nbsp;&mdash; найдите пункт, в&nbsp;котором сможете сдать кровь и&nbsp;вступить в&nbsp;регистр.\n							</div>\n							<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n								<a href=\"#\" data-action=\"scroll-to\" data-element=\"#first-step\" class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
-	    + "\">Найти удобный пункт</a>\n							</div>\n						</div>\n					</div>\n				</div>\n				<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n					Если сомневаетесь, <a href=\"http://advita.ru/donor.php\" target=\"_blank\" class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
-	    + "\">узнайте больше на сайте Advita</a>.\n				</div>\n				<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n					В любом случае расскажите о донорстве костного мозга друзьям.\n					<br>\n					Так вы можете спасти чью-то жизнь, даже если не вступите в регистр. \n				</div>\n				<div data-view=\"how-share\"></div>\n			</div>\n		</div>\n	</div>	\n	<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.container : stack1), depth0))
-	    + "\">\n		<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.credentials : stack1), depth0))
-	    + "\">\n			<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.credentialsImage : stack1), depth0))
-	    + "\">\n				<img src=\"/static/credentials_why.png\">\n			</div>\n			<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.credentialsText : stack1), depth0))
-	    + "\">\n				Сделала Алиса Яннау в Школе редакторов Бюро Горбунова. \n				<br>\n				Иллюстратор — Марина Савицкая, разработчик — Артур Стамбульцян.\n				<br>\n				<a href=\"/static/pdf/agreement.pdf\" target=\"_blank\" class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
-	    + "\">Пользовательское соглашение</a>.\n			</div>	\n		</div>\n	</div>\n</div>";
-	},"useData":true,"useDepths":true});
-
-/***/ },
-/* 52 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _underscore = __webpack_require__(2);
-	
-	var _underscore2 = _interopRequireDefault(_underscore);
-	
-	var _page = __webpack_require__(7);
-	
-	var _page2 = _interopRequireDefault(_page);
-	
-	var _test = __webpack_require__(53);
-	
-	var _test2 = _interopRequireDefault(_test);
-	
-	var _counters = __webpack_require__(79);
-	
-	var _counters2 = _interopRequireDefault(_counters);
-	
-	var _page3 = __webpack_require__(21);
-	
-	var _page4 = _interopRequireDefault(_page3);
-	
-	var _typography = __webpack_require__(23);
-	
-	var _typography2 = _interopRequireDefault(_typography);
-	
-	var _why = __webpack_require__(80);
-	
-	var _why2 = _interopRequireDefault(_why);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var _class = function (_PageView) {
-		_inherits(_class, _PageView);
-	
-		function _class() {
-			_classCallCheck(this, _class);
-	
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(_class).apply(this, arguments));
-		}
-	
-		_createClass(_class, [{
-			key: 'init',
-			value: function init() {
-				var _this2 = this;
-	
-				this.countersModel = new _counters2.default();
-	
-				this.registerChild(new _test2.default(), 'how-test');
-	
-				this.countersModel.fetchPotentialDonors().then(function () {
-					_this2.render();
-				}, function () {});
-	
-				this.render();
-			}
-		}, {
-			key: '_prepareData',
-			value: function _prepareData() {
-				var data = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
-	
-				return _underscore2.default.extend(data, {
-					page: _page4.default,
-					typography: _typography2.default,
-					why: _why2.default,
-					data: {
-						potentialDonors: this.countersModel.potentialDonors
-					}
-				});
-			}
-		}, {
-			key: '_template',
-			get: function get() {
-				return __webpack_require__(82);
-			}
-		}]);
-
-		return _class;
-	}(_page2.default);
-
-	exports.default = _class;
-
-/***/ },
-/* 53 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	exports.isLastStep = exports.reasons = exports.states = undefined;
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _backbone = __webpack_require__(1);
-	
-	var _backbone2 = _interopRequireDefault(_backbone);
-	
-	var _underscore = __webpack_require__(2);
-	
-	var _underscore2 = _interopRequireDefault(_underscore);
-	
-	var _base = __webpack_require__(5);
-	
-	var _base2 = _interopRequireDefault(_base);
-	
-	var _start2 = __webpack_require__(54);
-	
-	var _start3 = _interopRequireDefault(_start2);
-	
-	var _game = __webpack_require__(60);
-	
-	var _game2 = _interopRequireDefault(_game);
-	
-	var _age = __webpack_require__(64);
-	
-	var _age2 = _interopRequireDefault(_age);
-	
-	var _weight = __webpack_require__(67);
-	
-	var _weight2 = _interopRequireDefault(_weight);
-	
-	var _auto = __webpack_require__(69);
-	
-	var _auto2 = _interopRequireDefault(_auto);
-	
-	var _disease = __webpack_require__(71);
-	
-	var _disease2 = _interopRequireDefault(_disease);
-	
-	var _finish = __webpack_require__(73);
-	
-	var _finish2 = _interopRequireDefault(_finish);
-	
-	var _test = __webpack_require__(55);
-	
-	var _test2 = _interopRequireDefault(_test);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var states = { START: 'START', GAME: 'GAME', FINISH: 'FINISH' };
-	
-	var reasons = { AGE: 'AGE', WEIGHT: 'WEIGHT', AUTO: 'AUTO', DISEASE: 'DISEASE' };
-	
-	function isLastStep(stepIndex, stepsAmount) {
-		return stepIndex + 1 >= stepsAmount;
-	}
-	
-	var steps = [{
-		View: _age2.default
-	}, {
-		View: _weight2.default
-	}, {
-		View: _auto2.default
-	}, {
-		View: _disease2.default
-	}];
-	
-	var TestModel = function (_Backbone$Model) {
-		_inherits(TestModel, _Backbone$Model);
-	
-		function TestModel() {
-			_classCallCheck(this, TestModel);
-	
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(TestModel).apply(this, arguments));
-		}
-	
-		_createClass(TestModel, [{
-			key: 'defaults',
-			get: function get() {
-				return {
-					state: states.START,
-					step: 0,
-					result: true,
-					reason: null,
-					data: {}
-				};
-			}
-		}, {
-			key: 'ageFail',
-			get: function get() {
-				return this.get('reason') == reasons.AGE;
-			}
-		}, {
-			key: 'age17',
-			get: function get() {
-				return this.get('data').age == 17;
-			}
-		}, {
-			key: 'age16',
-			get: function get() {
-				return this.get('data').age == 16;
-			}
-		}, {
-			key: 'age15_10',
-			get: function get() {
-				return this.get('data').age && this.get('data').age <= 15 && this.get('data').age >= 10;
-			}
-		}, {
-			key: 'age10less',
-			get: function get() {
-				return this.get('data').age && this.get('data').age < 10;
-			}
-		}, {
-			key: 'age45more',
-			get: function get() {
-				return this.get('data').age && this.get('data').age > 45;
-			}
-		}, {
-			key: 'weightFail',
-			get: function get() {
-				return this.get('reason') == reasons.WEIGHT;
-			}
-		}, {
-			key: 'weight47less',
-			get: function get() {
-				return this.get('data').weight && this.get('data').weight <= 47;
-			}
-		}, {
-			key: 'weight48_49',
-			get: function get() {
-				return this.get('data').weight == 49 || this.get('data').weight == 48;
-			}
-		}, {
-			key: 'autoFail',
-			get: function get() {
-				return this.get('reason') == reasons.AUTO;
-			}
-		}, {
-			key: 'diseaseFail',
-			get: function get() {
-				return this.get('reason') == reasons.DISEASE;
-			}
-		}, {
-			key: 'success',
-			get: function get() {
-				return this.get('result');
-			}
-		}]);
-	
-		return TestModel;
-	}(_backbone2.default.Model);
-	
-	var _class = function (_BaseView) {
-		_inherits(_class, _BaseView);
-	
-		function _class() {
-			_classCallCheck(this, _class);
-	
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(_class).apply(this, arguments));
-		}
-	
-		_createClass(_class, [{
-			key: '_prepareData',
-			value: function _prepareData() {
-				var data = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
-	
-				return _underscore2.default.extend(data, {
-					styles: _test2.default
-				});
-			}
-		}, {
-			key: 'init',
-			value: function init() {
-				this.testModel = new TestModel();
-				this.listenTo(this.testModel, 'change:state change:step', this._changeState);
-				this._changeState();
-			}
-		}, {
-			key: '_changeState',
-			value: function _changeState() {
-				this.removeChildren('test-container');
-				switch (this.testModel.get('state')) {
-					case states.START:
-						this.registerChild(new _start3.default(), 'test-container');
-						break;
-					case states.GAME:
-						this.registerChild(new _game2.default({
-							testModel: this.testModel,
-							stepsAmount: steps.length,
-							currentStepIndex: this.testModel.get('step'),
-							StepView: steps[this.testModel.get('step')].View
-						}), 'test-container');
-						break;
-					case states.FINISH:
-						this.registerChild(new _finish2.default({
-							testModel: this.testModel
-						}), 'test-container');
-						break;
-				}
-				this.render();
-			}
-		}, {
-			key: '_start',
-			value: function _start() {
-				this.testModel.set({
-					state: states.GAME
-				});
-			}
-		}, {
-			key: 'className',
-			get: function get() {
-				return _test2.default.root;
-			}
-		}, {
-			key: '_template',
-			get: function get() {
-				return __webpack_require__(78);
-			}
-		}, {
-			key: 'events',
-			get: function get() {
-				return {
-					'click [data-action="test-start"]': '_start'
-				};
-			}
-		}]);
-	
-		return _class;
-	}(_base2.default);
-	
-	exports.default = _class;
-	exports.states = states;
-	exports.reasons = reasons;
-	exports.isLastStep = isLastStep;
-
-/***/ },
-/* 54 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _underscore = __webpack_require__(2);
-	
-	var _underscore2 = _interopRequireDefault(_underscore);
-	
-	var _base = __webpack_require__(5);
-	
-	var _base2 = _interopRequireDefault(_base);
-	
-	var _test = __webpack_require__(55);
-	
-	var _test2 = _interopRequireDefault(_test);
-	
-	var _start = __webpack_require__(57);
-	
-	var _start2 = _interopRequireDefault(_start);
-	
-	var _inputs = __webpack_require__(25);
-	
-	var _inputs2 = _interopRequireDefault(_inputs);
-	
-	var _typography = __webpack_require__(23);
-	
-	var _typography2 = _interopRequireDefault(_typography);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var _class = function (_BaseView) {
-		_inherits(_class, _BaseView);
-	
-		function _class() {
-			_classCallCheck(this, _class);
-	
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(_class).apply(this, arguments));
-		}
-	
-		_createClass(_class, [{
-			key: 'init',
-			value: function init() {
-				this.render();
-			}
-		}, {
-			key: '_prepareData',
-			value: function _prepareData() {
-				var data = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
-	
-				return _underscore2.default.extend(data, {
-					testStyles: _test2.default,
-					startStyles: _start2.default,
-					inputsStyles: _inputs2.default,
-					typography: _typography2.default
-				});
-			}
-		}, {
-			key: '_template',
-			get: function get() {
-				return __webpack_require__(59);
-			}
-		}, {
-			key: 'className',
-			get: function get() {
-				return _start2.default.root;
-			}
-		}]);
-
-		return _class;
-	}(_base2.default);
-
-	exports.default = _class;
-
-/***/ },
-/* 55 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-	
-	// load the styles
-	var content = __webpack_require__(56);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(14)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js?modules!./../../node_modules/postcss-loader/index.js!./test.css", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js?modules!./../../node_modules/postcss-loader/index.js!./test.css");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 56 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(13)();
-	// imports
-	
-	
-	// module
-	exports.push([module.id, ".ShiC6JgIaOalBQVpIsYtL {\n\tmargin: auto;\n\tposition: relative;\n}\n\n._1ZNJ4h3Uct4YGPwsOlP-a2 {\n\tposition: relative;\n\tz-index: 2;\n\ttext-align: center;\n}\n\n._10prCLGoK4eiHXC-VVYaZu {\n\t\n}\n\n._2a18C1cpDnHlHQPP919Gwu {\n\tfont-size: 16px;\n\ttext-transform: uppercase;\n\tmargin-bottom: 14px;\n\tletter-spacing: 4px;\n}\n\n/*.title {\n\tfont-family: 'Roboto', sans-serif;\n\tfont-size: 40px;\n\tline-height: 45px;\n\tfont-weight: bold;\n\tmargin-bottom: 15px;\n}\n\n.subtitle {\n\tfont-family: 'Roboto', sans-serif;\n\tfont-weight: 300;\n\tfont-size: 18px;\n\tline-height: 26px;\n\tmargin-bottom: 35px;\n\tletter-spacing: -0.2px;\n}*/", ""]);
-	
-	// exports
-	exports.locals = {
-		"root": "ShiC6JgIaOalBQVpIsYtL",
-		"container": "_1ZNJ4h3Uct4YGPwsOlP-a2",
-		"step": "_10prCLGoK4eiHXC-VVYaZu",
-		"test": "_2a18C1cpDnHlHQPP919Gwu"
-	};
-
-/***/ },
-/* 57 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-	
-	// load the styles
-	var content = __webpack_require__(58);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(14)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js?modules!./../../../node_modules/postcss-loader/index.js!./start.css", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js?modules!./../../../node_modules/postcss-loader/index.js!./start.css");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 58 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(13)();
-	// imports
-	
-	
-	// module
-	exports.push([module.id, "._2c_X9l_2tFGA0jZbDU9JRH {\n\twidth: 758px;\n\tleft: calc( ( 657px - 758px ) / 2 );\n\tpadding: 85px 0 0;\n\tposition: relative;\n\tmin-height: 474px;\n}\n\n._2c_X9l_2tFGA0jZbDU9JRH::after {\n\tposition: absolute;\n\tleft: 0;\n\ttop: 0;\n\tz-index: 1;\n\twidth: 100%;\n\theight: 100%;\n\tbackground-image: url(\"/static/test_bg.png\");\n\tbackground-position: center center;\n\tbackground-size: auto 474px;\n\tbackground-repeat: no-repeat;\n\topacity: 0.35;\n\tcontent: '';\n}\n\n.HTG0JT2qR5xnUiu13GRMe {\n\tposition: relative;\n\tz-index: 2;\n}\n\n._28psnc6FGdBBukliEFLXCe {\n\tmargin-top: 70px;\n}", ""]);
-	
-	// exports
-	exports.locals = {
-		"root": "_2c_X9l_2tFGA0jZbDU9JRH",
-		"container": "HTG0JT2qR5xnUiu13GRMe",
-		"actions": "_28psnc6FGdBBukliEFLXCe"
-	};
-
-/***/ },
-/* 59 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Handlebars = __webpack_require__(32);
-	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
-	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
-	
-	  return "<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.startStyles : depth0)) != null ? stack1.container : stack1), depth0))
-	    + "\">\n	<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.test : stack1), depth0))
-	    + "\">тест</div>\n	<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
-	    + "\">Могу ли я стать донором?</div>\n	<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n		Ответьте на четыре вороса и узнайте,\n		<br>\n		можете ли вы стать донором костного мозга.\n		<br>\n		Или прочитайте <a target=\"_blank\" href=\"/static/pdf/protivopokazania.pdf\" class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
-	    + "\">полный список противопоказаний</a>.\n	</div>\n	<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.startStyles : depth0)) != null ? stack1.actions : stack1), depth0))
-	    + "\">\n		<button class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.inputsStyles : depth0)) != null ? stack1.button : stack1), depth0))
-	    + "\" data-action=\"test-start\">начать</button>\n	</div>\n</div>	";
-	},"useData":true});
-
-/***/ },
-/* 60 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _underscore = __webpack_require__(2);
-	
-	var _underscore2 = _interopRequireDefault(_underscore);
-	
-	var _base = __webpack_require__(5);
-	
-	var _base2 = _interopRequireDefault(_base);
-	
-	var _test = __webpack_require__(55);
-	
-	var _test2 = _interopRequireDefault(_test);
-	
-	var _game = __webpack_require__(61);
-	
-	var _game2 = _interopRequireDefault(_game);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var _class = function (_BaseView) {
-		_inherits(_class, _BaseView);
-	
-		function _class() {
-			_classCallCheck(this, _class);
-	
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(_class).apply(this, arguments));
-		}
-	
-		_createClass(_class, [{
-			key: 'init',
-			value: function init() {
-				this.registerChild(new this.StepView({
-					testModel: this.testModel,
-					currentStepIndex: this.currentStepIndex,
-					stepsAmount: this.stepsAmount
-				}), 'test-step');
-				this.render();
-			}
-		}, {
-			key: '_prepareData',
-			value: function _prepareData() {
-				var data = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
-	
-				return _underscore2.default.extend(data, {
-					testStyles: _test2.default,
-					gameStyles: _game2.default,
-					currentStepIndex: this.currentStepIndex + 1,
-					stepsAmount: this.stepsAmount
-				});
-			}
-		}, {
-			key: 'className',
-			get: function get() {
-				return _game2.default.root;
-			}
-		}, {
-			key: '_template',
-			get: function get() {
-				return __webpack_require__(63);
-			}
-		}]);
-
-		return _class;
-	}(_base2.default);
-
-	exports.default = _class;
-
-/***/ },
-/* 61 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-	
-	// load the styles
-	var content = __webpack_require__(62);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(14)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js?modules!./../../../node_modules/postcss-loader/index.js!./game.css", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js?modules!./../../../node_modules/postcss-loader/index.js!./game.css");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 62 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(13)();
-	// imports
-	
-	
-	// module
-	exports.push([module.id, "._3HKYlb7Vl6Iztk4-tC_BvZ {\n\ttext-align: left;\n\tmargin: auto;\n\tposition: relative;\n}\n\n._3m4BXQ40TaSw_695CDQc5o {\n\tmargin: 0;\n}\n\n.EjQqlofCJUMJf9KAV_dIh {\n\ttext-align: left;\n}\n\n.EjQqlofCJUMJf9KAV_dIh ._1AqLMaC9TJ6xn7EKtufMhi:not(:last-child) {\n\tmargin-bottom: 21px;\n}\n\n.WQ9BEtiggpUohVS_zgPoD {\n\ttext-align: left;\n}\n\n._2lOXnJo1wdTO1NE9f7TYGq {\n\tdisplay: flex;\n\tflex-wrap: wrap;\n\tflex-direction: column;\n\theight: 200px;\n\tmargin-bottom: -21px;\n}\n\n._2lOXnJo1wdTO1NE9f7TYGq ._5nZ_ma_l1V-rlYzO9KdDB {\n\twidth: calc(50% - 10px);\n}\n\n._2lOXnJo1wdTO1NE9f7TYGq ._5nZ_ma_l1V-rlYzO9KdDB:not(:last-child) {\n\tmargin-bottom: 21px;\n}\n\n.CY-R0zNjVnWMwfVMTfk1u {\n\tmargin-top: 44px;\n}\n\n._3lYQsW3cc0xDgaiRcAwKBs {\n\tdisplay: none;\n\tposition: absolute;\n    z-index: 3;\n    left: 365px;\n    top: 173px;\n\twidth: 420px;\n\tfont-size: 10px;\n\tline-height: 15px;\n\tbackground-color: rgba(9, 159, 175, 0.27);\n\tpadding: 24px;\n}\n\n._1nF2Jvd23mv6WCj4f2p9-J {\n\tdisplay: flex;\n\tjustify-content: flex-start;\n\talign-items: flex-start;\n}\n\n._320FMHY6Zq7JbhbLouCfCj {\n\tfont-weight: bold;\n\tmargin-bottom: 3px;\n}\n\n._1_0uQ0i-1Q2gBAY2m8sRhh {\n\tmargin: 0;\n\tpadding-left: 13px;\n}\n\n._2tuliSpd6Yb2uLyt1BLJAs:first-child {\n\twidth: 270px;\n\tflex-shrink: 0;\n}", ""]);
-	
-	// exports
-	exports.locals = {
-		"root": "_3HKYlb7Vl6Iztk4-tC_BvZ",
-		"form": "_3m4BXQ40TaSw_695CDQc5o",
-		"formAuto": "EjQqlofCJUMJf9KAV_dIh _3m4BXQ40TaSw_695CDQc5o",
-		"radio": "_1AqLMaC9TJ6xn7EKtufMhi",
-		"formDisease": "WQ9BEtiggpUohVS_zgPoD _3m4BXQ40TaSw_695CDQc5o",
-		"formDiseaseContainer": "_2lOXnJo1wdTO1NE9f7TYGq",
-		"checkbox": "_5nZ_ma_l1V-rlYzO9KdDB",
-		"actions": "CY-R0zNjVnWMwfVMTfk1u",
-		"autoList": "_3lYQsW3cc0xDgaiRcAwKBs",
-		"autoListContainer": "_1nF2Jvd23mv6WCj4f2p9-J",
-		"autoListTitle": "_320FMHY6Zq7JbhbLouCfCj",
-		"autoListUl": "_1_0uQ0i-1Q2gBAY2m8sRhh",
-		"autoListCol": "_2tuliSpd6Yb2uLyt1BLJAs"
-	};
-
-/***/ },
-/* 63 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Handlebars = __webpack_require__(32);
-	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
-	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
-	
-	  return "<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.test : stack1), depth0))
-	    + "\">тест</div>\n<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.stepContent : stack1), depth0))
-	    + "\" data-view=\"test-step\"></div>";
-	},"useData":true});
-
-/***/ },
-/* 64 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
-	
-	var _underscore = __webpack_require__(2);
-	
-	var _underscore2 = _interopRequireDefault(_underscore);
-	
-	var _jquery = __webpack_require__(3);
-	
-	var _jquery2 = _interopRequireDefault(_jquery);
-	
-	var _step = __webpack_require__(65);
-	
-	var _step2 = _interopRequireDefault(_step);
-	
-	var _test = __webpack_require__(53);
-	
-	var _test2 = __webpack_require__(55);
-	
-	var _test3 = _interopRequireDefault(_test2);
-	
-	var _game = __webpack_require__(61);
-	
-	var _game2 = _interopRequireDefault(_game);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var _class = function (_StepView) {
-		_inherits(_class, _StepView);
-	
-		function _class() {
-			_classCallCheck(this, _class);
-	
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(_class).apply(this, arguments));
-		}
-	
-		_createClass(_class, [{
-			key: '_inputAge',
-			value: function _inputAge(e) {
-				var value = (0, _jquery2.default)(e.currentTarget).val();
-				this.age = value || undefined;
-				value ? this._enable() : this._disable();
-			}
-		}, {
-			key: '_appended',
-			value: function _appended() {
-				_get(Object.getPrototypeOf(_class.prototype), '_appended', this).call(this);
-				this.$el.find('[data-action="test-input"]').focus();
-			}
-		}, {
-			key: '_answer',
-			value: function _answer(e) {
-				var _this2 = this;
-	
-				if (isFinite(this.age) && this.age >= 0) {
-					if (this.age > 45 || this.age < 18) {
-						this.testModel.set({
-							state: _test.states.FINISH,
-							result: false,
-							reason: _test.reasons.AGE,
-							data: {
-								age: this.age
-							}
-						});
-					} else {
-						this._goNext();
-					}
-				} else {
-					this.$el.find('[data-action="test-input"]').focus().val('').trigger('input').addClass(_game2.default.inputInvalid);
-					setTimeout(function () {
-						_this2.$el.find('[data-action="test-input"]').removeClass(_game2.default.inputInvalid);
-					}, 1000);
-				}
-				e.preventDefault();
-			}
-		}, {
-			key: '_template',
-			get: function get() {
-				return __webpack_require__(66);
-			}
-		}, {
-			key: 'events',
-			get: function get() {
-				return {
-					'submit [data-action="test-form"]': '_answer',
-					'input [data-action="test-input"]': '_inputAge'
-				};
-			}
-		}]);
-
-		return _class;
-	}(_step2.default);
-
-	exports.default = _class;
-
-/***/ },
-/* 65 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _underscore = __webpack_require__(2);
-	
-	var _underscore2 = _interopRequireDefault(_underscore);
-	
-	var _jquery = __webpack_require__(3);
-	
-	var _jquery2 = _interopRequireDefault(_jquery);
-	
-	var _base = __webpack_require__(5);
-	
-	var _base2 = _interopRequireDefault(_base);
-	
-	var _test = __webpack_require__(53);
-	
-	var _test2 = __webpack_require__(55);
-	
-	var _test3 = _interopRequireDefault(_test2);
-	
-	var _game = __webpack_require__(61);
-	
-	var _game2 = _interopRequireDefault(_game);
-	
-	var _inputs = __webpack_require__(25);
-	
-	var _inputs2 = _interopRequireDefault(_inputs);
-	
-	var _typography = __webpack_require__(23);
-	
-	var _typography2 = _interopRequireDefault(_typography);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var _class = function (_BaseView) {
-		_inherits(_class, _BaseView);
-	
-		function _class() {
-			_classCallCheck(this, _class);
-	
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(_class).apply(this, arguments));
-		}
-	
-		_createClass(_class, [{
-			key: 'init',
-			value: function init() {
-				this.render();
-			}
-		}, {
-			key: '_prepareData',
-			value: function _prepareData() {
-				var data = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
-	
-				return _underscore2.default.extend(data, {
-					testStyles: _test3.default,
-					gameStyles: _game2.default,
-					inputsStyles: _inputs2.default,
-					typography: _typography2.default
-				});
-			}
-		}, {
-			key: '_disable',
-			value: function _disable() {
-				this.$el.find('[data-action="test-submit"]').attr('disabled', 'disabled');
-			}
-		}, {
-			key: '_enable',
-			value: function _enable() {
-				this.$el.find('[data-action="test-submit"]').removeAttr('disabled');
-			}
-		}, {
-			key: '_appended',
-			value: function _appended() {
-				this._disable();
-			}
-		}, {
-			key: '_goNext',
-			value: function _goNext() {
-				if ((0, _test.isLastStep)(this.currentStepIndex, this.stepsAmount)) {
-					this.testModel.set({
-						state: _test.states.FINISH,
-						result: true
-					});
-				} else {
-					this.testModel.set({
-						step: this.currentStepIndex + 1
-					});
-				}
-			}
-		}, {
-			key: 'className',
-			get: function get() {
-				return _test3.default.step;
-			}
-		}]);
-
-		return _class;
-	}(_base2.default);
-
-	exports.default = _class;
-
-/***/ },
-/* 66 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Handlebars = __webpack_require__(32);
-	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
-	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
-	
-	  return "<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
-	    + "\">Сколько вам лет?</div>\n<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">Мы никому не расскажем.</div>\n<form class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.form : stack1), depth0))
-	    + "\" data-action=\"test-form\">\n	<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n		<input class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.inputsStyles : depth0)) != null ? stack1.input : stack1), depth0))
-	    + "\" data-action=\"test-input\" maxlength=\"3\"/>\n	</div>	\n	<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.actions : stack1), depth0))
-	    + "\">\n		<button class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.inputsStyles : depth0)) != null ? stack1.button : stack1), depth0))
-	    + "\" data-action=\"test-submit\">дальше</button>\n	</div>\n</form>";
-	},"useData":true});
-
-/***/ },
-/* 67 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
-	
-	var _underscore = __webpack_require__(2);
-	
-	var _underscore2 = _interopRequireDefault(_underscore);
-	
-	var _jquery = __webpack_require__(3);
-	
-	var _jquery2 = _interopRequireDefault(_jquery);
-	
-	var _step = __webpack_require__(65);
-	
-	var _step2 = _interopRequireDefault(_step);
-	
-	var _test = __webpack_require__(53);
-	
-	var _test2 = __webpack_require__(55);
-	
-	var _test3 = _interopRequireDefault(_test2);
-	
-	var _game = __webpack_require__(61);
-	
-	var _game2 = _interopRequireDefault(_game);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var _class = function (_StepView) {
-		_inherits(_class, _StepView);
-	
-		function _class() {
-			_classCallCheck(this, _class);
-	
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(_class).apply(this, arguments));
-		}
-	
-		_createClass(_class, [{
-			key: '_inputWeight',
-			value: function _inputWeight(e) {
-				var value = (0, _jquery2.default)(e.currentTarget).val();
-				this.weight = value || undefined;
-				value ? this._enable() : this._disable();
-			}
-		}, {
-			key: '_appended',
-			value: function _appended() {
-				_get(Object.getPrototypeOf(_class.prototype), '_appended', this).call(this);
-				this.$el.find('[data-action="test-input"]').focus();
-			}
-		}, {
-			key: '_answer',
-			value: function _answer(e) {
-				var _this2 = this;
-	
-				if (isFinite(this.weight) && this.weight >= 0) {
-					if (this.weight < 50) {
-						this.testModel.set({
-							state: _test.states.FINISH,
-							result: false,
-							reason: _test.reasons.WEIGHT,
-							data: {
-								weight: this.weight
-							}
-						});
-					} else {
-						this._goNext();
-					}
-				} else {
-					this.$el.find('[data-action="test-input"]').focus().val('').trigger('input').addClass(_game2.default.inputInvalid);
-					setTimeout(function () {
-						_this2.$el.find('[data-action="test-input"]').removeClass(_game2.default.inputInvalid);
-					}, 1000);
-				}
-				e.preventDefault();
-			}
-		}, {
-			key: '_template',
-			get: function get() {
-				return __webpack_require__(68);
-			}
-		}, {
-			key: 'events',
-			get: function get() {
-				return {
-					'submit [data-action="test-form"]': '_answer',
-					'input [data-action="test-input"]': '_inputWeight'
-				};
-			}
-		}]);
-
-		return _class;
-	}(_step2.default);
-
-	exports.default = _class;
-
-/***/ },
-/* 68 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Handlebars = __webpack_require__(32);
-	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
-	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
-	
-	  return "<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
-	    + "\">Сколько вы весите?</div>\n<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">Только между нами.</div>\n<form class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.form : stack1), depth0))
-	    + "\" data-action=\"test-form\">\n	<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n		<input class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.inputsStyles : depth0)) != null ? stack1.input : stack1), depth0))
-	    + "\" data-action=\"test-input\" maxlength=\"3\"/>&nbsp;&nbsp;КГ\n	</div>\n	<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.actions : stack1), depth0))
-	    + "\">\n		<button class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.inputsStyles : depth0)) != null ? stack1.button : stack1), depth0))
-	    + "\" data-action=\"test-submit\">дальше</button>\n	</div>\n</form>";
-	},"useData":true});
-
-/***/ },
-/* 69 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _underscore = __webpack_require__(2);
-	
-	var _underscore2 = _interopRequireDefault(_underscore);
-	
-	var _step = __webpack_require__(65);
-	
-	var _step2 = _interopRequireDefault(_step);
-	
-	var _test = __webpack_require__(53);
-	
-	var _test2 = __webpack_require__(55);
-	
-	var _test3 = _interopRequireDefault(_test2);
-	
-	var _game = __webpack_require__(61);
-	
-	var _game2 = _interopRequireDefault(_game);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var _class = function (_StepView) {
-		_inherits(_class, _StepView);
-	
-		function _class() {
-			_classCallCheck(this, _class);
-	
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(_class).apply(this, arguments));
-		}
-	
-		_createClass(_class, [{
-			key: '_changeAuto',
-			value: function _changeAuto(e) {
-				this.auto = e.currentTarget.value === 'false' ? false : true;
-				this._enable();
-			}
-		}, {
-			key: '_answer',
-			value: function _answer(e) {
-				if (_underscore2.default.isBoolean(this.auto)) {
-					if (this.auto === true) {
-						this.testModel.set({
-							state: _test.states.FINISH,
-							result: false,
-							reason: _test.reasons.AUTO
-						});
-					} else {
-						this._goNext();
-					}
-				}
-				e.preventDefault();
-			}
-		}, {
-			key: '_template',
-			get: function get() {
-				return __webpack_require__(70);
-			}
-		}, {
-			key: 'events',
-			get: function get() {
-				var _this2 = this;
-	
-				return {
-					'submit [data-action="test-form"]': '_answer',
-					'change [data-action="test-input"]': '_changeAuto',
-					'mouseenter [data-action="show-full-list"]': function mouseenterDataActionShowFullList(e) {
-						_this2.$el.find('[data-role="full-list"]').show();
-					},
-					'mouseleave [data-action="show-full-list"]': function mouseleaveDataActionShowFullList(e) {
-						_this2.$el.find('[data-role="full-list"]').hide();
-					}
-				};
-			}
-		}]);
-
-		return _class;
-	}(_step2.default);
-
-	exports.default = _class;
-
-/***/ },
-/* 70 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Handlebars = __webpack_require__(32);
-	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
-	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
-	
-	  return "<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
-	    + "\">\n	Были ли у вас\n	<br>\n	гемотрансмиссионные заболевания?\n</div>\n<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n	Это заболевания, которые передаются через кровь.\n	<br>\n	Например, вирусные гепатиты, СПИД, токсоплазмоз.\n	<br>\n	Если сомневаетесь, посмотрите <span target=\"_blank\" data-action=\"show-full-list\" class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.linkPseudo : stack1), depth0))
-	    + "\">полный список</span>.\n	<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoList : stack1), depth0))
-	    + "\" data-role=\"full-list\">\n		<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListContainer : stack1), depth0))
-	    + "\">\n			<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListCol : stack1), depth0))
-	    + "\">\n				<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListTitle : stack1), depth0))
-	    + "\">Инфекционные:</div>\n				<ul class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListUl : stack1), depth0))
-	    + "\">\n					<li class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListLi : stack1), depth0))
-	    + "\">СПИД, носительство ВИЧ-инфекции;</li>\n					<li class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListLi : stack1), depth0))
-	    + "\">Сифилис, врожденный или приобретенный;</li>\n					<li class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListLi : stack1), depth0))
-	    + "\">Вирусные гепатиты, положительный результат\n						<br>\n						исследования на маркеры вирусных гепатитов\n						<br>\n						(HBsAg, анти-HCV антител);</li>\n					<li class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListLi : stack1), depth0))
-	    + "\">Туберкулез, все формы;</li>\n					<li class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListLi : stack1), depth0))
-	    + "\">Бруцеллез;</li>\n					<li class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListLi : stack1), depth0))
-	    + "\">Сыпной тиф;</li>\n					<li class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListLi : stack1), depth0))
-	    + "\">Туляремия;</li>\n					<li class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListLi : stack1), depth0))
-	    + "\">Лепра.</li>\n				</ul>\n			</div>\n			<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListCol : stack1), depth0))
-	    + "\">\n				<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListTitle : stack1), depth0))
-	    + "\">Паразитарные:</div>\n				<ul class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListUl : stack1), depth0))
-	    + "\">\n					<li class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListLi : stack1), depth0))
-	    + "\">Эхинококкоз;</li>\n					<li class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListLi : stack1), depth0))
-	    + "\">Токсоплазмоз;</li>\n					<li class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListLi : stack1), depth0))
-	    + "\">Трипаносомоз;</li>\n					<li class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListLi : stack1), depth0))
-	    + "\">Филяриатоз;</li>\n					<li class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListLi : stack1), depth0))
-	    + "\">Ришта;</li>\n					<li class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListLi : stack1), depth0))
-	    + "\">Лейшманиоз.</li>\n				</ul>\n			</div>\n		</div>\n	</div>\n</div>\n<form class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.formAuto : stack1), depth0))
-	    + "\" data-action=\"test-form\">\n	<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n		<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.radio : stack1), depth0))
-	    + "\">\n			<input type=\"radio\" value=\"true\" data-action=\"test-input\" name=\"game-auto-radio\" id=\"game-auto-radio-true\" class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.inputsStyles : depth0)) != null ? stack1.radioInput : stack1), depth0))
-	    + "\">\n			<label for=\"game-auto-radio-true\" class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.inputsStyles : depth0)) != null ? stack1.radioLabel : stack1), depth0))
-	    + "\">Да</label>\n		</div>\n		<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.radio : stack1), depth0))
-	    + "\">\n			<input type=\"radio\" value=\"false\" data-action=\"test-input\" name=\"game-auto-radio\" id=\"game-auto-radio-false\" class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.inputsStyles : depth0)) != null ? stack1.radioInput : stack1), depth0))
-	    + "\">\n			<label for=\"game-auto-radio-false\" class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.inputsStyles : depth0)) != null ? stack1.radioLabel : stack1), depth0))
-	    + "\">Нет</label>\n		</div>\n	</div>	\n	<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.actions : stack1), depth0))
-	    + "\">\n		<button class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.inputsStyles : depth0)) != null ? stack1.button : stack1), depth0))
-	    + "\" data-action=\"test-submit\">дальше</button>\n	</div>\n</form>";
-	},"useData":true});
-
-/***/ },
-/* 71 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
-	
-	var _underscore = __webpack_require__(2);
-	
-	var _underscore2 = _interopRequireDefault(_underscore);
-	
-	var _jquery = __webpack_require__(3);
-	
-	var _jquery2 = _interopRequireDefault(_jquery);
-	
-	var _step = __webpack_require__(65);
-	
-	var _step2 = _interopRequireDefault(_step);
-	
-	var _test = __webpack_require__(53);
-	
-	var _test2 = __webpack_require__(55);
-	
-	var _test3 = _interopRequireDefault(_test2);
-	
-	var _game = __webpack_require__(61);
-	
-	var _game2 = _interopRequireDefault(_game);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var data = [{
-		text: 'Ничего серьезнее ОРВИ',
-		danger: false
-	}, {
-		text: 'Мне удаляли орган',
-		danger: true
-	}, {
-		text: 'Малярия',
-		danger: true
-	}, {
-		text: 'Туберкулез',
-		danger: true
-	}, {
-		text: 'Психическое расстройство',
-		danger: true
-	}, {
-		text: 'Злокачественное заболевание',
-		danger: true
-	}, {
-		text: 'Органическое заболевание центральной нервной системы',
-		danger: false
-	}];
-	
-	var _class = function (_StepView) {
-		_inherits(_class, _StepView);
-	
-		function _class() {
-			_classCallCheck(this, _class);
-	
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(_class).apply(this, arguments));
-		}
-	
-		_createClass(_class, [{
-			key: 'init',
-			value: function init() {
-				_get(Object.getPrototypeOf(_class.prototype), 'init', this).call(this);
-				this.selected = {};
-			}
-		}, {
-			key: '_changeDisease',
-			value: function _changeDisease(e) {
-				var id = (0, _jquery2.default)(e.currentTarget).data('id');
-				if (e.currentTarget.checked) {
-					this.selected['item-' + id] = data[id];
-				} else {
-					delete this.selected['item-' + id];
-				}
-				Object.keys(this.selected).length ? this._enable() : this._disable();
-			}
-		}, {
-			key: '_prepareData',
-			value: function _prepareData() {
-				return _underscore2.default.extend({ data: data }, _get(Object.getPrototypeOf(_class.prototype), '_prepareData', this).call(this));
-			}
-		}, {
-			key: '_answer',
-			value: function _answer(e) {
-				var result = true;
-				for (var item in this.selected) {
-					if (this.selected[item].danger) {
-						result = false;
-						break;
-					}
-				}
-				if (!result) {
-					this.testModel.set({
-						state: _test.states.FINISH,
-						result: false,
-						reason: _test.reasons.DISEASE,
-						data: {
-							disease: this.selected
-						}
-					});
-				} else {
-					this._goNext();
-				}
-				e.preventDefault();
-			}
-		}, {
-			key: '_template',
-			get: function get() {
-				return __webpack_require__(72);
-			}
-		}, {
-			key: 'events',
-			get: function get() {
-				return {
-					'submit [data-action="test-form"]': '_answer',
-					'change [data-action="test-input"]': '_changeDisease'
-				};
-			}
-		}]);
-
-		return _class;
-	}(_step2.default);
-
-	exports.default = _class;
-
-/***/ },
-/* 72 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Handlebars = __webpack_require__(32);
-	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
-	module.exports = (Handlebars["default"] || Handlebars).template({"1":function(container,depth0,helpers,partials,data,blockParams,depths) {
-	    var stack1, helper, alias1=container.lambda, alias2=container.escapeExpression, alias3=depth0 != null ? depth0 : {}, alias4=helpers.helperMissing, alias5="function";
-	
-	  return "			<div class=\""
-	    + alias2(alias1(((stack1 = (depths[1] != null ? depths[1].gameStyles : depths[1])) != null ? stack1.checkbox : stack1), depth0))
-	    + "\">\n				<input type=\"checkbox\" data-action=\"test-input\" name=\"game-auto-checkbox\" id=\"game-auto-checkbox-"
-	    + alias2(((helper = (helper = helpers.index || (data && data.index)) != null ? helper : alias4),(typeof helper === alias5 ? helper.call(alias3,{"name":"index","hash":{},"data":data}) : helper)))
-	    + "\" class=\""
-	    + alias2(alias1(((stack1 = (depths[1] != null ? depths[1].inputsStyles : depths[1])) != null ? stack1.checkboxInput : stack1), depth0))
-	    + "\" data-id="
-	    + alias2(((helper = (helper = helpers.index || (data && data.index)) != null ? helper : alias4),(typeof helper === alias5 ? helper.call(alias3,{"name":"index","hash":{},"data":data}) : helper)))
-	    + ">\n				<label for=\"game-auto-checkbox-"
-	    + alias2(((helper = (helper = helpers.index || (data && data.index)) != null ? helper : alias4),(typeof helper === alias5 ? helper.call(alias3,{"name":"index","hash":{},"data":data}) : helper)))
-	    + "\" class=\""
-	    + alias2(alias1(((stack1 = (depths[1] != null ? depths[1].inputsStyles : depths[1])) != null ? stack1.checkboxLabel : stack1), depth0))
-	    + "\" "
-	    + ((stack1 = helpers["if"].call(alias3,(depth0 != null ? depth0.danger : depth0),{"name":"if","hash":{},"fn":container.program(2, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-	    + ">"
-	    + alias2(alias1((depth0 != null ? depth0.text : depth0), depth0))
-	    + "</label>\n			</div>\n";
-	},"2":function(container,depth0,helpers,partials,data) {
-	    return "data-danger=\"true\"";
-	},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data,blockParams,depths) {
-	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
-	
-	  return "<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
-	    + "\">Что у вас<br>в медицинской карте?</div>\n<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">Есть сейчас или было когда-то.</div>\n<form class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.formDisease : stack1), depth0))
-	    + "\" data-action=\"test-form\">\n	<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.formDiseaseContainer : stack1), depth0))
-	    + "\">\n"
-	    + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.data : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-	    + "	</div>\n	<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.actions : stack1), depth0))
-	    + "\">\n		<button class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.inputsStyles : depth0)) != null ? stack1.button : stack1), depth0))
-	    + "\" data-action=\"test-submit\">дальше</button>\n	</div>\n</form>";
-	},"useData":true,"useDepths":true});
-
-/***/ },
-/* 73 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
-	
-	var _underscore = __webpack_require__(2);
-	
-	var _underscore2 = _interopRequireDefault(_underscore);
-	
-	var _backbone = __webpack_require__(1);
-	
-	var _backbone2 = _interopRequireDefault(_backbone);
-	
-	var _base = __webpack_require__(5);
-	
-	var _base2 = _interopRequireDefault(_base);
-	
-	var _share = __webpack_require__(8);
-	
-	var _share2 = _interopRequireDefault(_share);
-	
-	var _test = __webpack_require__(53);
-	
-	var _test2 = __webpack_require__(55);
-	
-	var _test3 = _interopRequireDefault(_test2);
-	
-	var _finish = __webpack_require__(74);
-	
-	var _finish2 = _interopRequireDefault(_finish);
-	
-	var _share3 = __webpack_require__(29);
-	
-	var _share4 = _interopRequireDefault(_share3);
-	
-	var _inputs = __webpack_require__(25);
-	
-	var _inputs2 = _interopRequireDefault(_inputs);
-	
-	var _typography = __webpack_require__(23);
-	
-	var _typography2 = _interopRequireDefault(_typography);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var FinishShareView = function (_ShareView) {
-		_inherits(FinishShareView, _ShareView);
-	
-		function FinishShareView() {
-			_classCallCheck(this, FinishShareView);
-	
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(FinishShareView).apply(this, arguments));
-		}
-	
-		_createClass(FinishShareView, [{
-			key: '_prepareData',
-			value: function _prepareData() {
-				return _underscore2.default.extend(_get(Object.getPrototypeOf(FinishShareView.prototype), '_prepareData', this).call(this), { testStyles: _test3.default, share: _share4.default });
-			}
-		}, {
-			key: '_template',
-			get: function get() {
-				return __webpack_require__(76);
-			}
-		}]);
-	
-		return FinishShareView;
-	}(_share2.default);
-	
-	var ShareModel = function (_Backbone$Model) {
-		_inherits(ShareModel, _Backbone$Model);
-	
-		function ShareModel() {
-			_classCallCheck(this, ShareModel);
-	
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(ShareModel).apply(this, arguments));
-		}
-	
-		_createClass(ShareModel, [{
-			key: 'defaults',
-			get: function get() {
-				return {
-					title: '',
-					description: ''
-				};
-			}
-		}]);
-	
-		return ShareModel;
-	}(_backbone2.default.Model);
-	
-	var _class = function (_BaseView) {
-		_inherits(_class, _BaseView);
-	
-		function _class() {
-			_classCallCheck(this, _class);
-	
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(_class).apply(this, arguments));
-		}
-	
-		_createClass(_class, [{
-			key: 'init',
-			value: function init() {
-				this.shareModel = new ShareModel();
-				this.shareView = this.registerChild(new FinishShareView({
-					shareModel: this.shareModel
-				}), 'test-share');
-	
-				if (this.testModel.success) {
-					this.shareModel.set('title', 'Я подхожу!');
-					this.shareModel.set('description', 'Могу ли я быть донором костного мозга? Тест для тех, кто еще не знает. И сайт о том, зачем вообще сдавать костный мозг и где.');
-					this.shareModel.set('image', 'arthurstam.github.io/static/share_test_positive.png');
-				} else {
-					this.shareModel.set('title', 'Могу ли я стать донором костного мозга?');
-					this.shareModel.set('description', 'Пройдите тест и узнайте, можете ли вы стать донором костного мозга. Или просто почитайте, зачем это нужно.');
-					this.shareModel.set('image', 'arthurstam.github.io/static/share_test_negative.png');
-				}
-	
-				this.shareView.render();
-				this.render();
-			}
-		}, {
-			key: '_agreementChange',
-			value: function _agreementChange(e) {
-				switch (e.currentTarget.checked) {
-					case false:
-						this.shareModel.set('description', 'Пройдите тест и узнайте, можете ли вы стать донором костного мозга. Или просто почитайте, зачем это нужно.');
-						break;
-					case true:
-						if (this.testModel.age17) {
-							this.shareModel.set('description', 'Мой результат: Пока вы не можете стать донором костного мозга, потому что слишком молоды — в доноры берут с 18 лет. Ждем вас через год!');
-						}
-						if (this.testModel.age16) {
-							this.shareModel.set('description', 'Мой результат: Пока вы не можете стать донором костного мозга, потому что слишком молоды — в доноры берут с 18 лет. Ждем вас через 2 года!');
-						}
-						if (this.testModel.age15_10) {
-							this.shareModel.set('description', 'Мой результат: Пока вы не можете стать донором костного мозга, потому что слишком молоды — в доноры берут только совершеннолетних. Ждем вас после 18!');
-						}
-						if (this.testModel.age45more) {
-							this.shareModel.set('description', 'Мой результат: Вы не можете стать донором костного мозга, потому что вступить в регистр можно до 45 лет. Донором можно стать до 60 лет, но типирование — дорогая процедура, поэтому важно, чтобы потенциальные доноры числились в регистре как можно дольше.');
-						}
-						if (this.testModel.age10less) {
-							this.shareModel.set('description', 'Мой результат: Пока вы не можете стать донором костного мозга, потому что слишком молоды — в доноры берут только совершеннолетних. Ждем вас после 18!');
-						}
-						if (this.testModel.weight47less) {
-							this.shareModel.set('description', 'Мой результат: Вы не можете стать донором костного мозга, потому что в доноры берут людей весом от 50 килограмм. ');
-						}
-						if (this.testModel.weight48_49) {
-							this.shareModel.set('description', 'Мой результат: Сейчас вы не можете стать донором костного мозга, потому что в доноры берут людей весом от 50 килограммов. Но вы очень близки! Пройдите тест ещё раз, указав, что весите 50 килограмм, и посмотрите, нет ли у вас других противопоказаний. Если нет — ждём вас через пару килограммов!');
-						}
-						if (this.testModel.autoFail) {
-							this.shareModel.set('description', 'Мой результат: Вы не можете стать донором костного мозга, потому что аутоиммунные заболевания — абсолютное противопоказание.');
-						}
-						if (this.testModel.diseaseFail) {
-							this.shareModel.set('description', 'Мой результат: Вы не можете стать донором костного мозга, потому что у вас есть противопоказания. У человека, которому нужна пересадка, очень слабый иммунитет. Поэтому даже если вы болели очень давно, врачи решают не рисковать.');
-						}
-						break;
-				}
-			}
-		}, {
-			key: '_prepareData',
-			value: function _prepareData() {
-				var data = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
-	
-	
-				return _underscore2.default.extend(data, {
-					testStyles: _test3.default,
-					finishStyles: _finish2.default,
-					inputStyles: _inputs2.default,
-					testModel: this.testModel,
-					typography: _typography2.default
-				});
-			}
-		}, {
-			key: '_template',
-			get: function get() {
-				return __webpack_require__(77);
-			}
-		}, {
-			key: 'className',
-			get: function get() {
-				return _finish2.default.root;
-			}
-		}, {
-			key: 'events',
-			get: function get() {
-				return {
-					'change [data-action="test-finish-agreement"]': '_agreementChange'
-				};
-			}
-		}]);
-
-		return _class;
-	}(_base2.default);
-
-	exports.default = _class;
-
-/***/ },
-/* 74 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-	
-	// load the styles
-	var content = __webpack_require__(75);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(14)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js?modules!./../../../node_modules/postcss-loader/index.js!./finish.css", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js?modules!./../../../node_modules/postcss-loader/index.js!./finish.css");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 75 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(13)();
-	// imports
-	
-	
-	// module
-	exports.push([module.id, "._3B-1CcHYxRdP4xmviYBWko {\n\ttext-align: left;\n}\n\n.BPlcspTWA-U5f8Dm8GR-4 {\n\tfont-size: 0;\n\tletter-spacing: 0;\n\tline-height: 0;\n}\n\n._2pkN-Ik882-3VtpKkxL3v8 {\n\twidth: 28px;\n\theight: 28px;\n\ttext-align: center;\n\tbackground-color: #000;\n\tborder-radius: 50%;\n\tdisplay: inline-block;\n\tvertical-align: middle;\n\tline-height: 28px;\n\tcolor: #fff;\n\tfont-size: 15px;\n\tfont-weight: bold;\n\tmargin-right: 11px;\n}\n\n.kZRWI19Iy-xWer-tCiQ37 {\n\tdisplay: inline-block;\n\tvertical-align: middle;\n\tfont-size: 16px;\n}\n\n._3CcTlLIxG3BS1PKJkuGDM2 {\n\tdisplay: flex;\n\tflex-direction: row;\n}\n\n.FS2caTlSXTucapYV8McOB {\n\tjustify-content: flex-start;\n}\n\n._3QjaZhGdzkNYAsbrUlSWIj {\n\tjustify-content: flex-start;\n\tposition: relative;\n}\n\n._1HnD0zUaIRYJELjx-_Do2W {\n\tposition: relative;\n\tz-index: 2;\n}\n\n.VEb7briyZ5oEkc3yeKD1A {\n\tposition: absolute;\n\tz-index: 1;\n\tleft: 107px;\n    top: -55px;\n    width: 646px;\n}\n\n.UQMNwjI_mEdn198JXfMeZ {\n\n}\n\n._1lZi4vkmIYBBcoC7Rz8Bt6 {\n\twidth: 340px;\n}\n\n._2Qy30uC1QeDUshVxKKwnIH {\n\tposition: absolute;\n\tz-index: 1;\n    right: -130px;\n    bottom: -80px;\n    width: 410px;\n}\n\n.zT-TpgEF96c_-Es7rTxxo {\n\tmargin-top: 40px;\n}\n\n._2S4dD-WewjwRgF4ALZRwgR {\n\tmargin-top: 15px;\n}", ""]);
-	
-	// exports
-	exports.locals = {
-		"root": "_3B-1CcHYxRdP4xmviYBWko",
-		"header": "BPlcspTWA-U5f8Dm8GR-4",
-		"headerIcon": "_2pkN-Ik882-3VtpKkxL3v8",
-		"headerText": "kZRWI19Iy-xWer-tCiQ37",
-		"content": "_3CcTlLIxG3BS1PKJkuGDM2",
-		"contentFail": "FS2caTlSXTucapYV8McOB",
-		"contentSuccess": "_3QjaZhGdzkNYAsbrUlSWIj",
-		"successText": "_1HnD0zUaIRYJELjx-_Do2W",
-		"successImage": "VEb7briyZ5oEkc3yeKD1A",
-		"fail": "UQMNwjI_mEdn198JXfMeZ",
-		"failText": "_1lZi4vkmIYBBcoC7Rz8Bt6",
-		"failImage": "_2Qy30uC1QeDUshVxKKwnIH",
-		"share": "zT-TpgEF96c_-Es7rTxxo",
-		"agreement": "_2S4dD-WewjwRgF4ALZRwgR"
-	};
-
-/***/ },
-/* 76 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Handlebars = __webpack_require__(32);
-	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
-	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-	    var stack1, helper, alias1=container.lambda, alias2=container.escapeExpression, alias3=depth0 != null ? depth0 : {}, alias4=helpers.helperMissing, alias5="function";
-	
-	  return "<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.share : depth0)) != null ? stack1.container : stack1), depth0))
-	    + "\">\n	<a href=\""
-	    + alias2(((helper = (helper = helpers.vkUrl || (depth0 != null ? depth0.vkUrl : depth0)) != null ? helper : alias4),(typeof helper === alias5 ? helper.call(alias3,{"name":"vkUrl","hash":{},"data":data}) : helper)))
-	    + "\" target=\"_blank\" class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.share : depth0)) != null ? stack1.itemVk : stack1), depth0))
-	    + "\"></a>\n	<a href=\""
-	    + alias2(((helper = (helper = helpers.fbUrl || (depth0 != null ? depth0.fbUrl : depth0)) != null ? helper : alias4),(typeof helper === alias5 ? helper.call(alias3,{"name":"fbUrl","hash":{},"data":data}) : helper)))
-	    + "\" target=\"_blank\" class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.share : depth0)) != null ? stack1.itemFb : stack1), depth0))
-	    + "\"></a>	\n</div>\n";
-	},"useData":true});
-
-/***/ },
-/* 77 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Handlebars = __webpack_require__(32);
-	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
-	module.exports = (Handlebars["default"] || Handlebars).template({"1":function(container,depth0,helpers,partials,data) {
-	    var stack1;
-	
-	  return container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? depth0.finishStyles : depth0)) != null ? stack1.contentSuccess : stack1), depth0));
-	},"3":function(container,depth0,helpers,partials,data) {
-	    var stack1;
-	
-	  return container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? depth0.finishStyles : depth0)) != null ? stack1.contentFail : stack1), depth0));
-	},"5":function(container,depth0,helpers,partials,data) {
-	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
-	
-	  return "\n		<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.finishStyles : depth0)) != null ? stack1.success : stack1), depth0))
-	    + "\">\n			<img src=\"/static/test_success.png\" class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.finishStyles : depth0)) != null ? stack1.successImage : stack1), depth0))
-	    + "\">\n			<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.finishStyles : depth0)) != null ? stack1.successText : stack1), depth0))
-	    + "\">\n				<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">Да!</div>\n				<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n					Вы можете стать донором\n					<br>\n					и спасти чью-то жизнь.\n					<br>\n					Для этого вступите \n					<br>\n					в регистр — сдайте кровь\n					<br>\n					на типирование\n					<br>\n					<a class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
-	    + "\" data-action=\"redirect-and-scroll-to\" data-element=\"#first-step\" data-page=\"how\">в специальном пункте</a>.\n				</div>\n				<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n					Расскажите о проекте\n					<br>\n					друзьям, чтобы спасти\n					<br>\n					еще больше жизней.\n				</div>\n				<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.finishStyles : depth0)) != null ? stack1.share : stack1), depth0))
-	    + "\" data-view=\"test-share\"></div>\n			</div>	\n		<div>\n\n";
-	},"7":function(container,depth0,helpers,partials,data) {
-	    var stack1, alias1=container.lambda, alias2=container.escapeExpression, alias3=depth0 != null ? depth0 : {};
-	
-	  return "\n		<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.finishStyles : depth0)) != null ? stack1.fail : stack1), depth0))
-	    + "\">\n			<img src=\"/static/test_fail.png\" class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.finishStyles : depth0)) != null ? stack1.failImage : stack1), depth0))
-	    + "\">\n			<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.finishStyles : depth0)) != null ? stack1.failText : stack1), depth0))
-	    + "\">\n				<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n"
-	    + ((stack1 = helpers["if"].call(alias3,((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.ageFail : stack1),{"name":"if","hash":{},"fn":container.program(8, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-	    + "\n"
-	    + ((stack1 = helpers["if"].call(alias3,((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.weightFail : stack1),{"name":"if","hash":{},"fn":container.program(22, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-	    + "\n"
-	    + ((stack1 = helpers["if"].call(alias3,((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.autoFail : stack1),{"name":"if","hash":{},"fn":container.program(26, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-	    + "\n"
-	    + ((stack1 = helpers["if"].call(alias3,((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.diseaseFail : stack1),{"name":"if","hash":{},"fn":container.program(26, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-	    + "\n				</div>\n				<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n					\n"
-	    + ((stack1 = helpers["if"].call(alias3,((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.ageFail : stack1),{"name":"if","hash":{},"fn":container.program(28, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-	    + "\n"
-	    + ((stack1 = helpers["if"].call(alias3,((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.weightFail : stack1),{"name":"if","hash":{},"fn":container.program(43, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-	    + "\n"
-	    + ((stack1 = helpers["if"].call(alias3,((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.autoFail : stack1),{"name":"if","hash":{},"fn":container.program(49, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-	    + "\n"
-	    + ((stack1 = helpers["if"].call(alias3,((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.diseaseFail : stack1),{"name":"if","hash":{},"fn":container.program(51, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-	    + "\n				</div>\n				<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.finishStyles : depth0)) != null ? stack1.agreement : stack1), depth0))
-	    + "\">\n					<input type=\"checkbox\" data-action=\"test-finish-agreement\" id=\"test-finish-agreement\" class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.inputStyles : depth0)) != null ? stack1.checkboxInput : stack1), depth0))
-	    + "\">\n					<label for=\"test-finish-agreement\" class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.inputStyles : depth0)) != null ? stack1.checkboxLabel : stack1), depth0))
-	    + "\">\n						Рассказать в посте, почему<br>я не подхожу\n					</label>\n				</div>\n				<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.finishStyles : depth0)) != null ? stack1.share : stack1), depth0))
-	    + "\" data-view=\"test-share\"></div>\n			</div>	\n		</div>\n";
-	},"8":function(container,depth0,helpers,partials,data) {
-	    var stack1;
-	
-	  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.age17 : stack1),{"name":"if","hash":{},"fn":container.program(9, data, 0),"inverse":container.program(11, data, 0),"data":data})) != null ? stack1 : "");
-	},"9":function(container,depth0,helpers,partials,data) {
-	    return "							Попробую через год!\n";
-	},"11":function(container,depth0,helpers,partials,data) {
-	    var stack1;
-	
-	  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.age16 : stack1),{"name":"if","hash":{},"fn":container.program(12, data, 0),"inverse":container.program(14, data, 0),"data":data})) != null ? stack1 : "");
-	},"12":function(container,depth0,helpers,partials,data) {
-	    return "							Попробую через 2 года!\n";
-	},"14":function(container,depth0,helpers,partials,data) {
-	    var stack1;
-	
-	  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.age15_10 : stack1),{"name":"if","hash":{},"fn":container.program(15, data, 0),"inverse":container.program(17, data, 0),"data":data})) != null ? stack1 : "");
-	},"15":function(container,depth0,helpers,partials,data) {
-	    return "							Попробую попозже!\n";
-	},"17":function(container,depth0,helpers,partials,data) {
-	    var stack1;
-	
-	  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.age45more : stack1),{"name":"if","hash":{},"fn":container.program(18, data, 0),"inverse":container.program(20, data, 0),"data":data})) != null ? stack1 : "");
-	},"18":function(container,depth0,helpers,partials,data) {
-	    return "							Нет, но могу помочь!\n";
-	},"20":function(container,depth0,helpers,partials,data) {
-	    return "							Стану донором, когда вырасту! \n						";
-	},"22":function(container,depth0,helpers,partials,data) {
-	    var stack1;
-	
-	  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.weight47less : stack1),{"name":"if","hash":{},"fn":container.program(18, data, 0),"inverse":container.program(23, data, 0),"data":data})) != null ? stack1 : "");
-	},"23":function(container,depth0,helpers,partials,data) {
-	    var stack1;
-	
-	  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.weight48_49 : stack1),{"name":"if","hash":{},"fn":container.program(24, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "");
-	},"24":function(container,depth0,helpers,partials,data) {
-	    return "							Поем и смогу!\n						";
-	},"26":function(container,depth0,helpers,partials,data) {
-	    return "						Нет, но могу помочь!\n";
-	},"28":function(container,depth0,helpers,partials,data) {
-	    var stack1;
-	
-	  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.age17 : stack1),{"name":"if","hash":{},"fn":container.program(29, data, 0),"inverse":container.program(31, data, 0),"data":data})) != null ? stack1 : "");
-	},"29":function(container,depth0,helpers,partials,data) {
-	    return "							Пока вы не можете стать донором костного мозга, потому что слишком молоды — в доноры берут с 18 лет. Ждем вас через год! \n							<br/>\n							<br/>\n							Но помочь вы можете уже сейчас. Расскажите о проекте друзьям: если кто-то из них станет донором, вы спасете не одну, а несколько жизней.\n";
-	},"31":function(container,depth0,helpers,partials,data) {
-	    var stack1;
-	
-	  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.age16 : stack1),{"name":"if","hash":{},"fn":container.program(32, data, 0),"inverse":container.program(34, data, 0),"data":data})) != null ? stack1 : "");
-	},"32":function(container,depth0,helpers,partials,data) {
-	    return "							Пока вы не можете стать донором костного мозга, потому что слишком молоды — в доноры берут с 18 лет. Ждем вас через 2 года! \n							<br/>\n							<br/>\n							Но помочь вы можете уже сейчас. Расскажите о проекте друзьям: если кто-то из них станет донором, вы спасете не одну, а несколько жизней.\n";
-	},"34":function(container,depth0,helpers,partials,data) {
-	    var stack1;
-	
-	  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.age15_10 : stack1),{"name":"if","hash":{},"fn":container.program(35, data, 0),"inverse":container.program(37, data, 0),"data":data})) != null ? stack1 : "");
-	},"35":function(container,depth0,helpers,partials,data) {
-	    return "							Пока вы не можете стать донором костного мозга, потому что слишком молоды — в доноры берут только совершеннолетних. Ждем вас после 18!\n							<br/>\n							<br/>\n							Но помочь вы можете уже сейчас. Расскажите о проекте друзьям: если кто-то из них станет донором, вы спасете не одну, а несколько жизней.\n";
-	},"37":function(container,depth0,helpers,partials,data) {
-	    var stack1;
-	
-	  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.age45more : stack1),{"name":"if","hash":{},"fn":container.program(38, data, 0),"inverse":container.program(40, data, 0),"data":data})) != null ? stack1 : "");
-	},"38":function(container,depth0,helpers,partials,data) {
-	    return "							Донором можно стать до 60 лет, но типирование — дорогая процедура, поэтому важно, чтобы потенциальные доноры числились в регистре как можно дольше. Поэтому кровь на типирование берут до 45 лет.\n							<br/>\n							<br/>\n							Но вы все равно можете помочь. Расскажите о проекте друзьям: если кто-то из них станет донором, вы спасете не одну, а несколько жизней. \n";
-	},"40":function(container,depth0,helpers,partials,data) {
-	    var stack1;
-	
-	  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.age10less : stack1),{"name":"if","hash":{},"fn":container.program(41, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "");
-	},"41":function(container,depth0,helpers,partials,data) {
-	    return "							Пока вы не можете стать донором костного мозга, потому что слишком молоды — в доноры берут только совершеннолетних. Ждем вас после 18!\n							<br/>\n							<br/>\n							Но помочь вы можете уже сейчас. Расскажите о проекте друзьям: если кто-то из них станет донором, вы спасете не одну, а несколько жизней.\n						";
-	},"43":function(container,depth0,helpers,partials,data) {
-	    var stack1;
-	
-	  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.weight47less : stack1),{"name":"if","hash":{},"fn":container.program(44, data, 0),"inverse":container.program(46, data, 0),"data":data})) != null ? stack1 : "");
-	},"44":function(container,depth0,helpers,partials,data) {
-	    return "							Вы не можете стать донором костного мозга, потому что в доноры берут людей весом от 50 килограмм. \n							<br>\n							<br>\n							Но вы все равно можете помочь. Расскажите о проекте друзьям: если кто-то из них станет донором, вы спасете не одну, а несколько жизней. \n";
-	},"46":function(container,depth0,helpers,partials,data) {
-	    var stack1;
-	
-	  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.weight48_49 : stack1),{"name":"if","hash":{},"fn":container.program(47, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "");
-	},"47":function(container,depth0,helpers,partials,data) {
-	    return "							Сейчас вы не можете стать донором костного мозга, потому что в доноры берут людей весом от 50 килограммов. Но вы очень близки! Пройдите тест ещё раз, указав, что весите 50 килограмм, и посмотрите, нет ли у вас других противопоказаний. Если нет — ждём вас через пару килограммов!\n							<br>\n							<br>\n							Но вы все равно можете помочь. Расскажите о проекте друзьям: если кто-то из них станет донором, вы спасете не одну, а несколько жизней. \n						";
-	},"49":function(container,depth0,helpers,partials,data) {
-	    return "						Вы не можете стать донором костного мозга, потому что гемотрансмиссионное заболевание — абсолютное противопоказание.\n						<br>\n						<br>\n						Но вы все равно можете помочь. Расскажите о проекте друзьям: если кто-то из них станет донором, вы спасете не одну, а несколько жизней.\n";
-	},"51":function(container,depth0,helpers,partials,data) {
-	    return "						Вы не можете стать донором костного мозга, потому что у вас есть противопоказания. У человека, которому нужна пересадка, очень слабый иммунитет. Поэтому даже если вы болели очень давно, врачи решают не рисковать. \n						<br>\n						<br>\n						Но вы все равно можете помочь. Расскажите о проекте друзьям: если кто-то из них станет донором, вы спасете не одну, а несколько жизней. \n";
-	},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-	    var stack1, alias1=container.lambda, alias2=container.escapeExpression, alias3=depth0 != null ? depth0 : {};
-	
-	  return "<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.test : stack1), depth0))
-	    + "\">тест</div>\n<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
-	    + "\">Могу ли я стать донором?</div>\n<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.finishStyles : depth0)) != null ? stack1.content : stack1), depth0))
-	    + " "
-	    + ((stack1 = helpers["if"].call(alias3,((stack1 = ((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.attributes : stack1)) != null ? stack1.result : stack1),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.program(3, data, 0),"data":data})) != null ? stack1 : "")
-	    + "\">\n\n"
-	    + ((stack1 = helpers["if"].call(alias3,((stack1 = ((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.attributes : stack1)) != null ? stack1.result : stack1),{"name":"if","hash":{},"fn":container.program(5, data, 0),"inverse":container.program(7, data, 0),"data":data})) != null ? stack1 : "")
-	    + "</div>";
-	},"useData":true});
-
-/***/ },
-/* 78 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Handlebars = __webpack_require__(32);
-	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
-	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-	    var stack1;
-	
-	  return "<div class=\""
-	    + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? depth0.styles : depth0)) != null ? stack1.container : stack1), depth0))
-	    + "\" data-view=\"test-container\">\n</div>";
-	},"useData":true});
-
-/***/ },
-/* 79 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _backbone = __webpack_require__(1);
-	
-	var _backbone2 = _interopRequireDefault(_backbone);
-	
-	var _underscore = __webpack_require__(2);
-	
-	var _underscore2 = _interopRequireDefault(_underscore);
-	
-	var _ajax = __webpack_require__(17);
-	
-	var _ajax2 = _interopRequireDefault(_ajax);
-	
-	var _config = __webpack_require__(9);
-	
-	var _config2 = _interopRequireDefault(_config);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var _class = function (_Backbone$Model) {
-		_inherits(_class, _Backbone$Model);
-	
-		function _class() {
-			_classCallCheck(this, _class);
-	
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(_class).apply(this, arguments));
-		}
-	
-		_createClass(_class, [{
-			key: 'fetchPotentialDonors',
-			value: function fetchPotentialDonors(lat, lon) {
-				var _this2 = this;
-	
-				return new Promise(function (resolve, reject) {
-					(0, _ajax2.default)({
-						url: _config2.default.api.url + '/potential_donors',
-						type: 'get'
-					}).then(function (response) {
-						_this2.set('potentialDonors', response.value);
-						resolve(response);
-					}, function () {
-						reject();
-					});
-				});
-			}
-		}, {
-			key: 'defaults',
-			get: function get() {
-				return {
-					potentialDonors: null
-				};
-			}
-		}, {
-			key: 'potentialDonors',
-			get: function get() {
-				var value = this.get('potentialDonors');
-				// return value ? value.toLocaleString('ru-RU') : 0;
-				return value;
-			}
-		}]);
-	
-		return _class;
-	}(_backbone2.default.Model);
-	
-	exports.default = _class;
-
-/***/ },
-/* 80 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-	
-	// load the styles
-	var content = __webpack_require__(81);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(14)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js?modules!./../../node_modules/postcss-loader/index.js!./why.css", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js?modules!./../../node_modules/postcss-loader/index.js!./why.css");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 81 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(13)();
-	// imports
-	
-	
-	// module
-	exports.push([module.id, "._3wblAYxY0Ty93Y37IcWleG {\n\tmax-width: 1024px;\n\tmargin-left: auto;\n\tmargin-right: auto;\n\tmargin-top: 40px;\n}\n._3wblAYxY0Ty93Y37IcWleG img {\n\tmax-width: 100%;\n}\n._3wblAYxY0Ty93Y37IcWleG {\n\twidth: 730px;\n\tmargin-bottom: 58px;\n}\n._2kCWKAdKZWO2l1mHuhHod3 {\n\tpadding-bottom: 80px;\n}\n._85xiBWTT3XB0Ok82A_jpG {\n\tdisplay: flex;\n}\n._14jXJwRb11AzJ-fIr7B-MM {\n\tflex-shrink: 0;\n\tmargin-right: 20px;\n}\n._2Skk9CJ2BsZ5Lgik74tm-8 {\n\twidth: 92px;\n}\n._1u70M5syH458JPMKFR15eL {\n\tfont-size: 27px;\n\tline-height: 35px;\n\tfont-weight: 300;\n}", ""]);
-	
-	// exports
-	exports.locals = {
-		"artwork": "_3wblAYxY0Ty93Y37IcWleG",
-		"test": "_2kCWKAdKZWO2l1mHuhHod3",
-		"goal": "_85xiBWTT3XB0Ok82A_jpG",
-		"goalAuthor": "_14jXJwRb11AzJ-fIr7B-MM",
-		"goalAuthorPhoto": "_2Skk9CJ2BsZ5Lgik74tm-8",
-		"goalText": "_1u70M5syH458JPMKFR15eL"
-	};
-
-/***/ },
-/* 82 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Handlebars = __webpack_require__(32);
-	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
-	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
-	
-	  return "<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.root : stack1), depth0))
-	    + "\">\n	<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.why : depth0)) != null ? stack1.artwork : stack1), depth0))
-	    + "\">\n		<img src=\"/static/why_artwork.png\">\n	</div>\n	<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.container : stack1), depth0))
-	    + "\">\n		<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
-	    + "\">\n			<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.header : stack1), depth0))
-	    + "\">Зачем становиться<br>донором костного мозга</div>\n			<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n				Костный мозг&nbsp;&mdash; это орган кроветворной системы, на&nbsp;вид&nbsp;&mdash; жидкая субстанция. Он&nbsp;содержит стволовые клетки и&nbsp;продуцирует все кровяные клетки в&nbsp;организме. Если&nbsp;у&nbsp;человека онкологическое, иммунологическое или&nbsp;аутоимунное заболевание, врачи назначают пересадку костного мозга. Часто это&nbsp;последний шанс спасти человеку жизнь.\n			</div>\n		</div>	\n		<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
-	    + "\">\n			<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
-	    + "\">Как ищут доноров</div>\n			<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n				Когда человеку нужен костный мозг, в&nbsp;первую очередь проверяют его родственников. Шансы невелики&nbsp;&mdash; в&nbsp;случае братьев и&nbsp;сестёр вероятность 1:4, а&nbsp;у&nbsp;родителей и&nbsp;детей ещё&nbsp;меньше. Если среди родных доноров не&nbsp;нашлось, ищут неродственных доноров&nbsp;&mdash; для&nbsp;этого нужен специальный регистр.\n			</div>\n			<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n				<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1["float"] : stack1), depth0))
-	    + "\">\n					<div>\n						Регистр&nbsp;&mdash; это&nbsp;база потенциальных доноров костного мозга. Потенциальный донор&nbsp;&mdash; еще не&nbsp;донор: у&nbsp;него не&nbsp;забирают костный мозг, он&nbsp;только числится в&nbsp;регистре. Реальным донором человек становится, когда кому-то подходит его костный мозг. Чем&nbsp;больше в&nbsp;регистре потенциальных доноров, тем&nbsp;выше вероятность найти пациенту реального донора.\n					</div>\n					<a class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnote : stack1), depth0))
-	    + "\" href=\"http://www.rusfond.ru/registr/009\" target=\"_blank\">\n						<span class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnoteCounter : stack1), depth0))
-	    + "\">\n							"
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.data : depth0)) != null ? stack1.potentialDonors : stack1), depth0))
-	    + "\n						</span>\n						<span class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnoteText : stack1), depth0))
-	    + "\">\n							потенциальных\n							<br>\n							доноров в регистре\n							<br>\n							на 27 мая 2016 года.\n						</span>\n						<span class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnoteMeta : stack1), depth0))
-	    + "\">\n							Информация с сайта Русфонда\n						</span>	\n					</a>\n				</div>\n			</div>\n		</div>\n		<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
-	    + "\">\n			<div class="
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.note : stack1), depth0))
-	    + ">\n				<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
-	    + "\">Зачем увеличивать национальный регистр</div>\n				<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n					Регистр потенциальных доноров костного мозга есть в&nbsp;каждой развитой стране. Очень&nbsp;большой регистр в&nbsp;Германии&nbsp;&mdash; 6&nbsp;миллионов потенциальных доноров.\n					<br>\n					Можно пользоваться зарубежными регистрами, но&nbsp;важно развивать свой:\n				</div>	\n				<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n					<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.floatJustifyBetween : stack1), depth0))
-	    + "\">\n						<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.col2 : stack1), depth0))
-	    + "\">\n							В&nbsp;национальном регистре выше шанс найти подходящего донора, потому что в&nbsp;каждой стране свои генетические особенности.\n						</div>\n						<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.col2 : stack1), depth0))
-	    + "\">\n							Искать в&nbsp;национальном регистре гораздо дешевле. Поиск в&nbsp;российском регистре стоит 150-300 тысяч рублей, а&nbsp;в&nbsp;зарубежных&nbsp;&mdash; 18&nbsp;000&nbsp;евро.\n						</div>\n					</div>\n				</div>\n			</div>\n		</div>\n		<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
-	    + "\">\n			<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.why : depth0)) != null ? stack1.goal : stack1), depth0))
-	    + "\">\n				<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.why : depth0)) != null ? stack1.goalAuthor : stack1), depth0))
-	    + "\">\n					<img src=\"/static/grinberg.png\" class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.why : depth0)) != null ? stack1.goalAuthorPhoto : stack1), depth0))
-	    + "\"/>\n					<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.why : depth0)) != null ? stack1.goalAuthorInfo : stack1), depth0))
-	    + "\">\n						<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.text : stack1), depth0))
-	    + "\">\n							Павел Гринберг,\n							<br>\n							исполнительный директор\n							<br>\n							фонда Advita\n						</div>\n					</div>\n				</div>\n				<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.why : depth0)) != null ? stack1.goalText : stack1), depth0))
-	    + "\">\n					&laquo;Наша цель&nbsp;&mdash; 500 тысяч потенциальных доноров в&nbsp;регистре. Столько нужно, чтобы находить костный мозг половине российских пациентов&raquo;\n				</div>\n			</div>\n		</div>\n		<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
-	    + "\">\n			<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
-	    + "\">Как спасти жизнь</div>\n			<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n				<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1["float"] : stack1), depth0))
-	    + "\">\n					<div>\n						Мы&nbsp;увеличиваем регистр, чтобы повысить вероятность того, что пациент найдет подходящего донора и&nbsp;выздоровеет. Но&nbsp;система работает только потому, что находятся люди, которые хотят безвозмездно помогать. Сначала они вступают в&nbsp;регистр и&nbsp;становятся потенциальными донорами, а&nbsp;когда их&nbsp;костный мозг подходит, идут на&nbsp;реальное донорство.\n					</div>\n					<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnote : stack1), depth0))
-	    + "\">\n						<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnoteCounter : stack1), depth0))
-	    + "\">\n							2&thinsp;609\n							<br>\n							2&nbsp;609\n						</div>\n						<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnoteText : stack1), depth0))
-	    + "\">\n							человек \n							<br>\n							вступили в регистр\n							<br>\n							за последний месяц\n						</div>\n					</div>\n				</div>\n			</div>\n			<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n				После пересадки новые клетки костного мозга в&nbsp;организме реципиента размножаются и&nbsp;производят здоровое потомство. У&nbsp;пациента восстанавливается нормальное кроветворение организма, увеличивается стойкость к&nbsp;вирусам. Получить здоровые клетки можно только от&nbsp;донора&nbsp;&mdash; другой возможности нет.\n			</div>\n		</div>\n		<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
-	    + "\">\n			<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
-	    + "\">Кто может помочь</div>\n			<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n				При некоторых заболеваниях нельзя становиться донором костного мозга&nbsp;&mdash; это может быть опасно и&nbsp;для донора, и&nbsp;для реципиента. Врачи не&nbsp;рискуют здоровьем донора ради спасения другого человека и&nbsp;отменяют пересадку при малейшей угрозе. Для здорового человека процедура безопасна.\n			</div>\n			<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n				<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1["float"] : stack1), depth0))
-	    + "\">\n					<div>\n						Другое дело&nbsp;&mdash; организм пациента, который нуждается в&nbsp;пересадке. Он&nbsp;и&nbsp;так ослаблен болезнью. Перед пересадкой донорских клеток пациент проходит курс сильной химиотерапии, которая убивает его больной костный мозг. Иммунитет пациента не&nbsp;справится с&nbsp;болезнями донора, поэтому важно пересадить максимально здоровый костный мозг.\n					</div>\n					<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnote : stack1), depth0))
-	    + "\">\n						<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnoteText : stack1), depth0))
-	    + "\">\n							Если вы — донор крови,\n							<br>\n							вы можете быть\n							<br>\n							и донором костного\n							<br>\n							мозга. Противопоказания\n							<br>\n							для обеих процедур\n							<br>\n							совпадают\n						</div>\n					</div>\n				</div>\n			</div>\n		</div>\n		<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.why : depth0)) != null ? stack1.test : stack1), depth0))
-	    + "\" data-view=\"how-test\"></div>\n	</div>\n	<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.footer : stack1), depth0))
-	    + "\">\n		<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.container : stack1), depth0))
-	    + "\">\n			<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n				Если вы подходите и задумались о донорстве, узнайте,\n				<br>\n				<a class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
-	    + "\" href=\"/#/how\">как стать донором костного мозга</a>. \n			</div>\n		</div>\n	</div>\n	<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.container : stack1), depth0))
-	    + "\">\n		<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.credentials : stack1), depth0))
-	    + "\">\n			<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.credentialsImage : stack1), depth0))
-	    + "\">\n				<img src=\"/static/credentials_why.png\">\n			</div>\n			<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.credentialsText : stack1), depth0))
-	    + "\">\n				Сделала Алиса Яннау в Школе редакторов Бюро Горбунова. \n				<br>\n				Иллюстратор — Марина Савицкая, разработчик — Артур Стамбульцян.\n				<br>\n				<a href=\"/static/pdf/agreement.pdf\" target=\"_blank\" class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
-	    + "\">Пользовательское соглашение</a>.\n			</div>	\n		</div>\n	</div>\n</div>";
-	},"useData":true});
-
-/***/ },
-/* 83 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-	
-	// load the styles
-	var content = __webpack_require__(84);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(14)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js?modules!./../../node_modules/postcss-loader/index.js!./app.css", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js?modules!./../../node_modules/postcss-loader/index.js!./app.css");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 84 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(13)();
-	// imports
-	
-	
-	// module
-	exports.push([module.id, "._262Ej1jMDO2JTW3JIx8Tcp {\n\tmin-width: 1024px;\n}\n\n._262Ej1jMDO2JTW3JIx8Tcp, ._262Ej1jMDO2JTW3JIx8Tcp *, ._262Ej1jMDO2JTW3JIx8Tcp *::before, ._262Ej1jMDO2JTW3JIx8Tcp *::after {\n\tbox-sizing: border-box;\n\toutline: none;\n\ttext-size-adjust: none;\n\t-moz-text-size-adjust: none;\n\t-webkit-text-size-adjust: none;\n\t-ms-text-size-adjust: none;\n}", ""]);
-	
-	// exports
-	exports.locals = {
-		"root": "_262Ej1jMDO2JTW3JIx8Tcp"
-	};
-
-/***/ },
-/* 85 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Handlebars = __webpack_require__(32);
-	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
-	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-	    var stack1;
-	
-	  return "<div class=\""
-	    + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? depth0.styles : depth0)) != null ? stack1.container : stack1), depth0))
-	    + "\" data-view=\"app-container\"></div>";
-	},"useData":true});
-
-/***/ },
-/* 86 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-	
-	// load the styles
-	var content = __webpack_require__(87);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(14)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js?modules!./../../node_modules/postcss-loader/index.js!./common.css", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js?modules!./../../node_modules/postcss-loader/index.js!./common.css");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 87 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(13)();
-	// imports
-	
-	
-	// module
-	exports.push([module.id, "body {\n\tmargin: 0;\n\tpadding: 0;\n\tfont-family: 'Roboto', sans-serif;\n}\n\nimg {\n\tdisplay: block;\n}\n\na {\n\ttext-decoration: none;\n}", ""]);
-	
-	// exports
-
-
-/***/ },
-/* 88 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;'use strict';
@@ -20731,6 +16861,3895 @@
 	
 	    return Typograf;
 	});
+
+/***/ },
+/* 32 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Handlebars = __webpack_require__(33);
+	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
+	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+	    var stack1, helper, alias1=container.lambda, alias2=container.escapeExpression, alias3=depth0 != null ? depth0 : {}, alias4=helpers.helperMissing, alias5="function";
+	
+	  return "<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.share : depth0)) != null ? stack1.container : stack1), depth0))
+	    + "\">\n	<a href=\""
+	    + alias2(((helper = (helper = helpers.vkUrl || (depth0 != null ? depth0.vkUrl : depth0)) != null ? helper : alias4),(typeof helper === alias5 ? helper.call(alias3,{"name":"vkUrl","hash":{},"data":data}) : helper)))
+	    + "\" target=\"_blank\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.share : depth0)) != null ? stack1.itemVk : stack1), depth0))
+	    + "\"></a>\n	<a href=\""
+	    + alias2(((helper = (helper = helpers.fbUrl || (depth0 != null ? depth0.fbUrl : depth0)) != null ? helper : alias4),(typeof helper === alias5 ? helper.call(alias3,{"name":"fbUrl","hash":{},"data":data}) : helper)))
+	    + "\" target=\"_blank\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.share : depth0)) != null ? stack1.itemFb : stack1), depth0))
+	    + "\"></a>	\n</div>\n";
+	},"useData":true});
+
+/***/ },
+/* 33 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	// Create a simple path alias to allow browserify to resolve
+	// the runtime on a supported path.
+	module.exports = __webpack_require__(34)['default'];
+
+/***/ },
+/* 34 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	exports.__esModule = true;
+	// istanbul ignore next
+	
+	function _interopRequireDefault(obj) {
+	  return obj && obj.__esModule ? obj : { 'default': obj };
+	}
+	
+	// istanbul ignore next
+	
+	function _interopRequireWildcard(obj) {
+	  if (obj && obj.__esModule) {
+	    return obj;
+	  } else {
+	    var newObj = {};if (obj != null) {
+	      for (var key in obj) {
+	        if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key];
+	      }
+	    }newObj['default'] = obj;return newObj;
+	  }
+	}
+	
+	var _handlebarsBase = __webpack_require__(35);
+	
+	var base = _interopRequireWildcard(_handlebarsBase);
+	
+	// Each of these augment the Handlebars object. No need to setup here.
+	// (This is done to easily share code between commonjs and browse envs)
+	
+	var _handlebarsSafeString = __webpack_require__(49);
+	
+	var _handlebarsSafeString2 = _interopRequireDefault(_handlebarsSafeString);
+	
+	var _handlebarsException = __webpack_require__(37);
+	
+	var _handlebarsException2 = _interopRequireDefault(_handlebarsException);
+	
+	var _handlebarsUtils = __webpack_require__(36);
+	
+	var Utils = _interopRequireWildcard(_handlebarsUtils);
+	
+	var _handlebarsRuntime = __webpack_require__(50);
+	
+	var runtime = _interopRequireWildcard(_handlebarsRuntime);
+	
+	var _handlebarsNoConflict = __webpack_require__(51);
+	
+	var _handlebarsNoConflict2 = _interopRequireDefault(_handlebarsNoConflict);
+	
+	// For compatibility and usage outside of module systems, make the Handlebars object a namespace
+	function create() {
+	  var hb = new base.HandlebarsEnvironment();
+	
+	  Utils.extend(hb, base);
+	  hb.SafeString = _handlebarsSafeString2['default'];
+	  hb.Exception = _handlebarsException2['default'];
+	  hb.Utils = Utils;
+	  hb.escapeExpression = Utils.escapeExpression;
+	
+	  hb.VM = runtime;
+	  hb.template = function (spec) {
+	    return runtime.template(spec, hb);
+	  };
+	
+	  return hb;
+	}
+	
+	var inst = create();
+	inst.create = create;
+	
+	_handlebarsNoConflict2['default'](inst);
+	
+	inst['default'] = inst;
+	
+	exports['default'] = inst;
+	module.exports = exports['default'];
+
+/***/ },
+/* 35 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	exports.__esModule = true;
+	exports.HandlebarsEnvironment = HandlebarsEnvironment;
+	// istanbul ignore next
+	
+	function _interopRequireDefault(obj) {
+	  return obj && obj.__esModule ? obj : { 'default': obj };
+	}
+	
+	var _utils = __webpack_require__(36);
+	
+	var _exception = __webpack_require__(37);
+	
+	var _exception2 = _interopRequireDefault(_exception);
+	
+	var _helpers = __webpack_require__(38);
+	
+	var _decorators = __webpack_require__(46);
+	
+	var _logger = __webpack_require__(48);
+	
+	var _logger2 = _interopRequireDefault(_logger);
+	
+	var VERSION = '4.0.5';
+	exports.VERSION = VERSION;
+	var COMPILER_REVISION = 7;
+	
+	exports.COMPILER_REVISION = COMPILER_REVISION;
+	var REVISION_CHANGES = {
+	  1: '<= 1.0.rc.2', // 1.0.rc.2 is actually rev2 but doesn't report it
+	  2: '== 1.0.0-rc.3',
+	  3: '== 1.0.0-rc.4',
+	  4: '== 1.x.x',
+	  5: '== 2.0.0-alpha.x',
+	  6: '>= 2.0.0-beta.1',
+	  7: '>= 4.0.0'
+	};
+	
+	exports.REVISION_CHANGES = REVISION_CHANGES;
+	var objectType = '[object Object]';
+	
+	function HandlebarsEnvironment(helpers, partials, decorators) {
+	  this.helpers = helpers || {};
+	  this.partials = partials || {};
+	  this.decorators = decorators || {};
+	
+	  _helpers.registerDefaultHelpers(this);
+	  _decorators.registerDefaultDecorators(this);
+	}
+	
+	HandlebarsEnvironment.prototype = {
+	  constructor: HandlebarsEnvironment,
+	
+	  logger: _logger2['default'],
+	  log: _logger2['default'].log,
+	
+	  registerHelper: function registerHelper(name, fn) {
+	    if (_utils.toString.call(name) === objectType) {
+	      if (fn) {
+	        throw new _exception2['default']('Arg not supported with multiple helpers');
+	      }
+	      _utils.extend(this.helpers, name);
+	    } else {
+	      this.helpers[name] = fn;
+	    }
+	  },
+	  unregisterHelper: function unregisterHelper(name) {
+	    delete this.helpers[name];
+	  },
+	
+	  registerPartial: function registerPartial(name, partial) {
+	    if (_utils.toString.call(name) === objectType) {
+	      _utils.extend(this.partials, name);
+	    } else {
+	      if (typeof partial === 'undefined') {
+	        throw new _exception2['default']('Attempting to register a partial called "' + name + '" as undefined');
+	      }
+	      this.partials[name] = partial;
+	    }
+	  },
+	  unregisterPartial: function unregisterPartial(name) {
+	    delete this.partials[name];
+	  },
+	
+	  registerDecorator: function registerDecorator(name, fn) {
+	    if (_utils.toString.call(name) === objectType) {
+	      if (fn) {
+	        throw new _exception2['default']('Arg not supported with multiple decorators');
+	      }
+	      _utils.extend(this.decorators, name);
+	    } else {
+	      this.decorators[name] = fn;
+	    }
+	  },
+	  unregisterDecorator: function unregisterDecorator(name) {
+	    delete this.decorators[name];
+	  }
+	};
+	
+	var log = _logger2['default'].log;
+	
+	exports.log = log;
+	exports.createFrame = _utils.createFrame;
+	exports.logger = _logger2['default'];
+
+/***/ },
+/* 36 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+	
+	exports.__esModule = true;
+	exports.extend = extend;
+	exports.indexOf = indexOf;
+	exports.escapeExpression = escapeExpression;
+	exports.isEmpty = isEmpty;
+	exports.createFrame = createFrame;
+	exports.blockParams = blockParams;
+	exports.appendContextPath = appendContextPath;
+	var escape = {
+	  '&': '&amp;',
+	  '<': '&lt;',
+	  '>': '&gt;',
+	  '"': '&quot;',
+	  "'": '&#x27;',
+	  '`': '&#x60;',
+	  '=': '&#x3D;'
+	};
+	
+	var badChars = /[&<>"'`=]/g,
+	    possible = /[&<>"'`=]/;
+	
+	function escapeChar(chr) {
+	  return escape[chr];
+	}
+	
+	function extend(obj /* , ...source */) {
+	  for (var i = 1; i < arguments.length; i++) {
+	    for (var key in arguments[i]) {
+	      if (Object.prototype.hasOwnProperty.call(arguments[i], key)) {
+	        obj[key] = arguments[i][key];
+	      }
+	    }
+	  }
+	
+	  return obj;
+	}
+	
+	var toString = Object.prototype.toString;
+	
+	exports.toString = toString;
+	// Sourced from lodash
+	// https://github.com/bestiejs/lodash/blob/master/LICENSE.txt
+	/* eslint-disable func-style */
+	var isFunction = function isFunction(value) {
+	  return typeof value === 'function';
+	};
+	// fallback for older versions of Chrome and Safari
+	/* istanbul ignore next */
+	if (isFunction(/x/)) {
+	  exports.isFunction = isFunction = function isFunction(value) {
+	    return typeof value === 'function' && toString.call(value) === '[object Function]';
+	  };
+	}
+	exports.isFunction = isFunction;
+	
+	/* eslint-enable func-style */
+	
+	/* istanbul ignore next */
+	var isArray = Array.isArray || function (value) {
+	  return value && (typeof value === 'undefined' ? 'undefined' : _typeof(value)) === 'object' ? toString.call(value) === '[object Array]' : false;
+	};
+	
+	exports.isArray = isArray;
+	// Older IE versions do not directly support indexOf so we must implement our own, sadly.
+	
+	function indexOf(array, value) {
+	  for (var i = 0, len = array.length; i < len; i++) {
+	    if (array[i] === value) {
+	      return i;
+	    }
+	  }
+	  return -1;
+	}
+	
+	function escapeExpression(string) {
+	  if (typeof string !== 'string') {
+	    // don't escape SafeStrings, since they're already safe
+	    if (string && string.toHTML) {
+	      return string.toHTML();
+	    } else if (string == null) {
+	      return '';
+	    } else if (!string) {
+	      return string + '';
+	    }
+	
+	    // Force a string conversion as this will be done by the append regardless and
+	    // the regex test will do this transparently behind the scenes, causing issues if
+	    // an object's to string has escaped characters in it.
+	    string = '' + string;
+	  }
+	
+	  if (!possible.test(string)) {
+	    return string;
+	  }
+	  return string.replace(badChars, escapeChar);
+	}
+	
+	function isEmpty(value) {
+	  if (!value && value !== 0) {
+	    return true;
+	  } else if (isArray(value) && value.length === 0) {
+	    return true;
+	  } else {
+	    return false;
+	  }
+	}
+	
+	function createFrame(object) {
+	  var frame = extend({}, object);
+	  frame._parent = object;
+	  return frame;
+	}
+	
+	function blockParams(params, ids) {
+	  params.path = ids;
+	  return params;
+	}
+	
+	function appendContextPath(contextPath, id) {
+	  return (contextPath ? contextPath + '.' : '') + id;
+	}
+
+/***/ },
+/* 37 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	exports.__esModule = true;
+	
+	var errorProps = ['description', 'fileName', 'lineNumber', 'message', 'name', 'number', 'stack'];
+	
+	function Exception(message, node) {
+	  var loc = node && node.loc,
+	      line = undefined,
+	      column = undefined;
+	  if (loc) {
+	    line = loc.start.line;
+	    column = loc.start.column;
+	
+	    message += ' - ' + line + ':' + column;
+	  }
+	
+	  var tmp = Error.prototype.constructor.call(this, message);
+	
+	  // Unfortunately errors are not enumerable in Chrome (at least), so `for prop in tmp` doesn't work.
+	  for (var idx = 0; idx < errorProps.length; idx++) {
+	    this[errorProps[idx]] = tmp[errorProps[idx]];
+	  }
+	
+	  /* istanbul ignore else */
+	  if (Error.captureStackTrace) {
+	    Error.captureStackTrace(this, Exception);
+	  }
+	
+	  if (loc) {
+	    this.lineNumber = line;
+	    this.column = column;
+	  }
+	}
+	
+	Exception.prototype = new Error();
+	
+	exports['default'] = Exception;
+	module.exports = exports['default'];
+
+/***/ },
+/* 38 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	exports.__esModule = true;
+	exports.registerDefaultHelpers = registerDefaultHelpers;
+	// istanbul ignore next
+	
+	function _interopRequireDefault(obj) {
+	  return obj && obj.__esModule ? obj : { 'default': obj };
+	}
+	
+	var _helpersBlockHelperMissing = __webpack_require__(39);
+	
+	var _helpersBlockHelperMissing2 = _interopRequireDefault(_helpersBlockHelperMissing);
+	
+	var _helpersEach = __webpack_require__(40);
+	
+	var _helpersEach2 = _interopRequireDefault(_helpersEach);
+	
+	var _helpersHelperMissing = __webpack_require__(41);
+	
+	var _helpersHelperMissing2 = _interopRequireDefault(_helpersHelperMissing);
+	
+	var _helpersIf = __webpack_require__(42);
+	
+	var _helpersIf2 = _interopRequireDefault(_helpersIf);
+	
+	var _helpersLog = __webpack_require__(43);
+	
+	var _helpersLog2 = _interopRequireDefault(_helpersLog);
+	
+	var _helpersLookup = __webpack_require__(44);
+	
+	var _helpersLookup2 = _interopRequireDefault(_helpersLookup);
+	
+	var _helpersWith = __webpack_require__(45);
+	
+	var _helpersWith2 = _interopRequireDefault(_helpersWith);
+	
+	function registerDefaultHelpers(instance) {
+	  _helpersBlockHelperMissing2['default'](instance);
+	  _helpersEach2['default'](instance);
+	  _helpersHelperMissing2['default'](instance);
+	  _helpersIf2['default'](instance);
+	  _helpersLog2['default'](instance);
+	  _helpersLookup2['default'](instance);
+	  _helpersWith2['default'](instance);
+	}
+
+/***/ },
+/* 39 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	exports.__esModule = true;
+	
+	var _utils = __webpack_require__(36);
+	
+	exports['default'] = function (instance) {
+	  instance.registerHelper('blockHelperMissing', function (context, options) {
+	    var inverse = options.inverse,
+	        fn = options.fn;
+	
+	    if (context === true) {
+	      return fn(this);
+	    } else if (context === false || context == null) {
+	      return inverse(this);
+	    } else if (_utils.isArray(context)) {
+	      if (context.length > 0) {
+	        if (options.ids) {
+	          options.ids = [options.name];
+	        }
+	
+	        return instance.helpers.each(context, options);
+	      } else {
+	        return inverse(this);
+	      }
+	    } else {
+	      if (options.data && options.ids) {
+	        var data = _utils.createFrame(options.data);
+	        data.contextPath = _utils.appendContextPath(options.data.contextPath, options.name);
+	        options = { data: data };
+	      }
+	
+	      return fn(context, options);
+	    }
+	  });
+	};
+	
+	module.exports = exports['default'];
+
+/***/ },
+/* 40 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+	
+	exports.__esModule = true;
+	// istanbul ignore next
+	
+	function _interopRequireDefault(obj) {
+	  return obj && obj.__esModule ? obj : { 'default': obj };
+	}
+	
+	var _utils = __webpack_require__(36);
+	
+	var _exception = __webpack_require__(37);
+	
+	var _exception2 = _interopRequireDefault(_exception);
+	
+	exports['default'] = function (instance) {
+	  instance.registerHelper('each', function (context, options) {
+	    if (!options) {
+	      throw new _exception2['default']('Must pass iterator to #each');
+	    }
+	
+	    var fn = options.fn,
+	        inverse = options.inverse,
+	        i = 0,
+	        ret = '',
+	        data = undefined,
+	        contextPath = undefined;
+	
+	    if (options.data && options.ids) {
+	      contextPath = _utils.appendContextPath(options.data.contextPath, options.ids[0]) + '.';
+	    }
+	
+	    if (_utils.isFunction(context)) {
+	      context = context.call(this);
+	    }
+	
+	    if (options.data) {
+	      data = _utils.createFrame(options.data);
+	    }
+	
+	    function execIteration(field, index, last) {
+	      if (data) {
+	        data.key = field;
+	        data.index = index;
+	        data.first = index === 0;
+	        data.last = !!last;
+	
+	        if (contextPath) {
+	          data.contextPath = contextPath + field;
+	        }
+	      }
+	
+	      ret = ret + fn(context[field], {
+	        data: data,
+	        blockParams: _utils.blockParams([context[field], field], [contextPath + field, null])
+	      });
+	    }
+	
+	    if (context && (typeof context === 'undefined' ? 'undefined' : _typeof(context)) === 'object') {
+	      if (_utils.isArray(context)) {
+	        for (var j = context.length; i < j; i++) {
+	          if (i in context) {
+	            execIteration(i, i, i === context.length - 1);
+	          }
+	        }
+	      } else {
+	        var priorKey = undefined;
+	
+	        for (var key in context) {
+	          if (context.hasOwnProperty(key)) {
+	            // We're running the iterations one step out of sync so we can detect
+	            // the last iteration without have to scan the object twice and create
+	            // an itermediate keys array.
+	            if (priorKey !== undefined) {
+	              execIteration(priorKey, i - 1);
+	            }
+	            priorKey = key;
+	            i++;
+	          }
+	        }
+	        if (priorKey !== undefined) {
+	          execIteration(priorKey, i - 1, true);
+	        }
+	      }
+	    }
+	
+	    if (i === 0) {
+	      ret = inverse(this);
+	    }
+	
+	    return ret;
+	  });
+	};
+	
+	module.exports = exports['default'];
+
+/***/ },
+/* 41 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	exports.__esModule = true;
+	// istanbul ignore next
+	
+	function _interopRequireDefault(obj) {
+	  return obj && obj.__esModule ? obj : { 'default': obj };
+	}
+	
+	var _exception = __webpack_require__(37);
+	
+	var _exception2 = _interopRequireDefault(_exception);
+	
+	exports['default'] = function (instance) {
+	  instance.registerHelper('helperMissing', function () /* [args, ]options */{
+	    if (arguments.length === 1) {
+	      // A missing field in a {{foo}} construct.
+	      return undefined;
+	    } else {
+	      // Someone is actually trying to call something, blow up.
+	      throw new _exception2['default']('Missing helper: "' + arguments[arguments.length - 1].name + '"');
+	    }
+	  });
+	};
+	
+	module.exports = exports['default'];
+
+/***/ },
+/* 42 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	exports.__esModule = true;
+	
+	var _utils = __webpack_require__(36);
+	
+	exports['default'] = function (instance) {
+	  instance.registerHelper('if', function (conditional, options) {
+	    if (_utils.isFunction(conditional)) {
+	      conditional = conditional.call(this);
+	    }
+	
+	    // Default behavior is to render the positive path if the value is truthy and not empty.
+	    // The `includeZero` option may be set to treat the condtional as purely not empty based on the
+	    // behavior of isEmpty. Effectively this determines if 0 is handled by the positive path or negative.
+	    if (!options.hash.includeZero && !conditional || _utils.isEmpty(conditional)) {
+	      return options.inverse(this);
+	    } else {
+	      return options.fn(this);
+	    }
+	  });
+	
+	  instance.registerHelper('unless', function (conditional, options) {
+	    return instance.helpers['if'].call(this, conditional, { fn: options.inverse, inverse: options.fn, hash: options.hash });
+	  });
+	};
+	
+	module.exports = exports['default'];
+
+/***/ },
+/* 43 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	exports.__esModule = true;
+	
+	exports['default'] = function (instance) {
+	  instance.registerHelper('log', function () /* message, options */{
+	    var args = [undefined],
+	        options = arguments[arguments.length - 1];
+	    for (var i = 0; i < arguments.length - 1; i++) {
+	      args.push(arguments[i]);
+	    }
+	
+	    var level = 1;
+	    if (options.hash.level != null) {
+	      level = options.hash.level;
+	    } else if (options.data && options.data.level != null) {
+	      level = options.data.level;
+	    }
+	    args[0] = level;
+	
+	    instance.log.apply(instance, args);
+	  });
+	};
+	
+	module.exports = exports['default'];
+
+/***/ },
+/* 44 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	exports.__esModule = true;
+	
+	exports['default'] = function (instance) {
+	  instance.registerHelper('lookup', function (obj, field) {
+	    return obj && obj[field];
+	  });
+	};
+	
+	module.exports = exports['default'];
+
+/***/ },
+/* 45 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	exports.__esModule = true;
+	
+	var _utils = __webpack_require__(36);
+	
+	exports['default'] = function (instance) {
+	  instance.registerHelper('with', function (context, options) {
+	    if (_utils.isFunction(context)) {
+	      context = context.call(this);
+	    }
+	
+	    var fn = options.fn;
+	
+	    if (!_utils.isEmpty(context)) {
+	      var data = options.data;
+	      if (options.data && options.ids) {
+	        data = _utils.createFrame(options.data);
+	        data.contextPath = _utils.appendContextPath(options.data.contextPath, options.ids[0]);
+	      }
+	
+	      return fn(context, {
+	        data: data,
+	        blockParams: _utils.blockParams([context], [data && data.contextPath])
+	      });
+	    } else {
+	      return options.inverse(this);
+	    }
+	  });
+	};
+	
+	module.exports = exports['default'];
+
+/***/ },
+/* 46 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	exports.__esModule = true;
+	exports.registerDefaultDecorators = registerDefaultDecorators;
+	// istanbul ignore next
+	
+	function _interopRequireDefault(obj) {
+	  return obj && obj.__esModule ? obj : { 'default': obj };
+	}
+	
+	var _decoratorsInline = __webpack_require__(47);
+	
+	var _decoratorsInline2 = _interopRequireDefault(_decoratorsInline);
+	
+	function registerDefaultDecorators(instance) {
+	  _decoratorsInline2['default'](instance);
+	}
+
+/***/ },
+/* 47 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	exports.__esModule = true;
+	
+	var _utils = __webpack_require__(36);
+	
+	exports['default'] = function (instance) {
+	  instance.registerDecorator('inline', function (fn, props, container, options) {
+	    var ret = fn;
+	    if (!props.partials) {
+	      props.partials = {};
+	      ret = function ret(context, options) {
+	        // Create a new partials stack frame prior to exec.
+	        var original = container.partials;
+	        container.partials = _utils.extend({}, original, props.partials);
+	        var ret = fn(context, options);
+	        container.partials = original;
+	        return ret;
+	      };
+	    }
+	
+	    props.partials[options.args[0]] = options.fn;
+	
+	    return ret;
+	  });
+	};
+	
+	module.exports = exports['default'];
+
+/***/ },
+/* 48 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	exports.__esModule = true;
+	
+	var _utils = __webpack_require__(36);
+	
+	var logger = {
+	  methodMap: ['debug', 'info', 'warn', 'error'],
+	  level: 'info',
+	
+	  // Maps a given level value to the `methodMap` indexes above.
+	  lookupLevel: function lookupLevel(level) {
+	    if (typeof level === 'string') {
+	      var levelMap = _utils.indexOf(logger.methodMap, level.toLowerCase());
+	      if (levelMap >= 0) {
+	        level = levelMap;
+	      } else {
+	        level = parseInt(level, 10);
+	      }
+	    }
+	
+	    return level;
+	  },
+	
+	  // Can be overridden in the host environment
+	  log: function log(level) {
+	    level = logger.lookupLevel(level);
+	
+	    if (typeof console !== 'undefined' && logger.lookupLevel(logger.level) <= level) {
+	      var method = logger.methodMap[level];
+	      if (!console[method]) {
+	        // eslint-disable-line no-console
+	        method = 'log';
+	      }
+	
+	      for (var _len = arguments.length, message = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+	        message[_key - 1] = arguments[_key];
+	      }
+	
+	      console[method].apply(console, message); // eslint-disable-line no-console
+	    }
+	  }
+	};
+	
+	exports['default'] = logger;
+	module.exports = exports['default'];
+
+/***/ },
+/* 49 */
+/***/ function(module, exports) {
+
+	// Build out our basic SafeString type
+	'use strict';
+	
+	exports.__esModule = true;
+	function SafeString(string) {
+	  this.string = string;
+	}
+	
+	SafeString.prototype.toString = SafeString.prototype.toHTML = function () {
+	  return '' + this.string;
+	};
+	
+	exports['default'] = SafeString;
+	module.exports = exports['default'];
+
+/***/ },
+/* 50 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+	
+	exports.__esModule = true;
+	exports.checkRevision = checkRevision;
+	exports.template = template;
+	exports.wrapProgram = wrapProgram;
+	exports.resolvePartial = resolvePartial;
+	exports.invokePartial = invokePartial;
+	exports.noop = noop;
+	// istanbul ignore next
+	
+	function _interopRequireDefault(obj) {
+	  return obj && obj.__esModule ? obj : { 'default': obj };
+	}
+	
+	// istanbul ignore next
+	
+	function _interopRequireWildcard(obj) {
+	  if (obj && obj.__esModule) {
+	    return obj;
+	  } else {
+	    var newObj = {};if (obj != null) {
+	      for (var key in obj) {
+	        if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key];
+	      }
+	    }newObj['default'] = obj;return newObj;
+	  }
+	}
+	
+	var _utils = __webpack_require__(36);
+	
+	var Utils = _interopRequireWildcard(_utils);
+	
+	var _exception = __webpack_require__(37);
+	
+	var _exception2 = _interopRequireDefault(_exception);
+	
+	var _base = __webpack_require__(35);
+	
+	function checkRevision(compilerInfo) {
+	  var compilerRevision = compilerInfo && compilerInfo[0] || 1,
+	      currentRevision = _base.COMPILER_REVISION;
+	
+	  if (compilerRevision !== currentRevision) {
+	    if (compilerRevision < currentRevision) {
+	      var runtimeVersions = _base.REVISION_CHANGES[currentRevision],
+	          compilerVersions = _base.REVISION_CHANGES[compilerRevision];
+	      throw new _exception2['default']('Template was precompiled with an older version of Handlebars than the current runtime. ' + 'Please update your precompiler to a newer version (' + runtimeVersions + ') or downgrade your runtime to an older version (' + compilerVersions + ').');
+	    } else {
+	      // Use the embedded version info since the runtime doesn't know about this revision yet
+	      throw new _exception2['default']('Template was precompiled with a newer version of Handlebars than the current runtime. ' + 'Please update your runtime to a newer version (' + compilerInfo[1] + ').');
+	    }
+	  }
+	}
+	
+	function template(templateSpec, env) {
+	  /* istanbul ignore next */
+	  if (!env) {
+	    throw new _exception2['default']('No environment passed to template');
+	  }
+	  if (!templateSpec || !templateSpec.main) {
+	    throw new _exception2['default']('Unknown template object: ' + (typeof templateSpec === 'undefined' ? 'undefined' : _typeof(templateSpec)));
+	  }
+	
+	  templateSpec.main.decorator = templateSpec.main_d;
+	
+	  // Note: Using env.VM references rather than local var references throughout this section to allow
+	  // for external users to override these as psuedo-supported APIs.
+	  env.VM.checkRevision(templateSpec.compiler);
+	
+	  function invokePartialWrapper(partial, context, options) {
+	    if (options.hash) {
+	      context = Utils.extend({}, context, options.hash);
+	      if (options.ids) {
+	        options.ids[0] = true;
+	      }
+	    }
+	
+	    partial = env.VM.resolvePartial.call(this, partial, context, options);
+	    var result = env.VM.invokePartial.call(this, partial, context, options);
+	
+	    if (result == null && env.compile) {
+	      options.partials[options.name] = env.compile(partial, templateSpec.compilerOptions, env);
+	      result = options.partials[options.name](context, options);
+	    }
+	    if (result != null) {
+	      if (options.indent) {
+	        var lines = result.split('\n');
+	        for (var i = 0, l = lines.length; i < l; i++) {
+	          if (!lines[i] && i + 1 === l) {
+	            break;
+	          }
+	
+	          lines[i] = options.indent + lines[i];
+	        }
+	        result = lines.join('\n');
+	      }
+	      return result;
+	    } else {
+	      throw new _exception2['default']('The partial ' + options.name + ' could not be compiled when running in runtime-only mode');
+	    }
+	  }
+	
+	  // Just add water
+	  var container = {
+	    strict: function strict(obj, name) {
+	      if (!(name in obj)) {
+	        throw new _exception2['default']('"' + name + '" not defined in ' + obj);
+	      }
+	      return obj[name];
+	    },
+	    lookup: function lookup(depths, name) {
+	      var len = depths.length;
+	      for (var i = 0; i < len; i++) {
+	        if (depths[i] && depths[i][name] != null) {
+	          return depths[i][name];
+	        }
+	      }
+	    },
+	    lambda: function lambda(current, context) {
+	      return typeof current === 'function' ? current.call(context) : current;
+	    },
+	
+	    escapeExpression: Utils.escapeExpression,
+	    invokePartial: invokePartialWrapper,
+	
+	    fn: function fn(i) {
+	      var ret = templateSpec[i];
+	      ret.decorator = templateSpec[i + '_d'];
+	      return ret;
+	    },
+	
+	    programs: [],
+	    program: function program(i, data, declaredBlockParams, blockParams, depths) {
+	      var programWrapper = this.programs[i],
+	          fn = this.fn(i);
+	      if (data || depths || blockParams || declaredBlockParams) {
+	        programWrapper = wrapProgram(this, i, fn, data, declaredBlockParams, blockParams, depths);
+	      } else if (!programWrapper) {
+	        programWrapper = this.programs[i] = wrapProgram(this, i, fn);
+	      }
+	      return programWrapper;
+	    },
+	
+	    data: function data(value, depth) {
+	      while (value && depth--) {
+	        value = value._parent;
+	      }
+	      return value;
+	    },
+	    merge: function merge(param, common) {
+	      var obj = param || common;
+	
+	      if (param && common && param !== common) {
+	        obj = Utils.extend({}, common, param);
+	      }
+	
+	      return obj;
+	    },
+	
+	    noop: env.VM.noop,
+	    compilerInfo: templateSpec.compiler
+	  };
+	
+	  function ret(context) {
+	    var options = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
+	
+	    var data = options.data;
+	
+	    ret._setup(options);
+	    if (!options.partial && templateSpec.useData) {
+	      data = initData(context, data);
+	    }
+	    var depths = undefined,
+	        blockParams = templateSpec.useBlockParams ? [] : undefined;
+	    if (templateSpec.useDepths) {
+	      if (options.depths) {
+	        depths = context !== options.depths[0] ? [context].concat(options.depths) : options.depths;
+	      } else {
+	        depths = [context];
+	      }
+	    }
+	
+	    function main(context /*, options*/) {
+	      return '' + templateSpec.main(container, context, container.helpers, container.partials, data, blockParams, depths);
+	    }
+	    main = executeDecorators(templateSpec.main, main, container, options.depths || [], data, blockParams);
+	    return main(context, options);
+	  }
+	  ret.isTop = true;
+	
+	  ret._setup = function (options) {
+	    if (!options.partial) {
+	      container.helpers = container.merge(options.helpers, env.helpers);
+	
+	      if (templateSpec.usePartial) {
+	        container.partials = container.merge(options.partials, env.partials);
+	      }
+	      if (templateSpec.usePartial || templateSpec.useDecorators) {
+	        container.decorators = container.merge(options.decorators, env.decorators);
+	      }
+	    } else {
+	      container.helpers = options.helpers;
+	      container.partials = options.partials;
+	      container.decorators = options.decorators;
+	    }
+	  };
+	
+	  ret._child = function (i, data, blockParams, depths) {
+	    if (templateSpec.useBlockParams && !blockParams) {
+	      throw new _exception2['default']('must pass block params');
+	    }
+	    if (templateSpec.useDepths && !depths) {
+	      throw new _exception2['default']('must pass parent depths');
+	    }
+	
+	    return wrapProgram(container, i, templateSpec[i], data, 0, blockParams, depths);
+	  };
+	  return ret;
+	}
+	
+	function wrapProgram(container, i, fn, data, declaredBlockParams, blockParams, depths) {
+	  function prog(context) {
+	    var options = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
+	
+	    var currentDepths = depths;
+	    if (depths && context !== depths[0]) {
+	      currentDepths = [context].concat(depths);
+	    }
+	
+	    return fn(container, context, container.helpers, container.partials, options.data || data, blockParams && [options.blockParams].concat(blockParams), currentDepths);
+	  }
+	
+	  prog = executeDecorators(fn, prog, container, depths, data, blockParams);
+	
+	  prog.program = i;
+	  prog.depth = depths ? depths.length : 0;
+	  prog.blockParams = declaredBlockParams || 0;
+	  return prog;
+	}
+	
+	function resolvePartial(partial, context, options) {
+	  if (!partial) {
+	    if (options.name === '@partial-block') {
+	      partial = options.data['partial-block'];
+	    } else {
+	      partial = options.partials[options.name];
+	    }
+	  } else if (!partial.call && !options.name) {
+	    // This is a dynamic partial that returned a string
+	    options.name = partial;
+	    partial = options.partials[partial];
+	  }
+	  return partial;
+	}
+	
+	function invokePartial(partial, context, options) {
+	  options.partial = true;
+	  if (options.ids) {
+	    options.data.contextPath = options.ids[0] || options.data.contextPath;
+	  }
+	
+	  var partialBlock = undefined;
+	  if (options.fn && options.fn !== noop) {
+	    options.data = _base.createFrame(options.data);
+	    partialBlock = options.data['partial-block'] = options.fn;
+	
+	    if (partialBlock.partials) {
+	      options.partials = Utils.extend({}, options.partials, partialBlock.partials);
+	    }
+	  }
+	
+	  if (partial === undefined && partialBlock) {
+	    partial = partialBlock;
+	  }
+	
+	  if (partial === undefined) {
+	    throw new _exception2['default']('The partial ' + options.name + ' could not be found');
+	  } else if (partial instanceof Function) {
+	    return partial(context, options);
+	  }
+	}
+	
+	function noop() {
+	  return '';
+	}
+	
+	function initData(context, data) {
+	  if (!data || !('root' in data)) {
+	    data = data ? _base.createFrame(data) : {};
+	    data.root = context;
+	  }
+	  return data;
+	}
+	
+	function executeDecorators(fn, prog, container, depths, data, blockParams) {
+	  if (fn.decorator) {
+	    var props = {};
+	    prog = fn.decorator(prog, props, container, depths && depths[0], data, blockParams, depths);
+	    Utils.extend(prog, props);
+	  }
+	  return prog;
+	}
+
+/***/ },
+/* 51 */
+/***/ function(module, exports) {
+
+	/* WEBPACK VAR INJECTION */(function(global) {/* global window */
+	'use strict';
+	
+	exports.__esModule = true;
+	
+	exports['default'] = function (Handlebars) {
+	  /* istanbul ignore next */
+	  var root = typeof global !== 'undefined' ? global : window,
+	      $Handlebars = root.Handlebars;
+	  /* istanbul ignore next */
+	  Handlebars.noConflict = function () {
+	    if (root.Handlebars === Handlebars) {
+	      root.Handlebars = $Handlebars;
+	    }
+	    return Handlebars;
+	  };
+	};
+	
+	module.exports = exports['default'];
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
+
+/***/ },
+/* 52 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Handlebars = __webpack_require__(33);
+	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
+	module.exports = (Handlebars["default"] || Handlebars).template({"1":function(container,depth0,helpers,partials,data) {
+	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
+	
+	  return "							<option value=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.attributes : depth0)) != null ? stack1.placeId : stack1), depth0))
+	    + "\" "
+	    + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.selected : depth0),{"name":"if","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + ">"
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.attributes : depth0)) != null ? stack1.name : stack1), depth0))
+	    + "</option>\n";
+	},"2":function(container,depth0,helpers,partials,data) {
+	    return "selected=\"selected\"";
+	},"4":function(container,depth0,helpers,partials,data) {
+	    var stack1;
+	
+	  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},((stack1 = (depth0 != null ? depth0.error : depth0)) != null ? stack1.emptyCity : stack1),{"name":"if","hash":{},"fn":container.program(5, data, 0),"inverse":container.program(7, data, 0),"data":data})) != null ? stack1 : "");
+	},"5":function(container,depth0,helpers,partials,data) {
+	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
+	
+	  return "							<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findEmpty : stack1), depth0))
+	    + " "
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.text : stack1), depth0))
+	    + "\">\n								Мы определили ваш город, \n								<br>\n								это "
+	    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.error : depth0)) != null ? stack1.data : stack1)) != null ? stack1.formattedAddress : stack1), depth0))
+	    + ".\n								<br>\n								Но, к сожалению, в нем\n								<br>\n								нет пунктов для сдачи \n								<br>\n								костного мозга.\n							</div>\n";
+	},"7":function(container,depth0,helpers,partials,data) {
+	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
+	
+	  return "							<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findEmpty : stack1), depth0))
+	    + " "
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.text : stack1), depth0))
+	    + "\">\n								Мы не смогли определить, где вы\n								<br>\n								находитесь. Пожалуйста, выберите\n								<br>\n								город вручную.\n							</div>\n";
+	},"9":function(container,depth0,helpers,partials,data) {
+	    var stack1, alias1=container.lambda, alias2=container.escapeExpression, alias3=depth0 != null ? depth0 : {};
+	
+	  return "						<div data-view=\"how-map\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findMap : stack1), depth0))
+	    + "\"></div>\n						<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findMainPoint : stack1), depth0))
+	    + "\">\n							<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findPoint : stack1), depth0))
+	    + " "
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.text : stack1), depth0))
+	    + "\">\n								<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findPointName : stack1), depth0))
+	    + "\">"
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.firstPoint : depth0)) != null ? stack1.name : stack1), depth0))
+	    + "</div>\n								<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findPointAddress : stack1), depth0))
+	    + "\">\n									"
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.firstPoint : depth0)) != null ? stack1.address : stack1), depth0))
+	    + "\n								</div>\n								<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findPointTime : stack1), depth0))
+	    + "\">\n									Время работы: "
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.firstPoint : depth0)) != null ? stack1.time : stack1), depth0))
+	    + "\n								</div>\n"
+	    + ((stack1 = helpers["if"].call(alias3,((stack1 = (depth0 != null ? depth0.firstPoint : depth0)) != null ? stack1.phone : stack1),{"name":"if","hash":{},"fn":container.program(10, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + ((stack1 = helpers["if"].call(alias3,((stack1 = (depth0 != null ? depth0.firstPoint : depth0)) != null ? stack1.info : stack1),{"name":"if","hash":{},"fn":container.program(12, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + "							</div>\n							<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findShowMore : stack1), depth0))
+	    + " "
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.text : stack1), depth0))
+	    + "\" data-action=\"show-all-points\">\n								Все пункты...\n							</div>\n							<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findShowMore : stack1), depth0))
+	    + " "
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.text : stack1), depth0))
+	    + "\" style=\"display: none\" data-action=\"hide-all-points\">\n								Свернуть\n							</div>\n						</div>\n";
+	},"10":function(container,depth0,helpers,partials,data) {
+	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
+	
+	  return "									<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findPointPhone : stack1), depth0))
+	    + "\">\n										Телефон: "
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.firstPoint : depth0)) != null ? stack1.phone : stack1), depth0))
+	    + "\n									</div>\n";
+	},"12":function(container,depth0,helpers,partials,data) {
+	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
+	
+	  return "									<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findPointMeta : stack1), depth0))
+	    + "\">\n										"
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.firstPoint : depth0)) != null ? stack1.info : stack1), depth0))
+	    + "\n									</div>\n";
+	},"14":function(container,depth0,helpers,partials,data,blockParams,depths) {
+	    var stack1, alias1=container.lambda, alias2=container.escapeExpression, alias3=depth0 != null ? depth0 : {};
+	
+	  return "								<div class=\""
+	    + alias2(alias1(((stack1 = (depths[1] != null ? depths[1].how : depths[1])) != null ? stack1.findPoint : stack1), depth0))
+	    + " "
+	    + alias2(alias1(((stack1 = (depths[1] != null ? depths[1].typography : depths[1])) != null ? stack1.text : stack1), depth0))
+	    + "\">\n									<div class=\""
+	    + alias2(alias1(((stack1 = (depths[1] != null ? depths[1].how : depths[1])) != null ? stack1.findPointName : stack1), depth0))
+	    + "\">"
+	    + alias2(alias1((depth0 != null ? depth0.name : depth0), depth0))
+	    + "</div>\n									<div class=\""
+	    + alias2(alias1(((stack1 = (depths[1] != null ? depths[1].how : depths[1])) != null ? stack1.findPointAddress : stack1), depth0))
+	    + "\">\n										"
+	    + alias2(alias1((depth0 != null ? depth0.address : depth0), depth0))
+	    + "\n									</div>\n									<div class=\""
+	    + alias2(alias1(((stack1 = (depths[1] != null ? depths[1].how : depths[1])) != null ? stack1.findPointTime : stack1), depth0))
+	    + "\">\n										Время работы: "
+	    + alias2(alias1((depth0 != null ? depth0.time : depth0), depth0))
+	    + "\n									</div>\n"
+	    + ((stack1 = helpers["if"].call(alias3,(depth0 != null ? depth0.phone : depth0),{"name":"if","hash":{},"fn":container.program(15, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + ((stack1 = helpers["if"].call(alias3,(depth0 != null ? depth0.info : depth0),{"name":"if","hash":{},"fn":container.program(17, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + "								</div>\n";
+	},"15":function(container,depth0,helpers,partials,data,blockParams,depths) {
+	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
+	
+	  return "										<div class=\""
+	    + alias2(alias1(((stack1 = (depths[1] != null ? depths[1].how : depths[1])) != null ? stack1.findPointPhone : stack1), depth0))
+	    + "\">\n											Телефон: "
+	    + alias2(alias1((depth0 != null ? depth0.phone : depth0), depth0))
+	    + "\n										</div>\n";
+	},"17":function(container,depth0,helpers,partials,data,blockParams,depths) {
+	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
+	
+	  return "										<div class=\""
+	    + alias2(alias1(((stack1 = (depths[1] != null ? depths[1].how : depths[1])) != null ? stack1.findPointMeta : stack1), depth0))
+	    + "\">\n											"
+	    + alias2(alias1((depth0 != null ? depth0.info : depth0), depth0))
+	    + "\n										</div>\n";
+	},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data,blockParams,depths) {
+	    var stack1, alias1=container.lambda, alias2=container.escapeExpression, alias3=depth0 != null ? depth0 : {};
+	
+	  return "<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.root : stack1), depth0))
+	    + "\">\n	<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.artwork : stack1), depth0))
+	    + "\">\n		<img src=\"/static/how_artwork.png\">\n	</div>\n	<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.styles : depth0)) != null ? stack1.pageContainer : stack1), depth0))
+	    + "\">\n		<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.styles : depth0)) != null ? stack1.test : stack1), depth0))
+	    + "\" data-view=\"how-test\"></div>\n	</div>\n	<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.container : stack1), depth0))
+	    + "\">\n		<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
+	    + "\">\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.header : stack1), depth0))
+	    + "\">Как стать<br>донором костного мозга</div>\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n				О&nbsp;донорстве костного мозга знают мало, поэтому многие боятся становиться донорами. Кто-то думает, что&nbsp;костный мозг вырезают из&nbsp;костей, другие слышали, что&nbsp;врач иглой протыкает позвоночник. Мы&nbsp;хотим развеять безосновательные страхи и&nbsp;рассказать, как&nbsp;все происходит на&nbsp;самом деле&nbsp;&mdash; шаг за&nbsp;шагом.\n			</div>\n		</div>\n		<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
+	    + "\" id=\"first-step\">\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
+	    + "\">Первый шаг. Найти, где сдать кровь</div>\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1["float"] : stack1), depth0))
+	    + " "
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.text : stack1), depth0))
+	    + "\">\n					Чтобы вступить в&nbsp;регистр потенциальных доноров костного мозга, нужно сдать кровь на&nbsp;типирование. Типирование&nbsp;&mdash; это тест на&nbsp;тканевую совместимость между донором и&nbsp;реципиентом. От&nbsp;этой совместимости зависит, приживется&nbsp;ли костный мозг в&nbsp;новом организме.\n				</div>\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnote : stack1), depth0))
+	    + "\">\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnoteText : stack1), depth0))
+	    + "\">\n						Для 100% генетической совместимости\n						<br>\n						донора и пациента должны совпасть\n						<br>\n						10 четырехзначных параметров ДНК.\n						<br>\n						Вероятность совпадения 1:10000.\n						<br>\n						Для транплантации достаточно\n						<br>\n						90% совместимости\n					</div>\n				</div>\n			</div>\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n				Специальных пунктов сдачи крови на&nbsp;типирование нет. Вступить в&nbsp;регистр можно в&nbsp;некоторых пунктах переливания крови и&nbsp;в&nbsp;лабораториях регистра. Выберите свой город и&nbsp;найдите удобный пункт.\n			</div>\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.find : stack1), depth0))
+	    + "\">\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findCity : stack1), depth0))
+	    + "\">\n					<select class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.inputs : depth0)) != null ? stack1.select : stack1), depth0))
+	    + "\" data-action=\"select-city\">\n						<option>Выберите город</option>\n"
+	    + ((stack1 = helpers.each.call(alias3,((stack1 = (depth0 != null ? depth0.citiesCollection : depth0)) != null ? stack1.models : stack1),{"name":"each","hash":{},"fn":container.program(1, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + "					</select>\n"
+	    + ((stack1 = helpers.unless.call(alias3,(depth0 != null ? depth0.currentCity : depth0),{"name":"unless","hash":{},"fn":container.program(4, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + "				</div>\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findContainer : stack1), depth0))
+	    + "\">\n"
+	    + ((stack1 = helpers["if"].call(alias3,(depth0 != null ? depth0.currentCity : depth0),{"name":"if","hash":{},"fn":container.program(9, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + "				</div>\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findPoints : stack1), depth0))
+	    + "\" data-role=\"all-points\">\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findPointsContainer : stack1), depth0))
+	    + "\">\n						<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findPointsEven : stack1), depth0))
+	    + "\">\n"
+	    + ((stack1 = helpers.each.call(alias3,(depth0 != null ? depth0.evenPoints : depth0),{"name":"each","hash":{},"fn":container.program(14, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + "						</div>\n						<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findPointsOdd : stack1), depth0))
+	    + "\">\n"
+	    + ((stack1 = helpers.each.call(alias3,(depth0 != null ? depth0.oddPoints : depth0),{"name":"each","hash":{},"fn":container.program(14, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + "						</div>\n					</div>\n				</div>\n			</div>\n		</div>\n		<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
+	    + "\">\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
+	    + "\">Второй шаг. Сдать кровь</div>\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1["float"] : stack1), depth0))
+	    + " "
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n				<div>\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n						В&nbsp;пункте приёма крови вы&nbsp;заполняете анкету и&nbsp;подписываете соглашение. Соглашение подтверждает, что вы&nbsp;вступаете в&nbsp;регистр добровольно и&nbsp;знаете о&nbsp;всех этапах донорства.\n					</div>\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n						Тут же вы сдаете 10 мл крови.  \n					</div>\n				</div>\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnote : stack1), depth0))
+	    + "\">\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n						<a target=\"_blank\" href=\"/static/pdf/anketa.pdf\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
+	    + "\">\n							Анкета\n							<br>\n							о состоянии здоровья\n						</a>\n					</div>\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n						<a target=\"_blank\" href=\"/static/pdf/register_agreement.pdf\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
+	    + "\">\n							Соглашение \n							<br>\n							о вступлении в регистр\n						</a>\n					</div>\n				</div>\n			</div>\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n				Поздравляем, вы&nbsp;в&nbsp;регистре! Вы&nbsp;попадаете в&nbsp;регистр автоматически после того, как&nbsp;вашу кровь протипируют в&nbsp;лаборатории. Сотрудники регистра позвонят, только если ваш костный мозг кому-то подойдет.\n			</div>\n		</div>\n		<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
+	    + "\">\n			<div class="
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.note : stack1), depth0))
+	    + ">\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
+	    + "\">Персональные данные под защитой</div>\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.floatJustifyBetween : stack1), depth0))
+	    + "\">\n						<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.col2 : stack1), depth0))
+	    + "\">\n							<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n								<span class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.bold : stack1), depth0))
+	    + "\">Регистр не раскрывает ваши данные</span>\n								<br>\n								Пробирку с&nbsp;анализом подписывают девятизначным кодом. Этот&nbsp;же код пишут на&nbsp;анкете с&nbsp;вашими персональными данными. Результаты типирования и&nbsp;код хранятся в&nbsp;одной базе, а&nbsp;персональные данные&nbsp;&mdash; в&nbsp;другой.\n							</div>\n							<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n								База с&nbsp;персональными данными находится на&nbsp;отдельном сервере без выхода в&nbsp;интернет. Сотрудник сопоставит код и&nbsp;имя, только если кому-то подойдут ваши клетки.\n							</div>\n						</div>\n						<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.col2 : stack1), depth0))
+	    + "\">\n							<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n								<span class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.bold : stack1), depth0))
+	    + "\">Регистр не раскрывает данные пациента</span>\n								<br>\n								О&nbsp;реципиенте вам скажут немного: пол, возраст, вес и&nbsp;как в&nbsp;общих чертах прошла трасплантация.\n							</div>\n							<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n								Срок анонимности&nbsp;&mdash; два года. Потом сотрудник регистра предложит донору и&nbsp;реципиенту написать друг другу письма&nbsp;и, если оба согласятся, встретиться.\n							</div>	\n						</div>\n					</div>\n				</div>\n			</div>\n		</div>\n		<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
+	    + "\">\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
+	    + "\">Третий шаг. Ждать</div>\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1["float"] : stack1), depth0))
+	    + " "
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n				<div>\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n						Потенциальный донор может подойти кому-то на&nbsp;следующий день, через несколько лет или&nbsp;вообще никогда не&nbsp;подойти.\n					</div>\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n						Помните, что мы&nbsp;увеличиваем регистр, чтобы спасать жизни. Поэтому оцените свои силы заранее и&nbsp;вступайте в&nbsp;регистр с&nbsp;твердым намерением стать реальным донором.\n					</div>\n				</div>\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnote : stack1), depth0))
+	    + "\">\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.contact : stack1), depth0))
+	    + "\">\n						<a href=\"mailto:donor@advita.ru\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.contactEmail : stack1), depth0))
+	    + "\">donor@advita.ru</a>\n						<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.contactText : stack1), depth0))
+	    + "\">\n							Обо всех изменениях пишите\n							<br>\n							в фонд Advita — мы передадим\n							<br>\n							информацию в регистр.\n							<br>\n							И неважно, откуда вы и где\n							<br>\n							сдавали кровь\n						</div>\n					</div>\n				</div>\n			</div>\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n				Люди, которые числятся в&nbsp;регистре, но&nbsp;в&nbsp;последний момент отказываются от&nbsp;реального донорства, зря тратят деньги благотворительных организаций и&nbsp;время пациента&nbsp;&mdash; время, которое может быть решающим.\n			</div>\n		</div>\n		<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
+	    + "\">\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
+	    + "\">Четвертый шаг. Пройти обследование</div>\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1["float"] : stack1), depth0))
+	    + "\">\n				<div>\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n						Итак, прошло время, и&nbsp;ваши клетки кому-то подошли. Сотрудник регистра звонит вам и&nbsp;спрашивает, готовы&nbsp;ли вы&nbsp;стать реальным донором.\n					</div>	\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n						Если соглашаетесь, вам назначают более детальное, развернутое типирование&nbsp;&mdash; чтобы убедиться, что&nbsp;подходите. Если точно подходите, проходите обследование. Какое&nbsp;&mdash; зависит от&nbsp;состояния здоровья. Это в&nbsp;любом случае будет обычный биохимический анализ крови. Если вас что-то беспокоит, врач назначит дополнительные анализы.\n					</div>\n				</div>\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.media : stack1), depth0))
+	    + "\">\n					<img class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.doctorImage : stack1), depth0))
+	    + "\" src=\"/static/doctor.png\">\n				</div>\n			</div>	\n		</div>\n		<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
+	    + "\">\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
+	    + "\">Пятый шаг. Стать донором</div>\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n				Забрать костный мозг от&nbsp;донора можно двумя способами. Каким будут брать у&nbsp;вас, вы&nbsp;выбираете сами.\n			</div>\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.floatJustifyBetween : stack1), depth0))
+	    + "\">\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.col2 : stack1), depth0))
+	    + "\">\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.type : stack1), depth0))
+	    + "\">\n						<img src=\"/static/spit.png\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.typeImage : stack1), depth0))
+	    + "\">\n						<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.text : stack1), depth0))
+	    + "\"><span class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.bold : stack1), depth0))
+	    + "\">Из тазовой кости</span></div>\n						<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.text : stack1), depth0))
+	    + "\">\n							Врач проколет тазовую кость и&nbsp;возьмет небольшую часть костного мозга. Вы&nbsp;будете под общим наркозом. Операция займёт около 30&nbsp;минут. Во&nbsp;время операции вы&nbsp;ничего не&nbsp;почувствуете, но&nbsp;несколько дней после операции будут &laquo;ныть кости&raquo;. Вы&nbsp;легко снимете дискомфорт обезболивающими таблетками.\n						</div>\n					</div>\n				</div>\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.col2 : stack1), depth0))
+	    + "\">\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.type : stack1), depth0))
+	    + "\">\n						<img src=\"/static/kapelnitsa.png\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.typeImage : stack1), depth0))
+	    + "\">\n						<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.text : stack1), depth0))
+	    + "\"><span class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.bold : stack1), depth0))
+	    + "\">Из вены</span></div>\n						<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.text : stack1), depth0))
+	    + "\">\n							У&nbsp;вас берут кровь из&nbsp;вены одной руки и&nbsp;возвращают в&nbsp;вену на&nbsp;другой руке. По&nbsp;дороге кровь проходит через сепаратор, отлавливающий клетки костного мозга. Процедура занимает пять-шесть часов. Анестезия не&nbsp;нужна, вы&nbsp;находитесь в&nbsp;сознании и&nbsp;успеваете посмотреть три&nbsp;любимых фильма или поспать.\n						</div>	\n					</div>\n				</div>\n			</div>\n		</div>\n		<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
+	    + "\">\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
+	    + "\">Что потом</div>\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n				Через два года после успешной трансплантации у&nbsp;донора и&nbsp;реципиента спросят, хотят&nbsp;ли они познакомиться. Если оба согласятся, состоится встреча.\n			</div>\n		</div>\n		<img src=\"/static/obyatye.png\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.whatNextImage : stack1), depth0))
+	    + "\">\n		<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
+	    + "\">\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.floatJustifyBetween : stack1), depth0))
+	    + "\">\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.col2 : stack1), depth0))
+	    + "\">\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n						&laquo;И&nbsp;вот они встретились. Два&nbsp;черноглазых парня,&nbsp;&mdash; одному&nbsp;14, другому&nbsp;42, чем-то неуловимо похожие друг на&nbsp;друга и&nbsp;почти стопроцентные братья по&nbsp;крови&raquo;\n					</div>\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n						<a href=\"http://takiedela.ru/2016/03/perelivanie-zhizni/\" target=\"_blank\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
+	    + "\">История от Юлии Варенцовой</a>\n					</div>\n				</div>\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.col2 : stack1), depth0))
+	    + "\">\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n						&laquo;Я&nbsp;видел встречу только однажды, и&nbsp;это&nbsp;одно из&nbsp;самых сильных впечатлений за&nbsp;всю мою жизнь&raquo;\n					</div>\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n						<a href=\"https://snob.ru/selected/entry/50262?v=1464270594\" target=\"_blank\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
+	    + "\">Репортаж Валерия Панюшкина</a>\n					</div>\n				</div>\n			</div>\n		</div>\n	</div>\n	<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
+	    + "\">\n		<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.footer : stack1), depth0))
+	    + "\">\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.container : stack1), depth0))
+	    + "\">\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.goToFirst : stack1), depth0))
+	    + "\">\n						<img src=\"/static/location.png\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.goToFirstImage : stack1), depth0))
+	    + "\">\n						<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.goToFirstText : stack1), depth0))
+	    + "\">\n							<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n								Если вы&nbsp;решили стать донором костного мозга, сделайте первый шаг&nbsp;&mdash; найдите пункт, в&nbsp;котором сможете сдать кровь и&nbsp;вступить в&nbsp;регистр.\n							</div>\n							<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n								<a href=\"#\" data-action=\"scroll-to\" data-element=\"#first-step\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
+	    + "\">Найти удобный пункт</a>\n							</div>\n						</div>\n					</div>\n				</div>\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n					Если сомневаетесь, <a href=\"http://advita.ru/donor.php\" target=\"_blank\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
+	    + "\">узнайте больше на сайте Advita</a>.\n				</div>\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n					В любом случае расскажите о донорстве костного мозга друзьям.\n					<br>\n					Так вы можете спасти чью-то жизнь, даже если не вступите в регистр. \n				</div>\n				<div data-view=\"how-share\"></div>\n			</div>\n		</div>\n	</div>	\n	<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.container : stack1), depth0))
+	    + "\">\n		<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.credentials : stack1), depth0))
+	    + "\">\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.credentialsImage : stack1), depth0))
+	    + "\">\n				<img src=\"/static/credentials_why.png\">\n			</div>\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.credentialsText : stack1), depth0))
+	    + "\">\n				Сделала Алиса Яннау в Школе редакторов Бюро Горбунова. \n				<br>\n				Иллюстратор — Марина Савицкая, разработчик — Артур Стамбульцян.\n				<br>\n				<a href=\"/static/pdf/agreement.pdf\" target=\"_blank\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
+	    + "\">Пользовательское соглашение</a>.\n			</div>	\n		</div>\n	</div>\n</div>";
+	},"useData":true,"useDepths":true});
+
+/***/ },
+/* 53 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _underscore = __webpack_require__(2);
+	
+	var _underscore2 = _interopRequireDefault(_underscore);
+	
+	var _page = __webpack_require__(7);
+	
+	var _page2 = _interopRequireDefault(_page);
+	
+	var _test = __webpack_require__(54);
+	
+	var _test2 = _interopRequireDefault(_test);
+	
+	var _counters = __webpack_require__(80);
+	
+	var _counters2 = _interopRequireDefault(_counters);
+	
+	var _page3 = __webpack_require__(21);
+	
+	var _page4 = _interopRequireDefault(_page3);
+	
+	var _typography = __webpack_require__(23);
+	
+	var _typography2 = _interopRequireDefault(_typography);
+	
+	var _why = __webpack_require__(81);
+	
+	var _why2 = _interopRequireDefault(_why);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _class = function (_PageView) {
+		_inherits(_class, _PageView);
+	
+		function _class() {
+			_classCallCheck(this, _class);
+	
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(_class).apply(this, arguments));
+		}
+	
+		_createClass(_class, [{
+			key: 'init',
+			value: function init() {
+				var _this2 = this;
+	
+				this.countersModel = new _counters2.default();
+	
+				this.registerChild(new _test2.default(), 'how-test');
+	
+				this.countersModel.fetchPotentialDonors().then(function () {
+					_this2.render();
+				}, function () {});
+	
+				this.render();
+			}
+		}, {
+			key: '_prepareData',
+			value: function _prepareData() {
+				var data = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	
+				return _underscore2.default.extend(data, {
+					page: _page4.default,
+					typography: _typography2.default,
+					why: _why2.default,
+					data: {
+						potentialDonors: this.countersModel.potentialDonors,
+						diff: this.countersModel.diff
+					}
+				});
+			}
+		}, {
+			key: '_template',
+			get: function get() {
+				return __webpack_require__(83);
+			}
+		}]);
+
+		return _class;
+	}(_page2.default);
+
+	exports.default = _class;
+
+/***/ },
+/* 54 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	exports.isLastStep = exports.reasons = exports.states = undefined;
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _backbone = __webpack_require__(1);
+	
+	var _backbone2 = _interopRequireDefault(_backbone);
+	
+	var _underscore = __webpack_require__(2);
+	
+	var _underscore2 = _interopRequireDefault(_underscore);
+	
+	var _base = __webpack_require__(5);
+	
+	var _base2 = _interopRequireDefault(_base);
+	
+	var _start2 = __webpack_require__(55);
+	
+	var _start3 = _interopRequireDefault(_start2);
+	
+	var _game = __webpack_require__(61);
+	
+	var _game2 = _interopRequireDefault(_game);
+	
+	var _age = __webpack_require__(65);
+	
+	var _age2 = _interopRequireDefault(_age);
+	
+	var _weight = __webpack_require__(68);
+	
+	var _weight2 = _interopRequireDefault(_weight);
+	
+	var _auto = __webpack_require__(70);
+	
+	var _auto2 = _interopRequireDefault(_auto);
+	
+	var _disease = __webpack_require__(72);
+	
+	var _disease2 = _interopRequireDefault(_disease);
+	
+	var _finish = __webpack_require__(74);
+	
+	var _finish2 = _interopRequireDefault(_finish);
+	
+	var _test = __webpack_require__(56);
+	
+	var _test2 = _interopRequireDefault(_test);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var states = { START: 'START', GAME: 'GAME', FINISH: 'FINISH' };
+	
+	var reasons = { AGE: 'AGE', WEIGHT: 'WEIGHT', AUTO: 'AUTO', DISEASE: 'DISEASE' };
+	
+	function isLastStep(stepIndex, stepsAmount) {
+		return stepIndex + 1 >= stepsAmount;
+	}
+	
+	var steps = [{
+		View: _age2.default
+	}, {
+		View: _weight2.default
+	}, {
+		View: _auto2.default
+	}, {
+		View: _disease2.default
+	}];
+	
+	var TestModel = function (_Backbone$Model) {
+		_inherits(TestModel, _Backbone$Model);
+	
+		function TestModel() {
+			_classCallCheck(this, TestModel);
+	
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(TestModel).apply(this, arguments));
+		}
+	
+		_createClass(TestModel, [{
+			key: 'defaults',
+			get: function get() {
+				return {
+					state: states.START,
+					step: 0,
+					result: true,
+					reason: null,
+					data: {}
+				};
+			}
+		}, {
+			key: 'ageFail',
+			get: function get() {
+				return this.get('reason') == reasons.AGE;
+			}
+		}, {
+			key: 'age17',
+			get: function get() {
+				return this.get('data').age == 17;
+			}
+		}, {
+			key: 'age16',
+			get: function get() {
+				return this.get('data').age == 16;
+			}
+		}, {
+			key: 'age15_10',
+			get: function get() {
+				return this.get('data').age && this.get('data').age <= 15 && this.get('data').age >= 10;
+			}
+		}, {
+			key: 'age10less',
+			get: function get() {
+				return this.get('data').age && this.get('data').age < 10;
+			}
+		}, {
+			key: 'age45more',
+			get: function get() {
+				return this.get('data').age && this.get('data').age > 45;
+			}
+		}, {
+			key: 'weightFail',
+			get: function get() {
+				return this.get('reason') == reasons.WEIGHT;
+			}
+		}, {
+			key: 'weight47less',
+			get: function get() {
+				return this.get('data').weight && this.get('data').weight <= 47;
+			}
+		}, {
+			key: 'weight48_49',
+			get: function get() {
+				return this.get('data').weight == 49 || this.get('data').weight == 48;
+			}
+		}, {
+			key: 'autoFail',
+			get: function get() {
+				return this.get('reason') == reasons.AUTO;
+			}
+		}, {
+			key: 'diseaseFail',
+			get: function get() {
+				return this.get('reason') == reasons.DISEASE;
+			}
+		}, {
+			key: 'success',
+			get: function get() {
+				return this.get('result');
+			}
+		}]);
+	
+		return TestModel;
+	}(_backbone2.default.Model);
+	
+	var _class = function (_BaseView) {
+		_inherits(_class, _BaseView);
+	
+		function _class() {
+			_classCallCheck(this, _class);
+	
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(_class).apply(this, arguments));
+		}
+	
+		_createClass(_class, [{
+			key: '_prepareData',
+			value: function _prepareData() {
+				var data = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	
+				return _underscore2.default.extend(data, {
+					styles: _test2.default
+				});
+			}
+		}, {
+			key: 'init',
+			value: function init() {
+				this.testModel = new TestModel();
+				this.listenTo(this.testModel, 'change:state change:step', this._changeState);
+				this._changeState();
+			}
+		}, {
+			key: '_changeState',
+			value: function _changeState() {
+				this.removeChildren('test-container');
+				switch (this.testModel.get('state')) {
+					case states.START:
+						this.registerChild(new _start3.default(), 'test-container');
+						break;
+					case states.GAME:
+						this.registerChild(new _game2.default({
+							testModel: this.testModel,
+							stepsAmount: steps.length,
+							currentStepIndex: this.testModel.get('step'),
+							StepView: steps[this.testModel.get('step')].View
+						}), 'test-container');
+						break;
+					case states.FINISH:
+						this.registerChild(new _finish2.default({
+							testModel: this.testModel
+						}), 'test-container');
+						break;
+				}
+				this.render();
+			}
+		}, {
+			key: '_start',
+			value: function _start() {
+				this.testModel.set({
+					state: states.GAME
+				});
+			}
+		}, {
+			key: 'className',
+			get: function get() {
+				return _test2.default.root;
+			}
+		}, {
+			key: '_template',
+			get: function get() {
+				return __webpack_require__(79);
+			}
+		}, {
+			key: 'events',
+			get: function get() {
+				return {
+					'click [data-action="test-start"]': '_start'
+				};
+			}
+		}]);
+	
+		return _class;
+	}(_base2.default);
+	
+	exports.default = _class;
+	exports.states = states;
+	exports.reasons = reasons;
+	exports.isLastStep = isLastStep;
+
+/***/ },
+/* 55 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _underscore = __webpack_require__(2);
+	
+	var _underscore2 = _interopRequireDefault(_underscore);
+	
+	var _base = __webpack_require__(5);
+	
+	var _base2 = _interopRequireDefault(_base);
+	
+	var _test = __webpack_require__(56);
+	
+	var _test2 = _interopRequireDefault(_test);
+	
+	var _start = __webpack_require__(58);
+	
+	var _start2 = _interopRequireDefault(_start);
+	
+	var _inputs = __webpack_require__(25);
+	
+	var _inputs2 = _interopRequireDefault(_inputs);
+	
+	var _typography = __webpack_require__(23);
+	
+	var _typography2 = _interopRequireDefault(_typography);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _class = function (_BaseView) {
+		_inherits(_class, _BaseView);
+	
+		function _class() {
+			_classCallCheck(this, _class);
+	
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(_class).apply(this, arguments));
+		}
+	
+		_createClass(_class, [{
+			key: 'init',
+			value: function init() {
+				this.render();
+			}
+		}, {
+			key: '_prepareData',
+			value: function _prepareData() {
+				var data = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	
+				return _underscore2.default.extend(data, {
+					testStyles: _test2.default,
+					startStyles: _start2.default,
+					inputsStyles: _inputs2.default,
+					typography: _typography2.default
+				});
+			}
+		}, {
+			key: '_template',
+			get: function get() {
+				return __webpack_require__(60);
+			}
+		}, {
+			key: 'className',
+			get: function get() {
+				return _start2.default.root;
+			}
+		}]);
+
+		return _class;
+	}(_base2.default);
+
+	exports.default = _class;
+
+/***/ },
+/* 56 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(57);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(14)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js?modules!./../../node_modules/postcss-loader/index.js!./test.css", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js?modules!./../../node_modules/postcss-loader/index.js!./test.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 57 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(13)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, ".ShiC6JgIaOalBQVpIsYtL {\n\tmargin: auto;\n\tposition: relative;\n}\n\n._1ZNJ4h3Uct4YGPwsOlP-a2 {\n\tposition: relative;\n\tz-index: 2;\n\ttext-align: center;\n}\n\n._10prCLGoK4eiHXC-VVYaZu {\n\t\n}\n\n._2a18C1cpDnHlHQPP919Gwu {\n\tfont-size: 16px;\n\ttext-transform: uppercase;\n\tmargin-bottom: 14px;\n\tletter-spacing: 4px;\n}\n\n/*.title {\n\tfont-family: 'Roboto', sans-serif;\n\tfont-size: 40px;\n\tline-height: 45px;\n\tfont-weight: bold;\n\tmargin-bottom: 15px;\n}\n\n.subtitle {\n\tfont-family: 'Roboto', sans-serif;\n\tfont-weight: 300;\n\tfont-size: 18px;\n\tline-height: 26px;\n\tmargin-bottom: 35px;\n\tletter-spacing: -0.2px;\n}*/", ""]);
+	
+	// exports
+	exports.locals = {
+		"root": "ShiC6JgIaOalBQVpIsYtL",
+		"container": "_1ZNJ4h3Uct4YGPwsOlP-a2",
+		"step": "_10prCLGoK4eiHXC-VVYaZu",
+		"test": "_2a18C1cpDnHlHQPP919Gwu"
+	};
+
+/***/ },
+/* 58 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(59);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(14)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js?modules!./../../../node_modules/postcss-loader/index.js!./start.css", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js?modules!./../../../node_modules/postcss-loader/index.js!./start.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 59 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(13)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "._2c_X9l_2tFGA0jZbDU9JRH {\n\twidth: 758px;\n\tleft: calc( ( 657px - 758px ) / 2 );\n\tpadding: 85px 0 0;\n\tposition: relative;\n\tmin-height: 474px;\n}\n\n._2c_X9l_2tFGA0jZbDU9JRH::after {\n\tposition: absolute;\n\tleft: 0;\n\ttop: 0;\n\tz-index: 1;\n\twidth: 100%;\n\theight: 100%;\n\tbackground-image: url(\"/static/test_bg.png\");\n\tbackground-position: center center;\n\tbackground-size: auto 474px;\n\tbackground-repeat: no-repeat;\n\topacity: 0.35;\n\tcontent: '';\n}\n\n.HTG0JT2qR5xnUiu13GRMe {\n\tposition: relative;\n\tz-index: 2;\n}\n\n._28psnc6FGdBBukliEFLXCe {\n\tmargin-top: 70px;\n}", ""]);
+	
+	// exports
+	exports.locals = {
+		"root": "_2c_X9l_2tFGA0jZbDU9JRH",
+		"container": "HTG0JT2qR5xnUiu13GRMe",
+		"actions": "_28psnc6FGdBBukliEFLXCe"
+	};
+
+/***/ },
+/* 60 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Handlebars = __webpack_require__(33);
+	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
+	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
+	
+	  return "<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.startStyles : depth0)) != null ? stack1.container : stack1), depth0))
+	    + "\">\n	<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.test : stack1), depth0))
+	    + "\">тест</div>\n	<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
+	    + "\">Могу ли я стать донором?</div>\n	<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n		Ответьте на четыре вороса и узнайте,\n		<br>\n		можете ли вы стать донором костного мозга.\n		<br>\n		Или прочитайте <a target=\"_blank\" href=\"/static/pdf/protivopokazania.pdf\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
+	    + "\">полный список противопоказаний</a>.\n	</div>\n	<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.startStyles : depth0)) != null ? stack1.actions : stack1), depth0))
+	    + "\">\n		<button class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.inputsStyles : depth0)) != null ? stack1.button : stack1), depth0))
+	    + "\" data-action=\"test-start\">начать</button>\n	</div>\n</div>	";
+	},"useData":true});
+
+/***/ },
+/* 61 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _underscore = __webpack_require__(2);
+	
+	var _underscore2 = _interopRequireDefault(_underscore);
+	
+	var _base = __webpack_require__(5);
+	
+	var _base2 = _interopRequireDefault(_base);
+	
+	var _test = __webpack_require__(56);
+	
+	var _test2 = _interopRequireDefault(_test);
+	
+	var _game = __webpack_require__(62);
+	
+	var _game2 = _interopRequireDefault(_game);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _class = function (_BaseView) {
+		_inherits(_class, _BaseView);
+	
+		function _class() {
+			_classCallCheck(this, _class);
+	
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(_class).apply(this, arguments));
+		}
+	
+		_createClass(_class, [{
+			key: 'init',
+			value: function init() {
+				this.registerChild(new this.StepView({
+					testModel: this.testModel,
+					currentStepIndex: this.currentStepIndex,
+					stepsAmount: this.stepsAmount
+				}), 'test-step');
+				this.render();
+			}
+		}, {
+			key: '_prepareData',
+			value: function _prepareData() {
+				var data = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	
+				return _underscore2.default.extend(data, {
+					testStyles: _test2.default,
+					gameStyles: _game2.default,
+					currentStepIndex: this.currentStepIndex + 1,
+					stepsAmount: this.stepsAmount
+				});
+			}
+		}, {
+			key: 'className',
+			get: function get() {
+				return _game2.default.root;
+			}
+		}, {
+			key: '_template',
+			get: function get() {
+				return __webpack_require__(64);
+			}
+		}]);
+
+		return _class;
+	}(_base2.default);
+
+	exports.default = _class;
+
+/***/ },
+/* 62 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(63);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(14)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js?modules!./../../../node_modules/postcss-loader/index.js!./game.css", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js?modules!./../../../node_modules/postcss-loader/index.js!./game.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 63 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(13)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "._3HKYlb7Vl6Iztk4-tC_BvZ {\n\ttext-align: left;\n\tmargin: auto;\n\tposition: relative;\n}\n\n._3m4BXQ40TaSw_695CDQc5o {\n\tmargin: 0;\n}\n\n.EjQqlofCJUMJf9KAV_dIh {\n\ttext-align: left;\n}\n\n.EjQqlofCJUMJf9KAV_dIh ._1AqLMaC9TJ6xn7EKtufMhi:not(:last-child) {\n\tmargin-bottom: 21px;\n}\n\n.WQ9BEtiggpUohVS_zgPoD {\n\ttext-align: left;\n}\n\n._2lOXnJo1wdTO1NE9f7TYGq {\n\tdisplay: flex;\n\tflex-wrap: wrap;\n\tflex-direction: column;\n\theight: 200px;\n\tmargin-bottom: -21px;\n}\n\n._2lOXnJo1wdTO1NE9f7TYGq ._5nZ_ma_l1V-rlYzO9KdDB {\n\twidth: calc(50% - 10px);\n}\n\n._2lOXnJo1wdTO1NE9f7TYGq ._5nZ_ma_l1V-rlYzO9KdDB:not(:last-child) {\n\tmargin-bottom: 21px;\n}\n\n.CY-R0zNjVnWMwfVMTfk1u {\n\tmargin-top: 44px;\n}\n\n._3lYQsW3cc0xDgaiRcAwKBs {\n\tdisplay: none;\n\tposition: absolute;\n    z-index: 3;\n    left: 365px;\n    top: 173px;\n\twidth: 420px;\n\tfont-size: 10px;\n\tline-height: 15px;\n\tbackground-color: rgba(9, 159, 175, 0.27);\n\tpadding: 24px;\n}\n\n._1nF2Jvd23mv6WCj4f2p9-J {\n\tdisplay: flex;\n\tjustify-content: flex-start;\n\talign-items: flex-start;\n}\n\n._320FMHY6Zq7JbhbLouCfCj {\n\tfont-weight: bold;\n\tmargin-bottom: 3px;\n}\n\n._1_0uQ0i-1Q2gBAY2m8sRhh {\n\tmargin: 0;\n\tpadding-left: 13px;\n}\n\n._2tuliSpd6Yb2uLyt1BLJAs:first-child {\n\twidth: 270px;\n\tflex-shrink: 0;\n}", ""]);
+	
+	// exports
+	exports.locals = {
+		"root": "_3HKYlb7Vl6Iztk4-tC_BvZ",
+		"form": "_3m4BXQ40TaSw_695CDQc5o",
+		"formAuto": "EjQqlofCJUMJf9KAV_dIh _3m4BXQ40TaSw_695CDQc5o",
+		"radio": "_1AqLMaC9TJ6xn7EKtufMhi",
+		"formDisease": "WQ9BEtiggpUohVS_zgPoD _3m4BXQ40TaSw_695CDQc5o",
+		"formDiseaseContainer": "_2lOXnJo1wdTO1NE9f7TYGq",
+		"checkbox": "_5nZ_ma_l1V-rlYzO9KdDB",
+		"actions": "CY-R0zNjVnWMwfVMTfk1u",
+		"autoList": "_3lYQsW3cc0xDgaiRcAwKBs",
+		"autoListContainer": "_1nF2Jvd23mv6WCj4f2p9-J",
+		"autoListTitle": "_320FMHY6Zq7JbhbLouCfCj",
+		"autoListUl": "_1_0uQ0i-1Q2gBAY2m8sRhh",
+		"autoListCol": "_2tuliSpd6Yb2uLyt1BLJAs"
+	};
+
+/***/ },
+/* 64 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Handlebars = __webpack_require__(33);
+	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
+	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
+	
+	  return "<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.test : stack1), depth0))
+	    + "\">тест</div>\n<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.stepContent : stack1), depth0))
+	    + "\" data-view=\"test-step\"></div>";
+	},"useData":true});
+
+/***/ },
+/* 65 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+	
+	var _underscore = __webpack_require__(2);
+	
+	var _underscore2 = _interopRequireDefault(_underscore);
+	
+	var _jquery = __webpack_require__(3);
+	
+	var _jquery2 = _interopRequireDefault(_jquery);
+	
+	var _step = __webpack_require__(66);
+	
+	var _step2 = _interopRequireDefault(_step);
+	
+	var _test = __webpack_require__(54);
+	
+	var _test2 = __webpack_require__(56);
+	
+	var _test3 = _interopRequireDefault(_test2);
+	
+	var _game = __webpack_require__(62);
+	
+	var _game2 = _interopRequireDefault(_game);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _class = function (_StepView) {
+		_inherits(_class, _StepView);
+	
+		function _class() {
+			_classCallCheck(this, _class);
+	
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(_class).apply(this, arguments));
+		}
+	
+		_createClass(_class, [{
+			key: '_inputAge',
+			value: function _inputAge(e) {
+				var value = (0, _jquery2.default)(e.currentTarget).val();
+				this.age = value || undefined;
+				value ? this._enable() : this._disable();
+			}
+		}, {
+			key: '_appended',
+			value: function _appended() {
+				_get(Object.getPrototypeOf(_class.prototype), '_appended', this).call(this);
+				this.$el.find('[data-action="test-input"]').focus();
+			}
+		}, {
+			key: '_answer',
+			value: function _answer(e) {
+				var _this2 = this;
+	
+				if (isFinite(this.age) && this.age >= 0) {
+					if (this.age > 45 || this.age < 18) {
+						this.testModel.set({
+							state: _test.states.FINISH,
+							result: false,
+							reason: _test.reasons.AGE,
+							data: {
+								age: this.age
+							}
+						});
+					} else {
+						this._goNext();
+					}
+				} else {
+					this.$el.find('[data-action="test-input"]').focus().val('').trigger('input').addClass(_game2.default.inputInvalid);
+					setTimeout(function () {
+						_this2.$el.find('[data-action="test-input"]').removeClass(_game2.default.inputInvalid);
+					}, 1000);
+				}
+				e.preventDefault();
+			}
+		}, {
+			key: '_template',
+			get: function get() {
+				return __webpack_require__(67);
+			}
+		}, {
+			key: 'events',
+			get: function get() {
+				return {
+					'submit [data-action="test-form"]': '_answer',
+					'input [data-action="test-input"]': '_inputAge'
+				};
+			}
+		}]);
+
+		return _class;
+	}(_step2.default);
+
+	exports.default = _class;
+
+/***/ },
+/* 66 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _underscore = __webpack_require__(2);
+	
+	var _underscore2 = _interopRequireDefault(_underscore);
+	
+	var _jquery = __webpack_require__(3);
+	
+	var _jquery2 = _interopRequireDefault(_jquery);
+	
+	var _base = __webpack_require__(5);
+	
+	var _base2 = _interopRequireDefault(_base);
+	
+	var _test = __webpack_require__(54);
+	
+	var _test2 = __webpack_require__(56);
+	
+	var _test3 = _interopRequireDefault(_test2);
+	
+	var _game = __webpack_require__(62);
+	
+	var _game2 = _interopRequireDefault(_game);
+	
+	var _inputs = __webpack_require__(25);
+	
+	var _inputs2 = _interopRequireDefault(_inputs);
+	
+	var _typography = __webpack_require__(23);
+	
+	var _typography2 = _interopRequireDefault(_typography);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _class = function (_BaseView) {
+		_inherits(_class, _BaseView);
+	
+		function _class() {
+			_classCallCheck(this, _class);
+	
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(_class).apply(this, arguments));
+		}
+	
+		_createClass(_class, [{
+			key: 'init',
+			value: function init() {
+				this.render();
+			}
+		}, {
+			key: '_prepareData',
+			value: function _prepareData() {
+				var data = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	
+				return _underscore2.default.extend(data, {
+					testStyles: _test3.default,
+					gameStyles: _game2.default,
+					inputsStyles: _inputs2.default,
+					typography: _typography2.default
+				});
+			}
+		}, {
+			key: '_disable',
+			value: function _disable() {
+				this.$el.find('[data-action="test-submit"]').attr('disabled', 'disabled');
+			}
+		}, {
+			key: '_enable',
+			value: function _enable() {
+				this.$el.find('[data-action="test-submit"]').removeAttr('disabled');
+			}
+		}, {
+			key: '_appended',
+			value: function _appended() {
+				this._disable();
+			}
+		}, {
+			key: '_goNext',
+			value: function _goNext() {
+				if ((0, _test.isLastStep)(this.currentStepIndex, this.stepsAmount)) {
+					this.testModel.set({
+						state: _test.states.FINISH,
+						result: true
+					});
+				} else {
+					this.testModel.set({
+						step: this.currentStepIndex + 1
+					});
+				}
+			}
+		}, {
+			key: 'className',
+			get: function get() {
+				return _test3.default.step;
+			}
+		}]);
+
+		return _class;
+	}(_base2.default);
+
+	exports.default = _class;
+
+/***/ },
+/* 67 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Handlebars = __webpack_require__(33);
+	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
+	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
+	
+	  return "<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
+	    + "\">Сколько вам лет?</div>\n<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">Мы никому не расскажем.</div>\n<form class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.form : stack1), depth0))
+	    + "\" data-action=\"test-form\">\n	<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n		<input class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.inputsStyles : depth0)) != null ? stack1.input : stack1), depth0))
+	    + "\" data-action=\"test-input\" maxlength=\"3\"/>\n	</div>	\n	<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.actions : stack1), depth0))
+	    + "\">\n		<button class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.inputsStyles : depth0)) != null ? stack1.button : stack1), depth0))
+	    + "\" data-action=\"test-submit\">дальше</button>\n	</div>\n</form>";
+	},"useData":true});
+
+/***/ },
+/* 68 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+	
+	var _underscore = __webpack_require__(2);
+	
+	var _underscore2 = _interopRequireDefault(_underscore);
+	
+	var _jquery = __webpack_require__(3);
+	
+	var _jquery2 = _interopRequireDefault(_jquery);
+	
+	var _step = __webpack_require__(66);
+	
+	var _step2 = _interopRequireDefault(_step);
+	
+	var _test = __webpack_require__(54);
+	
+	var _test2 = __webpack_require__(56);
+	
+	var _test3 = _interopRequireDefault(_test2);
+	
+	var _game = __webpack_require__(62);
+	
+	var _game2 = _interopRequireDefault(_game);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _class = function (_StepView) {
+		_inherits(_class, _StepView);
+	
+		function _class() {
+			_classCallCheck(this, _class);
+	
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(_class).apply(this, arguments));
+		}
+	
+		_createClass(_class, [{
+			key: '_inputWeight',
+			value: function _inputWeight(e) {
+				var value = (0, _jquery2.default)(e.currentTarget).val();
+				this.weight = value || undefined;
+				value ? this._enable() : this._disable();
+			}
+		}, {
+			key: '_appended',
+			value: function _appended() {
+				_get(Object.getPrototypeOf(_class.prototype), '_appended', this).call(this);
+				this.$el.find('[data-action="test-input"]').focus();
+			}
+		}, {
+			key: '_answer',
+			value: function _answer(e) {
+				var _this2 = this;
+	
+				if (isFinite(this.weight) && this.weight >= 0) {
+					if (this.weight < 50) {
+						this.testModel.set({
+							state: _test.states.FINISH,
+							result: false,
+							reason: _test.reasons.WEIGHT,
+							data: {
+								weight: this.weight
+							}
+						});
+					} else {
+						this._goNext();
+					}
+				} else {
+					this.$el.find('[data-action="test-input"]').focus().val('').trigger('input').addClass(_game2.default.inputInvalid);
+					setTimeout(function () {
+						_this2.$el.find('[data-action="test-input"]').removeClass(_game2.default.inputInvalid);
+					}, 1000);
+				}
+				e.preventDefault();
+			}
+		}, {
+			key: '_template',
+			get: function get() {
+				return __webpack_require__(69);
+			}
+		}, {
+			key: 'events',
+			get: function get() {
+				return {
+					'submit [data-action="test-form"]': '_answer',
+					'input [data-action="test-input"]': '_inputWeight'
+				};
+			}
+		}]);
+
+		return _class;
+	}(_step2.default);
+
+	exports.default = _class;
+
+/***/ },
+/* 69 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Handlebars = __webpack_require__(33);
+	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
+	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
+	
+	  return "<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
+	    + "\">Сколько вы весите?</div>\n<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">Только между нами.</div>\n<form class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.form : stack1), depth0))
+	    + "\" data-action=\"test-form\">\n	<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n		<input class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.inputsStyles : depth0)) != null ? stack1.input : stack1), depth0))
+	    + "\" data-action=\"test-input\" maxlength=\"3\"/>&nbsp;&nbsp;КГ\n	</div>\n	<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.actions : stack1), depth0))
+	    + "\">\n		<button class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.inputsStyles : depth0)) != null ? stack1.button : stack1), depth0))
+	    + "\" data-action=\"test-submit\">дальше</button>\n	</div>\n</form>";
+	},"useData":true});
+
+/***/ },
+/* 70 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _underscore = __webpack_require__(2);
+	
+	var _underscore2 = _interopRequireDefault(_underscore);
+	
+	var _step = __webpack_require__(66);
+	
+	var _step2 = _interopRequireDefault(_step);
+	
+	var _test = __webpack_require__(54);
+	
+	var _test2 = __webpack_require__(56);
+	
+	var _test3 = _interopRequireDefault(_test2);
+	
+	var _game = __webpack_require__(62);
+	
+	var _game2 = _interopRequireDefault(_game);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _class = function (_StepView) {
+		_inherits(_class, _StepView);
+	
+		function _class() {
+			_classCallCheck(this, _class);
+	
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(_class).apply(this, arguments));
+		}
+	
+		_createClass(_class, [{
+			key: '_changeAuto',
+			value: function _changeAuto(e) {
+				this.auto = e.currentTarget.value === 'false' ? false : true;
+				this._enable();
+			}
+		}, {
+			key: '_answer',
+			value: function _answer(e) {
+				if (_underscore2.default.isBoolean(this.auto)) {
+					if (this.auto === true) {
+						this.testModel.set({
+							state: _test.states.FINISH,
+							result: false,
+							reason: _test.reasons.AUTO
+						});
+					} else {
+						this._goNext();
+					}
+				}
+				e.preventDefault();
+			}
+		}, {
+			key: '_template',
+			get: function get() {
+				return __webpack_require__(71);
+			}
+		}, {
+			key: 'events',
+			get: function get() {
+				var _this2 = this;
+	
+				return {
+					'submit [data-action="test-form"]': '_answer',
+					'change [data-action="test-input"]': '_changeAuto',
+					'mouseenter [data-action="show-full-list"]': function mouseenterDataActionShowFullList(e) {
+						_this2.$el.find('[data-role="full-list"]').show();
+					},
+					'mouseleave [data-action="show-full-list"]': function mouseleaveDataActionShowFullList(e) {
+						_this2.$el.find('[data-role="full-list"]').hide();
+					}
+				};
+			}
+		}]);
+
+		return _class;
+	}(_step2.default);
+
+	exports.default = _class;
+
+/***/ },
+/* 71 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Handlebars = __webpack_require__(33);
+	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
+	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
+	
+	  return "<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
+	    + "\">\n	Были ли у вас\n	<br>\n	гемотрансмиссионные заболевания?\n</div>\n<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n	Это заболевания, которые передаются через кровь.\n	<br>\n	Например, вирусные гепатиты, СПИД, токсоплазмоз.\n	<br>\n	Если сомневаетесь, посмотрите <span target=\"_blank\" data-action=\"show-full-list\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.linkPseudo : stack1), depth0))
+	    + "\">полный список</span>.\n	<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoList : stack1), depth0))
+	    + "\" data-role=\"full-list\">\n		<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListContainer : stack1), depth0))
+	    + "\">\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListCol : stack1), depth0))
+	    + "\">\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListTitle : stack1), depth0))
+	    + "\">Инфекционные:</div>\n				<ul class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListUl : stack1), depth0))
+	    + "\">\n					<li class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListLi : stack1), depth0))
+	    + "\">СПИД, носительство ВИЧ-инфекции;</li>\n					<li class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListLi : stack1), depth0))
+	    + "\">Сифилис, врожденный или приобретенный;</li>\n					<li class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListLi : stack1), depth0))
+	    + "\">Вирусные гепатиты, положительный результат\n						<br>\n						исследования на маркеры вирусных гепатитов\n						<br>\n						(HBsAg, анти-HCV антител);</li>\n					<li class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListLi : stack1), depth0))
+	    + "\">Туберкулез, все формы;</li>\n					<li class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListLi : stack1), depth0))
+	    + "\">Бруцеллез;</li>\n					<li class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListLi : stack1), depth0))
+	    + "\">Сыпной тиф;</li>\n					<li class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListLi : stack1), depth0))
+	    + "\">Туляремия;</li>\n					<li class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListLi : stack1), depth0))
+	    + "\">Лепра.</li>\n				</ul>\n			</div>\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListCol : stack1), depth0))
+	    + "\">\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListTitle : stack1), depth0))
+	    + "\">Паразитарные:</div>\n				<ul class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListUl : stack1), depth0))
+	    + "\">\n					<li class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListLi : stack1), depth0))
+	    + "\">Эхинококкоз;</li>\n					<li class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListLi : stack1), depth0))
+	    + "\">Токсоплазмоз;</li>\n					<li class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListLi : stack1), depth0))
+	    + "\">Трипаносомоз;</li>\n					<li class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListLi : stack1), depth0))
+	    + "\">Филяриатоз;</li>\n					<li class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListLi : stack1), depth0))
+	    + "\">Ришта;</li>\n					<li class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.autoListLi : stack1), depth0))
+	    + "\">Лейшманиоз.</li>\n				</ul>\n			</div>\n		</div>\n	</div>\n</div>\n<form class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.formAuto : stack1), depth0))
+	    + "\" data-action=\"test-form\">\n	<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n		<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.radio : stack1), depth0))
+	    + "\">\n			<input type=\"radio\" value=\"true\" data-action=\"test-input\" name=\"game-auto-radio\" id=\"game-auto-radio-true\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.inputsStyles : depth0)) != null ? stack1.radioInput : stack1), depth0))
+	    + "\">\n			<label for=\"game-auto-radio-true\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.inputsStyles : depth0)) != null ? stack1.radioLabel : stack1), depth0))
+	    + "\">Да</label>\n		</div>\n		<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.radio : stack1), depth0))
+	    + "\">\n			<input type=\"radio\" value=\"false\" data-action=\"test-input\" name=\"game-auto-radio\" id=\"game-auto-radio-false\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.inputsStyles : depth0)) != null ? stack1.radioInput : stack1), depth0))
+	    + "\">\n			<label for=\"game-auto-radio-false\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.inputsStyles : depth0)) != null ? stack1.radioLabel : stack1), depth0))
+	    + "\">Нет</label>\n		</div>\n	</div>	\n	<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.actions : stack1), depth0))
+	    + "\">\n		<button class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.inputsStyles : depth0)) != null ? stack1.button : stack1), depth0))
+	    + "\" data-action=\"test-submit\">дальше</button>\n	</div>\n</form>";
+	},"useData":true});
+
+/***/ },
+/* 72 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+	
+	var _underscore = __webpack_require__(2);
+	
+	var _underscore2 = _interopRequireDefault(_underscore);
+	
+	var _jquery = __webpack_require__(3);
+	
+	var _jquery2 = _interopRequireDefault(_jquery);
+	
+	var _step = __webpack_require__(66);
+	
+	var _step2 = _interopRequireDefault(_step);
+	
+	var _test = __webpack_require__(54);
+	
+	var _test2 = __webpack_require__(56);
+	
+	var _test3 = _interopRequireDefault(_test2);
+	
+	var _game = __webpack_require__(62);
+	
+	var _game2 = _interopRequireDefault(_game);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var data = [{
+		text: 'Ничего серьезнее ОРВИ',
+		danger: false
+	}, {
+		text: 'Мне удаляли орган',
+		danger: true
+	}, {
+		text: 'Малярия',
+		danger: true
+	}, {
+		text: 'Туберкулез',
+		danger: true
+	}, {
+		text: 'Психическое расстройство',
+		danger: true
+	}, {
+		text: 'Злокачественное заболевание',
+		danger: true
+	}, {
+		text: 'Органическое заболевание центральной нервной системы',
+		danger: false
+	}];
+	
+	var _class = function (_StepView) {
+		_inherits(_class, _StepView);
+	
+		function _class() {
+			_classCallCheck(this, _class);
+	
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(_class).apply(this, arguments));
+		}
+	
+		_createClass(_class, [{
+			key: 'init',
+			value: function init() {
+				_get(Object.getPrototypeOf(_class.prototype), 'init', this).call(this);
+				this.selected = {};
+			}
+		}, {
+			key: '_changeDisease',
+			value: function _changeDisease(e) {
+				var id = (0, _jquery2.default)(e.currentTarget).data('id');
+				if (e.currentTarget.checked) {
+					this.selected['item-' + id] = data[id];
+				} else {
+					delete this.selected['item-' + id];
+				}
+				Object.keys(this.selected).length ? this._enable() : this._disable();
+			}
+		}, {
+			key: '_prepareData',
+			value: function _prepareData() {
+				return _underscore2.default.extend({ data: data }, _get(Object.getPrototypeOf(_class.prototype), '_prepareData', this).call(this));
+			}
+		}, {
+			key: '_answer',
+			value: function _answer(e) {
+				var result = true;
+				for (var item in this.selected) {
+					if (this.selected[item].danger) {
+						result = false;
+						break;
+					}
+				}
+				if (!result) {
+					this.testModel.set({
+						state: _test.states.FINISH,
+						result: false,
+						reason: _test.reasons.DISEASE,
+						data: {
+							disease: this.selected
+						}
+					});
+				} else {
+					this._goNext();
+				}
+				e.preventDefault();
+			}
+		}, {
+			key: '_template',
+			get: function get() {
+				return __webpack_require__(73);
+			}
+		}, {
+			key: 'events',
+			get: function get() {
+				return {
+					'submit [data-action="test-form"]': '_answer',
+					'change [data-action="test-input"]': '_changeDisease'
+				};
+			}
+		}]);
+
+		return _class;
+	}(_step2.default);
+
+	exports.default = _class;
+
+/***/ },
+/* 73 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Handlebars = __webpack_require__(33);
+	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
+	module.exports = (Handlebars["default"] || Handlebars).template({"1":function(container,depth0,helpers,partials,data,blockParams,depths) {
+	    var stack1, helper, alias1=container.lambda, alias2=container.escapeExpression, alias3=depth0 != null ? depth0 : {}, alias4=helpers.helperMissing, alias5="function";
+	
+	  return "			<div class=\""
+	    + alias2(alias1(((stack1 = (depths[1] != null ? depths[1].gameStyles : depths[1])) != null ? stack1.checkbox : stack1), depth0))
+	    + "\">\n				<input type=\"checkbox\" data-action=\"test-input\" name=\"game-auto-checkbox\" id=\"game-auto-checkbox-"
+	    + alias2(((helper = (helper = helpers.index || (data && data.index)) != null ? helper : alias4),(typeof helper === alias5 ? helper.call(alias3,{"name":"index","hash":{},"data":data}) : helper)))
+	    + "\" class=\""
+	    + alias2(alias1(((stack1 = (depths[1] != null ? depths[1].inputsStyles : depths[1])) != null ? stack1.checkboxInput : stack1), depth0))
+	    + "\" data-id="
+	    + alias2(((helper = (helper = helpers.index || (data && data.index)) != null ? helper : alias4),(typeof helper === alias5 ? helper.call(alias3,{"name":"index","hash":{},"data":data}) : helper)))
+	    + ">\n				<label for=\"game-auto-checkbox-"
+	    + alias2(((helper = (helper = helpers.index || (data && data.index)) != null ? helper : alias4),(typeof helper === alias5 ? helper.call(alias3,{"name":"index","hash":{},"data":data}) : helper)))
+	    + "\" class=\""
+	    + alias2(alias1(((stack1 = (depths[1] != null ? depths[1].inputsStyles : depths[1])) != null ? stack1.checkboxLabel : stack1), depth0))
+	    + "\" "
+	    + ((stack1 = helpers["if"].call(alias3,(depth0 != null ? depth0.danger : depth0),{"name":"if","hash":{},"fn":container.program(2, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + ">"
+	    + alias2(alias1((depth0 != null ? depth0.text : depth0), depth0))
+	    + "</label>\n			</div>\n";
+	},"2":function(container,depth0,helpers,partials,data) {
+	    return "data-danger=\"true\"";
+	},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data,blockParams,depths) {
+	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
+	
+	  return "<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
+	    + "\">Что у вас<br>в медицинской карте?</div>\n<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">Есть сейчас или было когда-то.</div>\n<form class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.formDisease : stack1), depth0))
+	    + "\" data-action=\"test-form\">\n	<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.formDiseaseContainer : stack1), depth0))
+	    + "\">\n"
+	    + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.data : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + "	</div>\n	<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.gameStyles : depth0)) != null ? stack1.actions : stack1), depth0))
+	    + "\">\n		<button class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.inputsStyles : depth0)) != null ? stack1.button : stack1), depth0))
+	    + "\" data-action=\"test-submit\">дальше</button>\n	</div>\n</form>";
+	},"useData":true,"useDepths":true});
+
+/***/ },
+/* 74 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+	
+	var _underscore = __webpack_require__(2);
+	
+	var _underscore2 = _interopRequireDefault(_underscore);
+	
+	var _backbone = __webpack_require__(1);
+	
+	var _backbone2 = _interopRequireDefault(_backbone);
+	
+	var _base = __webpack_require__(5);
+	
+	var _base2 = _interopRequireDefault(_base);
+	
+	var _share = __webpack_require__(8);
+	
+	var _share2 = _interopRequireDefault(_share);
+	
+	var _test = __webpack_require__(54);
+	
+	var _test2 = __webpack_require__(56);
+	
+	var _test3 = _interopRequireDefault(_test2);
+	
+	var _finish = __webpack_require__(75);
+	
+	var _finish2 = _interopRequireDefault(_finish);
+	
+	var _share3 = __webpack_require__(29);
+	
+	var _share4 = _interopRequireDefault(_share3);
+	
+	var _inputs = __webpack_require__(25);
+	
+	var _inputs2 = _interopRequireDefault(_inputs);
+	
+	var _typography = __webpack_require__(23);
+	
+	var _typography2 = _interopRequireDefault(_typography);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var FinishShareView = function (_ShareView) {
+		_inherits(FinishShareView, _ShareView);
+	
+		function FinishShareView() {
+			_classCallCheck(this, FinishShareView);
+	
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(FinishShareView).apply(this, arguments));
+		}
+	
+		_createClass(FinishShareView, [{
+			key: '_prepareData',
+			value: function _prepareData() {
+				return _underscore2.default.extend(_get(Object.getPrototypeOf(FinishShareView.prototype), '_prepareData', this).call(this), { testStyles: _test3.default, share: _share4.default });
+			}
+		}, {
+			key: '_template',
+			get: function get() {
+				return __webpack_require__(77);
+			}
+		}]);
+	
+		return FinishShareView;
+	}(_share2.default);
+	
+	var ShareModel = function (_Backbone$Model) {
+		_inherits(ShareModel, _Backbone$Model);
+	
+		function ShareModel() {
+			_classCallCheck(this, ShareModel);
+	
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(ShareModel).apply(this, arguments));
+		}
+	
+		_createClass(ShareModel, [{
+			key: 'defaults',
+			get: function get() {
+				return {
+					title: '',
+					description: ''
+				};
+			}
+		}]);
+	
+		return ShareModel;
+	}(_backbone2.default.Model);
+	
+	var _class = function (_BaseView) {
+		_inherits(_class, _BaseView);
+	
+		function _class() {
+			_classCallCheck(this, _class);
+	
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(_class).apply(this, arguments));
+		}
+	
+		_createClass(_class, [{
+			key: 'init',
+			value: function init() {
+				this.shareModel = new ShareModel();
+				this.shareView = this.registerChild(new FinishShareView({
+					shareModel: this.shareModel
+				}), 'test-share');
+	
+				if (this.testModel.success) {
+					this.shareModel.set('title', 'Я подхожу!');
+					this.shareModel.set('description', 'Могу ли я быть донором костного мозга? Тест для тех, кто еще не знает. И сайт о том, зачем вообще сдавать костный мозг и где.');
+					this.shareModel.set('image', 'arthurstam.github.io/static/share_test_positive.png');
+				} else {
+					this.shareModel.set('title', 'Могу ли я стать донором костного мозга?');
+					this.shareModel.set('description', 'Пройдите тест и узнайте, можете ли вы стать донором костного мозга. Или просто почитайте, зачем это нужно.');
+					this.shareModel.set('image', 'arthurstam.github.io/static/share_test_negative.png');
+				}
+	
+				this.shareView.render();
+				this.render();
+			}
+		}, {
+			key: '_agreementChange',
+			value: function _agreementChange(e) {
+				switch (e.currentTarget.checked) {
+					case false:
+						this.shareModel.set('description', 'Пройдите тест и узнайте, можете ли вы стать донором костного мозга. Или просто почитайте, зачем это нужно.');
+						break;
+					case true:
+						if (this.testModel.age17) {
+							this.shareModel.set('description', 'Мой результат: Пока вы не можете стать донором костного мозга, потому что слишком молоды — в доноры берут с 18 лет. Ждем вас через год!');
+						}
+						if (this.testModel.age16) {
+							this.shareModel.set('description', 'Мой результат: Пока вы не можете стать донором костного мозга, потому что слишком молоды — в доноры берут с 18 лет. Ждем вас через 2 года!');
+						}
+						if (this.testModel.age15_10) {
+							this.shareModel.set('description', 'Мой результат: Пока вы не можете стать донором костного мозга, потому что слишком молоды — в доноры берут только совершеннолетних. Ждем вас после 18!');
+						}
+						if (this.testModel.age45more) {
+							this.shareModel.set('description', 'Мой результат: Вы не можете стать донором костного мозга, потому что вступить в регистр можно до 45 лет. Донором можно стать до 60 лет, но типирование — дорогая процедура, поэтому важно, чтобы потенциальные доноры числились в регистре как можно дольше.');
+						}
+						if (this.testModel.age10less) {
+							this.shareModel.set('description', 'Мой результат: Пока вы не можете стать донором костного мозга, потому что слишком молоды — в доноры берут только совершеннолетних. Ждем вас после 18!');
+						}
+						if (this.testModel.weight47less) {
+							this.shareModel.set('description', 'Мой результат: Вы не можете стать донором костного мозга, потому что в доноры берут людей весом от 50 килограмм. ');
+						}
+						if (this.testModel.weight48_49) {
+							this.shareModel.set('description', 'Мой результат: Сейчас вы не можете стать донором костного мозга, потому что в доноры берут людей весом от 50 килограммов. Но вы очень близки! Пройдите тест ещё раз, указав, что весите 50 килограмм, и посмотрите, нет ли у вас других противопоказаний. Если нет — ждём вас через пару килограммов!');
+						}
+						if (this.testModel.autoFail) {
+							this.shareModel.set('description', 'Мой результат: Вы не можете стать донором костного мозга, потому что аутоиммунные заболевания — абсолютное противопоказание.');
+						}
+						if (this.testModel.diseaseFail) {
+							this.shareModel.set('description', 'Мой результат: Вы не можете стать донором костного мозга, потому что у вас есть противопоказания. У человека, которому нужна пересадка, очень слабый иммунитет. Поэтому даже если вы болели очень давно, врачи решают не рисковать.');
+						}
+						break;
+				}
+			}
+		}, {
+			key: '_prepareData',
+			value: function _prepareData() {
+				var data = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	
+	
+				return _underscore2.default.extend(data, {
+					testStyles: _test3.default,
+					finishStyles: _finish2.default,
+					inputStyles: _inputs2.default,
+					testModel: this.testModel,
+					typography: _typography2.default
+				});
+			}
+		}, {
+			key: '_template',
+			get: function get() {
+				return __webpack_require__(78);
+			}
+		}, {
+			key: 'className',
+			get: function get() {
+				return _finish2.default.root;
+			}
+		}, {
+			key: 'events',
+			get: function get() {
+				return {
+					'change [data-action="test-finish-agreement"]': '_agreementChange'
+				};
+			}
+		}]);
+
+		return _class;
+	}(_base2.default);
+
+	exports.default = _class;
+
+/***/ },
+/* 75 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(76);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(14)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js?modules!./../../../node_modules/postcss-loader/index.js!./finish.css", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js?modules!./../../../node_modules/postcss-loader/index.js!./finish.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 76 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(13)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "._3B-1CcHYxRdP4xmviYBWko {\n\ttext-align: left;\n}\n\n.BPlcspTWA-U5f8Dm8GR-4 {\n\tfont-size: 0;\n\tletter-spacing: 0;\n\tline-height: 0;\n}\n\n._2pkN-Ik882-3VtpKkxL3v8 {\n\twidth: 28px;\n\theight: 28px;\n\ttext-align: center;\n\tbackground-color: #000;\n\tborder-radius: 50%;\n\tdisplay: inline-block;\n\tvertical-align: middle;\n\tline-height: 28px;\n\tcolor: #fff;\n\tfont-size: 15px;\n\tfont-weight: bold;\n\tmargin-right: 11px;\n}\n\n.kZRWI19Iy-xWer-tCiQ37 {\n\tdisplay: inline-block;\n\tvertical-align: middle;\n\tfont-size: 16px;\n}\n\n._3CcTlLIxG3BS1PKJkuGDM2 {\n\tdisplay: flex;\n\tflex-direction: row;\n}\n\n.FS2caTlSXTucapYV8McOB {\n\tjustify-content: flex-start;\n}\n\n._3QjaZhGdzkNYAsbrUlSWIj {\n\tjustify-content: flex-start;\n\tposition: relative;\n}\n\n._1HnD0zUaIRYJELjx-_Do2W {\n\tposition: relative;\n\tz-index: 2;\n}\n\n.VEb7briyZ5oEkc3yeKD1A {\n\tposition: absolute;\n\tz-index: 1;\n\tleft: 107px;\n    top: -55px;\n    width: 646px;\n}\n\n.UQMNwjI_mEdn198JXfMeZ {\n\n}\n\n._1lZi4vkmIYBBcoC7Rz8Bt6 {\n\twidth: 340px;\n}\n\n._2Qy30uC1QeDUshVxKKwnIH {\n\tposition: absolute;\n\tz-index: 1;\n    right: -130px;\n    bottom: -80px;\n    width: 410px;\n}\n\n.zT-TpgEF96c_-Es7rTxxo {\n\tmargin-top: 40px;\n}\n\n._2S4dD-WewjwRgF4ALZRwgR {\n\tmargin-top: 15px;\n}", ""]);
+	
+	// exports
+	exports.locals = {
+		"root": "_3B-1CcHYxRdP4xmviYBWko",
+		"header": "BPlcspTWA-U5f8Dm8GR-4",
+		"headerIcon": "_2pkN-Ik882-3VtpKkxL3v8",
+		"headerText": "kZRWI19Iy-xWer-tCiQ37",
+		"content": "_3CcTlLIxG3BS1PKJkuGDM2",
+		"contentFail": "FS2caTlSXTucapYV8McOB",
+		"contentSuccess": "_3QjaZhGdzkNYAsbrUlSWIj",
+		"successText": "_1HnD0zUaIRYJELjx-_Do2W",
+		"successImage": "VEb7briyZ5oEkc3yeKD1A",
+		"fail": "UQMNwjI_mEdn198JXfMeZ",
+		"failText": "_1lZi4vkmIYBBcoC7Rz8Bt6",
+		"failImage": "_2Qy30uC1QeDUshVxKKwnIH",
+		"share": "zT-TpgEF96c_-Es7rTxxo",
+		"agreement": "_2S4dD-WewjwRgF4ALZRwgR"
+	};
+
+/***/ },
+/* 77 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Handlebars = __webpack_require__(33);
+	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
+	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+	    var stack1, helper, alias1=container.lambda, alias2=container.escapeExpression, alias3=depth0 != null ? depth0 : {}, alias4=helpers.helperMissing, alias5="function";
+	
+	  return "<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.share : depth0)) != null ? stack1.container : stack1), depth0))
+	    + "\">\n	<a href=\""
+	    + alias2(((helper = (helper = helpers.vkUrl || (depth0 != null ? depth0.vkUrl : depth0)) != null ? helper : alias4),(typeof helper === alias5 ? helper.call(alias3,{"name":"vkUrl","hash":{},"data":data}) : helper)))
+	    + "\" target=\"_blank\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.share : depth0)) != null ? stack1.itemVk : stack1), depth0))
+	    + "\"></a>\n	<a href=\""
+	    + alias2(((helper = (helper = helpers.fbUrl || (depth0 != null ? depth0.fbUrl : depth0)) != null ? helper : alias4),(typeof helper === alias5 ? helper.call(alias3,{"name":"fbUrl","hash":{},"data":data}) : helper)))
+	    + "\" target=\"_blank\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.share : depth0)) != null ? stack1.itemFb : stack1), depth0))
+	    + "\"></a>	\n</div>\n";
+	},"useData":true});
+
+/***/ },
+/* 78 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Handlebars = __webpack_require__(33);
+	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
+	module.exports = (Handlebars["default"] || Handlebars).template({"1":function(container,depth0,helpers,partials,data) {
+	    var stack1;
+	
+	  return container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? depth0.finishStyles : depth0)) != null ? stack1.contentSuccess : stack1), depth0));
+	},"3":function(container,depth0,helpers,partials,data) {
+	    var stack1;
+	
+	  return container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? depth0.finishStyles : depth0)) != null ? stack1.contentFail : stack1), depth0));
+	},"5":function(container,depth0,helpers,partials,data) {
+	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
+	
+	  return "\n		<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.finishStyles : depth0)) != null ? stack1.success : stack1), depth0))
+	    + "\">\n			<img src=\"/static/test_success.png\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.finishStyles : depth0)) != null ? stack1.successImage : stack1), depth0))
+	    + "\">\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.finishStyles : depth0)) != null ? stack1.successText : stack1), depth0))
+	    + "\">\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">Да!</div>\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n					Вы можете стать донором\n					<br>\n					и спасти чью-то жизнь.\n					<br>\n					Для этого вступите \n					<br>\n					в регистр — сдайте кровь\n					<br>\n					на типирование\n					<br>\n					<a class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
+	    + "\" data-action=\"redirect-and-scroll-to\" data-element=\"#first-step\" data-page=\"how\">в специальном пункте</a>.\n				</div>\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n					Расскажите о проекте\n					<br>\n					друзьям, чтобы спасти\n					<br>\n					еще больше жизней.\n				</div>\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.finishStyles : depth0)) != null ? stack1.share : stack1), depth0))
+	    + "\" data-view=\"test-share\"></div>\n			</div>	\n		<div>\n\n";
+	},"7":function(container,depth0,helpers,partials,data) {
+	    var stack1, alias1=container.lambda, alias2=container.escapeExpression, alias3=depth0 != null ? depth0 : {};
+	
+	  return "\n		<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.finishStyles : depth0)) != null ? stack1.fail : stack1), depth0))
+	    + "\">\n			<img src=\"/static/test_fail.png\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.finishStyles : depth0)) != null ? stack1.failImage : stack1), depth0))
+	    + "\">\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.finishStyles : depth0)) != null ? stack1.failText : stack1), depth0))
+	    + "\">\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n"
+	    + ((stack1 = helpers["if"].call(alias3,((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.ageFail : stack1),{"name":"if","hash":{},"fn":container.program(8, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + "\n"
+	    + ((stack1 = helpers["if"].call(alias3,((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.weightFail : stack1),{"name":"if","hash":{},"fn":container.program(22, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + "\n"
+	    + ((stack1 = helpers["if"].call(alias3,((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.autoFail : stack1),{"name":"if","hash":{},"fn":container.program(26, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + "\n"
+	    + ((stack1 = helpers["if"].call(alias3,((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.diseaseFail : stack1),{"name":"if","hash":{},"fn":container.program(26, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + "\n				</div>\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n					\n"
+	    + ((stack1 = helpers["if"].call(alias3,((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.ageFail : stack1),{"name":"if","hash":{},"fn":container.program(28, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + "\n"
+	    + ((stack1 = helpers["if"].call(alias3,((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.weightFail : stack1),{"name":"if","hash":{},"fn":container.program(43, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + "\n"
+	    + ((stack1 = helpers["if"].call(alias3,((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.autoFail : stack1),{"name":"if","hash":{},"fn":container.program(49, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + "\n"
+	    + ((stack1 = helpers["if"].call(alias3,((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.diseaseFail : stack1),{"name":"if","hash":{},"fn":container.program(51, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + "\n				</div>\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.finishStyles : depth0)) != null ? stack1.agreement : stack1), depth0))
+	    + "\">\n					<input type=\"checkbox\" data-action=\"test-finish-agreement\" id=\"test-finish-agreement\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.inputStyles : depth0)) != null ? stack1.checkboxInput : stack1), depth0))
+	    + "\">\n					<label for=\"test-finish-agreement\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.inputStyles : depth0)) != null ? stack1.checkboxLabel : stack1), depth0))
+	    + "\">\n						Рассказать в посте, почему<br>я не подхожу\n					</label>\n				</div>\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.finishStyles : depth0)) != null ? stack1.share : stack1), depth0))
+	    + "\" data-view=\"test-share\"></div>\n			</div>	\n		</div>\n";
+	},"8":function(container,depth0,helpers,partials,data) {
+	    var stack1;
+	
+	  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.age17 : stack1),{"name":"if","hash":{},"fn":container.program(9, data, 0),"inverse":container.program(11, data, 0),"data":data})) != null ? stack1 : "");
+	},"9":function(container,depth0,helpers,partials,data) {
+	    return "							Попробую через год!\n";
+	},"11":function(container,depth0,helpers,partials,data) {
+	    var stack1;
+	
+	  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.age16 : stack1),{"name":"if","hash":{},"fn":container.program(12, data, 0),"inverse":container.program(14, data, 0),"data":data})) != null ? stack1 : "");
+	},"12":function(container,depth0,helpers,partials,data) {
+	    return "							Попробую через 2 года!\n";
+	},"14":function(container,depth0,helpers,partials,data) {
+	    var stack1;
+	
+	  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.age15_10 : stack1),{"name":"if","hash":{},"fn":container.program(15, data, 0),"inverse":container.program(17, data, 0),"data":data})) != null ? stack1 : "");
+	},"15":function(container,depth0,helpers,partials,data) {
+	    return "							Попробую попозже!\n";
+	},"17":function(container,depth0,helpers,partials,data) {
+	    var stack1;
+	
+	  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.age45more : stack1),{"name":"if","hash":{},"fn":container.program(18, data, 0),"inverse":container.program(20, data, 0),"data":data})) != null ? stack1 : "");
+	},"18":function(container,depth0,helpers,partials,data) {
+	    return "							Нет, но могу помочь!\n";
+	},"20":function(container,depth0,helpers,partials,data) {
+	    return "							Стану донором, когда вырасту! \n						";
+	},"22":function(container,depth0,helpers,partials,data) {
+	    var stack1;
+	
+	  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.weight47less : stack1),{"name":"if","hash":{},"fn":container.program(18, data, 0),"inverse":container.program(23, data, 0),"data":data})) != null ? stack1 : "");
+	},"23":function(container,depth0,helpers,partials,data) {
+	    var stack1;
+	
+	  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.weight48_49 : stack1),{"name":"if","hash":{},"fn":container.program(24, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "");
+	},"24":function(container,depth0,helpers,partials,data) {
+	    return "							Поем и смогу!\n						";
+	},"26":function(container,depth0,helpers,partials,data) {
+	    return "						Нет, но могу помочь!\n";
+	},"28":function(container,depth0,helpers,partials,data) {
+	    var stack1;
+	
+	  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.age17 : stack1),{"name":"if","hash":{},"fn":container.program(29, data, 0),"inverse":container.program(31, data, 0),"data":data})) != null ? stack1 : "");
+	},"29":function(container,depth0,helpers,partials,data) {
+	    return "							Пока вы не можете стать донором костного мозга, потому что слишком молоды — в доноры берут с 18 лет. Ждем вас через год! \n							<br/>\n							<br/>\n							Но помочь вы можете уже сейчас. Расскажите о проекте друзьям: если кто-то из них станет донором, вы спасете не одну, а несколько жизней.\n";
+	},"31":function(container,depth0,helpers,partials,data) {
+	    var stack1;
+	
+	  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.age16 : stack1),{"name":"if","hash":{},"fn":container.program(32, data, 0),"inverse":container.program(34, data, 0),"data":data})) != null ? stack1 : "");
+	},"32":function(container,depth0,helpers,partials,data) {
+	    return "							Пока вы не можете стать донором костного мозга, потому что слишком молоды — в доноры берут с 18 лет. Ждем вас через 2 года! \n							<br/>\n							<br/>\n							Но помочь вы можете уже сейчас. Расскажите о проекте друзьям: если кто-то из них станет донором, вы спасете не одну, а несколько жизней.\n";
+	},"34":function(container,depth0,helpers,partials,data) {
+	    var stack1;
+	
+	  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.age15_10 : stack1),{"name":"if","hash":{},"fn":container.program(35, data, 0),"inverse":container.program(37, data, 0),"data":data})) != null ? stack1 : "");
+	},"35":function(container,depth0,helpers,partials,data) {
+	    return "							Пока вы не можете стать донором костного мозга, потому что слишком молоды — в доноры берут только совершеннолетних. Ждем вас после 18!\n							<br/>\n							<br/>\n							Но помочь вы можете уже сейчас. Расскажите о проекте друзьям: если кто-то из них станет донором, вы спасете не одну, а несколько жизней.\n";
+	},"37":function(container,depth0,helpers,partials,data) {
+	    var stack1;
+	
+	  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.age45more : stack1),{"name":"if","hash":{},"fn":container.program(38, data, 0),"inverse":container.program(40, data, 0),"data":data})) != null ? stack1 : "");
+	},"38":function(container,depth0,helpers,partials,data) {
+	    return "							Донором можно стать до 60 лет, но типирование — дорогая процедура, поэтому важно, чтобы потенциальные доноры числились в регистре как можно дольше. Поэтому кровь на типирование берут до 45 лет.\n							<br/>\n							<br/>\n							Но вы все равно можете помочь. Расскажите о проекте друзьям: если кто-то из них станет донором, вы спасете не одну, а несколько жизней. \n";
+	},"40":function(container,depth0,helpers,partials,data) {
+	    var stack1;
+	
+	  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.age10less : stack1),{"name":"if","hash":{},"fn":container.program(41, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "");
+	},"41":function(container,depth0,helpers,partials,data) {
+	    return "							Пока вы не можете стать донором костного мозга, потому что слишком молоды — в доноры берут только совершеннолетних. Ждем вас после 18!\n							<br/>\n							<br/>\n							Но помочь вы можете уже сейчас. Расскажите о проекте друзьям: если кто-то из них станет донором, вы спасете не одну, а несколько жизней.\n						";
+	},"43":function(container,depth0,helpers,partials,data) {
+	    var stack1;
+	
+	  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.weight47less : stack1),{"name":"if","hash":{},"fn":container.program(44, data, 0),"inverse":container.program(46, data, 0),"data":data})) != null ? stack1 : "");
+	},"44":function(container,depth0,helpers,partials,data) {
+	    return "							Вы не можете стать донором костного мозга, потому что в доноры берут людей весом от 50 килограмм. \n							<br>\n							<br>\n							Но вы все равно можете помочь. Расскажите о проекте друзьям: если кто-то из них станет донором, вы спасете не одну, а несколько жизней. \n";
+	},"46":function(container,depth0,helpers,partials,data) {
+	    var stack1;
+	
+	  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.weight48_49 : stack1),{"name":"if","hash":{},"fn":container.program(47, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "");
+	},"47":function(container,depth0,helpers,partials,data) {
+	    return "							Сейчас вы не можете стать донором костного мозга, потому что в доноры берут людей весом от 50 килограммов. Но вы очень близки! Пройдите тест ещё раз, указав, что весите 50 килограмм, и посмотрите, нет ли у вас других противопоказаний. Если нет — ждём вас через пару килограммов!\n							<br>\n							<br>\n							Но вы все равно можете помочь. Расскажите о проекте друзьям: если кто-то из них станет донором, вы спасете не одну, а несколько жизней. \n						";
+	},"49":function(container,depth0,helpers,partials,data) {
+	    return "						Вы не можете стать донором костного мозга, потому что гемотрансмиссионное заболевание — абсолютное противопоказание.\n						<br>\n						<br>\n						Но вы все равно можете помочь. Расскажите о проекте друзьям: если кто-то из них станет донором, вы спасете не одну, а несколько жизней.\n";
+	},"51":function(container,depth0,helpers,partials,data) {
+	    return "						Вы не можете стать донором костного мозга, потому что у вас есть противопоказания. У человека, которому нужна пересадка, очень слабый иммунитет. Поэтому даже если вы болели очень давно, врачи решают не рисковать. \n						<br>\n						<br>\n						Но вы все равно можете помочь. Расскажите о проекте друзьям: если кто-то из них станет донором, вы спасете не одну, а несколько жизней. \n";
+	},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+	    var stack1, alias1=container.lambda, alias2=container.escapeExpression, alias3=depth0 != null ? depth0 : {};
+	
+	  return "<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.testStyles : depth0)) != null ? stack1.test : stack1), depth0))
+	    + "\">тест</div>\n<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
+	    + "\">Могу ли я стать донором?</div>\n<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.finishStyles : depth0)) != null ? stack1.content : stack1), depth0))
+	    + " "
+	    + ((stack1 = helpers["if"].call(alias3,((stack1 = ((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.attributes : stack1)) != null ? stack1.result : stack1),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.program(3, data, 0),"data":data})) != null ? stack1 : "")
+	    + "\">\n\n"
+	    + ((stack1 = helpers["if"].call(alias3,((stack1 = ((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.attributes : stack1)) != null ? stack1.result : stack1),{"name":"if","hash":{},"fn":container.program(5, data, 0),"inverse":container.program(7, data, 0),"data":data})) != null ? stack1 : "")
+	    + "</div>";
+	},"useData":true});
+
+/***/ },
+/* 79 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Handlebars = __webpack_require__(33);
+	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
+	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+	    var stack1;
+	
+	  return "<div class=\""
+	    + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? depth0.styles : depth0)) != null ? stack1.container : stack1), depth0))
+	    + "\" data-view=\"test-container\">\n</div>";
+	},"useData":true});
+
+/***/ },
+/* 80 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _backbone = __webpack_require__(1);
+	
+	var _backbone2 = _interopRequireDefault(_backbone);
+	
+	var _underscore = __webpack_require__(2);
+	
+	var _underscore2 = _interopRequireDefault(_underscore);
+	
+	var _ajax = __webpack_require__(17);
+	
+	var _ajax2 = _interopRequireDefault(_ajax);
+	
+	var _config = __webpack_require__(9);
+	
+	var _config2 = _interopRequireDefault(_config);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var MONTHES = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
+	
+	var _class = function (_Backbone$Model) {
+		_inherits(_class, _Backbone$Model);
+	
+		function _class() {
+			_classCallCheck(this, _class);
+	
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(_class).apply(this, arguments));
+		}
+	
+		_createClass(_class, [{
+			key: 'fetchPotentialDonors',
+			value: function fetchPotentialDonors(lat, lon) {
+				var _this2 = this;
+	
+				return new Promise(function (resolve, reject) {
+					(0, _ajax2.default)({
+						url: _config2.default.api.url + '/potential_donors',
+						type: 'get'
+					}).then(function (response) {
+						_this2.set(response.value);
+						console.log(_this2.get('currentMonth').value);
+						resolve(response);
+					}, function () {
+						reject();
+					});
+				});
+			}
+		}, {
+			key: 'defaults',
+			get: function get() {
+				return {
+					total: {
+						value: '...'
+					},
+					currentMonth: {}
+				};
+			}
+		}, {
+			key: 'potentialDonors',
+			get: function get() {
+				var date = new Date(this.get('total').timestamp);
+				return {
+					value: this.get('total').value,
+					date: this.get('total').timestamp ? date.getDate() + ' ' + MONTHES[date.getMonth()] + ' ' + date.getFullYear() + ' года' : '...'
+				};
+			}
+		}, {
+			key: 'diff',
+			get: function get() {
+				var diff = this.get('total').value - this.get('currentMonth').value;
+				return _underscore2.default.isNumber(diff) ? diff : '...';
+			}
+		}]);
+	
+		return _class;
+	}(_backbone2.default.Model);
+	
+	exports.default = _class;
+
+/***/ },
+/* 81 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(82);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(14)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js?modules!./../../node_modules/postcss-loader/index.js!./why.css", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js?modules!./../../node_modules/postcss-loader/index.js!./why.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 82 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(13)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "._3wblAYxY0Ty93Y37IcWleG {\n\tmax-width: 1024px;\n\tmargin-left: auto;\n\tmargin-right: auto;\n\tmargin-top: 40px;\n}\n._3wblAYxY0Ty93Y37IcWleG img {\n\tmax-width: 100%;\n}\n._3wblAYxY0Ty93Y37IcWleG {\n\twidth: 730px;\n\tmargin-bottom: 58px;\n}\n._2kCWKAdKZWO2l1mHuhHod3 {\n\tpadding-bottom: 80px;\n}\n._85xiBWTT3XB0Ok82A_jpG {\n\tdisplay: flex;\n}\n._14jXJwRb11AzJ-fIr7B-MM {\n\tflex-shrink: 0;\n\tmargin-right: 20px;\n}\n._2Skk9CJ2BsZ5Lgik74tm-8 {\n\twidth: 92px;\n}\n._1u70M5syH458JPMKFR15eL {\n\tfont-size: 27px;\n\tline-height: 35px;\n\tfont-weight: 300;\n}", ""]);
+	
+	// exports
+	exports.locals = {
+		"artwork": "_3wblAYxY0Ty93Y37IcWleG",
+		"test": "_2kCWKAdKZWO2l1mHuhHod3",
+		"goal": "_85xiBWTT3XB0Ok82A_jpG",
+		"goalAuthor": "_14jXJwRb11AzJ-fIr7B-MM",
+		"goalAuthorPhoto": "_2Skk9CJ2BsZ5Lgik74tm-8",
+		"goalText": "_1u70M5syH458JPMKFR15eL"
+	};
+
+/***/ },
+/* 83 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Handlebars = __webpack_require__(33);
+	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
+	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
+	
+	  return "<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.root : stack1), depth0))
+	    + "\">\n	<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.why : depth0)) != null ? stack1.artwork : stack1), depth0))
+	    + "\">\n		<img src=\"/static/why_artwork.png\">\n	</div>\n	<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.container : stack1), depth0))
+	    + "\">\n		<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
+	    + "\">\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.header : stack1), depth0))
+	    + "\">Зачем становиться<br>донором костного мозга</div>\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n				Костный мозг&nbsp;&mdash; это орган кроветворной системы, на&nbsp;вид&nbsp;&mdash; жидкая субстанция. Он&nbsp;содержит стволовые клетки и&nbsp;продуцирует все кровяные клетки в&nbsp;организме. Если&nbsp;у&nbsp;человека онкологическое, иммунологическое или&nbsp;аутоимунное заболевание, врачи назначают пересадку костного мозга. Часто это&nbsp;последний шанс спасти человеку жизнь.\n			</div>\n		</div>	\n		<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
+	    + "\">\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
+	    + "\">Как ищут доноров</div>\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n				Когда человеку нужен костный мозг, в&nbsp;первую очередь проверяют его родственников. Шансы невелики&nbsp;&mdash; в&nbsp;случае братьев и&nbsp;сестёр вероятность 1:4, а&nbsp;у&nbsp;родителей и&nbsp;детей ещё&nbsp;меньше. Если среди родных доноров не&nbsp;нашлось, ищут неродственных доноров&nbsp;&mdash; для&nbsp;этого нужен специальный регистр.\n			</div>\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1["float"] : stack1), depth0))
+	    + "\">\n					<div>\n						Регистр&nbsp;&mdash; это&nbsp;база потенциальных доноров костного мозга. Потенциальный донор&nbsp;&mdash; еще не&nbsp;донор: у&nbsp;него не&nbsp;забирают костный мозг, он&nbsp;только числится в&nbsp;регистре. Реальным донором человек становится, когда кому-то подходит его костный мозг. Чем&nbsp;больше в&nbsp;регистре потенциальных доноров, тем&nbsp;выше вероятность найти пациенту реального донора.\n					</div>\n					<a class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnote : stack1), depth0))
+	    + "\" href=\"http://www.rusfond.ru/registr/009\" target=\"_blank\">\n						<span class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnoteCounter : stack1), depth0))
+	    + "\">\n							"
+	    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.data : depth0)) != null ? stack1.potentialDonors : stack1)) != null ? stack1.value : stack1), depth0))
+	    + "\n						</span>\n						<span class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnoteText : stack1), depth0))
+	    + "\">\n							потенциальных\n							<br>\n							доноров в регистре\n							<br>\n							на "
+	    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.data : depth0)) != null ? stack1.potentialDonors : stack1)) != null ? stack1.date : stack1), depth0))
+	    + ".\n						</span>\n						<span class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnoteMeta : stack1), depth0))
+	    + "\">\n							Информация с сайта Русфонда\n						</span>	\n					</a>\n				</div>\n			</div>\n		</div>\n		<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
+	    + "\">\n			<div class="
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.note : stack1), depth0))
+	    + ">\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
+	    + "\">Зачем увеличивать национальный регистр</div>\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n					Регистр потенциальных доноров костного мозга есть в&nbsp;каждой развитой стране. Очень&nbsp;большой регистр в&nbsp;Германии&nbsp;&mdash; 6&nbsp;миллионов потенциальных доноров.\n					<br>\n					Можно пользоваться зарубежными регистрами, но&nbsp;важно развивать свой:\n				</div>	\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.floatJustifyBetween : stack1), depth0))
+	    + "\">\n						<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.col2 : stack1), depth0))
+	    + "\">\n							В&nbsp;национальном регистре выше шанс найти подходящего донора, потому что в&nbsp;каждой стране свои генетические особенности.\n						</div>\n						<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.col2 : stack1), depth0))
+	    + "\">\n							Искать в&nbsp;национальном регистре гораздо дешевле. Поиск в&nbsp;российском регистре стоит 150-300 тысяч рублей, а&nbsp;в&nbsp;зарубежных&nbsp;&mdash; 18&nbsp;000&nbsp;евро.\n						</div>\n					</div>\n				</div>\n			</div>\n		</div>\n		<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
+	    + "\">\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.why : depth0)) != null ? stack1.goal : stack1), depth0))
+	    + "\">\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.why : depth0)) != null ? stack1.goalAuthor : stack1), depth0))
+	    + "\">\n					<img src=\"/static/grinberg.png\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.why : depth0)) != null ? stack1.goalAuthorPhoto : stack1), depth0))
+	    + "\"/>\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.why : depth0)) != null ? stack1.goalAuthorInfo : stack1), depth0))
+	    + "\">\n						<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.text : stack1), depth0))
+	    + "\">\n							Павел Гринберг,\n							<br>\n							исполнительный директор\n							<br>\n							фонда Advita\n						</div>\n					</div>\n				</div>\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.why : depth0)) != null ? stack1.goalText : stack1), depth0))
+	    + "\">\n					&laquo;Наша цель&nbsp;&mdash; 500 тысяч потенциальных доноров в&nbsp;регистре. Столько нужно, чтобы находить костный мозг половине российских пациентов&raquo;\n				</div>\n			</div>\n		</div>\n		<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
+	    + "\">\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
+	    + "\">Как спасти жизнь</div>\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1["float"] : stack1), depth0))
+	    + "\">\n					<div>\n						Мы&nbsp;увеличиваем регистр, чтобы повысить вероятность того, что пациент найдет подходящего донора и&nbsp;выздоровеет. Но&nbsp;система работает только потому, что находятся люди, которые хотят безвозмездно помогать. Сначала они вступают в&nbsp;регистр и&nbsp;становятся потенциальными донорами, а&nbsp;когда их&nbsp;костный мозг подходит, идут на&nbsp;реальное донорство.\n					</div>\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnote : stack1), depth0))
+	    + "\">\n						<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnoteCounter : stack1), depth0))
+	    + "\">\n							"
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.data : depth0)) != null ? stack1.diff : stack1), depth0))
+	    + "\n						</div>\n						<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnoteText : stack1), depth0))
+	    + "\">\n							человек \n							<br>\n							вступили в регистр\n							<br>\n							за последний месяц\n						</div>\n					</div>\n				</div>\n			</div>\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n				После пересадки новые клетки костного мозга в&nbsp;организме реципиента размножаются и&nbsp;производят здоровое потомство. У&nbsp;пациента восстанавливается нормальное кроветворение организма, увеличивается стойкость к&nbsp;вирусам. Получить здоровые клетки можно только от&nbsp;донора&nbsp;&mdash; другой возможности нет.\n			</div>\n		</div>\n		<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
+	    + "\">\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
+	    + "\">Кто может помочь</div>\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n				При некоторых заболеваниях нельзя становиться донором костного мозга&nbsp;&mdash; это может быть опасно и&nbsp;для донора, и&nbsp;для реципиента. Врачи не&nbsp;рискуют здоровьем донора ради спасения другого человека и&nbsp;отменяют пересадку при малейшей угрозе. Для здорового человека процедура безопасна.\n			</div>\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1["float"] : stack1), depth0))
+	    + "\">\n					<div>\n						Другое дело&nbsp;&mdash; организм пациента, который нуждается в&nbsp;пересадке. Он&nbsp;и&nbsp;так ослаблен болезнью. Перед пересадкой донорских клеток пациент проходит курс сильной химиотерапии, которая убивает его больной костный мозг. Иммунитет пациента не&nbsp;справится с&nbsp;болезнями донора, поэтому важно пересадить максимально здоровый костный мозг.\n					</div>\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnote : stack1), depth0))
+	    + "\">\n						<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnoteText : stack1), depth0))
+	    + "\">\n							Если вы — донор крови,\n							<br>\n							вы можете быть\n							<br>\n							и донором костного\n							<br>\n							мозга. Противопоказания\n							<br>\n							для обеих процедур\n							<br>\n							совпадают\n						</div>\n					</div>\n				</div>\n			</div>\n		</div>\n		<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.why : depth0)) != null ? stack1.test : stack1), depth0))
+	    + "\" data-view=\"how-test\"></div>\n	</div>\n	<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.footer : stack1), depth0))
+	    + "\">\n		<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.container : stack1), depth0))
+	    + "\">\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n				Если вы подходите и задумались о донорстве, узнайте,\n				<br>\n				<a class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
+	    + "\" href=\"/#/how\">как стать донором костного мозга</a>. \n			</div>\n		</div>\n	</div>\n	<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.container : stack1), depth0))
+	    + "\">\n		<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.credentials : stack1), depth0))
+	    + "\">\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.credentialsImage : stack1), depth0))
+	    + "\">\n				<img src=\"/static/credentials_why.png\">\n			</div>\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.credentialsText : stack1), depth0))
+	    + "\">\n				Сделала Алиса Яннау в Школе редакторов Бюро Горбунова. \n				<br>\n				Иллюстратор — Марина Савицкая, разработчик — Артур Стамбульцян.\n				<br>\n				<a href=\"/static/pdf/agreement.pdf\" target=\"_blank\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
+	    + "\">Пользовательское соглашение</a>.\n			</div>	\n		</div>\n	</div>\n</div>";
+	},"useData":true});
+
+/***/ },
+/* 84 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(85);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(14)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js?modules!./../../node_modules/postcss-loader/index.js!./app.css", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js?modules!./../../node_modules/postcss-loader/index.js!./app.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 85 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(13)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "._262Ej1jMDO2JTW3JIx8Tcp {\n\tmin-width: 1024px;\n}\n\n._262Ej1jMDO2JTW3JIx8Tcp, ._262Ej1jMDO2JTW3JIx8Tcp *, ._262Ej1jMDO2JTW3JIx8Tcp *::before, ._262Ej1jMDO2JTW3JIx8Tcp *::after {\n\tbox-sizing: border-box;\n\toutline: none;\n\ttext-size-adjust: none;\n\t-moz-text-size-adjust: none;\n\t-webkit-text-size-adjust: none;\n\t-ms-text-size-adjust: none;\n}", ""]);
+	
+	// exports
+	exports.locals = {
+		"root": "_262Ej1jMDO2JTW3JIx8Tcp"
+	};
+
+/***/ },
+/* 86 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Handlebars = __webpack_require__(33);
+	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
+	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+	    var stack1;
+	
+	  return "<div class=\""
+	    + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? depth0.styles : depth0)) != null ? stack1.container : stack1), depth0))
+	    + "\" data-view=\"app-container\"></div>";
+	},"useData":true});
+
+/***/ },
+/* 87 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(88);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(14)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js?modules!./../../node_modules/postcss-loader/index.js!./common.css", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js?modules!./../../node_modules/postcss-loader/index.js!./common.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 88 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(13)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "body {\n\tmargin: 0;\n\tpadding: 0;\n\tfont-family: 'Roboto', sans-serif;\n}\n\nimg {\n\tdisplay: block;\n}\n\na {\n\ttext-decoration: none;\n}", ""]);
+	
+	// exports
+
 
 /***/ }
 /******/ ]);

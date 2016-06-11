@@ -21,14 +21,14 @@
 					</div>
 					<a class="{{typography.footnote}}" href="http://www.rusfond.ru/registr/009" target="_blank">
 						<span class="{{typography.footnoteCounter}}">
-							{{data.potentialDonors}}
+							{{data.potentialDonors.value}}
 						</span>
 						<span class="{{typography.footnoteText}}">
 							потенциальных
 							<br>
 							доноров в регистре
 							<br>
-							на 27 мая 2016 года.
+							на {{data.potentialDonors.date}}.
 						</span>
 						<span class="{{typography.footnoteMeta}}">
 							Информация с сайта Русфонда
@@ -85,9 +85,7 @@
 					</div>
 					<div class="{{typography.footnote}}">
 						<div class="{{typography.footnoteCounter}}">
-							2&thinsp;609
-							<br>
-							2&nbsp;609
+							{{data.diff}}
 						</div>
 						<div class="{{typography.footnoteText}}">
 							человек 

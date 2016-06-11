@@ -33,7 +33,8 @@ export default class extends PageView {
 			typography: typography,
 			why: why,
 			data: {
-				potentialDonors: this.countersModel.potentialDonors
+				potentialDonors: this.countersModel.potentialDonors,
+				diff: this.countersModel.diff
 			}
 		});
 	}

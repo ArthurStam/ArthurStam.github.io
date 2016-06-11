@@ -4,6 +4,21 @@ import _ from 'underscore';
 import ajax from 'dev/helpers/ajax';
 import config from 'dev/config';
 
+let MONTHES = [
+	'января',
+	'февраля',
+	'марта',
+	'апреля',
+	'мая',
+	'июня',
+	'июля',
+	'августа',
+	'сентября',
+	'октября',
+	'ноября',
+	'декабря'
+]
+
 export default class extends Backbone.Model {
 	
 	fetchPotentialDonors(lat, lon) {
@@ -12,7 +27,8 @@ export default class extends Backbone.Model {
 				url: `${config.api.url}/potential_donors`,
 				type: 'get'
 			}).then((response) => {
-				this.set('potentialDonors', response.value);
+				this.set(response.value);
+				console.log(this.get('currentMonth').value)
 				resolve(response);
 			}, () => {
 				reject();
@@ -22,13 +38,23 @@ export default class extends Backbone.Model {
 
 	get defaults() {
 		return {
-			potentialDonors: null
+			total: {
+				value: '...'
+			},
+			currentMonth: {}
 		}
 	}
 
 	get potentialDonors() {
-		let value = this.get('potentialDonors');
-		// return value ? value.toLocaleString('ru-RU') : 0;
-		return value;
+		let date = new Date(this.get('total').timestamp)
+		return {
+			value: this.get('total').value,
+			date: this.get('total').timestamp ? `${date.getDate()} ${MONTHES[date.getMonth()]} ${date.getFullYear()} года` : '...'
+		};
+	}
+
+	get diff() {
+		let diff = this.get('total').value - this.get('currentMonth').value;
+		return _.isNumber(diff) ? diff : '...'
 	}
 }
