@@ -15025,7 +15025,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".mCMeBlawmTHgj-kOia8gK {\n\tfont-family: 'Roboto', sans-serif;\n\tfont-size: 16px;\n\tline-height: 24px;\n\tfont-weight: 300;\n}\n\n.Yld6iXMiFH4Vt7IopVoky {\n\tfont-family: 'Roboto', sans-serif;\n\tfont-size: 48px;\n\tline-height: 55px;\n\tfont-weight: 700;\n\ttext-align: center;\n}\n\n._3uvNU1E_zK3vlKn7iIK57u {\n\tfont-family: 'Roboto', sans-serif;\n\tfont-size: 30px;\n\tline-height: 32px;\n\tfont-weight: 700;\n\tmargin-bottom: 21px;\n}\n\n._3lv3I_riifEMhkoO2Dukx_ {\n}\n\n._3lv3I_riifEMhkoO2Dukx_:not(:first-child) {\n\tmargin-top: 21px;\n}\n\n._3lv3I_riifEMhkoO2Dukx_:not(:last-child) {\n\tmargin-bottom: 21px;\n}\n\n._2hyzGKrHnqHZ4dKDiYJjSk {\n\tcursor: pointer;\n\tcolor: #078599;\n\ttext-decoration: underline;\n}\n\n._1V1iXsJ-eSoGgmng5LyZmq {\n\tcursor: pointer;\n\tcolor: #078599;\n\tborder-bottom: 1px dotted #078599;\n}\n\n._2H3KkHxmbHI3WvlhyzZCnq {\n\tfont-weight: 700;\n}\n\n.x5OPdyuVfERXP6Zae2_p3 {\n\tfont-family: 'Roboto', sans-serif;\n\tcolor: #078599;\n\tfont-weight: 400;\n}\n\n._3NPcCWvioPO4gSH3wqBu96 {\n\tdisplay: block;\n\tfont-size: 54px;\n\tline-height: 56px;\n\tfont-weight: 700;\n\tmargin-bottom: -4px;\n}\n\n._3dPZLkyD7-DdI3_7WT-B1F {\n\tdisplay: block;\n\tline-height: 23px;\n}\n\n._256MTZBCB1RaS5QMBrDnjm {\n\tdisplay: block;\n\tfont-size: 12px;\n}\n\n._3rskhd6gSf-w_n0a8nK10n {\n\tdisplay: flex;\n}\n\n._3rskhd6gSf-w_n0a8nK10n .x5OPdyuVfERXP6Zae2_p3, ._3rskhd6gSf-w_n0a8nK10n ._3c59ynQ1xcQwe4miRYkPbZ {\n\tflex-shrink: 0;\n\tmargin-left: 24px;\n}\n\n._3rskhd6gSf-w_n0a8nK10n ._3c59ynQ1xcQwe4miRYkPbZ {\n\twidth: 196px;\n}\n\n._1GUWZ5UGIjNQxoLL6Q2miN {\n\tjustify-content: space-between;\n}\n\n._2q4iT4rckcnIidE1puWG0d {\n\tfont-family: 'Roboto', sans-serif;\n\twidth: 768px;\n\tmargin-left: calc( ( 657px - 768px ) / 2 );\n\tpadding: 50px calc( ( 768px - 657px ) / 2 ) 64px;\n\tbackground-color: rgba(9, 159, 175, 0.27);\n}\n\n._3abqwcGNOd_J3E1Oi-yi6N {\n\tflex-shrink: 0;\n}\n\n._3abqwcGNOd_J3E1Oi-yi6N:first-child {\n\twidth: 44%;\n}\n\n._3abqwcGNOd_J3E1Oi-yi6N:last-child {\n\twidth: 50%;\n}", ""]);
+	exports.push([module.id, ".mCMeBlawmTHgj-kOia8gK {\n\tfont-family: 'Roboto', sans-serif;\n\tfont-size: 16px;\n\tline-height: 24px;\n\tfont-weight: 300;\n}\n\n.Yld6iXMiFH4Vt7IopVoky {\n\tfont-family: 'Roboto', sans-serif;\n\tfont-size: 48px;\n\tline-height: 55px;\n\tfont-weight: 700;\n\ttext-align: center;\n}\n\n._3uvNU1E_zK3vlKn7iIK57u {\n\tfont-family: 'Roboto', sans-serif;\n\tfont-size: 30px;\n\tline-height: 32px;\n\tfont-weight: 700;\n\tmargin-bottom: 21px;\n}\n\n._3lv3I_riifEMhkoO2Dukx_ {\n}\n\n._3lv3I_riifEMhkoO2Dukx_:not(:first-child) {\n\tmargin-top: 21px;\n}\n\n._3lv3I_riifEMhkoO2Dukx_:not(:last-child) {\n\tmargin-bottom: 21px;\n}\n\n._2hyzGKrHnqHZ4dKDiYJjSk {\n\tcursor: pointer;\n\tcolor: #078599;\n\ttext-decoration: underline;\n}\n\n._1V1iXsJ-eSoGgmng5LyZmq {\n\tcursor: pointer;\n\tcolor: #078599;\n\tborder-bottom: 1px dotted #078599;\n}\n\n._2H3KkHxmbHI3WvlhyzZCnq {\n\tfont-weight: 700;\n}\n\n.x5OPdyuVfERXP6Zae2_p3 {\n\tfont-family: 'Roboto', sans-serif;\n\tcolor: #078599;\n\tfont-weight: 400;\n}\n\n._3NPcCWvioPO4gSH3wqBu96 {\n\tdisplay: block;\n\tfont-size: 54px;\n\tline-height: 56px;\n\tfont-weight: 700;\n\tmargin-bottom: -4px;\n\tfont-family: 'PT Sans', sans-serif;\n}\n\n._3dPZLkyD7-DdI3_7WT-B1F {\n\tdisplay: block;\n\tline-height: 23px;\n}\n\n._256MTZBCB1RaS5QMBrDnjm {\n\tdisplay: block;\n\tfont-size: 12px;\n}\n\n._3rskhd6gSf-w_n0a8nK10n {\n\tdisplay: flex;\n}\n\n._3rskhd6gSf-w_n0a8nK10n .x5OPdyuVfERXP6Zae2_p3, ._3rskhd6gSf-w_n0a8nK10n ._3c59ynQ1xcQwe4miRYkPbZ {\n\tflex-shrink: 0;\n\tmargin-left: 24px;\n}\n\n._3rskhd6gSf-w_n0a8nK10n ._3c59ynQ1xcQwe4miRYkPbZ {\n\twidth: 196px;\n}\n\n._1GUWZ5UGIjNQxoLL6Q2miN {\n\tjustify-content: space-between;\n}\n\n._2q4iT4rckcnIidE1puWG0d {\n\tfont-family: 'Roboto', sans-serif;\n\twidth: 768px;\n\tmargin-left: calc( ( 657px - 768px ) / 2 );\n\tpadding: 50px calc( ( 768px - 657px ) / 2 ) 64px;\n\tbackground-color: rgba(9, 159, 175, 0.27);\n}\n\n._3abqwcGNOd_J3E1Oi-yi6N {\n\tflex-shrink: 0;\n}\n\n._3abqwcGNOd_J3E1Oi-yi6N:first-child {\n\twidth: 44%;\n}\n\n._3abqwcGNOd_J3E1Oi-yi6N:last-child {\n\twidth: 50%;\n}", ""]);
 	
 	// exports
 	exports.locals = {
@@ -20421,6 +20421,19 @@
 	
 	var MONTHES = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
 	
+	function prettifyValue(value) {
+		if (!_underscore2.default.isNumber(value)) return value;
+		var str = String(value);
+		var result = [];
+		for (var i = str.length - 1, j = 1; i >= 0; i--, j++) {
+			result.unshift(str[i]);
+			if (!(j % 3) && i != 0) {
+				result.unshift(' ');
+			}
+		}
+		return result.join('');
+	}
+	
 	var _class = function (_Backbone$Model) {
 		_inherits(_class, _Backbone$Model);
 	
@@ -20440,8 +20453,8 @@
 						url: _config2.default.api.url + '/potential_donors',
 						type: 'get'
 					}).then(function (response) {
-						_this2.set(response.value);
-						console.log(_this2.get('currentMonth').value);
+						_this2.set('total', response.value[0]);
+						_this2.set('diff', response.value[0].value - response.value[response.value.length - 1].value);
 						resolve(response);
 					}, function () {
 						reject();
@@ -20453,25 +20466,24 @@
 			get: function get() {
 				return {
 					total: {
-						value: '...'
+						value: '...',
+						date: '...'
 					},
-					currentMonth: {}
+					diff: '...'
 				};
 			}
 		}, {
 			key: 'potentialDonors',
 			get: function get() {
-				var date = new Date(this.get('total').timestamp);
 				return {
-					value: this.get('total').value,
-					date: this.get('total').timestamp ? date.getDate() + ' ' + MONTHES[date.getMonth()] + ' ' + date.getFullYear() + ' года' : '...'
+					value: prettifyValue(this.get('total').value),
+					date: this.get('total').date
 				};
 			}
 		}, {
 			key: 'diff',
 			get: function get() {
-				var diff = this.get('total').value - this.get('currentMonth').value;
-				return _underscore2.default.isNumber(diff) ? diff : '...';
+				return prettifyValue(this.get('diff'));
 			}
 		}]);
 	

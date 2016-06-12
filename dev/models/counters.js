@@ -17,7 +17,20 @@ let MONTHES = [
 	'октября',
 	'ноября',
 	'декабря'
-]
+];
+
+function prettifyValue(value) {
+	if (!_.isNumber(value)) return value;
+	let str = String(value);
+	let result = [];
+	for (let i = str.length - 1, j = 1; i >= 0; i--, j++) {
+		result.unshift(str[i]);
+		if (!(j % 3) && i != 0) {
+			result.unshift('\u2009');
+		}
+	}
+	return result.join('');
+}
 
 export default class extends Backbone.Model {
 	
@@ -27,8 +40,8 @@ export default class extends Backbone.Model {
 				url: `${config.api.url}/potential_donors`,
 				type: 'get'
 			}).then((response) => {
-				this.set(response.value);
-				console.log(this.get('currentMonth').value)
+				this.set('total', response.value[0]);
+				this.set('diff', response.value[0].value - response.value[response.value.length - 1].value);
 				resolve(response);
 			}, () => {
 				reject();
@@ -39,22 +52,21 @@ export default class extends Backbone.Model {
 	get defaults() {
 		return {
 			total: {
-				value: '...'
+				value: '...',
+				date: '...'
 			},
-			currentMonth: {}
+			diff: '...'
 		}
 	}
 
 	get potentialDonors() {
-		let date = new Date(this.get('total').timestamp)
 		return {
-			value: this.get('total').value,
-			date: this.get('total').timestamp ? `${date.getDate()} ${MONTHES[date.getMonth()]} ${date.getFullYear()} года` : '...'
+			value: prettifyValue(this.get('total').value),
+			date: this.get('total').date
 		};
 	}
 
 	get diff() {
-		let diff = this.get('total').value - this.get('currentMonth').value;
-		return _.isNumber(diff) ? diff : '...'
+		return prettifyValue(this.get('diff'))
 	}
 }
