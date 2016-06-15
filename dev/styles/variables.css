@@ -1,8 +1,10 @@
 $roboto: 'Roboto', sans-serif;
 
 $sectionMargin: 44px;
+$tableMargin: 64px;
 $paragraphMargin: 21px;
+$gridGutter: 27px;
 
-$greenBlue: #078599;
-$blue: rgba(9, 159, 175, 0.27);
+$greenBlue: #127ac4;
+$blue: rgba(173, 217, 242, 0.41);
 $yellow: #FFD637;

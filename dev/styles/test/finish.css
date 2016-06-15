@@ -32,29 +32,30 @@
 }
 
 .content {
-	display: flex;
-	flex-direction: row;
+	/*display: flex;*/
+	/*flex-direction: row;*/
 }
 
 .contentFail {
-	justify-content: flex-start;
+	/*justify-content: flex-start;*/
 }
 
 .contentSuccess {
-	justify-content: flex-start;
+	/*justify-content: flex-start;*/
 	position: relative;
 }
 
 .successText {
 	position: relative;
 	z-index: 2;
+	min-height: 450px;
 }
 
 .successImage {
 	position: absolute;
 	z-index: 1;
-	left: 107px;
-    top: -55px;
+	left: 177px;
+    top: 21px;
     width: 646px;
 }
 
@@ -63,13 +64,13 @@
 }
 
 .failText {
-	width: 340px;
+	
 }
 
 .failImage {
 	position: absolute;
 	z-index: 1;
-    right: -130px;
+    right: -40px;
     bottom: -80px;
     width: 410px;
 }

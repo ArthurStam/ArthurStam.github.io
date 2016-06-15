@@ -10,6 +10,8 @@ import Why from 'dev/views/why';
 import CountersModel from 'dev/models/counters';
 
 import styles from 'dev/styles/app.css';
+import pageStyles from 'dev/styles/page.css';
+import typography from 'dev/styles/typography.css';
 
 export default class extends BaseView {
 
@@ -57,11 +59,13 @@ export default class extends BaseView {
 
 	_redirect(pageName = 'why') {
 		this._scrollTo(0);
+		this._currentPage = pageName;
 		this._router.navigate(pageName, true);
 	}
 
 	_routeHandler(pageName) {
 		this._scrollTo(0);
+		this._currentPage = pageName;
 		this._renderPage(pageName);
 	}
 
@@ -72,7 +76,10 @@ export default class extends BaseView {
 	_prepareData(data={}) {
 		_.extend(data, {
 			// city: this.geoModel.get('city'),
-			styles: styles
+			styles: styles,
+			pageStyles: pageStyles,
+			currentPage: { [this._currentPage]: true },
+			typography: typography
 		});
 		return data;
 	}
@@ -81,6 +88,7 @@ export default class extends BaseView {
 		this.removeChildren('app-container');
 		let pageView = this.registerChild(new this._pages[pageName], 'app-container');
 		this.appendChildren('app-container');
+		this.render();
 		return pageView;
 	}
 }

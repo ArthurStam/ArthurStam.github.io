@@ -62,10 +62,12 @@
 	
 	__webpack_require__(87);
 	
-	var $appContainer = (0, _jquery2.default)('[data-role="app"]'),
-	    appView = new _app2.default();
+	ymaps.ready(function () {
+		var $appContainer = (0, _jquery2.default)('[data-role="app"]'),
+		    appView = new _app2.default();
 	
-	$appContainer.append(appView.render().el);
+		$appContainer.append(appView.render().el);
+	});
 
 /***/ },
 /* 1 */
@@ -13494,7 +13496,17 @@
 	
 	var _app2 = _interopRequireDefault(_app);
 	
+	var _page = __webpack_require__(21);
+	
+	var _page2 = _interopRequireDefault(_page);
+	
+	var _typography = __webpack_require__(23);
+	
+	var _typography2 = _interopRequireDefault(_typography);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
@@ -13531,12 +13543,14 @@
 				var pageName = arguments.length <= 0 || arguments[0] === undefined ? 'why' : arguments[0];
 	
 				this._scrollTo(0);
+				this._currentPage = pageName;
 				this._router.navigate(pageName, true);
 			}
 		}, {
 			key: '_routeHandler',
 			value: function _routeHandler(pageName) {
 				this._scrollTo(0);
+				this._currentPage = pageName;
 				this._renderPage(pageName);
 			}
 		}, {
@@ -13551,7 +13565,10 @@
 	
 				_underscore2.default.extend(data, {
 					// city: this.geoModel.get('city'),
-					styles: _app2.default
+					styles: _app2.default,
+					pageStyles: _page2.default,
+					currentPage: _defineProperty({}, this._currentPage, true),
+					typography: _typography2.default
 				});
 				return data;
 			}
@@ -13561,6 +13578,7 @@
 				this.removeChildren('app-container');
 				var pageView = this.registerChild(new this._pages[pageName](), 'app-container');
 				this.appendChildren('app-container');
+				this.render();
 				return pageView;
 			}
 		}, {
@@ -13893,33 +13911,34 @@
 	
 				this.geoModel = new _geo2.default();
 	
-				ymaps.ready(function () {
-					if (navigator.geolocation) {
-						navigator.geolocation.getCurrentPosition(function (position) {
-							_this4.geoModel.fetch(position.coords.latitude, position.coords.longitude).then(function () {
-								var city = _this4._findCity(_this4.geoModel.get('placeId'));
-								if (city) {
-									_this4._setCity(city);
-								} else {
-									_this4.render({
-										error: {
-											emptyCity: true,
-											data: {
-												formattedAddress: _this4.geoModel.get('formattedAddress')
-											}
+				this.render();
+	
+				if (navigator.geolocation) {
+					navigator.geolocation.getCurrentPosition(function (position) {
+						_this4.render({ status: 'loading' });
+						_this4.geoModel.fetch(position.coords.latitude, position.coords.longitude).then(function () {
+							var city = _this4._findCity(_this4.geoModel.get('placeId'));
+							if (city) {
+								_this4._setCity(city);
+							} else {
+								_this4.render({
+									error: {
+										emptyCity: true,
+										data: {
+											formattedAddress: _this4.geoModel.get('formattedAddress')
 										}
-									});
-									return;
-								}
-								_this4.render();
-							}, function (error) {
-								_this4.render();
-							});
+									}
+								});
+								return;
+							}
+							_this4.render();
 						}, function (error) {
 							_this4.render();
 						});
-					}
-				});
+					}, function (error) {
+						_this4.render();
+					});
+				}
 			}
 		}, {
 			key: '_findCity',
@@ -14978,13 +14997,17 @@
 	
 	
 	// module
-	exports.push([module.id, "._1qYSRV45fgKNO9VAvI4i5T:not(:first-child) {\n\tmargin-top: 44px;\n}\n\n._1qYSRV45fgKNO9VAvI4i5T:not(:last-child) {\n\tmargin-bottom: 44px;\n}\n\n._1QFXZkT9hFspnGBHrgzOla {\n\tposition: relative;\n\tpadding: 0 0 50px;\n}\n\n.iHIj2vUWlJL27N8tZtKfa {\n\twidth: 657px;\n\tmargin: auto;\n}\n\n._2AX1khG2HUetQLrpLQ2Ioz {\n\tpadding: 44px 0;\n\tbackground-color: rgba(9, 159, 175, 0.27);\n\tmargin-bottom: 44px;\n}\n\n.gugwRJ4TwKTo5q8bqDByV {\n\tfont-size: 14px;\n\tline-height: 24px;\n\tfont-weight: 300;\n\tdisplay: flex;\n}\n\n._22yIhYV_EDPENQPJXpEc0b {\n\tmargin-right: 10px;\n}", ""]);
+	exports.push([module.id, "._1qYSRV45fgKNO9VAvI4i5T:not(:first-child) {\n\tmargin-top: 44px;\n}\n\n._1qYSRV45fgKNO9VAvI4i5T:not(:last-child) {\n\tmargin-bottom: 44px;\n}\n\n._1QFXZkT9hFspnGBHrgzOla {\n\tposition: relative;\n\tpadding: 0;\n}\n\n.iHIj2vUWlJL27N8tZtKfa, ._12c1FEnwPuquq2CWuwl-gA {\n\twidth: 774px;\n\tmargin: auto;\n}\n\n._12c1FEnwPuquq2CWuwl-gA {\n\tpadding-top: 17px;\n\tposition: relative;\n\tz-index: 2;\n\tdisplay: flex;\n\talign-items: flex-start;\n\tjustify-content: space-between;\n}\n\n._1WMSjeh3TeIwK8XjbOI8nK {\n\tdisplay: flex;\n\talign-items: flex-start;\n\tjustify-content: flex-start;\t\n}\n\n.uqe7OsFpaLjVyvpYQdceQ {\n\tfont-size: 8px;\n\tfont-weight: 300;\n\tcolor: #000;\n\tletter-spacing: 1px;\n\tpadding: 7px 14px;\n\tborder-radius: 5px;\n\tline-height: 12px;\n\ttext-decoration: underline;\n}\n\n.uqe7OsFpaLjVyvpYQdceQ:hover {\n\ttext-decoration: none;\n}\n\n.uqe7OsFpaLjVyvpYQdceQ:not(:last-child) {\n\tmargin-right: 23px;\n}\n\n._19vv9sVNNUveW-HFSyFsTN {\n\tbackground-color: rgba(173, 217, 242, 0.41);\n\ttext-decoration: none;\n\tcursor: default;\n}\n\n._2AX1khG2HUetQLrpLQ2Ioz {\n\tpadding: 44px 0 52px;\n\tbackground-color: rgba(173, 217, 242, 0.41);\n\tmargin-bottom: 44px;\n}\n\n.gugwRJ4TwKTo5q8bqDByV {\n\tfont-size: 14px;\n\tline-height: 24px;\n\tfont-weight: 300;\n\tdisplay: flex;\n\talign-items: flex-end;\n}\n\n._22yIhYV_EDPENQPJXpEc0b {\n\theight: 62px;\n\tmargin-right: 10px;\n}\n\n._22yIhYV_EDPENQPJXpEc0b img {\n\tmax-height: 100%;\n}", ""]);
 	
 	// exports
 	exports.locals = {
 		"section": "_1qYSRV45fgKNO9VAvI4i5T",
 		"root": "_1QFXZkT9hFspnGBHrgzOla",
 		"container": "iHIj2vUWlJL27N8tZtKfa",
+		"header": "_12c1FEnwPuquq2CWuwl-gA",
+		"nav": "_1WMSjeh3TeIwK8XjbOI8nK",
+		"navItem": "uqe7OsFpaLjVyvpYQdceQ",
+		"navItemChoosen": "_19vv9sVNNUveW-HFSyFsTN",
 		"footer": "_2AX1khG2HUetQLrpLQ2Ioz",
 		"credentials": "gugwRJ4TwKTo5q8bqDByV",
 		"credentialsImage": "_22yIhYV_EDPENQPJXpEc0b"
@@ -15025,7 +15048,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".mCMeBlawmTHgj-kOia8gK {\n\tfont-family: 'Roboto', sans-serif;\n\tfont-size: 16px;\n\tline-height: 24px;\n\tfont-weight: 300;\n}\n\n.Yld6iXMiFH4Vt7IopVoky {\n\tfont-family: 'Roboto', sans-serif;\n\tfont-size: 48px;\n\tline-height: 55px;\n\tfont-weight: 700;\n\ttext-align: center;\n}\n\n._3uvNU1E_zK3vlKn7iIK57u {\n\tfont-family: 'Roboto', sans-serif;\n\tfont-size: 30px;\n\tline-height: 32px;\n\tfont-weight: 700;\n\tmargin-bottom: 21px;\n}\n\n._3lv3I_riifEMhkoO2Dukx_ {\n}\n\n._3lv3I_riifEMhkoO2Dukx_:not(:first-child) {\n\tmargin-top: 21px;\n}\n\n._3lv3I_riifEMhkoO2Dukx_:not(:last-child) {\n\tmargin-bottom: 21px;\n}\n\n._2hyzGKrHnqHZ4dKDiYJjSk {\n\tcursor: pointer;\n\tcolor: #078599;\n\ttext-decoration: underline;\n}\n\n._1V1iXsJ-eSoGgmng5LyZmq {\n\tcursor: pointer;\n\tcolor: #078599;\n\tborder-bottom: 1px dotted #078599;\n}\n\n._2H3KkHxmbHI3WvlhyzZCnq {\n\tfont-weight: 700;\n}\n\n.x5OPdyuVfERXP6Zae2_p3 {\n\tfont-family: 'Roboto', sans-serif;\n\tcolor: #078599;\n\tfont-weight: 400;\n}\n\n._3NPcCWvioPO4gSH3wqBu96 {\n\tdisplay: block;\n\tfont-size: 54px;\n\tline-height: 56px;\n\tfont-weight: 700;\n\tmargin-bottom: -4px;\n\tfont-family: 'PT Sans', sans-serif;\n}\n\n._3dPZLkyD7-DdI3_7WT-B1F {\n\tdisplay: block;\n\tline-height: 23px;\n}\n\n._256MTZBCB1RaS5QMBrDnjm {\n\tdisplay: block;\n\tfont-size: 12px;\n}\n\n._3rskhd6gSf-w_n0a8nK10n {\n\tdisplay: flex;\n}\n\n._3rskhd6gSf-w_n0a8nK10n .x5OPdyuVfERXP6Zae2_p3, ._3rskhd6gSf-w_n0a8nK10n ._3c59ynQ1xcQwe4miRYkPbZ {\n\tflex-shrink: 0;\n\tmargin-left: 24px;\n}\n\n._3rskhd6gSf-w_n0a8nK10n ._3c59ynQ1xcQwe4miRYkPbZ {\n\twidth: 196px;\n}\n\n._1GUWZ5UGIjNQxoLL6Q2miN {\n\tjustify-content: space-between;\n}\n\n._2q4iT4rckcnIidE1puWG0d {\n\tfont-family: 'Roboto', sans-serif;\n\twidth: 768px;\n\tmargin-left: calc( ( 657px - 768px ) / 2 );\n\tpadding: 50px calc( ( 768px - 657px ) / 2 ) 64px;\n\tbackground-color: rgba(9, 159, 175, 0.27);\n}\n\n._3abqwcGNOd_J3E1Oi-yi6N {\n\tflex-shrink: 0;\n}\n\n._3abqwcGNOd_J3E1Oi-yi6N:first-child {\n\twidth: 44%;\n}\n\n._3abqwcGNOd_J3E1Oi-yi6N:last-child {\n\twidth: 50%;\n}", ""]);
+	exports.push([module.id, ".mCMeBlawmTHgj-kOia8gK {\n\tfont-family: 'Roboto', sans-serif;\n\tfont-size: 16px;\n\tline-height: 24px;\n\tfont-weight: 300;\n}\n\n.Yld6iXMiFH4Vt7IopVoky {\n\tfont-family: 'Roboto', sans-serif;\n\tfont-size: 48px;\n\tline-height: 55px;\n\tfont-weight: 700;\n\ttext-align: left;\n}\n\n._3uvNU1E_zK3vlKn7iIK57u {\n\tfont-family: 'Roboto', sans-serif;\n\tfont-size: 30px;\n\tline-height: 32px;\n\tfont-weight: 700;\n\tmargin-bottom: 21px;\n}\n\n._3lv3I_riifEMhkoO2Dukx_ {\n}\n\n._3lv3I_riifEMhkoO2Dukx_:not(:first-child) {\n\tmargin-top: 21px;\n}\n\n._3lv3I_riifEMhkoO2Dukx_:not(:last-child) {\n\tmargin-bottom: 21px;\n}\n\n._2hyzGKrHnqHZ4dKDiYJjSk {\n\tcursor: pointer;\n\tcolor: #127ac4;\n\ttext-decoration: underline;\n}\n\n._2hyzGKrHnqHZ4dKDiYJjSk:hover {\n\ttext-decoration: none;\n}\n\n._1V1iXsJ-eSoGgmng5LyZmq {\n\tcursor: pointer;\n\tcolor: #127ac4;\n\tborder-bottom: 1px dotted #127ac4;\n}\n\n._2H3KkHxmbHI3WvlhyzZCnq {\n\tfont-weight: 700;\n}\n\n._1ntyP0OIQESFacy9Gpm5QE {\n\tfont-style: italic;\n}\n\n.x5OPdyuVfERXP6Zae2_p3 {\n\tfont-family: 'Roboto', sans-serif;\n\tcolor: #127ac4;\n\tfont-weight: 400;\n\tfont-size: 21px;\n\tline-height: 28px;\n}\n\n._3dPZLkyD7-DdI3_7WT-B1F {\n\tfont-size: 21px;\n\tline-height: 28px;\n}\n\n._2q4iT4rckcnIidE1puWG0d {\n\tfont-family: 'Roboto', sans-serif;\n\twidth: 830px;\n\tmargin-left: calc( ( 774px - 830px ) / 2 );\n\tpadding: 27px calc( ( 830px - 774px ) / 2 ) 64px;\n\tbackground-color: rgba(173, 217, 242, 0.41);\n}\n\n._29BrRjJ8D5nxSqgHVvaG09, ._2RxkXYndJeWFAvqt2oK78_ {\n\tdisplay: flex;\n\tjustify-content: space-between;\n\talign-items: flex-start;\n}\n\n._2RxkXYndJeWFAvqt2oK78_ {\n\talign-items: flex-end;\n}\n\n._2aEtv4AgwWSxdca-iKvXHn, ._1L061aKi2QnTT5AL9c5MKn, ._3tdQyI-KVFF-SG4IP2xDDF, .i2LVeOy94F6-b4lsQ1iiZ, ._2hjaJywjeGcE6qDN0yBjDo, ._1aeIrpmADlMI9ah-LuG6ml {\n\tflex-shrink: 0;\n}\n\n._2aEtv4AgwWSxdca-iKvXHn {\n\twidth: calc( (100% - 27px * 5) / 6);\n}\n\n._1L061aKi2QnTT5AL9c5MKn {\n\twidth: calc( (100% - 27px * 2) / 3);\n}\n\n._3tdQyI-KVFF-SG4IP2xDDF {\n\twidth: calc( (100% - 27px) / 2);\n}\n\n.i2LVeOy94F6-b4lsQ1iiZ {\n\twidth: calc( (100% - 27px) / 3 * 2);\n}\n\n._2hjaJywjeGcE6qDN0yBjDo {\n\twidth: calc( (100% - 27px) / 6 * 5);\n}\n\n._1aeIrpmADlMI9ah-LuG6ml {\n\twidth: 100%;\n}", ""]);
 	
 	// exports
 	exports.locals = {
@@ -15036,15 +15059,18 @@
 		"link": "_2hyzGKrHnqHZ4dKDiYJjSk",
 		"linkPseudo": "_1V1iXsJ-eSoGgmng5LyZmq",
 		"bold": "_2H3KkHxmbHI3WvlhyzZCnq mCMeBlawmTHgj-kOia8gK",
+		"italic": "_1ntyP0OIQESFacy9Gpm5QE mCMeBlawmTHgj-kOia8gK",
 		"footnote": "x5OPdyuVfERXP6Zae2_p3",
-		"footnoteCounter": "_3NPcCWvioPO4gSH3wqBu96",
 		"footnoteText": "_3dPZLkyD7-DdI3_7WT-B1F",
-		"footnoteMeta": "_256MTZBCB1RaS5QMBrDnjm",
-		"float": "_3rskhd6gSf-w_n0a8nK10n",
-		"media": "_3c59ynQ1xcQwe4miRYkPbZ",
-		"floatJustifyBetween": "_1GUWZ5UGIjNQxoLL6Q2miN _3rskhd6gSf-w_n0a8nK10n",
 		"note": "_2q4iT4rckcnIidE1puWG0d",
-		"col2": "_3abqwcGNOd_J3E1Oi-yi6N"
+		"row": "_29BrRjJ8D5nxSqgHVvaG09",
+		"rowBottom": "_2RxkXYndJeWFAvqt2oK78_",
+		"grid1": "_2aEtv4AgwWSxdca-iKvXHn",
+		"grid2": "_1L061aKi2QnTT5AL9c5MKn",
+		"grid3": "_3tdQyI-KVFF-SG4IP2xDDF",
+		"grid4": "i2LVeOy94F6-b4lsQ1iiZ",
+		"grid5": "_2hjaJywjeGcE6qDN0yBjDo",
+		"grid6": "_1aeIrpmADlMI9ah-LuG6ml"
 	};
 
 /***/ },
@@ -15132,11 +15158,12 @@
 	
 	
 	// module
-	exports.push([module.id, "._1WejIhpkUMh4VTkZQk4pv3 {\n\tmax-width: 1024px;\n\tmargin-left: auto;\n\tmargin-right: auto;\n\tmargin-top: 40px;\n}\n\n._1WejIhpkUMh4VTkZQk4pv3 img {\n\tmax-width: 100%;\n}\n\n._1WejIhpkUMh4VTkZQk4pv3 {\n\twidth: 796px;\n\tmargin-bottom: -42px;\n}\n\n._35cLu0FiJi8Aya9kANGLJP {\n\tfont-size: 27px;\n\tfont-weight: bold;\n\tcolor: inherit;\n}\n\n._97IAdnFwwX7o6UPALTnL6 {\n\tmargin-top: 8px;\n}\n\n.HuN9t2QlrbX1i05Ufjyww {\n\twidth: 170px;\n}\n\n._1lODHij9o9HfotBQjjNm1N {\n\theight: 160px;\n}\n\n._16uNMo0YxWsGGoEf8l36O2 {\n\tmargin-top: -30px;\n\tmargin-bottom: -15px;\n\twidth: 768px;\n\tmargin-left: calc( ( 657px - 768px ) / 2 );\n}\n\n._1JUaYIX0pZ6y5TiSwfSVJX {\n\tdisplay: flex;\n\tjustify-content: space-between;\n\tmargin-bottom: 20px;\n}\n\n._24cloWyOMvyXkA4KqmWHqc {\n\t\n}\n\n._31SNx6Pg9lMDJFG77PbM6u {\n\tdisplay: flex;\n\tjustify-content: space-between;\n}\n\n._1mLSKjOuj5mKLEKXod9IKp {\n\twidth: 44%;\n\theight: 240px;\n\tflex-shrink: 0;\n}\n\n._1ahdP_R8lojar64x5rFb-z {\n\twidth: 50%;\n}\n\n.mQRPkQMFqN3wx9eoZSWpY {\n\n}\n\n.ixlLFyr4zj4-lzEqYRtTz:not(:last-child) {\n\tmargin-bottom: 7px;\n}\n\n._1Ua2wPj4wlSWCvPKaa_vny {\n\tfont-weight: 700;\n}\n\n._1Ua2wPj4wlSWCvPKaa_vny:not(:last-child) {\n\tmargin-bottom: 7px;\n}\n\n._2RRDmumvbQsIVyhjaf7TTw:not(:last-child) {\n\tmargin-bottom: 7px;\n}\n\n._2q-RfHocjKPjEkTkhF3kSW:not(:last-child) {\n\tmargin-bottom: 7px;\n}\n\n._1FErJrDjG-s_tsb4PPzfIt {\n\n}\n\n._3rw7ukE8BL0mD-vyBGvhw7 {\n\tdisplay: none;\n\tmargin-top: 21px;\n}\n\n._2PqfvirtOGARWxGav9kYtA {\n\tdisplay: flex;\n\tjustify-content: space-between;\n}\n\n._2PqfvirtOGARWxGav9kYtA .mQRPkQMFqN3wx9eoZSWpY:not(:last-child) {\n\tmargin-bottom: 21px;\n}\n\n.fxI46sZRzcMcM2WMK_MNF {\n\twidth: 44%;\n}\n\n._1pOsQLtS3szV91KKUkmY6o {\n\twidth: 50%;\n}\n\n._3cODNT2e0X3yLiS8TW2Y7k {\n\tmargin-top: 7px;\n\tdisplay: inline-block;\n\tcursor: pointer;\n\ttext-decoration: underline;\n}\n\n._3cODNT2e0X3yLiS8TW2Y7k:hover {\n\ttext-decoration: none;\n}\n\n._14cCJkaiOsMy6T9-SNl_2D {\n\tmargin-left: calc(100% - 336px);\n}\n\n._3tRc2PsYuENNsB7R1gQuIM {\n\tdisplay: flex;\n\talign-items: flex-start;\n}\n\n._2keonji84VvzrKT2N9jPfz {\n\tflex-shrink: 0;\n\tmargin-right: 25px;\n\twidth: 52px;\n}", ""]);
+	exports.push([module.id, "._1WejIhpkUMh4VTkZQk4pv3 {\n\tmax-width: 1024px;\n\tmargin-left: auto;\n\tmargin-right: auto;\n\tmargin-top: -12px;\n}\n\n._1WejIhpkUMh4VTkZQk4pv3 img {\n\tmax-width: 100%;\n}\n\n._1WejIhpkUMh4VTkZQk4pv3 {\n\twidth: 796px;\n\tmargin-bottom: -56px;\n}\n\n.QVMOPuFBHt4fJUZcEk68V {\n\theight: 102px;\n\tdisplay: block;\n\tmargin-left: 20px;\n}\n\n._35cLu0FiJi8Aya9kANGLJP {\n\tfont-size: 32px;\n\tfont-weight: bold;\n\tcolor: inherit;\n}\n\n._97IAdnFwwX7o6UPALTnL6 {\n\tmargin-top: 8px;\n}\n\n.HuN9t2QlrbX1i05Ufjyww {\n\twidth: 170px;\n\tdisplay: block;\n\tmargin: auto;\n}\n\n._1lODHij9o9HfotBQjjNm1N {\n\theight: 160px;\n}\n\n._16uNMo0YxWsGGoEf8l36O2 {\n\tmargin-top: -30px;\n\tmargin-bottom: -15px;\n\twidth: 100%;\n}\n\n._1JUaYIX0pZ6y5TiSwfSVJX {\n\tdisplay: flex;\n\tjustify-content: space-between;\n\tmargin-bottom: 20px;\n}\n\n._24cloWyOMvyXkA4KqmWHqc {\n\t\n}\n\n._31SNx6Pg9lMDJFG77PbM6u {\n\tdisplay: flex;\n\tjustify-content: space-between;\n}\n\n._1mLSKjOuj5mKLEKXod9IKp {\n\twidth: 44%;\n\theight: 240px;\n\tflex-shrink: 0;\n}\n\n._1ahdP_R8lojar64x5rFb-z {\n\twidth: 50%;\n}\n\n.mQRPkQMFqN3wx9eoZSWpY {\n\n}\n\n.ixlLFyr4zj4-lzEqYRtTz:not(:last-child) {\n\tmargin-bottom: 7px;\n}\n\n._1Ua2wPj4wlSWCvPKaa_vny {\n\tfont-weight: 700;\n}\n\n._1Ua2wPj4wlSWCvPKaa_vny:not(:last-child) {\n\tmargin-bottom: 7px;\n}\n\n._2RRDmumvbQsIVyhjaf7TTw:not(:last-child) {\n\tmargin-bottom: 7px;\n}\n\n._2q-RfHocjKPjEkTkhF3kSW:not(:last-child) {\n\tmargin-bottom: 7px;\n}\n\n._1FErJrDjG-s_tsb4PPzfIt {\n\n}\n\n._3rw7ukE8BL0mD-vyBGvhw7 {\n\tdisplay: none;\n\tmargin-top: 21px;\n}\n\n._2PqfvirtOGARWxGav9kYtA {\n\tdisplay: flex;\n\tjustify-content: space-between;\n}\n\n._2PqfvirtOGARWxGav9kYtA .mQRPkQMFqN3wx9eoZSWpY:not(:last-child) {\n\tmargin-bottom: 21px;\n}\n\n.fxI46sZRzcMcM2WMK_MNF {\n\twidth: 44%;\n}\n\n._1pOsQLtS3szV91KKUkmY6o {\n\twidth: 50%;\n}\n\n._3cODNT2e0X3yLiS8TW2Y7k {\n\tmargin-top: 7px;\n\tdisplay: inline-block;\n\tcursor: pointer;\n\ttext-decoration: underline;\n}\n\n._3cODNT2e0X3yLiS8TW2Y7k:hover {\n\ttext-decoration: none;\n}\n\n._14cCJkaiOsMy6T9-SNl_2D {\n\tmargin-left: calc(100% - 336px);\n}\n\n._3tRc2PsYuENNsB7R1gQuIM {\n\tdisplay: flex;\n\talign-items: flex-start;\n}\n\n._2keonji84VvzrKT2N9jPfz {\n\tflex-shrink: 0;\n\tmargin-right: 25px;\n\twidth: 52px;\n}", ""]);
 	
 	// exports
 	exports.locals = {
 		"artwork": "_1WejIhpkUMh4VTkZQk4pv3",
+		"firstImage": "QVMOPuFBHt4fJUZcEk68V",
 		"contactEmail": "_35cLu0FiJi8Aya9kANGLJP",
 		"contactText": "_97IAdnFwwX7o6UPALTnL6",
 		"doctorImage": "HuN9t2QlrbX1i05Ufjyww",
@@ -18097,14 +18124,26 @@
 	    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.error : depth0)) != null ? stack1.data : stack1)) != null ? stack1.formattedAddress : stack1), depth0))
 	    + ".\n								<br>\n								Но, к сожалению, в нем\n								<br>\n								нет пунктов для сдачи \n								<br>\n								костного мозга.\n							</div>\n";
 	},"7":function(container,depth0,helpers,partials,data) {
+	    var stack1;
+	
+	  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.loading : depth0),{"name":"if","hash":{},"fn":container.program(8, data, 0),"inverse":container.program(10, data, 0),"data":data})) != null ? stack1 : "");
+	},"8":function(container,depth0,helpers,partials,data) {
 	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
 	
 	  return "							<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findEmpty : stack1), depth0))
 	    + " "
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.text : stack1), depth0))
-	    + "\">\n								Мы не смогли определить, где вы\n								<br>\n								находитесь. Пожалуйста, выберите\n								<br>\n								город вручную.\n							</div>\n";
-	},"9":function(container,depth0,helpers,partials,data) {
+	    + "\">\n								Подождите, мы определяем ваше местоположение...\n							</div>\n";
+	},"10":function(container,depth0,helpers,partials,data) {
+	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
+	
+	  return "							<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findEmpty : stack1), depth0))
+	    + " "
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.text : stack1), depth0))
+	    + "\">\n								Мы не смогли определить, где вы\n								<br>\n								находитесь. Пожалуйста, выберите\n								<br>\n								город вручную.\n							</div>\n						";
+	},"12":function(container,depth0,helpers,partials,data) {
 	    var stack1, alias1=container.lambda, alias2=container.escapeExpression, alias3=depth0 != null ? depth0 : {};
 	
 	  return "						<div data-view=\"how-map\" class=\""
@@ -18128,8 +18167,8 @@
 	    + "\">\n									Время работы: "
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.firstPoint : depth0)) != null ? stack1.time : stack1), depth0))
 	    + "\n								</div>\n"
-	    + ((stack1 = helpers["if"].call(alias3,((stack1 = (depth0 != null ? depth0.firstPoint : depth0)) != null ? stack1.phone : stack1),{"name":"if","hash":{},"fn":container.program(10, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-	    + ((stack1 = helpers["if"].call(alias3,((stack1 = (depth0 != null ? depth0.firstPoint : depth0)) != null ? stack1.info : stack1),{"name":"if","hash":{},"fn":container.program(12, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + ((stack1 = helpers["if"].call(alias3,((stack1 = (depth0 != null ? depth0.firstPoint : depth0)) != null ? stack1.phone : stack1),{"name":"if","hash":{},"fn":container.program(13, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + ((stack1 = helpers["if"].call(alias3,((stack1 = (depth0 != null ? depth0.firstPoint : depth0)) != null ? stack1.info : stack1),{"name":"if","hash":{},"fn":container.program(15, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
 	    + "							</div>\n							<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findShowMore : stack1), depth0))
 	    + " "
@@ -18139,7 +18178,7 @@
 	    + " "
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.text : stack1), depth0))
 	    + "\" style=\"display: none\" data-action=\"hide-all-points\">\n								Свернуть\n							</div>\n						</div>\n";
-	},"10":function(container,depth0,helpers,partials,data) {
+	},"13":function(container,depth0,helpers,partials,data) {
 	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
 	
 	  return "									<div class=\""
@@ -18147,7 +18186,7 @@
 	    + "\">\n										Телефон: "
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.firstPoint : depth0)) != null ? stack1.phone : stack1), depth0))
 	    + "\n									</div>\n";
-	},"12":function(container,depth0,helpers,partials,data) {
+	},"15":function(container,depth0,helpers,partials,data) {
 	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
 	
 	  return "									<div class=\""
@@ -18155,7 +18194,7 @@
 	    + "\">\n										"
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.firstPoint : depth0)) != null ? stack1.info : stack1), depth0))
 	    + "\n									</div>\n";
-	},"14":function(container,depth0,helpers,partials,data,blockParams,depths) {
+	},"17":function(container,depth0,helpers,partials,data,blockParams,depths) {
 	    var stack1, alias1=container.lambda, alias2=container.escapeExpression, alias3=depth0 != null ? depth0 : {};
 	
 	  return "								<div class=\""
@@ -18175,10 +18214,10 @@
 	    + "\">\n										Время работы: "
 	    + alias2(alias1((depth0 != null ? depth0.time : depth0), depth0))
 	    + "\n									</div>\n"
-	    + ((stack1 = helpers["if"].call(alias3,(depth0 != null ? depth0.phone : depth0),{"name":"if","hash":{},"fn":container.program(15, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-	    + ((stack1 = helpers["if"].call(alias3,(depth0 != null ? depth0.info : depth0),{"name":"if","hash":{},"fn":container.program(17, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + ((stack1 = helpers["if"].call(alias3,(depth0 != null ? depth0.phone : depth0),{"name":"if","hash":{},"fn":container.program(18, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + ((stack1 = helpers["if"].call(alias3,(depth0 != null ? depth0.info : depth0),{"name":"if","hash":{},"fn":container.program(20, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
 	    + "								</div>\n";
-	},"15":function(container,depth0,helpers,partials,data,blockParams,depths) {
+	},"18":function(container,depth0,helpers,partials,data,blockParams,depths) {
 	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
 	
 	  return "										<div class=\""
@@ -18186,7 +18225,7 @@
 	    + "\">\n											Телефон: "
 	    + alias2(alias1((depth0 != null ? depth0.phone : depth0), depth0))
 	    + "\n										</div>\n";
-	},"17":function(container,depth0,helpers,partials,data,blockParams,depths) {
+	},"20":function(container,depth0,helpers,partials,data,blockParams,depths) {
 	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
 	
 	  return "										<div class=\""
@@ -18218,18 +18257,28 @@
 	    + "\" id=\"first-step\">\n			<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
 	    + "\">Первый шаг. Найти, где сдать кровь</div>\n			<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1["float"] : stack1), depth0))
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.rowBottom : stack1), depth0))
+	    + "\">\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.grid4 : stack1), depth0))
+	    + "\">\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n						Чтобы вступить в&nbsp;регистр потенциальных доноров костного мозга, нужно сдать кровь на&nbsp;типирование.\n					</div>\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n						Типирование&nbsp;&mdash; это тест на&nbsp;тканевую совместимость между донором и&nbsp;реципиентом. От&nbsp;этой совместимости зависит, приживется&nbsp;ли костный мозг в&nbsp;новом организме.\n					</div>\n				</div>\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.grid2 : stack1), depth0))
+	    + "\">\n					<img class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.firstImage : stack1), depth0))
+	    + "\" src=\"/static/location_shadow.png\">\n				</div>\n			</div>\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\" style=\"margin-bottom: 37px; margin-top: 34px;\">\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnote : stack1), depth0))
+	    + "\">\n					Для 100% генетической совместимости донора и&nbsp;пациента должны совпасть 10&nbsp;четырехзначных параметров ДНК. Вероятность совпадения 1:10000. Для транплантации достаточно&nbsp;90% совместимости.\n				</div>\n			</div>\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.row : stack1), depth0))
 	    + " "
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
 	    + "\">\n				<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.text : stack1), depth0))
-	    + "\">\n					Чтобы вступить в&nbsp;регистр потенциальных доноров костного мозга, нужно сдать кровь на&nbsp;типирование. Типирование&nbsp;&mdash; это тест на&nbsp;тканевую совместимость между донором и&nbsp;реципиентом. От&nbsp;этой совместимости зависит, приживется&nbsp;ли костный мозг в&nbsp;новом организме.\n				</div>\n				<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnote : stack1), depth0))
-	    + "\">\n					<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnoteText : stack1), depth0))
-	    + "\">\n						Для 100% генетической совместимости\n						<br>\n						донора и пациента должны совпасть\n						<br>\n						10 четырехзначных параметров ДНК.\n						<br>\n						Вероятность совпадения 1:10000.\n						<br>\n						Для транплантации достаточно\n						<br>\n						90% совместимости\n					</div>\n				</div>\n			</div>\n			<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n				Специальных пунктов сдачи крови на&nbsp;типирование нет. Вступить в&nbsp;регистр можно в&nbsp;некоторых пунктах переливания крови и&nbsp;в&nbsp;лабораториях регистра. Выберите свой город и&nbsp;найдите удобный пункт.\n			</div>\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.grid4 : stack1), depth0))
+	    + "\">\n					Специальных пунктов сдачи крови на&nbsp;типирование нет. Вступить в&nbsp;регистр можно в&nbsp;некоторых пунктах переливания крови и&nbsp;в&nbsp;лабораториях регистра. Выберите свой город и&nbsp;найдите удобный пункт.\n				</div>\n			</div>\n			<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.find : stack1), depth0))
 	    + "\">\n				<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findCity : stack1), depth0))
@@ -18242,7 +18291,7 @@
 	    + "				</div>\n				<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findContainer : stack1), depth0))
 	    + "\">\n"
-	    + ((stack1 = helpers["if"].call(alias3,(depth0 != null ? depth0.currentCity : depth0),{"name":"if","hash":{},"fn":container.program(9, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + ((stack1 = helpers["if"].call(alias3,(depth0 != null ? depth0.currentCity : depth0),{"name":"if","hash":{},"fn":container.program(12, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
 	    + "				</div>\n				<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findPoints : stack1), depth0))
 	    + "\" data-role=\"all-points\">\n					<div class=\""
@@ -18250,95 +18299,105 @@
 	    + "\">\n						<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findPointsEven : stack1), depth0))
 	    + "\">\n"
-	    + ((stack1 = helpers.each.call(alias3,(depth0 != null ? depth0.evenPoints : depth0),{"name":"each","hash":{},"fn":container.program(14, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + ((stack1 = helpers.each.call(alias3,(depth0 != null ? depth0.evenPoints : depth0),{"name":"each","hash":{},"fn":container.program(17, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
 	    + "						</div>\n						<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findPointsOdd : stack1), depth0))
 	    + "\">\n"
-	    + ((stack1 = helpers.each.call(alias3,(depth0 != null ? depth0.oddPoints : depth0),{"name":"each","hash":{},"fn":container.program(14, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + ((stack1 = helpers.each.call(alias3,(depth0 != null ? depth0.oddPoints : depth0),{"name":"each","hash":{},"fn":container.program(17, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
 	    + "						</div>\n					</div>\n				</div>\n			</div>\n		</div>\n		<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
 	    + "\">\n			<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
 	    + "\">Второй шаг. Сдать кровь</div>\n			<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1["float"] : stack1), depth0))
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.row : stack1), depth0))
 	    + " "
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n				<div>\n					<div class=\""
+	    + "\">\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.grid4 : stack1), depth0))
+	    + "\">\n					<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n						В&nbsp;пункте приёма крови вы&nbsp;заполняете анкету и&nbsp;подписываете соглашение. Соглашение подтверждает, что вы&nbsp;вступаете в&nbsp;регистр добровольно и&nbsp;знаете о&nbsp;всех этапах донорства.\n					</div>\n					<div class=\""
+	    + "\">\n						В&nbsp;пункте приёма крови вы&nbsp;заполняете анкету \n						<br>\n						и подписываете соглашение. Соглашение подтверждает, что вы&nbsp;вступаете в&nbsp;регистр добровольно и&nbsp;знаете о&nbsp;всех этапах донорства. Тут&nbsp;же вы&nbsp;сдаете 10&nbsp;мл крови.\n					</div>\n					<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n						Тут же вы сдаете 10 мл крови.  \n					</div>\n				</div>\n				<div class=\""
+	    + "\">\n						Теперь вы&nbsp;в&nbsp;регистре. Вы&nbsp;попадаете в&nbsp;него автоматически после того, как кровь протипируют в&nbsp;лаборатории.\n					</div>\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n						Помните, что мы увеличиваем регистр, чтобы спасать жизни. Поэтому оцените свои силы заранее и вступайте в регистр с твердым намерением стать реальным донором.\n					</div>\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n						Люди, которые числятся в&nbsp;регистре, но&nbsp;в&nbsp;последний момент отказываются от&nbsp;реального донорства, зря тратят деньги благотворительных организаций и&nbsp;время пациента&nbsp;&mdash; время, которое может быть решающим.\n					</div>\n				</div>\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.grid2 : stack1), depth0))
+	    + "\">\n					<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnote : stack1), depth0))
-	    + "\">\n					<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n						<a target=\"_blank\" href=\"/static/pdf/anketa.pdf\" class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
-	    + "\">\n							Анкета\n							<br>\n							о состоянии здоровья\n						</a>\n					</div>\n					<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n						<a target=\"_blank\" href=\"/static/pdf/register_agreement.pdf\" class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
-	    + "\">\n							Соглашение \n							<br>\n							о вступлении в регистр\n						</a>\n					</div>\n				</div>\n			</div>\n			<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n				Поздравляем, вы&nbsp;в&nbsp;регистре! Вы&nbsp;попадаете в&nbsp;регистр автоматически после того, как&nbsp;вашу кровь протипируют в&nbsp;лаборатории. Сотрудники регистра позвонят, только если ваш костный мозг кому-то подойдет.\n			</div>\n		</div>\n		<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
-	    + "\">\n			<div class="
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.note : stack1), depth0))
-	    + ">\n				<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
-	    + "\">Персональные данные под защитой</div>\n				<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n					<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.floatJustifyBetween : stack1), depth0))
 	    + "\">\n						<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.col2 : stack1), depth0))
-	    + "\">\n							<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n								<span class=\""
+	    + "\">\n							<a target=\"_blank\" href=\"/static/pdf/anketa.pdf\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
+	    + "\">\n								Анкета\n								<br>\n								о состоянии здоровья\n							</a>\n						</div>\n						<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n							<a target=\"_blank\" href=\"/static/pdf/register_agreement.pdf\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
+	    + "\">\n								Соглашение \n								<br>\n								о вступлении в регистр\n							</a>\n						</div>\n					</div>\n				</div>\n			</div>\n		</div>\n		<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
+	    + "\">\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
+	    + "\">Персональные данные под защитой</div>\n			<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + " "
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.row : stack1), depth0))
+	    + "\">\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.grid3 : stack1), depth0))
+	    + "\">\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n						<span class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.bold : stack1), depth0))
-	    + "\">Регистр не раскрывает ваши данные</span>\n								<br>\n								Пробирку с&nbsp;анализом подписывают девятизначным кодом. Этот&nbsp;же код пишут на&nbsp;анкете с&nbsp;вашими персональными данными. Результаты типирования и&nbsp;код хранятся в&nbsp;одной базе, а&nbsp;персональные данные&nbsp;&mdash; в&nbsp;другой.\n							</div>\n							<div class=\""
+	    + "\">Регистр не раскрывает ваши данные</span>\n						<br>\n						Пробирку с&nbsp;анализом подписывают девятизначным кодом. Этот&nbsp;же код пишут на&nbsp;анкете с&nbsp;вашими персональными данными. Результаты типирования и&nbsp;код хранятся в&nbsp;одной базе, а&nbsp;персональные данные&nbsp;&mdash; в&nbsp;другой.\n					</div>\n					<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n								База с&nbsp;персональными данными находится на&nbsp;отдельном сервере без выхода в&nbsp;интернет. Сотрудник сопоставит код и&nbsp;имя, только если кому-то подойдут ваши клетки.\n							</div>\n						</div>\n						<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.col2 : stack1), depth0))
-	    + "\">\n							<div class=\""
+	    + "\">\n						База с&nbsp;персональными данными находится на&nbsp;отдельном сервере без выхода в&nbsp;интернет. Сотрудник сопоставит код и&nbsp;имя, только если кому-то подойдут ваши клетки.\n					</div>\n				</div>\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.grid3 : stack1), depth0))
+	    + "\">\n					<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n								<span class=\""
+	    + "\">\n						<span class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.bold : stack1), depth0))
-	    + "\">Регистр не раскрывает данные пациента</span>\n								<br>\n								О&nbsp;реципиенте вам скажут немного: пол, возраст, вес и&nbsp;как в&nbsp;общих чертах прошла трасплантация.\n							</div>\n							<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n								Срок анонимности&nbsp;&mdash; два года. Потом сотрудник регистра предложит донору и&nbsp;реципиенту написать друг другу письма&nbsp;и, если оба согласятся, встретиться.\n							</div>	\n						</div>\n					</div>\n				</div>\n			</div>\n		</div>\n		<div class=\""
+	    + "\">Регистр не раскрывает данные пациента</span>\n						<br>\n						О&nbsp;реципиенте вам скажут немного: пол, возраст, вес и&nbsp;как в&nbsp;общих чертах прошла трасплантация. Срок анонимности&nbsp;&mdash; два года. Потом сотрудник регистра предложит донору и&nbsp;реципиенту написать друг другу письма&nbsp;и, если оба согласятся, встретиться.\n					</div>\n				</div>\n			</div>\n		</div>\n		<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
 	    + "\">\n			<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
 	    + "\">Третий шаг. Ждать</div>\n			<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1["float"] : stack1), depth0))
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.row : stack1), depth0))
 	    + " "
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n				<div>\n					<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n						Потенциальный донор может подойти кому-то на&nbsp;следующий день, через несколько лет или&nbsp;вообще никогда не&nbsp;подойти.\n					</div>\n					<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n						Помните, что мы&nbsp;увеличиваем регистр, чтобы спасать жизни. Поэтому оцените свои силы заранее и&nbsp;вступайте в&nbsp;регистр с&nbsp;твердым намерением стать реальным донором.\n					</div>\n				</div>\n				<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnote : stack1), depth0))
+	    + "\">\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.grid4 : stack1), depth0))
 	    + "\">\n					<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.contact : stack1), depth0))
-	    + "\">\n						<a href=\"mailto:donor@advita.ru\" class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.contactEmail : stack1), depth0))
-	    + "\">donor@advita.ru</a>\n						<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.contactText : stack1), depth0))
-	    + "\">\n							Обо всех изменениях пишите\n							<br>\n							в фонд Advita — мы передадим\n							<br>\n							информацию в регистр.\n							<br>\n							И неважно, откуда вы и где\n							<br>\n							сдавали кровь\n						</div>\n					</div>\n				</div>\n			</div>\n			<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n				Люди, которые числятся в&nbsp;регистре, но&nbsp;в&nbsp;последний момент отказываются от&nbsp;реального донорства, зря тратят деньги благотворительных организаций и&nbsp;время пациента&nbsp;&mdash; время, которое может быть решающим.\n			</div>\n		</div>\n		<div class=\""
+	    + "\">\n						Потенциальный донор может подойти кому-то через несколько месяцев, лет или вообще никогда не&nbsp;подойти.\n					</div>\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n						Сотрудники регистра позвонят, если ваш костный мозг кому-то подойдет. Поэтому обязательно сообщайте, если у&nbsp;вас изменятся контакты. Так вас смогут найти даже спустя много лет. Неважно, откуда вы&nbsp;и&nbsp;где сдавали кровь на&nbsp;типирование,&nbsp;&mdash; пишите об&nbsp;изменениях на&nbsp;<a class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
+	    + "\" href=\"mailto:donor@advita.ru\">donor@advita.ru</a>.\n					</div>\n				</div>\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.grid2 : stack1), depth0))
+	    + "\">\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnote : stack1), depth0))
+	    + "\">\n						<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.contact : stack1), depth0))
+	    + "\">\n							<a href=\"mailto:donor@advita.ru\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.contactEmail : stack1), depth0))
+	    + "\">donor@advita.ru</a>\n							<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.contactText : stack1), depth0))
+	    + "\">\n								Напишите нам, если поменяете телефон,&nbsp;&mdash; мы&nbsp;передадим новые данные в&nbsp;регистр\n							</div>\n						</div>\n					</div>\n				</div>\n			</div>\n		</div>\n		<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
 	    + "\">\n			<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
 	    + "\">Четвертый шаг. Пройти обследование</div>\n			<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1["float"] : stack1), depth0))
-	    + "\">\n				<div>\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.row : stack1), depth0))
+	    + " "
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.grid4 : stack1), depth0))
+	    + "\">\n					<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
 	    + "\">\n						Итак, прошло время, и&nbsp;ваши клетки кому-то подошли. Сотрудник регистра звонит вам и&nbsp;спрашивает, готовы&nbsp;ли вы&nbsp;стать реальным донором.\n					</div>	\n					<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n						Если соглашаетесь, вам назначают более детальное, развернутое типирование&nbsp;&mdash; чтобы убедиться, что&nbsp;подходите. Если точно подходите, проходите обследование. Какое&nbsp;&mdash; зависит от&nbsp;состояния здоровья. Это в&nbsp;любом случае будет обычный биохимический анализ крови. Если вас что-то беспокоит, врач назначит дополнительные анализы.\n					</div>\n				</div>\n				<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.media : stack1), depth0))
+	    + "\">\n						Если соглашаетесь, вам назначают более детальное, развернутое типирование&nbsp;&mdash; чтобы убедиться, что подходите. Потом вы&nbsp;проходите обследование. Это в&nbsp;любом случае будет обычный биохимический анализ крови. А&nbsp;дальше зависит от&nbsp;состояния здоровья. Если вас что-то беспокоит, врач назначит дополнительные анализы.\n					</div>\n				</div>\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.grid2 : stack1), depth0))
 	    + "\">\n					<img class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.doctorImage : stack1), depth0))
 	    + "\" src=\"/static/doctor.png\">\n				</div>\n			</div>	\n		</div>\n		<div class=\""
@@ -18348,9 +18407,9 @@
 	    + "\">Пятый шаг. Стать донором</div>\n			<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
 	    + "\">\n				Забрать костный мозг от&nbsp;донора можно двумя способами. Каким будут брать у&nbsp;вас, вы&nbsp;выбираете сами.\n			</div>\n			<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.floatJustifyBetween : stack1), depth0))
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.row : stack1), depth0))
 	    + "\">\n				<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.col2 : stack1), depth0))
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.grid3 : stack1), depth0))
 	    + "\">\n					<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.type : stack1), depth0))
 	    + "\">\n						<img src=\"/static/spit.png\" class=\""
@@ -18361,8 +18420,12 @@
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.bold : stack1), depth0))
 	    + "\">Из тазовой кости</span></div>\n						<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.text : stack1), depth0))
-	    + "\">\n							Врач проколет тазовую кость и&nbsp;возьмет небольшую часть костного мозга. Вы&nbsp;будете под общим наркозом. Операция займёт около 30&nbsp;минут. Во&nbsp;время операции вы&nbsp;ничего не&nbsp;почувствуете, но&nbsp;несколько дней после операции будут &laquo;ныть кости&raquo;. Вы&nbsp;легко снимете дискомфорт обезболивающими таблетками.\n						</div>\n					</div>\n				</div>\n				<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.col2 : stack1), depth0))
+	    + "\">\n							Врач берет костный мозг из&nbsp;тазовой кости. Вы&nbsp;находитесь под общим наркозом и&nbsp;не&nbsp;чувствуете прокол. Тут некоторые боятся, что врач может промахнуться и&nbsp;попасть в&nbsp;позвоночник. Это практически невозможно. А&nbsp;заблуждение, видимо, связано с&nbsp;тем, что люди путают костный мозг со&nbsp;спинным, который расположен в&nbsp;спинном канале.\n						</div>\n						<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n							Стволовые клетки полностью восстанавливаются за&nbsp;2&nbsp;недели.\n						</div>\n						<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n							Побочные эффекты: после операции может немного болеть место прокола.\n						</div>\n					</div>\n				</div>\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.grid3 : stack1), depth0))
 	    + "\">\n					<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.type : stack1), depth0))
 	    + "\">\n						<img src=\"/static/kapelnitsa.png\" class=\""
@@ -18373,13 +18436,17 @@
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.bold : stack1), depth0))
 	    + "\">Из вены</span></div>\n						<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.text : stack1), depth0))
-	    + "\">\n							У&nbsp;вас берут кровь из&nbsp;вены одной руки и&nbsp;возвращают в&nbsp;вену на&nbsp;другой руке. По&nbsp;дороге кровь проходит через сепаратор, отлавливающий клетки костного мозга. Процедура занимает пять-шесть часов. Анестезия не&nbsp;нужна, вы&nbsp;находитесь в&nbsp;сознании и&nbsp;успеваете посмотреть три&nbsp;любимых фильма или поспать.\n						</div>	\n					</div>\n				</div>\n			</div>\n		</div>\n		<div class=\""
+	    + "\">\n							У&nbsp;вас берут кровь из&nbsp;вены одной руки и&nbsp;возвращают в&nbsp;вену на&nbsp;другой руке. Кровь проходит через сепаратор, отлавливающий клетки костного мозга. Анестезия не&nbsp;нужна. Процедура занимает 4-5&nbsp;часов, и&nbsp;вы&nbsp;успеваете посмотреть три любимых фильма или поспать.\n						</div>	\n						<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n							Стволовые клетки полностью восстанавливаются за&nbsp;неделю.\n						</div>\n						<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n							Побочные эффекты: до&nbsp;процедуры донору внутримышечно вводят лекарство, &laquo;выгоняющее&raquo; стволовые клетки в&nbsp;кровь. В&nbsp;это время возможны временные гриппоподобные симптомы.\n						</div>\n					</div>\n				</div>\n			</div>\n		</div>\n		<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
 	    + "\">\n			<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
 	    + "\">Что потом</div>\n			<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n				Через два года после успешной трансплантации у&nbsp;донора и&nbsp;реципиента спросят, хотят&nbsp;ли они познакомиться. Если оба согласятся, состоится встреча.\n			</div>\n		</div>\n		<img src=\"/static/obyatye.png\" class=\""
+	    + "\">\n				Через два года после успешной трансплантации у&nbsp;донора и&nbsp;реципиента спросят, \n				<br>\n				хотят&nbsp;ли они познакомиться. Если оба согласятся, состоится встреча.\n			</div>\n		</div>\n		<img src=\"/static/obyatye.png\" class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.whatNextImage : stack1), depth0))
 	    + "\">\n		<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
@@ -18427,17 +18494,7 @@
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
 	    + "\">узнайте больше на сайте Advita</a>.\n				</div>\n				<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n					В любом случае расскажите о донорстве костного мозга друзьям.\n					<br>\n					Так вы можете спасти чью-то жизнь, даже если не вступите в регистр. \n				</div>\n				<div data-view=\"how-share\"></div>\n			</div>\n		</div>\n	</div>	\n	<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.container : stack1), depth0))
-	    + "\">\n		<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.credentials : stack1), depth0))
-	    + "\">\n			<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.credentialsImage : stack1), depth0))
-	    + "\">\n				<img src=\"/static/credentials_why.png\">\n			</div>\n			<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.credentialsText : stack1), depth0))
-	    + "\">\n				Сделала Алиса Яннау в Школе редакторов Бюро Горбунова. \n				<br>\n				Иллюстратор — Марина Савицкая, разработчик — Артур Стамбульцян.\n				<br>\n				<a href=\"/static/pdf/agreement.pdf\" target=\"_blank\" class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
-	    + "\">Пользовательское соглашение</a>.\n			</div>	\n		</div>\n	</div>\n</div>";
+	    + "\">\n					В любом случае расскажите о донорстве костного мозга друзьям.\n					<br>\n					Так вы можете спасти чью-то жизнь, даже если не вступите в регистр. \n				</div>\n				<div data-view=\"how-share\"></div>\n			</div>\n		</div>\n	</div>	\n</div>";
 	},"useData":true,"useDepths":true});
 
 /***/ },
@@ -18983,9 +19040,9 @@
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
 	    + "\">Могу ли я стать донором?</div>\n	<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n		Ответьте на четыре вороса и узнайте,\n		<br>\n		можете ли вы стать донором костного мозга.\n		<br>\n		Или прочитайте <a target=\"_blank\" href=\"/static/pdf/protivopokazania.pdf\" class=\""
+	    + "\">\n		Ответьте на четыре вопроса и узнайте,\n		<br>\n		можете ли вы стать донором костного мозга.\n		<br>\n		Или прочитайте <a target=\"_blank\" href=\"/static/pdf/protivopokazania.pdf\" class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
-	    + "\">полный список противопоказаний</a>.\n	</div>\n	<div class=\""
+	    + "\">список противопоказаний</a>.\n	</div>\n	<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.startStyles : depth0)) != null ? stack1.actions : stack1), depth0))
 	    + "\">\n		<button class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.inputsStyles : depth0)) != null ? stack1.button : stack1), depth0))
@@ -20155,7 +20212,7 @@
 	
 	
 	// module
-	exports.push([module.id, "._3B-1CcHYxRdP4xmviYBWko {\n\ttext-align: left;\n}\n\n.BPlcspTWA-U5f8Dm8GR-4 {\n\tfont-size: 0;\n\tletter-spacing: 0;\n\tline-height: 0;\n}\n\n._2pkN-Ik882-3VtpKkxL3v8 {\n\twidth: 28px;\n\theight: 28px;\n\ttext-align: center;\n\tbackground-color: #000;\n\tborder-radius: 50%;\n\tdisplay: inline-block;\n\tvertical-align: middle;\n\tline-height: 28px;\n\tcolor: #fff;\n\tfont-size: 15px;\n\tfont-weight: bold;\n\tmargin-right: 11px;\n}\n\n.kZRWI19Iy-xWer-tCiQ37 {\n\tdisplay: inline-block;\n\tvertical-align: middle;\n\tfont-size: 16px;\n}\n\n._3CcTlLIxG3BS1PKJkuGDM2 {\n\tdisplay: flex;\n\tflex-direction: row;\n}\n\n.FS2caTlSXTucapYV8McOB {\n\tjustify-content: flex-start;\n}\n\n._3QjaZhGdzkNYAsbrUlSWIj {\n\tjustify-content: flex-start;\n\tposition: relative;\n}\n\n._1HnD0zUaIRYJELjx-_Do2W {\n\tposition: relative;\n\tz-index: 2;\n}\n\n.VEb7briyZ5oEkc3yeKD1A {\n\tposition: absolute;\n\tz-index: 1;\n\tleft: 107px;\n    top: -55px;\n    width: 646px;\n}\n\n.UQMNwjI_mEdn198JXfMeZ {\n\n}\n\n._1lZi4vkmIYBBcoC7Rz8Bt6 {\n\twidth: 340px;\n}\n\n._2Qy30uC1QeDUshVxKKwnIH {\n\tposition: absolute;\n\tz-index: 1;\n    right: -130px;\n    bottom: -80px;\n    width: 410px;\n}\n\n.zT-TpgEF96c_-Es7rTxxo {\n\tmargin-top: 40px;\n}\n\n._2S4dD-WewjwRgF4ALZRwgR {\n\tmargin-top: 15px;\n}", ""]);
+	exports.push([module.id, "._3B-1CcHYxRdP4xmviYBWko {\n\ttext-align: left;\n}\n\n.BPlcspTWA-U5f8Dm8GR-4 {\n\tfont-size: 0;\n\tletter-spacing: 0;\n\tline-height: 0;\n}\n\n._2pkN-Ik882-3VtpKkxL3v8 {\n\twidth: 28px;\n\theight: 28px;\n\ttext-align: center;\n\tbackground-color: #000;\n\tborder-radius: 50%;\n\tdisplay: inline-block;\n\tvertical-align: middle;\n\tline-height: 28px;\n\tcolor: #fff;\n\tfont-size: 15px;\n\tfont-weight: bold;\n\tmargin-right: 11px;\n}\n\n.kZRWI19Iy-xWer-tCiQ37 {\n\tdisplay: inline-block;\n\tvertical-align: middle;\n\tfont-size: 16px;\n}\n\n._3CcTlLIxG3BS1PKJkuGDM2 {\n\t/*display: flex;*/\n\t/*flex-direction: row;*/\n}\n\n.FS2caTlSXTucapYV8McOB {\n\t/*justify-content: flex-start;*/\n}\n\n._3QjaZhGdzkNYAsbrUlSWIj {\n\t/*justify-content: flex-start;*/\n\tposition: relative;\n}\n\n._1HnD0zUaIRYJELjx-_Do2W {\n\tposition: relative;\n\tz-index: 2;\n\tmin-height: 450px;\n}\n\n.VEb7briyZ5oEkc3yeKD1A {\n\tposition: absolute;\n\tz-index: 1;\n\tleft: 177px;\n    top: 21px;\n    width: 646px;\n}\n\n.UQMNwjI_mEdn198JXfMeZ {\n\n}\n\n._1lZi4vkmIYBBcoC7Rz8Bt6 {\n\t\n}\n\n._2Qy30uC1QeDUshVxKKwnIH {\n\tposition: absolute;\n\tz-index: 1;\n    right: -40px;\n    bottom: -80px;\n    width: 410px;\n}\n\n.zT-TpgEF96c_-Es7rTxxo {\n\tmargin-top: 40px;\n}\n\n._2S4dD-WewjwRgF4ALZRwgR {\n\tmargin-top: 15px;\n}", ""]);
 	
 	// exports
 	exports.locals = {
@@ -20220,15 +20277,17 @@
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.finishStyles : depth0)) != null ? stack1.successImage : stack1), depth0))
 	    + "\">\n			<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.finishStyles : depth0)) != null ? stack1.successText : stack1), depth0))
+	    + " "
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.grid3 : stack1), depth0))
 	    + "\">\n				<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
 	    + "\">Да!</div>\n				<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n					Вы можете стать донором\n					<br>\n					и спасти чью-то жизнь.\n					<br>\n					Для этого вступите \n					<br>\n					в регистр — сдайте кровь\n					<br>\n					на типирование\n					<br>\n					<a class=\""
+	    + "\">\n					Вы можете стать донором и спасти чью-то\n					<br>\n					жизнь. Для этого вступите в регистр — сдайте\n					<br>\n					кровь на типирование <a class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
 	    + "\" data-action=\"redirect-and-scroll-to\" data-element=\"#first-step\" data-page=\"how\">в специальном пункте</a>.\n				</div>\n				<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n					Расскажите о проекте\n					<br>\n					друзьям, чтобы спасти\n					<br>\n					еще больше жизней.\n				</div>\n				<div class=\""
+	    + "\">\n					Расскажите о проекте друзьям, чтобы\n					<br>\n					спасти еще больше жизней.\n				</div>\n				<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.finishStyles : depth0)) != null ? stack1.share : stack1), depth0))
 	    + "\" data-view=\"test-share\"></div>\n			</div>	\n		<div>\n\n";
 	},"7":function(container,depth0,helpers,partials,data) {
@@ -20240,6 +20299,8 @@
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.finishStyles : depth0)) != null ? stack1.failImage : stack1), depth0))
 	    + "\">\n			<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.finishStyles : depth0)) != null ? stack1.failText : stack1), depth0))
+	    + " "
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.grid3 : stack1), depth0))
 	    + "\">\n				<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
 	    + "\">\n"
@@ -20312,47 +20373,47 @@
 	
 	  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.age17 : stack1),{"name":"if","hash":{},"fn":container.program(29, data, 0),"inverse":container.program(31, data, 0),"data":data})) != null ? stack1 : "");
 	},"29":function(container,depth0,helpers,partials,data) {
-	    return "							Пока вы не можете стать донором костного мозга, потому что слишком молоды — в доноры берут с 18 лет. Ждем вас через год! \n							<br/>\n							<br/>\n							Но помочь вы можете уже сейчас. Расскажите о проекте друзьям: если кто-то из них станет донором, вы спасете не одну, а несколько жизней.\n";
+	    return "							Пока вы&nbsp;не&nbsp;можете стать донором костного мозга, потому что слишком молоды&nbsp;&mdash; в&nbsp;доноры берут с&nbsp;18&nbsp;лет. Ждем вас через год! \n							<br/>\n							<br/>\n							Но&nbsp;помочь вы&nbsp;можете уже сейчас. Расскажите о&nbsp;проекте друзьям: если кто-то из&nbsp;них станет донором, вы&nbsp;спасете не&nbsp;одну, а&nbsp;несколько жизней.\n";
 	},"31":function(container,depth0,helpers,partials,data) {
 	    var stack1;
 	
 	  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.age16 : stack1),{"name":"if","hash":{},"fn":container.program(32, data, 0),"inverse":container.program(34, data, 0),"data":data})) != null ? stack1 : "");
 	},"32":function(container,depth0,helpers,partials,data) {
-	    return "							Пока вы не можете стать донором костного мозга, потому что слишком молоды — в доноры берут с 18 лет. Ждем вас через 2 года! \n							<br/>\n							<br/>\n							Но помочь вы можете уже сейчас. Расскажите о проекте друзьям: если кто-то из них станет донором, вы спасете не одну, а несколько жизней.\n";
+	    return "							Пока вы&nbsp;не&nbsp;можете стать донором костного мозга, потому что слишком молоды&nbsp;&mdash; в&nbsp;доноры берут с&nbsp;18&nbsp;лет. Ждем вас через 2&nbsp;года! \n							<br/>\n							<br/>\n							Но&nbsp;помочь вы&nbsp;можете уже сейчас. Расскажите о&nbsp;проекте друзьям: если кто-то из&nbsp;них станет донором, вы&nbsp;спасете не&nbsp;одну, а&nbsp;несколько жизней.\n";
 	},"34":function(container,depth0,helpers,partials,data) {
 	    var stack1;
 	
 	  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.age15_10 : stack1),{"name":"if","hash":{},"fn":container.program(35, data, 0),"inverse":container.program(37, data, 0),"data":data})) != null ? stack1 : "");
 	},"35":function(container,depth0,helpers,partials,data) {
-	    return "							Пока вы не можете стать донором костного мозга, потому что слишком молоды — в доноры берут только совершеннолетних. Ждем вас после 18!\n							<br/>\n							<br/>\n							Но помочь вы можете уже сейчас. Расскажите о проекте друзьям: если кто-то из них станет донором, вы спасете не одну, а несколько жизней.\n";
+	    return "							Пока вы&nbsp;не&nbsp;можете стать донором костного мозга, потому что слишком молоды&nbsp;&mdash; в&nbsp;доноры берут только совершеннолетних. Ждем вас после 18!\n							<br/>\n							<br/>\n							Но&nbsp;помочь вы&nbsp;можете уже сейчас. Расскажите о&nbsp;проекте друзьям: если кто-то из&nbsp;них станет донором, вы&nbsp;спасете не&nbsp;одну, а&nbsp;несколько жизней.\n";
 	},"37":function(container,depth0,helpers,partials,data) {
 	    var stack1;
 	
 	  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.age45more : stack1),{"name":"if","hash":{},"fn":container.program(38, data, 0),"inverse":container.program(40, data, 0),"data":data})) != null ? stack1 : "");
 	},"38":function(container,depth0,helpers,partials,data) {
-	    return "							Донором можно стать до 60 лет, но типирование — дорогая процедура, поэтому важно, чтобы потенциальные доноры числились в регистре как можно дольше. Поэтому кровь на типирование берут до 45 лет.\n							<br/>\n							<br/>\n							Но вы все равно можете помочь. Расскажите о проекте друзьям: если кто-то из них станет донором, вы спасете не одну, а несколько жизней. \n";
+	    return "							Донором можно стать до&nbsp;60&nbsp;лет, но&nbsp;типирование&nbsp;&mdash; дорогая процедура, поэтому важно, чтобы потенциальные доноры числились в&nbsp;регистре как можно дольше. Поэтому кровь на&nbsp;типирование берут до&nbsp;45&nbsp;лет.\n							<br/>\n							<br/>\n							Но&nbsp;вы&nbsp;все равно можете помочь. Расскажите о&nbsp;проекте друзьям: если кто-то из&nbsp;них станет донором, вы&nbsp;спасете не&nbsp;одну, а&nbsp;несколько жизней.\n";
 	},"40":function(container,depth0,helpers,partials,data) {
 	    var stack1;
 	
 	  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.age10less : stack1),{"name":"if","hash":{},"fn":container.program(41, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "");
 	},"41":function(container,depth0,helpers,partials,data) {
-	    return "							Пока вы не можете стать донором костного мозга, потому что слишком молоды — в доноры берут только совершеннолетних. Ждем вас после 18!\n							<br/>\n							<br/>\n							Но помочь вы можете уже сейчас. Расскажите о проекте друзьям: если кто-то из них станет донором, вы спасете не одну, а несколько жизней.\n						";
+	    return "							Пока вы&nbsp;не&nbsp;можете стать донором костного мозга, потому что слишком молоды&nbsp;&mdash; в&nbsp;доноры берут только совершеннолетних. Ждем вас после 18!\n							<br/>\n							<br/>\n							Но&nbsp;помочь вы&nbsp;можете уже сейчас. Расскажите о&nbsp;проекте друзьям: если кто-то из&nbsp;них станет донором, вы&nbsp;спасете не&nbsp;одну, а&nbsp;несколько жизней.\n						";
 	},"43":function(container,depth0,helpers,partials,data) {
 	    var stack1;
 	
 	  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.weight47less : stack1),{"name":"if","hash":{},"fn":container.program(44, data, 0),"inverse":container.program(46, data, 0),"data":data})) != null ? stack1 : "");
 	},"44":function(container,depth0,helpers,partials,data) {
-	    return "							Вы не можете стать донором костного мозга, потому что в доноры берут людей весом от 50 килограмм. \n							<br>\n							<br>\n							Но вы все равно можете помочь. Расскажите о проекте друзьям: если кто-то из них станет донором, вы спасете не одну, а несколько жизней. \n";
+	    return "							Вы&nbsp;не&nbsp;можете стать донором костного мозга, потому что в&nbsp;доноры берут людей весом от&nbsp;50&nbsp;килограмм. \n							<br>\n							<br>\n							Но&nbsp;вы&nbsp;все равно можете помочь. Расскажите о&nbsp;проекте друзьям: если кто-то из&nbsp;них станет донором, вы&nbsp;спасете не&nbsp;одну, а&nbsp;несколько жизней.\n";
 	},"46":function(container,depth0,helpers,partials,data) {
 	    var stack1;
 	
 	  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},((stack1 = (depth0 != null ? depth0.testModel : depth0)) != null ? stack1.weight48_49 : stack1),{"name":"if","hash":{},"fn":container.program(47, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "");
 	},"47":function(container,depth0,helpers,partials,data) {
-	    return "							Сейчас вы не можете стать донором костного мозга, потому что в доноры берут людей весом от 50 килограммов. Но вы очень близки! Пройдите тест ещё раз, указав, что весите 50 килограмм, и посмотрите, нет ли у вас других противопоказаний. Если нет — ждём вас через пару килограммов!\n							<br>\n							<br>\n							Но вы все равно можете помочь. Расскажите о проекте друзьям: если кто-то из них станет донором, вы спасете не одну, а несколько жизней. \n						";
+	    return "							Сейчас вы&nbsp;не&nbsp;можете стать донором костного мозга, потому что в&nbsp;доноры берут людей весом от&nbsp;50&nbsp;килограммов. Но&nbsp;вы&nbsp;очень близки! Пройдите тест ещё раз, указав, что весите 50&nbsp;килограмм, и&nbsp;посмотрите, нет&nbsp;ли у&nbsp;вас других противопоказаний. Если нет&nbsp;&mdash; ждём вас через пару килограммов!\n							<br>\n							<br>\n							Но&nbsp;вы&nbsp;все равно можете помочь. Расскажите о&nbsp;проекте друзьям: если кто-то из&nbsp;них станет донором, вы&nbsp;спасете не&nbsp;одну, а&nbsp;несколько жизней.\n						";
 	},"49":function(container,depth0,helpers,partials,data) {
-	    return "						Вы не можете стать донором костного мозга, потому что гемотрансмиссионное заболевание — абсолютное противопоказание.\n						<br>\n						<br>\n						Но вы все равно можете помочь. Расскажите о проекте друзьям: если кто-то из них станет донором, вы спасете не одну, а несколько жизней.\n";
+	    return "						Вы&nbsp;не&nbsp;можете стать донором костного мозга, потому что гемотрансмиссионное заболевание&nbsp;&mdash; абсолютное противопоказание.\n						<br>\n						<br>\n						Но&nbsp;вы&nbsp;все равно можете помочь. Расскажите о&nbsp;проекте друзьям: если кто-то из&nbsp;них станет донором, вы&nbsp;спасете не&nbsp;одну, а&nbsp;несколько жизней.\n";
 	},"51":function(container,depth0,helpers,partials,data) {
-	    return "						Вы не можете стать донором костного мозга, потому что у вас есть противопоказания. У человека, которому нужна пересадка, очень слабый иммунитет. Поэтому даже если вы болели очень давно, врачи решают не рисковать. \n						<br>\n						<br>\n						Но вы все равно можете помочь. Расскажите о проекте друзьям: если кто-то из них станет донором, вы спасете не одну, а несколько жизней. \n";
+	    return "						Вы&nbsp;не&nbsp;можете стать донором костного мозга, потому что у&nbsp;вас есть противопоказания. У&nbsp;человека, которому нужна пересадка, очень слабый иммунитет. Поэтому даже если вы&nbsp;болели очень давно, врачи решают не&nbsp;рисковать. \n						<br>\n						<br>\n						Но&nbsp;вы&nbsp;все равно можете помочь. Расскажите о&nbsp;проекте друзьям: если кто-то из&nbsp;них станет донором, вы&nbsp;спасете не&nbsp;одну, а&nbsp;несколько жизней.\n";
 	},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
 	    var stack1, alias1=container.lambda, alias2=container.escapeExpression, alias3=depth0 != null ? depth0 : {};
 	
@@ -20527,7 +20588,7 @@
 	
 	
 	// module
-	exports.push([module.id, "._3wblAYxY0Ty93Y37IcWleG {\n\tmax-width: 1024px;\n\tmargin-left: auto;\n\tmargin-right: auto;\n\tmargin-top: 40px;\n}\n._3wblAYxY0Ty93Y37IcWleG img {\n\tmax-width: 100%;\n}\n._3wblAYxY0Ty93Y37IcWleG {\n\twidth: 730px;\n\tmargin-bottom: 58px;\n}\n._2kCWKAdKZWO2l1mHuhHod3 {\n\tpadding-bottom: 80px;\n}\n._85xiBWTT3XB0Ok82A_jpG {\n\tdisplay: flex;\n}\n._14jXJwRb11AzJ-fIr7B-MM {\n\tflex-shrink: 0;\n\tmargin-right: 20px;\n}\n._2Skk9CJ2BsZ5Lgik74tm-8 {\n\twidth: 92px;\n}\n._1u70M5syH458JPMKFR15eL {\n\tfont-size: 27px;\n\tline-height: 35px;\n\tfont-weight: 300;\n}", ""]);
+	exports.push([module.id, "._3wblAYxY0Ty93Y37IcWleG {\n\tmax-width: 1024px;\n\tmargin-left: auto;\n\tmargin-right: auto;\n\tmargin-top: -12px;\n}\n._3wblAYxY0Ty93Y37IcWleG img {\n\tmax-width: 100%;\n}\n._3wblAYxY0Ty93Y37IcWleG {\n\twidth: 730px;\n\tmargin-bottom: 36px;\n}\n._2kCWKAdKZWO2l1mHuhHod3 {\n\tpadding-bottom: 84px;\n}\n._85xiBWTT3XB0Ok82A_jpG {\n\t/*display: flex;*/\n}\n._14jXJwRb11AzJ-fIr7B-MM {\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: center;\n}\n.R45oxugun0CiIlk3ojLre {\n\tmargin-top: 44px;\n\tmargin-bottom: 64px;\n}\n._1xG0vWbpzx4A7eeGqibbvc {\n\tmargin-top: 44px;\n\tmargin-bottom: 106px;\t\n}\n._2Skk9CJ2BsZ5Lgik74tm-8 {\n\twidth: 92px;\n\tmargin-right: 10px;\n\tflex-shrink: 0;\n}\n._1u70M5syH458JPMKFR15eL {\n\ttext-align: center;\n\tfont-size: 27px;\n\tline-height: 35px;\n\tfont-weight: 300;\n\tmargin-bottom: 21px;\n}\n._2XxK6Xp7DwlKNXsvZhKlmL, ._1BifrVKnwOfRsyzt5PCsh7 {\n\tfont-size: 80px;\n\tmargin-bottom: 4px;\n\tline-height: 75px;\n\tfont-weight: bold;\n\tfont-family: 'PT Sans', sans-serif;\n\twhite-space: nowrap;\n\tdisplay: block;\n}", ""]);
 	
 	// exports
 	exports.locals = {
@@ -20535,8 +20596,12 @@
 		"test": "_2kCWKAdKZWO2l1mHuhHod3",
 		"goal": "_85xiBWTT3XB0Ok82A_jpG",
 		"goalAuthor": "_14jXJwRb11AzJ-fIr7B-MM",
+		"noteSection": "R45oxugun0CiIlk3ojLre",
+		"goalSection": "_1xG0vWbpzx4A7eeGqibbvc",
 		"goalAuthorPhoto": "_2Skk9CJ2BsZ5Lgik74tm-8",
-		"goalText": "_1u70M5syH458JPMKFR15eL"
+		"goalText": "_1u70M5syH458JPMKFR15eL",
+		"potentialTotal": "_2XxK6Xp7DwlKNXsvZhKlmL",
+		"potentialDiff": "_1BifrVKnwOfRsyzt5PCsh7"
 	};
 
 /***/ },
@@ -20560,7 +20625,7 @@
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.header : stack1), depth0))
 	    + "\">Зачем становиться<br>донором костного мозга</div>\n			<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n				Костный мозг&nbsp;&mdash; это орган кроветворной системы, на&nbsp;вид&nbsp;&mdash; жидкая субстанция. Он&nbsp;содержит стволовые клетки и&nbsp;продуцирует все кровяные клетки в&nbsp;организме. Если&nbsp;у&nbsp;человека онкологическое, иммунологическое или&nbsp;аутоимунное заболевание, врачи назначают пересадку костного мозга. Часто это&nbsp;последний шанс спасти человеку жизнь.\n			</div>\n		</div>	\n		<div class=\""
+	    + "\">\n				Костный мозг&nbsp;&mdash; это орган кроветворной системы, на&nbsp;вид&nbsp;&mdash; жидкая субстанция. Он&nbsp;содержит стволовые клетки и&nbsp;продуцирует все кровяные клетки в&nbsp;организме. Если&nbsp;у&nbsp;человека онкологическое, иммунологическое или&nbsp;аутоимунное заболевание, врачи назначают пересадку костного мозга. Обычно это&nbsp;последний шанс спасти человеку жизнь.\n			</div>\n		</div>	\n		<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
 	    + "\">\n			<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
@@ -20569,40 +20634,42 @@
 	    + "\">\n				Когда человеку нужен костный мозг, в&nbsp;первую очередь проверяют его родственников. Шансы невелики&nbsp;&mdash; в&nbsp;случае братьев и&nbsp;сестёр вероятность 1:4, а&nbsp;у&nbsp;родителей и&nbsp;детей ещё&nbsp;меньше. Если среди родных доноров не&nbsp;нашлось, ищут неродственных доноров&nbsp;&mdash; для&nbsp;этого нужен специальный регистр.\n			</div>\n			<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
 	    + "\">\n				<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1["float"] : stack1), depth0))
-	    + "\">\n					<div>\n						Регистр&nbsp;&mdash; это&nbsp;база потенциальных доноров костного мозга. Потенциальный донор&nbsp;&mdash; еще не&nbsp;донор: у&nbsp;него не&nbsp;забирают костный мозг, он&nbsp;только числится в&nbsp;регистре. Реальным донором человек становится, когда кому-то подходит его костный мозг. Чем&nbsp;больше в&nbsp;регистре потенциальных доноров, тем&nbsp;выше вероятность найти пациенту реального донора.\n					</div>\n					<a class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.row : stack1), depth0))
+	    + "\">\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.grid4 : stack1), depth0))
+	    + "\">\n						Регистр&nbsp;&mdash; это&nbsp;база потенциальных доноров костного мозга. Потенциальный донор&nbsp;&mdash; еще не&nbsp;донор: у&nbsp;него не&nbsp;забирают костный мозг, он&nbsp;только числится в&nbsp;регистре. Реальным донором человек становится, когда кому-то подходит его костный мозг. Чем&nbsp;больше в&nbsp;регистре потенциальных доноров, тем&nbsp;выше вероятность найти пациенту реального донора.\n					</div>\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.grid2 : stack1), depth0))
+	    + "\">\n						<a class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnote : stack1), depth0))
-	    + "\" href=\"http://www.rusfond.ru/registr/009\" target=\"_blank\">\n						<span class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnoteCounter : stack1), depth0))
-	    + "\">\n							"
+	    + "\" href=\"http://www.rusfond.ru/registr/009\" target=\"_blank\">\n							<span class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.why : depth0)) != null ? stack1.potentialTotal : stack1), depth0))
+	    + "\">\n								"
 	    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.data : depth0)) != null ? stack1.potentialDonors : stack1)) != null ? stack1.value : stack1), depth0))
-	    + "\n						</span>\n						<span class=\""
+	    + "\n							</span>\n							<span class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnoteText : stack1), depth0))
-	    + "\">\n							потенциальных\n							<br>\n							доноров в регистре\n							<br>\n							на "
+	    + "\">\n								потенциальных\n								<br>\n								доноров в регистре\n								<br>\n								на "
 	    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.data : depth0)) != null ? stack1.potentialDonors : stack1)) != null ? stack1.date : stack1), depth0))
-	    + ".\n						</span>\n						<span class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnoteMeta : stack1), depth0))
-	    + "\">\n							Информация с сайта Русфонда\n						</span>	\n					</a>\n				</div>\n			</div>\n		</div>\n		<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
+	    + ".\n							</span>\n						</a>\n					</div>	\n				</div>\n			</div>\n		</div>\n		<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.why : depth0)) != null ? stack1.noteSection : stack1), depth0))
 	    + "\">\n			<div class="
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.note : stack1), depth0))
 	    + ">\n				<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
 	    + "\">Зачем увеличивать национальный регистр</div>\n				<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n					Регистр потенциальных доноров костного мозга есть в&nbsp;каждой развитой стране. Очень&nbsp;большой регистр в&nbsp;Германии&nbsp;&mdash; 6&nbsp;миллионов потенциальных доноров.\n					<br>\n					Можно пользоваться зарубежными регистрами, но&nbsp;важно развивать свой:\n				</div>	\n				<div class=\""
+	    + "\">\n					Регистр потенциальных доноров костного мозга есть в&nbsp;каждой развитой стране. Очень большой регистр в&nbsp;Германии&nbsp;&mdash; 6&nbsp;миллионов потенциальных доноров. Можно пользоваться зарубежными регистрами, но&nbsp;важно развивать свой.\n				</div>	\n				<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n					<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.floatJustifyBetween : stack1), depth0))
-	    + "\">\n						<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.col2 : stack1), depth0))
-	    + "\">\n							В&nbsp;национальном регистре выше шанс найти подходящего донора, потому что в&nbsp;каждой стране свои генетические особенности.\n						</div>\n						<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.col2 : stack1), depth0))
-	    + "\">\n							Искать в&nbsp;национальном регистре гораздо дешевле. Поиск в&nbsp;российском регистре стоит 150-300 тысяч рублей, а&nbsp;в&nbsp;зарубежных&nbsp;&mdash; 18&nbsp;000&nbsp;евро.\n						</div>\n					</div>\n				</div>\n			</div>\n		</div>\n		<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
+	    + "\">\n					&laquo;Развитие собственного регистра для нас очень важно. Важно, чтобы в&nbsp;него была включена информация о&nbsp;потенциальных донорах из&nbsp;разных регионов, так как Россия&nbsp;&mdash; многонациональная страна, где живут представители многих народов, и&nbsp;частота совпадений отдельных генов и&nbsp;их&nbsp;сочетаний в&nbsp;нашей популяции может отличается от&nbsp;европейской&raquo;.\n				</div>\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n					<span class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.italic : stack1), depth0))
+	    + "\">Александр Алянский, руководитель лаборатории тканевого типирования НИИ детской онкологии, гематологии и&nbsp;трансплантологии&nbsp;им. Р.М. Горбачёвой</span>\n				</div>\n			</div>\n		</div>\n		<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.why : depth0)) != null ? stack1.goalSection : stack1), depth0))
 	    + "\">\n			<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.why : depth0)) != null ? stack1.goal : stack1), depth0))
 	    + "\">\n				<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.why : depth0)) != null ? stack1.goalText : stack1), depth0))
+	    + "\">\n					&laquo;Наша цель&nbsp;&mdash; 500 тысяч потенциальных доноров\n					<br>\n					в&nbsp;регистре. Столько нужно, чтобы находить костный мозг\n					<br>\n					половине российских пациентов&raquo;\n				</div>\n				<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.why : depth0)) != null ? stack1.goalAuthor : stack1), depth0))
 	    + "\">\n					<img src=\"/static/grinberg.png\" class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.why : depth0)) != null ? stack1.goalAuthorPhoto : stack1), depth0))
@@ -20610,41 +20677,51 @@
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.why : depth0)) != null ? stack1.goalAuthorInfo : stack1), depth0))
 	    + "\">\n						<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.text : stack1), depth0))
-	    + "\">\n							Павел Гринберг,\n							<br>\n							исполнительный директор\n							<br>\n							фонда Advita\n						</div>\n					</div>\n				</div>\n				<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.why : depth0)) != null ? stack1.goalText : stack1), depth0))
-	    + "\">\n					&laquo;Наша цель&nbsp;&mdash; 500 тысяч потенциальных доноров в&nbsp;регистре. Столько нужно, чтобы находить костный мозг половине российских пациентов&raquo;\n				</div>\n			</div>\n		</div>\n		<div class=\""
+	    + "\">\n							Павел Гринберг,\n							<br>\n							исполнительный директор\n							<br>\n							фонда Advita\n						</div>\n					</div>\n				</div>\n			</div>\n		</div>\n		<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
 	    + "\">\n			<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
 	    + "\">Как спасти жизнь</div>\n			<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
 	    + "\">\n				<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1["float"] : stack1), depth0))
-	    + "\">\n					<div>\n						Мы&nbsp;увеличиваем регистр, чтобы повысить вероятность того, что пациент найдет подходящего донора и&nbsp;выздоровеет. Но&nbsp;система работает только потому, что находятся люди, которые хотят безвозмездно помогать. Сначала они вступают в&nbsp;регистр и&nbsp;становятся потенциальными донорами, а&nbsp;когда их&nbsp;костный мозг подходит, идут на&nbsp;реальное донорство.\n					</div>\n					<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnote : stack1), depth0))
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.row : stack1), depth0))
+	    + "\">\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.grid4 : stack1), depth0))
 	    + "\">\n						<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnoteCounter : stack1), depth0))
-	    + "\">\n							"
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.data : depth0)) != null ? stack1.diff : stack1), depth0))
-	    + "\n						</div>\n						<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnoteText : stack1), depth0))
-	    + "\">\n							человек \n							<br>\n							вступили в регистр\n							<br>\n							за последний месяц\n						</div>\n					</div>\n				</div>\n			</div>\n			<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n				После пересадки новые клетки костного мозга в&nbsp;организме реципиента размножаются и&nbsp;производят здоровое потомство. У&nbsp;пациента восстанавливается нормальное кроветворение организма, увеличивается стойкость к&nbsp;вирусам. Получить здоровые клетки можно только от&nbsp;донора&nbsp;&mdash; другой возможности нет.\n			</div>\n		</div>\n		<div class=\""
+	    + "\">\n							Мы&nbsp;увеличиваем регистр, чтобы повысить вероятность того, что пациент найдет подходящего донора и&nbsp;выздоровеет. Но&nbsp;система работает только потому, что находятся люди, которые хотят безвозмездно помогать. Сначала они вступают в&nbsp;регистр и&nbsp;становятся потенциальными донорами, а&nbsp;когда их&nbsp;костный мозг подходит, идут на&nbsp;реальное донорство.\n						</div>\n						<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n							После пересадки новые клетки костного мозга в&nbsp;организме реципиента размножаются и&nbsp;производят здоровое потомство. У&nbsp;пациента восстанавливается нормальное кроветворение организма, увеличивается стойкость к&nbsp;вирусам. Получить здоровые клетки можно только от&nbsp;донора&nbsp;&mdash; другой возможности нет.\n						</div>\n					</div>\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.grid2 : stack1), depth0))
+	    + "\">\n						<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnote : stack1), depth0))
+	    + "\">\n							<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.why : depth0)) != null ? stack1.potentialDiff : stack1), depth0))
+	    + "\">\n								"
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.data : depth0)) != null ? stack1.diff : stack1), depth0))
+	    + "\n							</div>\n							<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnoteText : stack1), depth0))
+	    + "\">\n								человек \n								<br>\n								вступили в регистр\n								<br>\n								за последний месяц\n							</div>\n						</div>\n					</div>\n				</div>\n			</div>\n		</div>\n		<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.section : stack1), depth0))
 	    + "\">\n			<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.subheader : stack1), depth0))
 	    + "\">Кто может помочь</div>\n			<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n				При некоторых заболеваниях нельзя становиться донором костного мозга&nbsp;&mdash; это может быть опасно и&nbsp;для донора, и&nbsp;для реципиента. Врачи не&nbsp;рискуют здоровьем донора ради спасения другого человека и&nbsp;отменяют пересадку при малейшей угрозе. Для здорового человека процедура безопасна.\n			</div>\n			<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
 	    + "\">\n				<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1["float"] : stack1), depth0))
-	    + "\">\n					<div>\n						Другое дело&nbsp;&mdash; организм пациента, который нуждается в&nbsp;пересадке. Он&nbsp;и&nbsp;так ослаблен болезнью. Перед пересадкой донорских клеток пациент проходит курс сильной химиотерапии, которая убивает его больной костный мозг. Иммунитет пациента не&nbsp;справится с&nbsp;болезнями донора, поэтому важно пересадить максимально здоровый костный мозг.\n					</div>\n					<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnote : stack1), depth0))
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.row : stack1), depth0))
+	    + "\">\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.grid4 : stack1), depth0))
 	    + "\">\n						<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n							При некоторых заболеваниях нельзя становиться донором костного мозга&nbsp;&mdash; это может быть опасно и&nbsp;для донора, и&nbsp;для реципиента. Врачи не&nbsp;рискуют здоровьем донора ради спасения другого человека и&nbsp;отменяют пересадку при малейшей угрозе. Для здорового человека процедура безопасна.\n						</div>\n						<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
+	    + "\">\n							Другое дело&nbsp;&mdash; организм пациента, который нуждается в&nbsp;пересадке. Он&nbsp;и&nbsp;так ослаблен болезнью. Перед пересадкой донорских клеток пациент проходит курс сильной химиотерапии, которая убивает его больной костный мозг. Иммунитет пациента не&nbsp;справится с&nbsp;болезнями донора, поэтому важно пересадить максимально здоровый костный мозг.\n						</div>\n					</div>\n					<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.grid2 : stack1), depth0))
+	    + "\">\n						<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnote : stack1), depth0))
+	    + "\">\n							<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.footnoteText : stack1), depth0))
-	    + "\">\n							Если вы — донор крови,\n							<br>\n							вы можете быть\n							<br>\n							и донором костного\n							<br>\n							мозга. Противопоказания\n							<br>\n							для обеих процедур\n							<br>\n							совпадают\n						</div>\n					</div>\n				</div>\n			</div>\n		</div>\n		<div class=\""
+	    + "\">\n								Если вы — донор крови,\n								<br>\n								вы можете быть\n								<br>\n								и донором костного\n								<br>\n								мозга. Противопоказания для \n								<br>\n								обеих процедур\n								<br>\n								совпадают\n							</div>\n						</div>\n					</div>\n				</div>\n			</div>\n		</div>\n		<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.why : depth0)) != null ? stack1.test : stack1), depth0))
 	    + "\" data-view=\"how-test\"></div>\n	</div>\n	<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.footer : stack1), depth0))
@@ -20654,17 +20731,7 @@
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
 	    + "\">\n				Если вы подходите и задумались о донорстве, узнайте,\n				<br>\n				<a class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
-	    + "\" href=\"/#/how\">как стать донором костного мозга</a>. \n			</div>\n		</div>\n	</div>\n	<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.container : stack1), depth0))
-	    + "\">\n		<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.credentials : stack1), depth0))
-	    + "\">\n			<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.credentialsImage : stack1), depth0))
-	    + "\">\n				<img src=\"/static/credentials_why.png\">\n			</div>\n			<div class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.page : depth0)) != null ? stack1.credentialsText : stack1), depth0))
-	    + "\">\n				Сделала Алиса Яннау в Школе редакторов Бюро Горбунова. \n				<br>\n				Иллюстратор — Марина Савицкая, разработчик — Артур Стамбульцян.\n				<br>\n				<a href=\"/static/pdf/agreement.pdf\" target=\"_blank\" class=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
-	    + "\">Пользовательское соглашение</a>.\n			</div>	\n		</div>\n	</div>\n</div>";
+	    + "\" href=\"/#/how\">как стать донором костного мозга</a>. \n			</div>\n		</div>\n	</div>\n</div>";
 	},"useData":true});
 
 /***/ },
@@ -20702,7 +20769,7 @@
 	
 	
 	// module
-	exports.push([module.id, "._262Ej1jMDO2JTW3JIx8Tcp {\n\tmin-width: 1024px;\n}\n\n._262Ej1jMDO2JTW3JIx8Tcp, ._262Ej1jMDO2JTW3JIx8Tcp *, ._262Ej1jMDO2JTW3JIx8Tcp *::before, ._262Ej1jMDO2JTW3JIx8Tcp *::after {\n\tbox-sizing: border-box;\n\toutline: none;\n\ttext-size-adjust: none;\n\t-moz-text-size-adjust: none;\n\t-webkit-text-size-adjust: none;\n\t-ms-text-size-adjust: none;\n}", ""]);
+	exports.push([module.id, "._262Ej1jMDO2JTW3JIx8Tcp {\n\tmin-width: 1024px;\n\tpadding-bottom: 64px;\n}\n\n._262Ej1jMDO2JTW3JIx8Tcp, ._262Ej1jMDO2JTW3JIx8Tcp *, ._262Ej1jMDO2JTW3JIx8Tcp *::before, ._262Ej1jMDO2JTW3JIx8Tcp *::after {\n\tbox-sizing: border-box;\n\toutline: none;\n\ttext-size-adjust: none;\n\t-moz-text-size-adjust: none;\n\t-webkit-text-size-adjust: none;\n\t-ms-text-size-adjust: none;\n}", ""]);
 	
 	// exports
 	exports.locals = {
@@ -20715,12 +20782,38 @@
 
 	var Handlebars = __webpack_require__(33);
 	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
-	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+	module.exports = (Handlebars["default"] || Handlebars).template({"1":function(container,depth0,helpers,partials,data) {
 	    var stack1;
 	
+	  return container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? depth0.pageStyles : depth0)) != null ? stack1.navItemChoosen : stack1), depth0));
+	},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+	    var stack1, alias1=container.lambda, alias2=container.escapeExpression, alias3=depth0 != null ? depth0 : {};
+	
 	  return "<div class=\""
-	    + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? depth0.styles : depth0)) != null ? stack1.container : stack1), depth0))
-	    + "\" data-view=\"app-container\"></div>";
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.pageStyles : depth0)) != null ? stack1.header : stack1), depth0))
+	    + "\">\n	<a href=\"http://advita.ru\" target=\"_blank\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.pageStyles : depth0)) != null ? stack1.logo : stack1), depth0))
+	    + "\">\n		<img src=\"/static/advita_logo.png\">\n	</a>\n	<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.pageStyles : depth0)) != null ? stack1.nav : stack1), depth0))
+	    + "\">\n		<a href=\"/#/why\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.pageStyles : depth0)) != null ? stack1.navItem : stack1), depth0))
+	    + " "
+	    + ((stack1 = helpers["if"].call(alias3,((stack1 = (depth0 != null ? depth0.currentPage : depth0)) != null ? stack1.why : stack1),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + "\">ЗАЧЕМ СТАНОВИТЬСЯ<br>ДОНОРОМ КОСТНОГО МОЗГА</a>\n		<a href=\"/#/how\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.pageStyles : depth0)) != null ? stack1.navItem : stack1), depth0))
+	    + " "
+	    + ((stack1 = helpers["if"].call(alias3,((stack1 = (depth0 != null ? depth0.currentPage : depth0)) != null ? stack1.how : stack1),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + "\">КАК СТАТЬ ДОНОРОМ<br>КОСТНОГО МОЗГА</a>\n	</div>\n</div>\n<div data-view=\"app-container\"></div>\n<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.pageStyles : depth0)) != null ? stack1.container : stack1), depth0))
+	    + "\">\n	<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.pageStyles : depth0)) != null ? stack1.credentials : stack1), depth0))
+	    + "\">\n		<a href=\"https://www.behance.net/marina_sav\" target=\"_blank\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.pageStyles : depth0)) != null ? stack1.credentialsImage : stack1), depth0))
+	    + "\">\n			<img src=\"/static/credentials.png\">\n		</a>\n		<div class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.pageStyles : depth0)) != null ? stack1.credentialsText : stack1), depth0))
+	    + "\">\n			Сделала Алиса Яннау в Школе редакторов Бюро Горбунова. \n			<br>\n			Иллюстратор — Марина Савицкая, разработчик — Артур Стамбульцян.\n			<br>\n			<a href=\"/static/pdf/agreement.pdf\" target=\"_blank\" class=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.link : stack1), depth0))
+	    + "\">Пользовательское соглашение</a>.\n		</div>	\n	</div>\n</div>";
 	},"useData":true});
 
 /***/ },

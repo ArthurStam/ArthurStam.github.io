@@ -12,7 +12,7 @@
 	font-size: 48px;
 	line-height: 55px;
 	font-weight: 700;
-	text-align: center;
+	text-align: left;
 }
 
 .subheader {
@@ -39,6 +39,10 @@
 	cursor: pointer;
 	color: $greenBlue;
 	text-decoration: underline;
+
+	&:hover {
+		text-decoration: none;
+	}
 }
 
 .linkPseudo {
@@ -52,66 +56,73 @@
 	font-weight: 700;
 }
 
+.italic {
+	composes: text;
+	font-style: italic;
+}
+
 .footnote {
 	font-family: $roboto;
 	color: $greenBlue;
 	font-weight: 400;
-}
-
-.footnoteCounter {
-	display: block;
-	font-size: 54px;
-	line-height: 56px;
-	font-weight: 700;
-	margin-bottom: -4px;
-	font-family: 'PT Sans', sans-serif;
+	font-size: 21px;
+	line-height: 28px;
 }
 
 .footnoteText {
-	display: block;
-	line-height: 23px;
-}
-
-.footnoteMeta {
-	display: block;
-	font-size: 12px;
-}
-
-.float {
-	display: flex;
-
-	.footnote, 
-	.media {
-		flex-shrink: 0;
-		margin-left: 24px;
-	}
-
-	.media {
-		width: 196px;
-	}
-}
-
-.floatJustifyBetween {
-	composes: float;
-	justify-content: space-between;
+	font-size: 21px;
+	line-height: 28px;
 }
 
 .note {
 	font-family: $roboto;
-	width: 768px;
-	margin-left: calc( ( 657px - 768px ) / 2 );
-	padding: 50px calc( ( 768px - 657px ) / 2 ) 64px;
+	width: 830px;
+	margin-left: calc( ( 774px - 830px ) / 2 );
+	padding: $gridGutter calc( ( 830px - 774px ) / 2 ) $tableMargin;
 	background-color: $blue;
 }
 
-.col2 {
+.row {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+.rowBottom {
+	@extend .row;
+	align-items: flex-end;
+}
+
+%grid {
 	flex-shrink: 0;
+}
 
-	&:first-child {
-		width: 44%;
-	}
+.grid1 {
+	@extend %grid;
+	width: calc( (100% - 27px * 5) / 6);
+}
 
-	&:last-child {
-		width: 50%;
-	}
+.grid2 {
+	@extend %grid;
+	width: calc( (100% - 27px * 2) / 3);
+}
+
+.grid3 {
+	@extend %grid;
+	width: calc( (100% - 27px) / 2);
+}
+
+.grid4 {
+	@extend %grid;
+	width: calc( (100% - 27px) / 3 * 2);
+}
+
+.grid5 {
+	@extend %grid;
+	width: calc( (100% - 27px) / 6 * 5);
+}
+
+.grid6 {
+	@extend %grid;
+	width: 100%;
 }

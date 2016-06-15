@@ -13,16 +13,57 @@
 
 .root {
 	position: relative;
-	padding: 0 0 50px;
+	padding: 0;
 }
 
 .container {
-	width: 657px;
+	width: 774px;
 	margin: auto;
 }
 
+.header {
+	@extend .container;
+	padding-top: 17px;
+	position: relative;
+	z-index: 2;
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+}
+
+.nav {
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-start;	
+}
+
+.navItem {
+	font-size: 8px;
+	font-weight: 300;
+	color: #000;
+	letter-spacing: 1px;
+	padding: 7px 14px;
+	border-radius: 5px;
+	line-height: 12px;
+	text-decoration: underline;
+
+	&:hover {
+		text-decoration: none;
+	}
+
+	&:not(:last-child) {
+		margin-right: 23px;
+	}
+}
+
+.navItemChoosen {
+	background-color: $blue;
+	text-decoration: none;
+	cursor: default;
+}
+
 .footer {
-	padding: $sectionMargin 0;
+	padding: $sectionMargin 0 52px;
 	background-color: $blue;
 	margin-bottom: $sectionMargin;
 }
@@ -32,8 +73,14 @@
 	line-height: 24px;
 	font-weight: 300;
 	display: flex;
+	align-items: flex-end;
 }
 
 .credentialsImage {
+	height: 62px;
 	margin-right: 10px;
+
+	img {
+		max-height: 100%;
+	}
 }

@@ -76,33 +76,34 @@ export default class extends PageView {
 	init() {
 		this.geoModel = new GeoModel();
 
-		ymaps.ready(() => {
-			if (navigator.geolocation) {
-				navigator.geolocation.getCurrentPosition((position) => {
-					this.geoModel.fetch(position.coords.latitude, position.coords.longitude).then(() => {
-						let city = this._findCity(this.geoModel.get('placeId'));
-						if (city) {
-							this._setCity(city);
-						} else {
-							this.render({ 
-								error: { 
-									emptyCity: true,
-									data: {
-										formattedAddress: this.geoModel.get('formattedAddress')
-									}
+		this.render();
+
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition((position) => {
+				this.render({ status: 'loading' });
+				this.geoModel.fetch(position.coords.latitude, position.coords.longitude).then(() => {
+					let city = this._findCity(this.geoModel.get('placeId'));
+					if (city) {
+						this._setCity(city);
+					} else {
+						this.render({ 
+							error: { 
+								emptyCity: true,
+								data: {
+									formattedAddress: this.geoModel.get('formattedAddress')
 								}
-							});
-							return;
-						}
-						this.render();
-					}, (error) => {
-						this.render();
-					})
+							}
+						});
+						return;
+					}
+					this.render();
 				}, (error) => {
 					this.render();
 				})
-			}
-		});
+			}, (error) => {
+				this.render();
+			})
+		}
 	}
 
 	_findCity(placeId) {

@@ -14,28 +14,28 @@
 		</div>
 		<div class="{{page.section}}" id="first-step">
 			<div class="{{typography.subheader}}">Первый шаг. Найти, где сдать кровь</div>
-			<div class="{{typography.float}} {{typography.paragraph}}">
-				<div class="{{typography.text}}">
-					Чтобы вступить в&nbsp;регистр потенциальных доноров костного мозга, нужно сдать кровь на&nbsp;типирование. Типирование&nbsp;&mdash; это тест на&nbsp;тканевую совместимость между донором и&nbsp;реципиентом. От&nbsp;этой совместимости зависит, приживется&nbsp;ли костный мозг в&nbsp;новом организме.
-				</div>
-				<div class="{{typography.footnote}}">
-					<div class="{{typography.footnoteText}}">
-						Для 100% генетической совместимости
-						<br>
-						донора и пациента должны совпасть
-						<br>
-						10 четырехзначных параметров ДНК.
-						<br>
-						Вероятность совпадения 1:10000.
-						<br>
-						Для транплантации достаточно
-						<br>
-						90% совместимости
+			<div class="{{typography.rowBottom}}">
+				<div class="{{typography.grid4}}">
+					<div class="{{typography.paragraph}}">
+						Чтобы вступить в&nbsp;регистр потенциальных доноров костного мозга, нужно сдать кровь на&nbsp;типирование.
+					</div>
+					<div class="{{typography.paragraph}}">
+						Типирование&nbsp;&mdash; это тест на&nbsp;тканевую совместимость между донором и&nbsp;реципиентом. От&nbsp;этой совместимости зависит, приживется&nbsp;ли костный мозг в&nbsp;новом организме.
 					</div>
 				</div>
+				<div class="{{typography.grid2}}">
+					<img class="{{how.firstImage}}" src="/static/location_shadow.png">
+				</div>
 			</div>
-			<div class="{{typography.paragraph}}">
-				Специальных пунктов сдачи крови на&nbsp;типирование нет. Вступить в&nbsp;регистр можно в&nbsp;некоторых пунктах переливания крови и&nbsp;в&nbsp;лабораториях регистра. Выберите свой город и&nbsp;найдите удобный пункт.
+			<div class="{{typography.paragraph}}" style="margin-bottom: 37px; margin-top: 34px;">
+				<div class="{{typography.footnote}}">
+					Для 100% генетической совместимости донора и&nbsp;пациента должны совпасть 10&nbsp;четырехзначных параметров ДНК. Вероятность совпадения 1:10000. Для транплантации достаточно&nbsp;90% совместимости.
+				</div>
+			</div>
+			<div class="{{typography.row}} {{typography.paragraph}}">
+				<div class="{{typography.grid4}}">
+					Специальных пунктов сдачи крови на&nbsp;типирование нет. Вступить в&nbsp;регистр можно в&nbsp;некоторых пунктах переливания крови и&nbsp;в&nbsp;лабораториях регистра. Выберите свой город и&nbsp;найдите удобный пункт.
+				</div>
 			</div>
 			<div class="{{how.find}}">
 				<div class="{{how.findCity}}">
@@ -57,6 +57,10 @@
 								нет пунктов для сдачи 
 								<br>
 								костного мозга.
+							</div>
+						{{else if loading}}
+							<div class="{{how.findEmpty}} {{typography.text}}">
+								Подождите, мы определяем ваше местоположение...
 							</div>
 						{{else}}
 							<div class="{{how.findEmpty}} {{typography.text}}">
@@ -155,109 +159,100 @@
 		</div>
 		<div class="{{page.section}}">
 			<div class="{{typography.subheader}}">Второй шаг. Сдать кровь</div>
-			<div class="{{typography.float}} {{typography.paragraph}}">
-				<div>
+			<div class="{{typography.row}} {{typography.paragraph}}">
+				<div class="{{typography.grid4}}">
 					<div class="{{typography.paragraph}}">
-						В&nbsp;пункте приёма крови вы&nbsp;заполняете анкету и&nbsp;подписываете соглашение. Соглашение подтверждает, что вы&nbsp;вступаете в&nbsp;регистр добровольно и&nbsp;знаете о&nbsp;всех этапах донорства.
+						В&nbsp;пункте приёма крови вы&nbsp;заполняете анкету 
+						<br>
+						и подписываете соглашение. Соглашение подтверждает, что вы&nbsp;вступаете в&nbsp;регистр добровольно и&nbsp;знаете о&nbsp;всех этапах донорства. Тут&nbsp;же вы&nbsp;сдаете 10&nbsp;мл крови.
 					</div>
 					<div class="{{typography.paragraph}}">
-						Тут же вы сдаете 10 мл крови.  
-					</div>
-				</div>
-				<div class="{{typography.footnote}}">
-					<div class="{{typography.paragraph}}">
-						<a target="_blank" href="/static/pdf/anketa.pdf" class="{{typography.link}}">
-							Анкета
-							<br>
-							о состоянии здоровья
-						</a>
+						Теперь вы&nbsp;в&nbsp;регистре. Вы&nbsp;попадаете в&nbsp;него автоматически после того, как кровь протипируют в&nbsp;лаборатории.
 					</div>
 					<div class="{{typography.paragraph}}">
-						<a target="_blank" href="/static/pdf/register_agreement.pdf" class="{{typography.link}}">
-							Соглашение 
-							<br>
-							о вступлении в регистр
-						</a>
+						Помните, что мы увеличиваем регистр, чтобы спасать жизни. Поэтому оцените свои силы заранее и вступайте в регистр с твердым намерением стать реальным донором.
+					</div>
+					<div class="{{typography.paragraph}}">
+						Люди, которые числятся в&nbsp;регистре, но&nbsp;в&nbsp;последний момент отказываются от&nbsp;реального донорства, зря тратят деньги благотворительных организаций и&nbsp;время пациента&nbsp;&mdash; время, которое может быть решающим.
 					</div>
 				</div>
-			</div>
-			<div class="{{typography.paragraph}}">
-				Поздравляем, вы&nbsp;в&nbsp;регистре! Вы&nbsp;попадаете в&nbsp;регистр автоматически после того, как&nbsp;вашу кровь протипируют в&nbsp;лаборатории. Сотрудники регистра позвонят, только если ваш костный мозг кому-то подойдет.
+				<div class="{{typography.grid2}}">
+					<div class="{{typography.footnote}}">
+						<div class="{{typography.paragraph}}">
+							<a target="_blank" href="/static/pdf/anketa.pdf" class="{{typography.link}}">
+								Анкета
+								<br>
+								о состоянии здоровья
+							</a>
+						</div>
+						<div class="{{typography.paragraph}}">
+							<a target="_blank" href="/static/pdf/register_agreement.pdf" class="{{typography.link}}">
+								Соглашение 
+								<br>
+								о вступлении в регистр
+							</a>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 		<div class="{{page.section}}">
-			<div class={{typography.note}}>
-				<div class="{{typography.subheader}}">Персональные данные под защитой</div>
-				<div class="{{typography.paragraph}}">
-					<div class="{{typography.floatJustifyBetween}}">
-						<div class="{{typography.col2}}">
-							<div class="{{typography.paragraph}}">
-								<span class="{{typography.bold}}">Регистр не раскрывает ваши данные</span>
-								<br>
-								Пробирку с&nbsp;анализом подписывают девятизначным кодом. Этот&nbsp;же код пишут на&nbsp;анкете с&nbsp;вашими персональными данными. Результаты типирования и&nbsp;код хранятся в&nbsp;одной базе, а&nbsp;персональные данные&nbsp;&mdash; в&nbsp;другой.
-							</div>
-							<div class="{{typography.paragraph}}">
-								База с&nbsp;персональными данными находится на&nbsp;отдельном сервере без выхода в&nbsp;интернет. Сотрудник сопоставит код и&nbsp;имя, только если кому-то подойдут ваши клетки.
-							</div>
-						</div>
-						<div class="{{typography.col2}}">
-							<div class="{{typography.paragraph}}">
-								<span class="{{typography.bold}}">Регистр не раскрывает данные пациента</span>
-								<br>
-								О&nbsp;реципиенте вам скажут немного: пол, возраст, вес и&nbsp;как в&nbsp;общих чертах прошла трасплантация.
-							</div>
-							<div class="{{typography.paragraph}}">
-								Срок анонимности&nbsp;&mdash; два года. Потом сотрудник регистра предложит донору и&nbsp;реципиенту написать друг другу письма&nbsp;и, если оба согласятся, встретиться.
-							</div>	
-						</div>
+			<div class="{{typography.subheader}}">Персональные данные под защитой</div>
+			<div class="{{typography.paragraph}} {{typography.row}}">
+				<div class="{{typography.grid3}}">
+					<div class="{{typography.paragraph}}">
+						<span class="{{typography.bold}}">Регистр не раскрывает ваши данные</span>
+						<br>
+						Пробирку с&nbsp;анализом подписывают девятизначным кодом. Этот&nbsp;же код пишут на&nbsp;анкете с&nbsp;вашими персональными данными. Результаты типирования и&nbsp;код хранятся в&nbsp;одной базе, а&nbsp;персональные данные&nbsp;&mdash; в&nbsp;другой.
+					</div>
+					<div class="{{typography.paragraph}}">
+						База с&nbsp;персональными данными находится на&nbsp;отдельном сервере без выхода в&nbsp;интернет. Сотрудник сопоставит код и&nbsp;имя, только если кому-то подойдут ваши клетки.
+					</div>
+				</div>
+				<div class="{{typography.grid3}}">
+					<div class="{{typography.paragraph}}">
+						<span class="{{typography.bold}}">Регистр не раскрывает данные пациента</span>
+						<br>
+						О&nbsp;реципиенте вам скажут немного: пол, возраст, вес и&nbsp;как в&nbsp;общих чертах прошла трасплантация. Срок анонимности&nbsp;&mdash; два года. Потом сотрудник регистра предложит донору и&nbsp;реципиенту написать друг другу письма&nbsp;и, если оба согласятся, встретиться.
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="{{page.section}}">
 			<div class="{{typography.subheader}}">Третий шаг. Ждать</div>
-			<div class="{{typography.float}} {{typography.paragraph}}">
-				<div>
+			<div class="{{typography.row}} {{typography.paragraph}}">
+				<div class="{{typography.grid4}}">
 					<div class="{{typography.paragraph}}">
-						Потенциальный донор может подойти кому-то на&nbsp;следующий день, через несколько лет или&nbsp;вообще никогда не&nbsp;подойти.
+						Потенциальный донор может подойти кому-то через несколько месяцев, лет или вообще никогда не&nbsp;подойти.
 					</div>
 					<div class="{{typography.paragraph}}">
-						Помните, что мы&nbsp;увеличиваем регистр, чтобы спасать жизни. Поэтому оцените свои силы заранее и&nbsp;вступайте в&nbsp;регистр с&nbsp;твердым намерением стать реальным донором.
+						Сотрудники регистра позвонят, если ваш костный мозг кому-то подойдет. Поэтому обязательно сообщайте, если у&nbsp;вас изменятся контакты. Так вас смогут найти даже спустя много лет. Неважно, откуда вы&nbsp;и&nbsp;где сдавали кровь на&nbsp;типирование,&nbsp;&mdash; пишите об&nbsp;изменениях на&nbsp;<a class="{{typography.link}}" href="mailto:donor@advita.ru">donor@advita.ru</a>.
 					</div>
 				</div>
-				<div class="{{typography.footnote}}">
-					<div class="{{how.contact}}">
-						<a href="mailto:donor@advita.ru" class="{{how.contactEmail}}">donor@advita.ru</a>
-						<div class="{{how.contactText}}">
-							Обо всех изменениях пишите
-							<br>
-							в фонд Advita — мы передадим
-							<br>
-							информацию в регистр.
-							<br>
-							И неважно, откуда вы и где
-							<br>
-							сдавали кровь
+				<div class="{{typography.grid2}}">
+					<div class="{{typography.footnote}}">
+						<div class="{{how.contact}}">
+							<a href="mailto:donor@advita.ru" class="{{how.contactEmail}}">donor@advita.ru</a>
+							<div class="{{how.contactText}}">
+								Напишите нам, если поменяете телефон,&nbsp;&mdash; мы&nbsp;передадим новые данные в&nbsp;регистр
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="{{typography.paragraph}}">
-				Люди, которые числятся в&nbsp;регистре, но&nbsp;в&nbsp;последний момент отказываются от&nbsp;реального донорства, зря тратят деньги благотворительных организаций и&nbsp;время пациента&nbsp;&mdash; время, которое может быть решающим.
-			</div>
 		</div>
 		<div class="{{page.section}}">
 			<div class="{{typography.subheader}}">Четвертый шаг. Пройти обследование</div>
-			<div class="{{typography.float}}">
-				<div>
+			<div class="{{typography.row}} {{typography.paragraph}}">
+				<div class="{{typography.grid4}}">
 					<div class="{{typography.paragraph}}">
 						Итак, прошло время, и&nbsp;ваши клетки кому-то подошли. Сотрудник регистра звонит вам и&nbsp;спрашивает, готовы&nbsp;ли вы&nbsp;стать реальным донором.
 					</div>	
 					<div class="{{typography.paragraph}}">
-						Если соглашаетесь, вам назначают более детальное, развернутое типирование&nbsp;&mdash; чтобы убедиться, что&nbsp;подходите. Если точно подходите, проходите обследование. Какое&nbsp;&mdash; зависит от&nbsp;состояния здоровья. Это в&nbsp;любом случае будет обычный биохимический анализ крови. Если вас что-то беспокоит, врач назначит дополнительные анализы.
+						Если соглашаетесь, вам назначают более детальное, развернутое типирование&nbsp;&mdash; чтобы убедиться, что подходите. Потом вы&nbsp;проходите обследование. Это в&nbsp;любом случае будет обычный биохимический анализ крови. А&nbsp;дальше зависит от&nbsp;состояния здоровья. Если вас что-то беспокоит, врач назначит дополнительные анализы.
 					</div>
 				</div>
-				<div class="{{typography.media}}">
+				<div class="{{typography.grid2}}">
 					<img class="{{how.doctorImage}}" src="/static/doctor.png">
 				</div>
 			</div>	
@@ -267,23 +262,35 @@
 			<div class="{{typography.paragraph}}">
 				Забрать костный мозг от&nbsp;донора можно двумя способами. Каким будут брать у&nbsp;вас, вы&nbsp;выбираете сами.
 			</div>
-			<div class="{{typography.floatJustifyBetween}}">
-				<div class="{{typography.col2}}">
+			<div class="{{typography.row}}">
+				<div class="{{typography.grid3}}">
 					<div class="{{how.type}}">
 						<img src="/static/spit.png" class="{{how.typeImage}}">
 						<div class="{{typography.text}}"><span class="{{typography.bold}}">Из тазовой кости</span></div>
 						<div class="{{typography.text}}">
-							Врач проколет тазовую кость и&nbsp;возьмет небольшую часть костного мозга. Вы&nbsp;будете под общим наркозом. Операция займёт около 30&nbsp;минут. Во&nbsp;время операции вы&nbsp;ничего не&nbsp;почувствуете, но&nbsp;несколько дней после операции будут &laquo;ныть кости&raquo;. Вы&nbsp;легко снимете дискомфорт обезболивающими таблетками.
+							Врач берет костный мозг из&nbsp;тазовой кости. Вы&nbsp;находитесь под общим наркозом и&nbsp;не&nbsp;чувствуете прокол. Тут некоторые боятся, что врач может промахнуться и&nbsp;попасть в&nbsp;позвоночник. Это практически невозможно. А&nbsp;заблуждение, видимо, связано с&nbsp;тем, что люди путают костный мозг со&nbsp;спинным, который расположен в&nbsp;спинном канале.
+						</div>
+						<div class="{{typography.paragraph}}">
+							Стволовые клетки полностью восстанавливаются за&nbsp;2&nbsp;недели.
+						</div>
+						<div class="{{typography.paragraph}}">
+							Побочные эффекты: после операции может немного болеть место прокола.
 						</div>
 					</div>
 				</div>
-				<div class="{{typography.col2}}">
+				<div class="{{typography.grid3}}">
 					<div class="{{how.type}}">
 						<img src="/static/kapelnitsa.png" class="{{how.typeImage}}">
 						<div class="{{typography.text}}"><span class="{{typography.bold}}">Из вены</span></div>
 						<div class="{{typography.text}}">
-							У&nbsp;вас берут кровь из&nbsp;вены одной руки и&nbsp;возвращают в&nbsp;вену на&nbsp;другой руке. По&nbsp;дороге кровь проходит через сепаратор, отлавливающий клетки костного мозга. Процедура занимает пять-шесть часов. Анестезия не&nbsp;нужна, вы&nbsp;находитесь в&nbsp;сознании и&nbsp;успеваете посмотреть три&nbsp;любимых фильма или поспать.
+							У&nbsp;вас берут кровь из&nbsp;вены одной руки и&nbsp;возвращают в&nbsp;вену на&nbsp;другой руке. Кровь проходит через сепаратор, отлавливающий клетки костного мозга. Анестезия не&nbsp;нужна. Процедура занимает 4-5&nbsp;часов, и&nbsp;вы&nbsp;успеваете посмотреть три любимых фильма или поспать.
 						</div>	
+						<div class="{{typography.paragraph}}">
+							Стволовые клетки полностью восстанавливаются за&nbsp;неделю.
+						</div>
+						<div class="{{typography.paragraph}}">
+							Побочные эффекты: до&nbsp;процедуры донору внутримышечно вводят лекарство, &laquo;выгоняющее&raquo; стволовые клетки в&nbsp;кровь. В&nbsp;это время возможны временные гриппоподобные симптомы.
+						</div>
 					</div>
 				</div>
 			</div>
@@ -291,7 +298,9 @@
 		<div class="{{page.section}}">
 			<div class="{{typography.subheader}}">Что потом</div>
 			<div class="{{typography.paragraph}}">
-				Через два года после успешной трансплантации у&nbsp;донора и&nbsp;реципиента спросят, хотят&nbsp;ли они познакомиться. Если оба согласятся, состоится встреча.
+				Через два года после успешной трансплантации у&nbsp;донора и&nbsp;реципиента спросят, 
+				<br>
+				хотят&nbsp;ли они познакомиться. Если оба согласятся, состоится встреча.
 			</div>
 		</div>
 		<img src="/static/obyatye.png" class="{{how.whatNextImage}}">
@@ -346,18 +355,4 @@
 			</div>
 		</div>
 	</div>	
-	<div class="{{page.container}}">
-		<div class="{{page.credentials}}">
-			<div class="{{page.credentialsImage}}">
-				<img src="/static/credentials_why.png">
-			</div>
-			<div class="{{page.credentialsText}}">
-				Сделала Алиса Яннау в Школе редакторов Бюро Горбунова. 
-				<br>
-				Иллюстратор — Марина Савицкая, разработчик — Артур Стамбульцян.
-				<br>
-				<a href="/static/pdf/agreement.pdf" target="_blank" class="{{typography.link}}">Пользовательское соглашение</a>.
-			</div>	
-		</div>
-	</div>
 </div>
