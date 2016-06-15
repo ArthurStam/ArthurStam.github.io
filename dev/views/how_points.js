@@ -82,7 +82,7 @@ export default class extends PageView {
 			})
 		}
 
-		this.render();
+		this.render({ loading: true });
 	}
 
 	_findCity(placeId) {
@@ -115,6 +115,10 @@ export default class extends PageView {
 			inputs: inputs,
 			how: how,
 		});
+
+		if (data.loading) {
+			return data;
+		}
 
 		data.citiesCollection = citiesCollection;
 		data.currentCity = this.currentCity;

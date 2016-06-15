@@ -14185,7 +14185,7 @@
 					});
 				}
 	
-				this.render();
+				this.render({ loading: true });
 			}
 		}, {
 			key: '_findCity',
@@ -14230,6 +14230,10 @@
 					inputs: _inputs2.default,
 					how: _how2.default
 				});
+	
+				if (data.loading) {
+					return data;
+				}
 	
 				data.citiesCollection = citiesCollection;
 				data.currentCity = this.currentCity;
@@ -16954,6 +16958,16 @@
 	    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.error : depth0)) != null ? stack1.data : stack1)) != null ? stack1.formattedAddress : stack1), depth0))
 	    + ". К&nbsp;сожалению, здесь нет постоянного пункта приема крови на&nbsp;типирование. Но&nbsp;вы&nbsp;все равно можете вступить в&nbsp;регистр. Найдите 10&nbsp;человек, которые тоже хотят стать донорами костного мозга, и&nbsp;позвоните Ирине Семеновой, руководителю донорской службы благотворительного фонда AdVita: +7&nbsp;921 998-49-15. Она расскажет, как организовать акцию сдачи крови в&nbsp;вашем городе.\n				</div>\n";
 	},"7":function(container,depth0,helpers,partials,data) {
+	    var stack1;
+	
+	  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.loading : depth0),{"name":"if","hash":{},"fn":container.program(8, data, 0),"inverse":container.program(10, data, 0),"data":data})) != null ? stack1 : "");
+	},"8":function(container,depth0,helpers,partials,data) {
+	    var stack1;
+	
+	  return "				<div class=\""
+	    + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.text : stack1), depth0))
+	    + "\">\n					Подождите пару секунд, мы пытаемся определить ваше местоположение...\n				</div>\n";
+	},"10":function(container,depth0,helpers,partials,data) {
 	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
 	
 	  return "				<div class=\""
@@ -16962,8 +16976,8 @@
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
 	    + "\">\n						Мы&nbsp;не&nbsp;смогли определить ваш город. Пожалуйста, выберите его вручную. \n					</div>\n					<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
-	    + "\">\n						Если вашего города нет в&nbsp;списке, вы&nbsp;все равно можете вступить в&nbsp;регистр. Найдите 10&nbsp;человек, которые тоже хотят стать донорами костного мозга, и&nbsp;позвоните Ирине Семеновой, руководителю донорской службы благотворительного фонда AdVita: +7&nbsp;921 998-49-15. Она расскажет, как организовать акцию сдачи крови в&nbsp;вашем городе.\n					</div>\n				</div>\n";
-	},"9":function(container,depth0,helpers,partials,data,blockParams,depths) {
+	    + "\">\n						Если вашего города нет в&nbsp;списке, вы&nbsp;все равно можете вступить в&nbsp;регистр. Найдите 10&nbsp;человек, которые тоже хотят стать донорами костного мозга, и&nbsp;позвоните Ирине Семеновой, руководителю донорской службы благотворительного фонда AdVita: +7&nbsp;921 998-49-15. Она расскажет, как организовать акцию сдачи крови в&nbsp;вашем городе.\n					</div>\n				</div>\n			";
+	},"12":function(container,depth0,helpers,partials,data,blockParams,depths) {
 	    var stack1, alias1=container.lambda, alias2=container.escapeExpression, alias3=depth0 != null ? depth0 : {};
 	
 	  return "			<div class=\""
@@ -16977,7 +16991,7 @@
 	    + " "
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
 	    + "\" data-role=\"all-points\">\n"
-	    + ((stack1 = helpers.each.call(alias3,(depth0 != null ? depth0.oddPoints : depth0),{"name":"each","hash":{},"fn":container.program(10, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + ((stack1 = helpers.each.call(alias3,(depth0 != null ? depth0.oddPoints : depth0),{"name":"each","hash":{},"fn":container.program(13, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
 	    + "					</div>\n				</div>\n				<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.grid3 : stack1), depth0))
 	    + "\">\n					<div class=\""
@@ -16999,16 +17013,16 @@
 	    + "\">\n								Время работы: "
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.firstPoint : depth0)) != null ? stack1.time : stack1), depth0))
 	    + ".\n							</div>\n"
-	    + ((stack1 = helpers["if"].call(alias3,((stack1 = (depth0 != null ? depth0.firstPoint : depth0)) != null ? stack1.phone : stack1),{"name":"if","hash":{},"fn":container.program(15, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-	    + ((stack1 = helpers["if"].call(alias3,((stack1 = (depth0 != null ? depth0.firstPoint : depth0)) != null ? stack1.info : stack1),{"name":"if","hash":{},"fn":container.program(17, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + ((stack1 = helpers["if"].call(alias3,((stack1 = (depth0 != null ? depth0.firstPoint : depth0)) != null ? stack1.phone : stack1),{"name":"if","hash":{},"fn":container.program(18, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + ((stack1 = helpers["if"].call(alias3,((stack1 = (depth0 != null ? depth0.firstPoint : depth0)) != null ? stack1.info : stack1),{"name":"if","hash":{},"fn":container.program(20, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
 	    + "						</div>\n					</div>\n					<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findPointsOdd : stack1), depth0))
 	    + " "
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.typography : depth0)) != null ? stack1.paragraph : stack1), depth0))
 	    + "\" data-role=\"all-points\">\n"
-	    + ((stack1 = helpers.each.call(alias3,(depth0 != null ? depth0.evenPoints : depth0),{"name":"each","hash":{},"fn":container.program(10, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + ((stack1 = helpers.each.call(alias3,(depth0 != null ? depth0.evenPoints : depth0),{"name":"each","hash":{},"fn":container.program(13, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
 	    + "					</div>\n				</div>\n			</div>\n";
-	},"10":function(container,depth0,helpers,partials,data,blockParams,depths) {
+	},"13":function(container,depth0,helpers,partials,data,blockParams,depths) {
 	    var stack1, alias1=container.lambda, alias2=container.escapeExpression, alias3=depth0 != null ? depth0 : {};
 	
 	  return "							<div class=\""
@@ -17030,10 +17044,10 @@
 	    + "\">\n										Время работы: "
 	    + alias2(alias1((depth0 != null ? depth0.time : depth0), depth0))
 	    + ".\n									</div>\n"
-	    + ((stack1 = helpers["if"].call(alias3,(depth0 != null ? depth0.phone : depth0),{"name":"if","hash":{},"fn":container.program(11, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-	    + ((stack1 = helpers["if"].call(alias3,(depth0 != null ? depth0.info : depth0),{"name":"if","hash":{},"fn":container.program(13, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + ((stack1 = helpers["if"].call(alias3,(depth0 != null ? depth0.phone : depth0),{"name":"if","hash":{},"fn":container.program(14, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + ((stack1 = helpers["if"].call(alias3,(depth0 != null ? depth0.info : depth0),{"name":"if","hash":{},"fn":container.program(16, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
 	    + "								</div>\n							</div>\n";
-	},"11":function(container,depth0,helpers,partials,data,blockParams,depths) {
+	},"14":function(container,depth0,helpers,partials,data,blockParams,depths) {
 	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
 	
 	  return "										<div class=\""
@@ -17041,7 +17055,7 @@
 	    + "\">\n											Телефон: "
 	    + alias2(alias1((depth0 != null ? depth0.phone : depth0), depth0))
 	    + ".\n										</div>\n";
-	},"13":function(container,depth0,helpers,partials,data,blockParams,depths) {
+	},"16":function(container,depth0,helpers,partials,data,blockParams,depths) {
 	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
 	
 	  return "										<div class=\""
@@ -17049,7 +17063,7 @@
 	    + "\">\n											"
 	    + alias2(alias1((depth0 != null ? depth0.info : depth0), depth0))
 	    + ".\n										</div>\n";
-	},"15":function(container,depth0,helpers,partials,data) {
+	},"18":function(container,depth0,helpers,partials,data) {
 	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
 	
 	  return "								<div class=\""
@@ -17057,7 +17071,7 @@
 	    + "\">\n									Телефон: "
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.firstPoint : depth0)) != null ? stack1.phone : stack1), depth0))
 	    + ".\n								</div>\n";
-	},"17":function(container,depth0,helpers,partials,data) {
+	},"20":function(container,depth0,helpers,partials,data) {
 	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
 	
 	  return "								<div class=\""
@@ -17065,7 +17079,7 @@
 	    + "\">\n									"
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.firstPoint : depth0)) != null ? stack1.info : stack1), depth0))
 	    + ".\n								</div>\n";
-	},"19":function(container,depth0,helpers,partials,data) {
+	},"22":function(container,depth0,helpers,partials,data) {
 	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
 	
 	  return "		<div class=\""
@@ -17089,9 +17103,9 @@
 	    + "		</select>\n	</div>\n	<div class=\""
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.how : depth0)) != null ? stack1.findContainer : stack1), depth0))
 	    + "\">\n"
-	    + ((stack1 = helpers.unless.call(alias3,(depth0 != null ? depth0.currentCity : depth0),{"name":"unless","hash":{},"fn":container.program(4, data, 0, blockParams, depths),"inverse":container.program(9, data, 0, blockParams, depths),"data":data})) != null ? stack1 : "")
+	    + ((stack1 = helpers.unless.call(alias3,(depth0 != null ? depth0.currentCity : depth0),{"name":"unless","hash":{},"fn":container.program(4, data, 0, blockParams, depths),"inverse":container.program(12, data, 0, blockParams, depths),"data":data})) != null ? stack1 : "")
 	    + "	</div>\n"
-	    + ((stack1 = helpers["if"].call(alias3,(depth0 != null ? depth0.currentCity : depth0),{"name":"if","hash":{},"fn":container.program(19, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + ((stack1 = helpers["if"].call(alias3,(depth0 != null ? depth0.currentCity : depth0),{"name":"if","hash":{},"fn":container.program(22, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
 	    + "</div>";
 	},"useData":true,"useDepths":true});
 
@@ -20367,7 +20381,7 @@
 	
 	
 	// module
-	exports.push([module.id, "._3B-1CcHYxRdP4xmviYBWko {\n\ttext-align: left;\n}\n\n.BPlcspTWA-U5f8Dm8GR-4 {\n\tfont-size: 0;\n\tletter-spacing: 0;\n\tline-height: 0;\n}\n\n._2pkN-Ik882-3VtpKkxL3v8 {\n\twidth: 28px;\n\theight: 28px;\n\ttext-align: center;\n\tbackground-color: #000;\n\tborder-radius: 50%;\n\tdisplay: inline-block;\n\tvertical-align: middle;\n\tline-height: 28px;\n\tcolor: #fff;\n\tfont-size: 15px;\n\tfont-weight: bold;\n\tmargin-right: 11px;\n}\n\n.kZRWI19Iy-xWer-tCiQ37 {\n\tdisplay: inline-block;\n\tvertical-align: middle;\n\tfont-size: 16px;\n}\n\n._3CcTlLIxG3BS1PKJkuGDM2 {\n\t/*display: flex;*/\n\t/*flex-direction: row;*/\n}\n\n.FS2caTlSXTucapYV8McOB {\n\t/*justify-content: flex-start;*/\n}\n\n._3QjaZhGdzkNYAsbrUlSWIj {\n\t/*justify-content: flex-start;*/\n\tposition: relative;\n}\n\n._1HnD0zUaIRYJELjx-_Do2W {\n\tposition: relative;\n\tz-index: 2;\n\tmin-height: 450px;\n}\n\n.VEb7briyZ5oEkc3yeKD1A {\n\tposition: absolute;\n\tz-index: 1;\n\tleft: 177px;\n    top: 21px;\n    width: 646px;\n}\n\n.UQMNwjI_mEdn198JXfMeZ {\n\n}\n\n._1lZi4vkmIYBBcoC7Rz8Bt6 {\n\t\n}\n\n._2Qy30uC1QeDUshVxKKwnIH {\n\tposition: absolute;\n\tz-index: 1;\n    right: -40px;\n    bottom: -80px;\n    width: 410px;\n}\n\n.zT-TpgEF96c_-Es7rTxxo {\n\tmargin-top: 40px;\n}\n\n._2S4dD-WewjwRgF4ALZRwgR {\n\tmargin-top: 15px;\n}", ""]);
+	exports.push([module.id, "._3B-1CcHYxRdP4xmviYBWko {\n\ttext-align: left;\n}\n\n.BPlcspTWA-U5f8Dm8GR-4 {\n\tfont-size: 0;\n\tletter-spacing: 0;\n\tline-height: 0;\n}\n\n._2pkN-Ik882-3VtpKkxL3v8 {\n\twidth: 28px;\n\theight: 28px;\n\ttext-align: center;\n\tbackground-color: #000;\n\tborder-radius: 50%;\n\tdisplay: inline-block;\n\tvertical-align: middle;\n\tline-height: 28px;\n\tcolor: #fff;\n\tfont-size: 15px;\n\tfont-weight: bold;\n\tmargin-right: 11px;\n}\n\n.kZRWI19Iy-xWer-tCiQ37 {\n\tdisplay: inline-block;\n\tvertical-align: middle;\n\tfont-size: 16px;\n}\n\n._3CcTlLIxG3BS1PKJkuGDM2 {\n\t/*display: flex;*/\n\t/*flex-direction: row;*/\n}\n\n.FS2caTlSXTucapYV8McOB {\n\t/*justify-content: flex-start;*/\n}\n\n._3QjaZhGdzkNYAsbrUlSWIj {\n\t/*justify-content: flex-start;*/\n\tposition: relative;\n}\n\n._1HnD0zUaIRYJELjx-_Do2W {\n\tposition: relative;\n\tz-index: 2;\n\tmin-height: 450px;\n}\n\n.VEb7briyZ5oEkc3yeKD1A {\n\tposition: absolute;\n\tz-index: 1;\n\tleft: 177px;\n    top: 21px;\n    width: 646px;\n}\n\n.UQMNwjI_mEdn198JXfMeZ {\n\n}\n\n._1lZi4vkmIYBBcoC7Rz8Bt6 {\n\t\n}\n\n._2Qy30uC1QeDUshVxKKwnIH {\n\tposition: absolute;\n\tz-index: 1;\n    right: -40px;\n    bottom: -84px;\n    width: 410px;\n}\n\n.zT-TpgEF96c_-Es7rTxxo {\n\tmargin-top: 40px;\n}\n\n._2S4dD-WewjwRgF4ALZRwgR {\n\tmargin-top: 15px;\n}", ""]);
 	
 	// exports
 	exports.locals = {
