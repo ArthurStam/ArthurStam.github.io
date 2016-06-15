@@ -1,0 +1,119 @@
+<div class="{{how.find}}">
+	<div class="{{how.findCity}}">
+		<select class="{{inputs.select}}" data-action="select-city">
+			<option>Выберите город</option>
+			{{#each citiesCollection.models}}
+				<option value="{{this.attributes.placeId}}" {{#if this.selected}}selected="selected"{{/if}}>{{this.attributes.name}}</option>
+			{{/each}}
+		</select>
+		{{#unless currentCity}}
+			{{#if error.emptyCity}}
+				<div class="{{how.findEmpty}} {{typography.text}}">
+					Мы определили ваш город, 
+					<br>
+					это {{error.data.formattedAddress}}.
+					<br>
+					Но, к сожалению, в нем
+					<br>
+					нет пунктов для сдачи 
+					<br>
+					костного мозга.
+				</div>
+			{{else if loading}}
+				<div class="{{how.findEmpty}} {{typography.text}}">
+					Подождите, мы определяем ваше местоположение...
+				</div>
+			{{else}}
+				<div class="{{how.findEmpty}} {{typography.text}}">
+					Мы не смогли определить, где вы
+					<br>
+					находитесь. Пожалуйста, выберите
+					<br>
+					город вручную.
+				</div>
+			{{/if}}
+		{{/unless}}
+	</div>
+	<div class="{{how.findContainer}}">
+		{{#if currentCity}}
+			<div data-view="how-map" class="{{how.findMap}}"></div>
+			<div class="{{how.findMainPoint}}">
+				<div class="{{how.findPoint}} {{typography.text}}">
+					<div class="{{how.findPointName}}">{{firstPoint.name}}</div>
+					<div class="{{how.findPointAddress}}">
+						{{firstPoint.address}}
+					</div>
+					<div class="{{how.findPointTime}}">
+						Время работы: {{firstPoint.time}}
+					</div>
+					{{#if firstPoint.phone}}
+						<div class="{{how.findPointPhone}}">
+							Телефон: {{firstPoint.phone}}
+						</div>
+					{{/if}}
+					{{#if firstPoint.info}}
+						<div class="{{how.findPointMeta}}">
+							{{firstPoint.info}}
+						</div>
+					{{/if}}
+				</div>
+				<div class="{{how.findShowMore}} {{typography.text}}" data-action="show-all-points">
+					Все пункты...
+				</div>
+				<div class="{{how.findShowMore}} {{typography.text}}" style="display: none" data-action="hide-all-points">
+					Свернуть
+				</div>
+			</div>
+		{{/if}}
+	</div>
+	<div class="{{how.findPoints}}" data-role="all-points">
+		<div class="{{how.findPointsContainer}}">
+			<div class="{{how.findPointsEven}}">
+				{{#each evenPoints}}
+					<div class="{{../how.findPoint}} {{../typography.text}}">
+						<div class="{{../how.findPointName}}">{{this.name}}</div>
+						<div class="{{../how.findPointAddress}}">
+							{{this.address}}
+						</div>
+						<div class="{{../how.findPointTime}}">
+							Время работы: {{this.time}}
+						</div>
+						{{#if this.phone}}
+							<div class="{{../how.findPointPhone}}">
+								Телефон: {{this.phone}}
+							</div>
+						{{/if}}
+						{{#if this.info}}
+							<div class="{{../how.findPointMeta}}">
+								{{this.info}}
+							</div>
+						{{/if}}
+					</div>
+				{{/each}}
+			</div>
+			<div class="{{how.findPointsOdd}}">
+				{{#each oddPoints}}
+					<div class="{{../how.findPoint}} {{../typography.text}}">
+						<div class="{{../how.findPointName}}">{{this.name}}</div>
+						<div class="{{../how.findPointAddress}}">
+							{{this.address}}
+						</div>
+						<div class="{{../how.findPointTime}}">
+							Время работы: {{this.time}}
+						</div>
+						{{#if this.phone}}
+							<div class="{{../how.findPointPhone}}">
+								Телефон: {{this.phone}}
+							</div>
+						{{/if}}
+						{{#if this.info}}
+							<div class="{{../how.findPointMeta}}">
+								{{this.info}}
+							</div>
+						{{/if}}
+					</div>
+				{{/each}}
+			</div>
+		</div>
+	</div>
+</div>

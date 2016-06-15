@@ -35,7 +35,7 @@
 
 .whatNextImage {
 	margin-top: -30px;
-	margin-bottom: -15px;
+	margin-bottom: $sectionMargin;
 	width: 100%;
 }
 
@@ -148,4 +148,45 @@
 	flex-shrink: 0;
 	margin-right: 25px;
 	width: 52px;
+}
+
+.audio {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+.audioPlayer {
+	width: 56px;
+	flex-shrink: 0;
+	margin-right: 23px;
+}
+
+%audioControl {
+	display: block;
+	width: 56px;
+	height: 56px;
+	background-size: cover;
+}
+
+.audioPlay {
+	@extend %audioControl;
+	background-image: url('/static/audio_play.png');
+
+	&:hover {
+		background-image: url('/static/audio_play_hover.png');
+	}
+}
+
+.audioPause {
+	@extend %audioControl;
+	background-image: url('/static/audio_pause.png');
+
+	&:hover {
+		background-image: url('/static/audio_pause_hover.png');
+	}
+}
+
+.audioText {
+	width: calc(100% - 56px - 23px);
 }

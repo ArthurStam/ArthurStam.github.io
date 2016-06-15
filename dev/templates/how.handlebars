@@ -37,126 +37,8 @@
 					Специальных пунктов сдачи крови на&nbsp;типирование нет. Вступить в&nbsp;регистр можно в&nbsp;некоторых пунктах переливания крови и&nbsp;в&nbsp;лабораториях регистра. Выберите свой город и&nbsp;найдите удобный пункт.
 				</div>
 			</div>
-			<div class="{{how.find}}">
-				<div class="{{how.findCity}}">
-					<select class="{{inputs.select}}" data-action="select-city">
-						<option>Выберите город</option>
-						{{#each citiesCollection.models}}
-							<option value="{{this.attributes.placeId}}" {{#if this.selected}}selected="selected"{{/if}}>{{this.attributes.name}}</option>
-						{{/each}}
-					</select>
-					{{#unless currentCity}}
-						{{#if error.emptyCity}}
-							<div class="{{how.findEmpty}} {{typography.text}}">
-								Мы определили ваш город, 
-								<br>
-								это {{error.data.formattedAddress}}.
-								<br>
-								Но, к сожалению, в нем
-								<br>
-								нет пунктов для сдачи 
-								<br>
-								костного мозга.
-							</div>
-						{{else if loading}}
-							<div class="{{how.findEmpty}} {{typography.text}}">
-								Подождите, мы определяем ваше местоположение...
-							</div>
-						{{else}}
-							<div class="{{how.findEmpty}} {{typography.text}}">
-								Мы не смогли определить, где вы
-								<br>
-								находитесь. Пожалуйста, выберите
-								<br>
-								город вручную.
-							</div>
-						{{/if}}
-					{{/unless}}
-				</div>
-				<div class="{{how.findContainer}}">
-					{{#if currentCity}}
-						<div data-view="how-map" class="{{how.findMap}}"></div>
-						<div class="{{how.findMainPoint}}">
-							<div class="{{how.findPoint}} {{typography.text}}">
-								<div class="{{how.findPointName}}">{{firstPoint.name}}</div>
-								<div class="{{how.findPointAddress}}">
-									{{firstPoint.address}}
-								</div>
-								<div class="{{how.findPointTime}}">
-									Время работы: {{firstPoint.time}}
-								</div>
-								{{#if firstPoint.phone}}
-									<div class="{{how.findPointPhone}}">
-										Телефон: {{firstPoint.phone}}
-									</div>
-								{{/if}}
-								{{#if firstPoint.info}}
-									<div class="{{how.findPointMeta}}">
-										{{firstPoint.info}}
-									</div>
-								{{/if}}
-							</div>
-							<div class="{{how.findShowMore}} {{typography.text}}" data-action="show-all-points">
-								Все пункты...
-							</div>
-							<div class="{{how.findShowMore}} {{typography.text}}" style="display: none" data-action="hide-all-points">
-								Свернуть
-							</div>
-						</div>
-					{{/if}}
-				</div>
-				<div class="{{how.findPoints}}" data-role="all-points">
-					<div class="{{how.findPointsContainer}}">
-						<div class="{{how.findPointsEven}}">
-							{{#each evenPoints}}
-								<div class="{{../how.findPoint}} {{../typography.text}}">
-									<div class="{{../how.findPointName}}">{{this.name}}</div>
-									<div class="{{../how.findPointAddress}}">
-										{{this.address}}
-									</div>
-									<div class="{{../how.findPointTime}}">
-										Время работы: {{this.time}}
-									</div>
-									{{#if this.phone}}
-										<div class="{{../how.findPointPhone}}">
-											Телефон: {{this.phone}}
-										</div>
-									{{/if}}
-									{{#if this.info}}
-										<div class="{{../how.findPointMeta}}">
-											{{this.info}}
-										</div>
-									{{/if}}
-								</div>
-							{{/each}}
-						</div>
-						<div class="{{how.findPointsOdd}}">
-							{{#each oddPoints}}
-								<div class="{{../how.findPoint}} {{../typography.text}}">
-									<div class="{{../how.findPointName}}">{{this.name}}</div>
-									<div class="{{../how.findPointAddress}}">
-										{{this.address}}
-									</div>
-									<div class="{{../how.findPointTime}}">
-										Время работы: {{this.time}}
-									</div>
-									{{#if this.phone}}
-										<div class="{{../how.findPointPhone}}">
-											Телефон: {{this.phone}}
-										</div>
-									{{/if}}
-									{{#if this.info}}
-										<div class="{{../how.findPointMeta}}">
-											{{this.info}}
-										</div>
-									{{/if}}
-								</div>
-							{{/each}}
-						</div>
-					</div>
-				</div>
-			</div>
 		</div>
+		<div class="{{how.points}}" data-view="how-points"></div>
 		<div class="{{page.section}}">
 			<div class="{{typography.subheader}}">Второй шаг. Сдать кровь</div>
 			<div class="{{typography.row}} {{typography.paragraph}}">
@@ -304,9 +186,23 @@
 			</div>
 		</div>
 		<img src="/static/obyatye.png" class="{{how.whatNextImage}}">
+		<div class="{{how.audio}}">
+			<div class="{{how.audioPlayer}}">
+				<audio data-role="audio">
+					<source src="/static/audio.mp3" type="audio/mpeg">
+				</audio>
+				<a href="#" class="{{how.audioPlay}}" data-action="audio-play"></a>
+				<a href="#" class="{{how.audioPause}}" data-action="audio-pause" style="display: none"></a>
+			</div>
+			<div class="{{how.audioText}} {{typography.text}}">
+				Наталья Кельсина из&nbsp;Ижевска рассказывает, как стала донором костного мозга для мальчика Миши: чего боялась, как решилась и&nbsp;как прошла операция. 
+				<br>
+				Эфир радио &laquo;Адам&raquo;, 10&nbsp;минут.
+			</div>
+		</div>
 		<div class="{{page.section}}">
-			<div class="{{typography.floatJustifyBetween}}">
-				<div class="{{typography.col2}}">
+			<div class="{{typography.row}}">
+				<div class="{{typography.grid3}}">
 					<div class="{{typography.paragraph}}">
 						&laquo;И&nbsp;вот они встретились. Два&nbsp;черноглазых парня,&nbsp;&mdash; одному&nbsp;14, другому&nbsp;42, чем-то неуловимо похожие друг на&nbsp;друга и&nbsp;почти стопроцентные братья по&nbsp;крови&raquo;
 					</div>
@@ -314,7 +210,7 @@
 						<a href="http://takiedela.ru/2016/03/perelivanie-zhizni/" target="_blank" class="{{typography.link}}">История от Юлии Варенцовой</a>
 					</div>
 				</div>
-				<div class="{{typography.col2}}">
+				<div class="{{typography.grid3}}">
 					<div class="{{typography.paragraph}}">
 						&laquo;Я&nbsp;видел встречу только однажды, и&nbsp;это&nbsp;одно из&nbsp;самых сильных впечатлений за&nbsp;всю мою жизнь&raquo;
 					</div>
