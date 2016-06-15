@@ -1,6 +1,6 @@
 .root {
 	width: 758px;
-	left: calc( ( 657px - 758px ) / 2 );
+	margin: auto;
 	padding: 85px 0 0;
 	position: relative;
 	min-height: 474px;

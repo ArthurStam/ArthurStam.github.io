@@ -19183,7 +19183,7 @@
 	
 	
 	// module
-	exports.push([module.id, "._2c_X9l_2tFGA0jZbDU9JRH {\n\twidth: 758px;\n\tleft: calc( ( 657px - 758px ) / 2 );\n\tpadding: 85px 0 0;\n\tposition: relative;\n\tmin-height: 474px;\n}\n\n._2c_X9l_2tFGA0jZbDU9JRH::after {\n\tposition: absolute;\n\tleft: 0;\n\ttop: 0;\n\tz-index: 1;\n\twidth: 100%;\n\theight: 100%;\n\tbackground-image: url(\"/static/test_bg.png\");\n\tbackground-position: center center;\n\tbackground-size: auto 474px;\n\tbackground-repeat: no-repeat;\n\topacity: 0.35;\n\tcontent: '';\n}\n\n.HTG0JT2qR5xnUiu13GRMe {\n\tposition: relative;\n\tz-index: 2;\n}\n\n._28psnc6FGdBBukliEFLXCe {\n\tmargin-top: 70px;\n}", ""]);
+	exports.push([module.id, "._2c_X9l_2tFGA0jZbDU9JRH {\n\twidth: 758px;\n\tmargin: auto;\n\tpadding: 85px 0 0;\n\tposition: relative;\n\tmin-height: 474px;\n}\n\n._2c_X9l_2tFGA0jZbDU9JRH::after {\n\tposition: absolute;\n\tleft: 0;\n\ttop: 0;\n\tz-index: 1;\n\twidth: 100%;\n\theight: 100%;\n\tbackground-image: url(\"/static/test_bg.png\");\n\tbackground-position: center center;\n\tbackground-size: auto 474px;\n\tbackground-repeat: no-repeat;\n\topacity: 0.35;\n\tcontent: '';\n}\n\n.HTG0JT2qR5xnUiu13GRMe {\n\tposition: relative;\n\tz-index: 2;\n}\n\n._28psnc6FGdBBukliEFLXCe {\n\tmargin-top: 70px;\n}", ""]);
 	
 	// exports
 	exports.locals = {
