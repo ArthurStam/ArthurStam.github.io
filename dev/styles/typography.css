@@ -80,6 +80,7 @@
 	margin-left: calc( ( 774px - 830px ) / 2 );
 	padding: $gridGutter calc( ( 830px - 774px ) / 2 ) $tableMargin;
 	background-color: $blue;
+	position: relative;
 }
 
 .row {

@@ -41,12 +41,14 @@ export default class extends PageView {
 				this.$el.find('[data-action="show-all-points"]').hide();
 				this.$el.find('[data-action="hide-all-points"]').show();
 				this.$el.find('[data-role="all-points"]').show();
+				return false;
 			},
 
 			'click [data-action="hide-all-points"]': (e) => {
 				this.$el.find('[data-action="show-all-points"]').show();
 				this.$el.find('[data-action="hide-all-points"]').hide();
 				this.$el.find('[data-role="all-points"]').hide();
+				return false;
 			}
 		}
 	}

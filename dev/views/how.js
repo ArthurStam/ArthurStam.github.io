@@ -4,6 +4,7 @@ import Backbone from 'backbone';
 
 import PageView from 'dev/views/page';
 import ShareView from 'dev/views/share';
+import HowPointsView from 'dev/views/how_points';
 
 import page from 'dev/styles/page.css';
 import typography from 'dev/styles/typography.css';
@@ -65,6 +66,8 @@ export default class extends PageView {
 		this.shareView = this.registerChild(new HowShareView({
 			shareModel: this.shareModel
 		}), 'how-share').render();
+
+		this.howPointsView = this.registerChild(new HowPointsView(), 'how-points');
 
 		this.render();
 	}

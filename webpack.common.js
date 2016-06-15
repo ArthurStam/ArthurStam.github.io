@@ -28,7 +28,7 @@ module.exports = {
 		]
 	},
 
-	postcss: [require('postcss-import'), require('postcss-extend'), require('postcss-nested'), require('postcss-simple-vars')],
+	postcss: [require('postcss-import'), require('postcss-extend'), require('postcss-nested'), require('postcss-simple-vars'), require('autoprefixer')],
 
 	resolve: {
 		root: [

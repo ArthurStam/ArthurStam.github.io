@@ -162,15 +162,15 @@ select {
 
 .select {
 	font-family: $roboto;
-    height: 44px;
-    padding-left: 12px;
+    height: 34px;
+    padding-left: 6px;
     padding-right: 50px;
     border-radius: 0;
-    background-color: transparent;
+    background-color: #fff;
     position: relative;
-    border: 1px solid #000;
+    border: 1px solid transparent;
     background-repeat: no-repeat;
-    background-position: calc(100% - 10px) 16px;
+    background-position: calc(100% - 10px) 13px;
     background-size: 14px;
     font-size: 16px;
     cursor: pointer;

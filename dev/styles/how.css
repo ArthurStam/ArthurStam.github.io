@@ -50,18 +50,11 @@
 }
 
 .findContainer {
-	display: flex;
-	justify-content: space-between;
+	margin-top: $paragraphMargin;
 }
 
 .findMap {
-	width: 44%;
-	height: 240px;
-	flex-shrink: 0;
-}
-
-.findMainPoint {
-	width: 50%;
+	height: 300px;
 }
 
 .findPoint {
@@ -97,46 +90,19 @@
 	}
 }
 
-.findPointMeta {
-
+.findControls {
+	position: absolute;
+	right: 28px;
+    bottom: 28px;
 }
 
-.findPoints {
+.findControl {
+	color: $greenBlue;
+	text-decoration: none;
+}
+
+[data-role="all-points"] {
 	display: none;
-	margin-top: $paragraphMargin;
-}
-
-.findPointsContainer {
-	display: flex;
-	justify-content: space-between;
-
-	.findPoint:not(:last-child) {
-		margin-bottom: $paragraphMargin;
-	}
-}
-
-.findPointsEven {
-	width: 44%;
-}
-
-.findPointsOdd {
-	width: 50%;
-}
-
-.findShowMore {
-	margin-top: 7px;
-	display: inline-block;
-	cursor: pointer;
-	text-decoration: underline;
-
-	&:hover {
-		text-decoration: none;		
-	}
-}
-
-.hideMore {
-	composes: findShowMore;
-	margin-left: calc(100% - 336px);
 }
 
 .goToFirst {
