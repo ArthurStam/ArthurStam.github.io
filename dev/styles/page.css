@@ -78,9 +78,13 @@
 
 .credentialsImage {
 	height: 62px;
-	margin-right: 10px;
+	margin-left: 10px;
 
 	img {
 		max-height: 100%;
 	}
+}
+
+.credentialsText {
+	padding-left: 75px;
 }
