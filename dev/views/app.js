@@ -79,7 +79,8 @@ export default class extends BaseView {
 			styles: styles,
 			pageStyles: pageStyles,
 			currentPage: { [this._currentPage]: true },
-			typography: typography
+			typography: typography,
+			pageName: pageStyles[this._currentPage]
 		});
 		return data;
 	}
