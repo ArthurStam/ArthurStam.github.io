@@ -3,7 +3,7 @@ var webpack = require('webpack');
 
 var commonConfig = require('./webpack.common');
 
-module.exports = _.extend({
+let config = _.extend({
 	plugins: [
 		new webpack.optimize.UglifyJsPlugin({
 			minimize: true,
@@ -15,4 +15,12 @@ module.exports = _.extend({
 			}
 		})
 	]
-}, commonConfig);
+}, _.clone(commonConfig));
+
+config.resolve = _.extend({
+	alias: {
+		config: 'dev/config_prod.js'
+	}
+}, commonConfig.resolve);
+
+module.exports = config;

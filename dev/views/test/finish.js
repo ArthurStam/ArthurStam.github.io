@@ -1,8 +1,9 @@
 import _ from 'underscore';
 import Backbone from 'backbone';
 
-import BaseView from 'crimson-backbone/src/views/base';
+import config from 'config';
 
+import BaseView from 'crimson-backbone/src/views/base';
 import ShareView from 'dev/views/share';
 import { states, isLastStep, reasons } from 'dev/views/test';
 
@@ -52,11 +53,11 @@ export default class extends BaseView {
 		if (this.testModel.success) {
 			this.shareModel.set('title', 'Я подхожу!')
 			this.shareModel.set('description', 'Могу ли я быть донором костного мозга? Тест для тех, кто еще не знает. И сайт о том, зачем вообще сдавать костный мозг и где.');
-			this.shareModel.set('image', 'arthurstam.github.io/static/share_test_positive.png')
+			this.shareModel.set('image', `${config.static}/share_test_positive.png`)
 		} else {
 			this.shareModel.set('title', 'Могу ли я стать донором костного мозга?');
 			this.shareModel.set('description', 'Пройдите тест и узнайте, можете ли вы стать донором костного мозга. Или просто почитайте, зачем это нужно.');
-			this.shareModel.set('image', 'arthurstam.github.io/static/share_test_negative.png')
+			this.shareModel.set('image', `${config.static}/share_test_negative.png`)
 		}
 
 		this.shareView.render();

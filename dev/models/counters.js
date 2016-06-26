@@ -2,7 +2,7 @@ import Backbone from 'backbone';
 import _ from 'underscore';
 
 import ajax from 'dev/helpers/ajax';
-import config from 'dev/config';
+import config from 'config';
 
 let MONTHES = [
 	'января',

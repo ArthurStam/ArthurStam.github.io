@@ -1,6 +1,6 @@
 import BaseView from 'crimson-backbone/src/views/base';
 
-import config from 'dev/config';
+import config from 'config';
 
 export default class extends BaseView {
 

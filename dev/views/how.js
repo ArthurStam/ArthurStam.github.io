@@ -2,6 +2,8 @@ import _ from 'underscore';
 import $ from 'jquery';
 import Backbone from 'backbone';
 
+import config from 'config';
+
 import PageView from 'dev/views/page';
 import ShareView from 'dev/views/share';
 import HowPointsView from 'dev/views/how_points';
@@ -26,7 +28,7 @@ class ShareModel extends Backbone.Model {
 		return {
 			title: 'Как стать донором костного мозга',
 			description: 'И зачем это нужно. Рассказываем о донорстве костного мозга, чтобы увеличить российский регистр и помочь людям находить подходящих доноров. Присоединяйтесь!',
-			image: 'http://arthurstam.github.io/static/share_main.png'
+			image: `${config.static}/share_main.png`
 		}
 	}
 }
