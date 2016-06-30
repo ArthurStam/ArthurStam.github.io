@@ -24,7 +24,7 @@ export default class extends BaseView {
 		this.$el.attr('id', 'map');
 		this._map = new ymaps.Map('map', {
 			center: [ this.city.get('coords')[0], this.city.get('coords')[1] ],
-			zoom: 4
+			zoom: 7
 		});
 		this._addPlacemarks(this.city.get('points'));
 	}
@@ -50,7 +50,9 @@ export default class extends BaseView {
 		}
 
 		this._map.geoObjects.add(collection);
-		this._map.setBounds(this._map.geoObjects.getBounds());
+		this._map.setBounds(this._map.geoObjects.getBounds(), {
+			checkZoomRange: true
+		});
 	}
 
 	_prepareData() {

@@ -134,6 +134,10 @@ export default class extends PageView {
 				if (point.time) { point.time = tp.execute(point.time); }
 			});
 			data.firstPoint = points.shift();
+			if (!points.length) {
+				data.singlePoint = true;
+				return data;
+			}
 			data.oddPoints = _.filter(points, (point, index) => index % 2);
 			data.evenPoints = _.filter(points, (point, index) => ! (index % 2) );
 		}

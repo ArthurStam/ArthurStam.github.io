@@ -109,9 +109,11 @@
 		{{/unless}}
 	</div>
 	{{#if currentCity}}
-		<div class="{{how.findControls}}">
-			<a href="#" class="{{how.findControl}}" data-action="show-all-points">Все пункты</a>
-			<a href="#" class="{{how.findControl}}" data-action="hide-all-points" style="display: none">Скрыть</a>
-		</div>
+		{{#unless singlePoint}}
+			<div class="{{how.findControls}}">
+				<a href="#" class="{{how.findControl}}" data-action="show-all-points">Все пункты</a>
+				<a href="#" class="{{how.findControl}}" data-action="hide-all-points" style="display: none">Скрыть</a>
+			</div>
+		{{/unless}}
 	{{/if}}
 </div>
