@@ -24,6 +24,8 @@ cities.forEach((city) => {
 	citiesCollection.add(city);
 });
 
+citiesCollection.sort();
+
 export default class extends PageView {
 
 	get _template() { return require('dev/templates/how_points.handlebars'); }
@@ -37,52 +39,24 @@ export default class extends PageView {
 				this.render();
 			},
 
-			'click [data-action="show-all-points"]': (e) => {
-				this.$el.find('[data-action="show-all-points"]').hide();
-				this.$el.find('[data-action="hide-all-points"]').show();
-				this.$el.find('[data-role="all-points"]').show();
-				return false;
-			},
+			// 'click [data-action="show-all-points"]': (e) => {
+			// 	this.$el.find('[data-action="show-all-points"]').hide();
+			// 	this.$el.find('[data-action="hide-all-points"]').show();
+			// 	this.$el.find('[data-role="all-points"]').show();
+			// 	return false;
+			// },
 
-			'click [data-action="hide-all-points"]': (e) => {
-				this.$el.find('[data-action="show-all-points"]').show();
-				this.$el.find('[data-action="hide-all-points"]').hide();
-				this.$el.find('[data-role="all-points"]').hide();
-				return false;
-			}
+			// 'click [data-action="hide-all-points"]': (e) => {
+			// 	this.$el.find('[data-action="show-all-points"]').show();
+			// 	this.$el.find('[data-action="hide-all-points"]').hide();
+			// 	this.$el.find('[data-role="all-points"]').hide();
+			// 	return false;
+			// }
 		}
 	}
 
 	init() {
-		this.geoModel = new GeoModel();
-
-		if (navigator.geolocation) {
-			navigator.geolocation.getCurrentPosition((position) => {
-				this.geoModel.fetch(position.coords.latitude, position.coords.longitude).then(() => {
-					let city = this._findCity(this.geoModel.get('placeId'));
-					if (city) {
-						this._setCity(city);
-					} else {
-						this.render({ 
-							error: { 
-								emptyCity: true,
-								data: {
-									formattedAddress: this.geoModel.get('formattedAddress')
-								}
-							}
-						});
-						return;
-					}
-					this.render();
-				}, (error) => {
-					this.render();
-				})
-			}, (error) => {
-				this.render();
-			})
-		}
-
-		this.render({ loading: true });
+		this.render();
 	}
 
 	_findCity(placeId) {

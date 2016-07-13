@@ -27,39 +27,24 @@
 	position: relative;
 	z-index: 2;
 	display: flex;
-	align-items: flex-start;
+	align-items: center;
 	justify-content: space-between;
 }
 
-.nav {
-	display: flex;
-	align-items: flex-start;
-	justify-content: flex-start;	
+.fondLogo {
+	width: 184px;
+
+	img {
+		max-width: 100%;
+	}
 }
 
 .navItem {
-	font-size: 8px;
-	font-weight: 300;
-	color: #000;
-	letter-spacing: 1px;
-	padding: 7px 14px;
-	border-radius: 5px;
-	line-height: 12px;
-	text-decoration: underline;
-
-	&:hover {
-		text-decoration: none;
-	}
-
-	&:not(:last-child) {
-		margin-right: 23px;
-	}
-}
-
-.navItemChoosen {
-	background-color: $blue;
-	text-decoration: none;
-	cursor: default;
+	font-size: 23px;
+	font-weight: bold;
+	color: $greenBlue;
+	cursor: pointer;
+	white-space: nowrap;
 }
 
 .footer {
@@ -90,4 +75,26 @@
 	&.how {
 		padding-left: 75px;
 	}
+}
+
+.quote {
+
+}
+
+.quoteLeft {
+	@extend .quote;
+	text-align: left;
+}
+
+.quoteText {
+	font-size: 27px;
+	line-height: 35px;
+	font-weight: 300;
+	margin-bottom: $paragraphMargin;
+}
+
+.quoteAuthor {
+	font-size: 16px;
+	font-weight: 300;
+	line-height: 24px;
 }

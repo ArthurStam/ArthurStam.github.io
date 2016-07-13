@@ -1,17 +1,20 @@
 <div class="{{pageStyles.header}}">
-	<a href="http://advita.ru" target="_blank" class="{{pageStyles.logo}}">
-		<img src="/static/advita_logo.png">
+	<a href="/#/why" class="{{pageStyles.logo}}">
+		<img src="/static/logo.png">
 	</a>
-	<div class="{{pageStyles.nav}}">
-		<a href="/#/why" class="{{pageStyles.navItem}} {{#if currentPage.why}}{{pageStyles.navItemChoosen}}{{/if}}">ЗАЧЕМ СТАНОВИТЬСЯ<br>ДОНОРОМ КОСТНОГО МОЗГА</a>
-		<a href="/#/how" class="{{pageStyles.navItem}} {{#if currentPage.how}}{{pageStyles.navItemChoosen}}{{/if}}">КАК СТАТЬ ДОНОРОМ<br>КОСТНОГО МОЗГА</a>
+	<div class="{{pageStyles.fondLogo}}">
+		<a href="http://www.advita.ru/" target="_blank" class="{{pageStyles.fondLogo}}">
+			<img src="/static/fond_logo.png">
+		</a>	
+		{{!-- <a href="/#/why" class="{{pageStyles.navItem}} {{#if currentPage.why}}{{pageStyles.navItemChoosen}}{{/if}}">ЗАЧЕМ СТАНОВИТЬСЯ<br>ДОНОРОМ КОСТНОГО МОЗГА</a>
+		<a href="/#/how" class="{{pageStyles.navItem}} {{#if currentPage.how}}{{pageStyles.navItemChoosen}}{{/if}}">КАК СТАТЬ ДОНОРОМ<br>КОСТНОГО МОЗГА</a> --}}
 	</div>
 </div>
 <div data-view="app-container"></div>
 <div class="{{pageStyles.container}}">
 	<div class="{{pageStyles.credentials}}">
 		<div class="{{pageStyles.credentialsText}} {{pageName}}">
-			Сделала Алиса Яннау в Школе редакторов Бюро Горбунова. 
+			Сделала Алиса Яннау в <a class="{{typography.link}}" target="_blank" href="http://artgorbunov.ru/">Школе редакторов Бюро Горбунова</a>.
 			<br>
 			Иллюстратор — Марина Савицкая, разработчик — Артур Стамбульцян.
 			<br>

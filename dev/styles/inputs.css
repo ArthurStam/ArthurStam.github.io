@@ -162,6 +162,8 @@ select {
 
 .select {
 	font-family: $roboto;
+	color: #5E5E5E;
+	font-weight: 300;
     height: 34px;
     padding-left: 6px;
     padding-right: 50px;
@@ -174,7 +176,7 @@ select {
     background-size: 14px;
     font-size: 16px;
     cursor: pointer;
-	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAOCAMAAADzLXfBAAAAKlBMVEUAAAAHhZkHhZkHhZkHhZkHhZkHhZkHhZkHhZkHhZkHhZkHhZkHhZkHhZlcyRY1AAAADXRSTlMAECAwQFBggJ+/z9/vqywp7gAAAE1JREFUeNptz0EOgCAMRNGP1YoI97+u0djQkHnL+ZsW2yV8SFDV7MhQebV1vviUJdyFP/Q8dyNYDgeTzfkk83SKCq2QxRt9AxUMoQ0nPOlaCJGajzbZAAAAAElFTkSuQmCC);
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAKCAMAAABcxfTLAAAAV1BMVEX////3/P74/P7q9/zw+f30+/32+/3p9/zk9fve8/vZ8frK6/jH6vjH6vjA6Pe04/a04/aw4vWv4fWn3/So3/Sk3vSj3fSd2/Ob2vOZ2vOZ2vOZ2vOZ2vOtJ8O2AAAAHXRSTlMAAQECAgICCAsRFSEjJSk1Nzs9SElOT1pdYmRoaabLg/QAAABDSURBVHgBXcdXDoAgEEDBZ++9I/c/p5ANunH+hr/OKA0w2deAk2+ha4xXntKjQNTG96oIete75TNbO6Jk+xKhJSniAWrGBk8v/vKOAAAAAElFTkSuQmCC);
 }
 
 @keyframes shake {

@@ -101,9 +101,9 @@
 	text-decoration: none;
 }
 
-[data-role="all-points"] {
+/*[data-role="all-points"] {
 	display: none;
-}
+}*/
 
 .storyLink {
 	font-weight: 300;

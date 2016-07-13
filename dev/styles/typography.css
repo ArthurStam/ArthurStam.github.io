@@ -9,8 +9,8 @@
 
 .header {
 	font-family: $roboto;
-	font-size: 48px;
-	line-height: 52px;
+	font-size: 40px;
+	line-height: 46px;
 	font-weight: 700;
 	text-align: left;
 }
@@ -18,7 +18,7 @@
 .subheader {
 	font-family: $roboto;
 	font-size: 30px;
-	line-height: 32px;
+	line-height: 36px;
 	font-weight: 700;
 	margin-bottom: $paragraphMargin;
 }
@@ -64,14 +64,13 @@
 .footnote {
 	font-family: $roboto;
 	color: $greenBlue;
-	font-weight: 400;
-	font-size: 21px;
-	line-height: 28px;
+	font-weight: 300;
+	font-size: 16px;
+	line-height: 21px;
 }
 
 .footnoteText {
-	font-size: 21px;
-	line-height: 28px;
+	@extend .text;
 }
 
 .note {
@@ -92,6 +91,11 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-start;
+}
+
+.rowBaseline {
+	@extend .row;
+	align-items: baseline;
 }
 
 .rowBottom {

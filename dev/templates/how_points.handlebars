@@ -9,24 +9,11 @@
 	</div>
 	<div class="{{how.findContainer}}">
 		{{#unless currentCity}}
-			{{#if error.emptyCity}}
-				<div class="{{how.findEmpty}} {{typography.text}}">
-					Нам кажется, ваш город&nbsp;&mdash; {{error.data.formattedAddress}}. К&nbsp;сожалению, здесь нет постоянного пункта приема крови на&nbsp;типирование. Но&nbsp;вы&nbsp;все равно можете вступить в&nbsp;регистр. Найдите 10&nbsp;человек, которые тоже хотят стать донорами костного мозга, и&nbsp;позвоните Ирине Семеновой, руководителю донорской службы благотворительного фонда AdVita: +7&nbsp;921 998-49-15. Она расскажет, как организовать акцию сдачи крови в&nbsp;вашем городе.
+			<div class="{{how.findEmpty}}">
+				<div class="{{typography.paragraph}}">
+					Если вашего города нет в&nbsp;списке, вы&nbsp;все равно можете вступить в&nbsp;регистр. Найдите 10&nbsp;человек, которые тоже хотят стать донорами костного мозга, и&nbsp;позвоните Ирине Семеновой, руководителю донорской службы благотворительного фонда AdVita: +7&nbsp;921 998-49-15. Она расскажет, как организовать акцию сдачи крови в&nbsp;вашем городе.
 				</div>
-			{{else if loading}}
-				<div class="{{typography.text}}">
-					Подождите пару секунд, мы пытаемся определить ваше местоположение...
-				</div>
-			{{else}}
-				<div class="{{how.findEmpty}}">
-					<div class="{{typography.paragraph}}">
-						Мы&nbsp;не&nbsp;смогли определить ваш город. Пожалуйста, выберите его вручную. 
-					</div>
-					<div class="{{typography.paragraph}}">
-						Если вашего города нет в&nbsp;списке, вы&nbsp;все равно можете вступить в&nbsp;регистр. Найдите 10&nbsp;человек, которые тоже хотят стать донорами костного мозга, и&nbsp;позвоните Ирине Семеновой, руководителю донорской службы благотворительного фонда AdVita: +7&nbsp;921 998-49-15. Она расскажет, как организовать акцию сдачи крови в&nbsp;вашем городе.
-					</div>
-				</div>
-			{{/if}}
+			</div>
 		{{else}}
 			<div class="{{typography.row}}">
 				<div class="{{typography.grid3}}">
@@ -40,7 +27,7 @@
 										{{this.address}}.
 									</div>
 									<div class="{{../how.findPointTime}}">
-										Время работы: {{this.time}}.
+										Время работы: {{this.time}}
 									</div>
 									{{#if this.phone}}
 										<div class="{{../how.findPointPhone}}">
@@ -49,7 +36,7 @@
 									{{/if}}
 									{{#if this.info}}
 										<div class="{{../how.findPointMeta}}">
-											{{this.info}}.
+											{{this.info}}
 										</div>
 									{{/if}}
 								</div>
@@ -65,7 +52,7 @@
 								{{firstPoint.address}}.
 							</div>
 							<div class="{{how.findPointTime}}">
-								Время работы: {{firstPoint.time}}.
+								Время работы: {{firstPoint.time}}
 							</div>
 							{{#if firstPoint.phone}}
 								<div class="{{how.findPointPhone}}">
@@ -74,7 +61,7 @@
 							{{/if}}
 							{{#if firstPoint.info}}
 								<div class="{{how.findPointMeta}}">
-									{{firstPoint.info}}.
+									{{firstPoint.info}}
 								</div>
 							{{/if}}
 						</div>
@@ -88,7 +75,7 @@
 										{{this.address}}.
 									</div>
 									<div class="{{../how.findPointTime}}">
-										Время работы: {{this.time}}.
+										Время работы: {{this.time}}
 									</div>
 									{{#if this.phone}}
 										<div class="{{../how.findPointPhone}}">
@@ -97,7 +84,7 @@
 									{{/if}}
 									{{#if this.info}}
 										<div class="{{../how.findPointMeta}}">
-											{{this.info}}.
+											{{this.info}}
 										</div>
 									{{/if}}
 								</div>
@@ -108,12 +95,12 @@
 			</div>
 		{{/unless}}
 	</div>
-	{{#if currentCity}}
+	{{!-- {{#if currentCity}}
 		{{#unless singlePoint}}
 			<div class="{{how.findControls}}">
 				<a href="#" class="{{how.findControl}}" data-action="show-all-points">Все пункты</a>
 				<a href="#" class="{{how.findControl}}" data-action="hide-all-points" style="display: none">Скрыть</a>
 			</div>
 		{{/unless}}
-	{{/if}}
+	{{/if}} --}}
 </div>
