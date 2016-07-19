@@ -103,6 +103,14 @@
 	align-items: flex-end;
 }
 
+.laquo {
+	font-family: $ptSans;
+}
+
+.raquo {
+	font-family: $ptSans;
+}
+
 %grid {
 	flex-shrink: 0;
 }

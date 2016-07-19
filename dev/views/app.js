@@ -38,7 +38,9 @@ export default class extends BaseView {
 				let pageName = $(e.currentTarget).data('page');
 				this._redirect(pageName);
 				let $element = $(`${ $(e.currentTarget).data('element') }`);
-				$element.length && this._scrollTo($element.offset().top);
+				setTimeout(() => {
+					$element.length && this._scrollTo($element.offset().top);
+				}, 100);
 				return false;
 			}
 		}
