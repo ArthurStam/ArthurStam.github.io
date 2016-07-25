@@ -51,8 +51,8 @@ export default class extends BaseView {
 		}), 'test-share');
 
 		if (this.testModel.success) {
-			this.shareModel.set('title', 'Я подхожу!')
-			this.shareModel.set('description', 'Могу ли я быть донором костного мозга? Тест для тех, кто еще не знает. И сайт о том, зачем вообще сдавать костный мозг и где.');
+			this.shareModel.set('title', 'Могу ли я стать донором костного мозга?')
+			this.shareModel.set('description', 'Тест для тех, кто хочет помочь. И сайт о том, зачем вообще сдавать костный мозг и где.');
 			this.shareModel.set('image', `${config.static}/share_test_positive.png`)
 		} else {
 			this.shareModel.set('title', 'Могу ли я стать донором костного мозга?');

@@ -67,6 +67,19 @@
 	font-weight: 300;
 	display: flex;
 	align-items: flex-end;
+
+	&.how {
+
+		.credentialsText {
+			padding-left: 75px;
+		}
+	}
+
+	&.why {
+		.credentialsImage {
+			display: none;
+		}
+	}
 }
 
 .credentialsImage {
@@ -78,15 +91,8 @@
 	}
 }
 
-.credentialsText {
-
-	&.how {
-		padding-left: 75px;
-	}
-}
-
 .quote {
-
+	
 }
 
 .quoteLeft {

@@ -9,7 +9,7 @@ import testStyles from 'dev/styles/test.css';
 import gameStyles from 'dev/styles/test/game.css';
 
 const data = [{
-	text: 'Ничего серьезнее ОРВИ',
+	text: 'Нет диагнозов, чувствую себя хорошо',
 	danger: false
 }, {
 	text: 'Мне удаляли орган',
@@ -29,6 +29,15 @@ const data = [{
 }, {
 	text: 'Органическое заболевание центральной нервной системы',
 	danger: false
+}, {
+	text: 'Высокая миопия: 6Д и больше',
+	danger: true
+}, {
+	text: 'Сердечно-сосудистое заболевание',
+	danger: true
+}, {
+	text: 'Хроническое ЛОР-заболевание',
+	danger: true
 }];
 
 export default class extends StepView {
